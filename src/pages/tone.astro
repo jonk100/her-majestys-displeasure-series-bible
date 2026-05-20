@@ -1,0 +1,269 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/layout/Section.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/layout/Footer.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
+import CTA from "../components/ui/CTA.astro";
+import Eyebrow from "../components/typography/Eyebrow.astro";
+import Heading from "../components/typography/Heading.astro";
+import Rule from "../components/typography/Rule.astro";
+import "@/styles/global.css";
+---
+
+<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
+  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // AESTHETIC PROTOCOL" />
+
+  <!-- ─── PAGE HEADER ─── -->
+  <Section variant="black" spacing="sm">
+    <Container>
+      <Eyebrow>Creative Briefing</Eyebrow>
+      <Heading level={2} variant="section">Tone & <em>Aesthetics</em></Heading>
+      <Rule />
+    </Container>
+  </Section>
+
+  <!-- ─── VISUAL PRINCIPLES ─── -->
+  <Section variant="paper" spacing="lg">
+    <Container>
+      <p class="prose">
+        The visual language of <em>Her Majesty's Displeasure</em> is a deliberate clash of two worlds, inspired by the work of Wes Anderson and Steven Conrad. It operates on a principle of <strong>Miserable Symmetry</strong>—the idea that the rigid, mathematical systems of the state will always attempt to iron out the beautiful, unpredictable wrinkles of human art, failing spectacularly in the process.
+      </p>
+    </Container>
+  </Section>
+
+  <!-- ─── THE TWO WORLDS ─── -->
+  <div class="world-split">
+    <!-- WORLD A: THE APPARATUS -->
+    <div class="world-half world-half--apparatus">
+      <Section variant="black" spacing="sm">
+        <Container>
+          <Heading level={3} variant="section">World A: The Apparatus</Heading>
+          <p class="subtitle">The Crown & MI5</p>
+        </Container>
+      </Section>
+
+      <div class="world-content">
+        <div class="world-image">
+          <img src="/queen.jpg" alt="Buckingham Palace illustration" class="world-img" />
+          <div class="world-image-overlay"></div>
+          <div class="world-image-caption">The Apparatus — Institutional Power</div>
+        </div>
+        
+        <p class="prose">
+          This is the domain of Prince Philip, Lord Mountbatten, and agents Nigel Finch and Clive Barrow. It is a world governed by inherited rank, stale tea, and outdated paperwork.
+        </p>
+        
+        <div class="visual-principles">
+          <h4>The Look</h4>
+          <p class="prose">
+            Mathematically precise, deadpan, and wide. The camera remains entirely static, trapped on a tripod or a heavy dolly grip, evoking the sterile, locked-down surveillance language of Steven Conrad's <em>Patriot</em>.
+          </p>
+
+          <h4>The Framing</h4>
+          <p class="prose">
+            Extreme, rigid symmetry reminiscent of Wes Anderson. Characters are frequently placed dead-center in oversized, cavernous frames—emphasizing how small and inconsequential these "powerful" middle-managers actually are against the backdrop of their fading empire.
+          </p>
+
+          <h4>The Palette</h4>
+          <p class="prose">
+            Completely desaturated. Muted greys, institutional pale yellows, dusty file-folder manila, and deep navy blue. The only sharp pop of color is the violent, wet red of a government top-secret ink stamp.
+          </p>
+
+          <h4>The Spaces</h4>
+          <p class="prose">
+            Sterile, dusty, and silent. Massive, empty Buckingham Palace sitting rooms and cramped, windowless MI5 basement offices lit by flickering, harsh fluorescent bars.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORLD B: THE FREQUENCY -->
+    <div class="world-half world-half--frequency">
+      <Section variant="black" spacing="sm">
+        <Container>
+          <Heading level={3} variant="section">World B: The Frequency</Heading>
+          <p class="subtitle">The Beatles & Abbey Road</p>
+        </Container>
+      </Section>
+
+      <div class="world-content">
+        <div class="world-image">
+          <img src="/thebeatles01.jpg" alt="The Beatles recording" class="world-img" />
+          <div class="world-image-overlay"></div>
+          <div class="world-image-caption">The Frequency — Creative Chaos</div>
+        </div>
+        
+        <p class="prose">
+          This is the domain of the band—cluttered, fluid, chemically altered, and intensely collaborative.
+        </p>
+        
+        <div class="visual-principles">
+          <h4>The Look</h4>
+          <p class="prose">
+            Handheld, intimate, organic, and reactive. The camera breathes with the musicians, floating around the studio floor to capture the accidental lightning-in-a-bottle nature of their songwriting.
+          </p>
+
+          <h4>The Framing</h4>
+          <p class="prose">
+            Asymmetrical, crowded, and alive. Frames are packed with instruments, half-empty teacups, cigarette smoke, lyric sheets, and people.
+          </p>
+
+          <h4>The Palette</h4>
+          <p class="prose">
+            Rich, warm, and progressive. It begins in 1965 with deep, saturated mahogany wood tones and autumn corduroys, steadily evolving by 1969 into a psychedelic tapestry of counter-culture color—matching John Lennon's radicalization.
+          </p>
+
+          <h4>The Spaces</h4>
+          <p class="prose">
+            Textured and vibrating. The smoke-filled, claustrophobic air of Abbey Road Studio Two, littered with tape reels and amplifiers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TIMELINE & CULTURAL SHIFT ─── -->
+  <Section variant="paper" spacing="lg">
+    <Container>
+      <Eyebrow>Historical Context</Eyebrow>
+      <Heading level={2} variant="section">The 1965–1970 Timeline</Heading>
+      <Rule />
+      <p class="prose">
+        This section establishes the show's timeline and explains how it tracks the massive cultural shift of the late 60s—moving from the clean-cut, polite MBE era to the raw, radical anti-war movement. The visual contrast between the two worlds mirrors the societal transformation occurring in Britain and the West.
+      </p>
+    </Container>
+  </Section>
+
+  <!-- ─── NAVIGATION ─── -->
+  <PitchDeckNav current="/tone" />
+
+  <!-- ─── FOOTER ─── -->
+  <Footer />
+</Layout>
+
+<style>
+  /* ─── WORLD IMAGE ─── */
+  .world-image {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+  }
+
+  .world-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .world-image:hover .world-img {
+    transform: scale(1.03);
+  }
+
+  .world-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+  }
+
+  .world-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  }
+
+  /* ─── WORLD SPLIT ─── */
+  .world-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+  }
+
+  .world-half {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-5) var(--space-5);
+  }
+
+  .world-half--apparatus {
+    background: var(--bg2);
+    border-right: 2px solid var(--bg4);
+  }
+
+  .world-half--frequency {
+    background: var(--bg);
+  }
+
+  .subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    margin: var(--space-2) 0 0;
+  }
+
+  .world-content {
+    margin-top: var(--space-4);
+  }
+
+  .visual-principles {
+    margin-top: var(--space-4);
+  }
+
+  .visual-principles h4 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: var(--text1);
+    margin: var(--space-4) 0 var(--space-2);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 800px) {
+    .world-split {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .world-half {
+      min-height: auto;
+    }
+
+    .world-content {
+      margin-top: var(--space-3);
+    }
+
+    .world-image {
+      height: 30vh;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .world-image {
+      height: 25vh;
+    }
+  }
+</style>

@@ -4,6 +4,7 @@ import Section from "../components/layout/Section.astro";
 import Container from "../components/layout/Container.astro";
 import Footer from "../components/layout/Footer.astro";
 import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
@@ -141,10 +142,10 @@ PRIMARY MOTIVE:     WOUNDED ARISTOCRATIC PRIDE
           <span class="redacted-bar" style="width: 65%;"></span>
           <span class="redacted-bar" style="width: 80%;"></span>
         </div>
-      </div>
 
-      <!-- Ink Stamp -->
-      <div class="ink-stamp philip-stamp">MORAL<br/>CORRUPTION</div>
+        <!-- Ink Stamp -->
+        <div class="ink-stamp philip-stamp">MORAL<br/>CORRUPTION</div>
+      </div>
     </div>
 
     <!-- ═══════════════════════════════════════════ -->
@@ -246,10 +247,10 @@ PRIMARY WEAPON:     WARTIME PSYCHOLOGICAL OPERATIONS
           <span class="redacted-bar" style="width: 75%;"></span>
           <span class="redacted-bar"></span>
         </div>
-      </div>
 
-      <!-- Ink Stamp -->
-      <div class="ink-stamp mountbatten-stamp">PROJECT<br/>COMPROMISED</div>
+        <!-- Ink Stamp -->
+        <div class="ink-stamp mountbatten-stamp">PROJECT<br/>COMPROMISED</div>
+      </div>
     </div>
   </div>
 
@@ -301,6 +302,9 @@ STATUS: ALL FILES CLOSED. SUBJECTS EXILED.
       </p>
     </Container>
   </Section>
+
+  <!-- ─── NAVIGATION ─── -->
+  <PitchDeckNav current="/establishment" />
 
   <!-- ─── FOOTER ─── -->
   <Footer />
@@ -524,7 +528,7 @@ STATUS: ALL FILES CLOSED. SUBJECTS EXILED.
     gap: 6px;
     margin-top: var(--space-4);
     padding: var(--space-2);
-    border: 1px dashed var(--bg4);
+    border: 1px dashed var(--border-faint);
   }
 
   .redacted-bar {
@@ -586,7 +590,6 @@ STATUS: ALL FILES CLOSED. SUBJECTS EXILED.
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-4);
-    margin: var(--space-5) 0;
   }
 
   .exile-item {
@@ -631,3 +634,4 @@ STATUS: ALL FILES CLOSED. SUBJECTS EXILED.
     }
   }
 </style>
+</write_to_file>

@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/layout/Section.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/layout/Footer.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
+import CTA from "../components/ui/CTA.astro";
+import Eyebrow from "../components/typography/Eyebrow.astro";
+import Heading from "../components/typography/Heading.astro";
+import Rule from "../components/typography/Rule.astro";
+import "@/styles/global.css";
+---
+
+<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
+  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // FINAL STATEMENT" />
+
+  <!-- ─── PAGE HEADER ─── -->
+  <Section variant="black" spacing="sm">
+    <Container>
+      <Eyebrow>Final Thoughts</Eyebrow>
+      <Heading level={2} variant="section">The <em>Ultimate Cosmic Joke</em></Heading>
+      <Rule />
+    </Container>
+  </Section>
+
+  <!-- ─── ULTIMATE COSMIC JOKE ─── -->
+  <Section variant="paper" spacing="lg">
+    <Container>
+      <!-- Visual Description -->
+      <div class="visual-description">
+        <img src="/falklands-office.jpg" alt="Bleak wide shot of Falklands office with two tiny grey desks under harsh fluorescent lights" class="bleak-shot" />
+        <p class="image-caption">The final visual beat: Nigel and Clive in exile</p>
+      </div>
+
+      <div class="closing-statement">
+        <p class="prose">
+          The ultimate irony of <em>Her Majesty’s Displeasure</em> is that the entire
+          multi-year, multi-million pound covert operation—the surveillance,
+          the psychological warfare, the administrative sabotage, even the
+          contemplated assassination—was rendered utterly meaningless by a
+          single, deranged fan with a cheap pistol in New York City.
+        </p>
+        <p class="prose">
+          While the Crown and MI5 were busy treating John Lennon as a
+          existential threat to the realm, Mark David Chapman was preparing to
+          prove that all that machinery, all that paranoia, all that effort was
+          irrelevant. The state could not kill Lennon’s legacy; only a
+          meaningless act of violence could do that. And in the end, the
+          system’s greatest failure wasn’t that it almost murdered a
+          musician—it’s that it spent years and vast resources trying to
+          solve a problem that was never really about them at all.
+        </p>
+        <p class="prose">
+          The series concludes not with a bang, but with a quiet, devastating
+          shrug. The ultimate cosmic joke is that the powerful are never as
+          powerful as they think, the threats are never as controllable as
+          they believe, and the entire grand machinery of state can be
+          rendered obsolete by a single, random act that no amount of
+          surveillance or sabotage could ever prevent.
+        </p>
+
+        <!-- Additional Content -->
+        <div class="additional-content">
+          <p class="prose">
+            At its core, <em>Her Majesty’s Displeasure</em> is a tragedy dressed up as a brilliant workplace comedy. It is an exploration of the absolute futility of institutional control when faced with the unpredictable, volcanic power of human art and culture.
+          </p>
+          <p class="prose">
+            The show intentionally ends not in the roaring, glamorous rock-and-roll haze of London or New York, but in a tiny, frozen, forgotten administrative outpost in the Falkland Islands. When Nigel and Clive hear that a lone, deranged fan has killed John Lennon, the silence that falls over their identical desks is the emotional weight of the entire series.
+          </p>
+          <p class="prose">
+            We are leaving the audience with an unforgettable, existential punchline: that the vast, calculation-heavy, multi-million dollar machinery of the British Empire spent five grueling years trying and failing to break an artist's spirit—only to watch a random nobody achieve it in a single afternoon for absolutely nothing. It is a story about the systems we build, the pensions we chase, and the beautiful, tragic chaos that completely ignores them both.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- ─── NAVIGATION ─── -->
+  <PitchDeckNav current="/closing" />
+
+  <!-- ─── FOOTER ─── -->
+  <Footer />
+</Layout>
+
+<style>
+  .visual-description {
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .bleak-shot {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    margin-bottom: var(--space-3);
+    filter: grayscale(100%) contrast(1.1);
+  }
+
+  .image-caption {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+  }
+
+  .closing-statement p {
+    margin-bottom: var(--space-4);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .closing-statement p:last-child {
+    margin-bottom: 0;
+  }
+
+  .additional-content {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 2px solid var(--border-soft);
+  }
+</style>

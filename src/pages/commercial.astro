@@ -1,0 +1,247 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/layout/Section.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/layout/Footer.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
+import CTA from "../components/ui/CTA.astro";
+import Eyebrow from "../components/typography/Eyebrow.astro";
+import Heading from "../components/typography/Heading.astro";
+import Rule from "../components/typography/Rule.astro";
+import "@/styles/global.css";
+---
+
+<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
+  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // COMMERCIAL LANDSCAPE" />
+
+  <!-- ─── PAGE HEADER ─── -->
+  <Section variant="black" spacing="sm">
+    <Container>
+      <Eyebrow>Market Analysis</Eyebrow>
+      <Heading level={2} variant="section">Commercial <em>Landscape</em></Heading>
+      <Rule />
+    </Container>
+  </Section>
+
+  <!-- ─── MARKET POSITIONING ─── -->
+  <Section variant="paper" spacing="lg">
+    <Container>
+      <p class="prose">
+        <em>Her Majesty’s Displeasure</em> occupies a unique space in the current television landscape: a high-concept, prestige drama that blends the political satire of <em>The Thick of It</em> with the period production values of <em>The Crown</em>, all filtered through a distinctly British sense of absurdist fatalism.
+      </p>
+    </Container>
+  </Section>
+
+  <!-- ─── COMPARISON MATRIX ─── -->
+  <div class="comparison-grid">
+    <!-- STRATEGIC COMP 1 -->
+    <div class="comparison-card">
+      <div class="comparison-header">
+        <span class="comparison-label">STRATEGIC COMP 1</span>
+        <span class="comparison-title">The Death of Stalin</span>
+      </div>
+      <div class="comparison-body">
+        <p class="prose">
+          Our structural and comedic baseline. Armando Iannucci's masterpiece proves audiences love watching powerful historical figures panic behind closed doors over trivial things. It establishes the tone of institutional absurdity we're going for.
+        </p>
+      </div>
+      <div class="comparison-image">
+        <img src="/thebeatles07.jpg" alt="The Death of Stalin poster" class="comp-image" />
+      </div>
+    </div>
+
+    <!-- STRATEGIC COMP 2 -->
+    <div class="comparison-card">
+      <div class="comparison-header">
+        <span class="comparison-label">STRATEGIC COMP 2</span>
+        <span class="comparison-title">Slow Horses</span>
+      </div>
+      <div class="comparison-body">
+        <p class="prose">
+          Our tonal framework for the intelligence world. Nigel Finch and Clive Barrow do not carry sleek gadgets or drive fast cars; they carry folders of stale expense reports and nurse a deep, quiet depression inside leaking basement offices. It roots our spy narrative in gritty, realistic, deeply British workplace humor.
+        </p>
+      </div>
+      <div class="comparison-image">
+        <img src="/thebeatles08.jpg" alt="Slow Horses poster" class="comp-image" />
+      </div>
+    </div>
+
+    <!-- STRATEGIC COMP 3 -->
+    <div class="comparison-card">
+      <div class="comparison-header">
+        <span class="comparison-label">STRATEGIC COMP 3</span>
+        <span class="comparison-title">Patriot</span>
+      </div>
+      <div class="comparison-body">
+        <p class="prose">
+          Our visual and pacing north star. Steven Conrad’s masterpiece proved that an espionage thriller can utilize perfectly symmetrical, deadpan cinematography to amplify both intense loneliness and hilarious situational irony.
+        </p>
+      </div>
+      <div class="comparison-image">
+        <img src="/thebeatles06.jpg" alt="Patriot poster" class="comp-image" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AUDIENCE TARGETING ─── -->
+  <Section variant="paper" spacing="lg">
+    <Container>
+      <Heading level={3} variant="section">Target Demographics</Heading>
+      <Rule />
+
+      <div class="audience-grid">
+        <div class="audience-item">
+          <div class="audience-icon">🎭</div>
+          <h4>Core Viewers</h4>
+          <p>35-54 years old, educated, culturally engaged. Fans of historical drama, political satire, and British comedy.</p>
+        </div>
+
+        <div class="audience-item">
+          <div class="audience-icon">🌍</div>
+          <h4>International Appeal</h4>
+          <p>The Beatles' global legacy ensures built-in international interest, particularly in the UK, US, and Japan.</p>
+        </div>
+
+        <div class="audience-item">
+          <div class="audience-icon">📈</div>
+          <h4>Streaming Potential</h4>
+          <p>Bingeworthy, episode-by-episode escalation with high rewatchability for its layered satire and historical details.</p>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- ─── NAVIGATION ─── -->
+  <PitchDeckNav current="/commercial" />
+
+  <!-- ─── FOOTER ─── -->
+  <Footer />
+</Layout>
+
+<style>
+  /* ─── COMPARISON GRID ─── */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+    background: var(--bg2);
+    border-top: 2px solid var(--border-soft);
+    border-bottom: 2px solid var(--border-soft);
+  }
+
+  .comparison-card {
+    background: var(--bg);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .comparison-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-blue);
+  }
+
+  .comparison-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .comparison-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: var(--color-red);
+    background: var(--bg4);
+    padding: 4px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .comparison-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text1);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .comparison-body {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text2);
+  }
+
+  .comparison-image {
+    margin-top: var(--space-3);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    background: var(--bg4);
+  }
+
+  .comp-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%) contrast(1.1);
+  }
+
+  /* ─── AUDIENCE GRID ─── */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+    padding: var(--space-6) 0;
+  }
+
+  .audience-item {
+    background: var(--bg2);
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    text-align: center;
+    border: 1px solid var(--border-soft);
+  }
+
+  .audience-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-2);
+    color: var(--accent-blue);
+  }
+
+  .audience-item h4 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: var(--text1);
+  }
+
+  .audience-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text2);
+    margin: 0;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .comparison-grid,
+    .audience-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
