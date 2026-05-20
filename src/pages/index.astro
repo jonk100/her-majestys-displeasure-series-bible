@@ -93,7 +93,11 @@ import {
     </p>
 
     <Grid columns={2} gap="sm">
-      {featuredCharacters.map((char) => <CharacterCard character={char} />)}
+      {featuredCharacters.map((char) => (
+        <a href="/mi5" class="card-link">
+          <CharacterCard character={char} />
+        </a>
+      ))}
     </Grid>
 
     <Grid columns={2} gap="sm">
@@ -112,7 +116,12 @@ import {
     <Eyebrow>Principal Characters</Eyebrow>
     <Heading level={2} variant="section">The <em>Players</em></Heading>
     <Rule />
-    <CastGrid items={cast} />
+    <CastGrid items={cast} links={{
+      "Prince Philip": "/establishment",
+      "Lord Mountbatten": "/establishment",
+      "John Lennon": "/collision",
+      "Queen Elizabeth II": "/collision",
+    }} />
   </Section>
 
   <!-- ─── EPISODES ─────────────────────────────────── -->
@@ -215,5 +224,25 @@ import {
 	.role-header {
 		color: var(--text-muted);
 	}
+
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  a.card-link {
+    outline-offset: 2px;
+  }
+
+  a.card-link:focus-visible {
+    outline: 2px solid var(--accent-blue);
+  }
 
 </style>

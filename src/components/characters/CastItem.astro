@@ -4,40 +4,68 @@
  */
 
 import "./characters.css";
-import { Image } from "astro:assets";
 
 import type { CastItemData } from "./characters";
 
 interface Props {
   item: CastItemData;
+  href?: string;
 }
 
-const { item } = Astro.props;
+const { item, href } = Astro.props;
 ---
 
-<article class="cast-item">
-  <div class="row-div">
-    <img
-      class="char-card__image"
-      src={item.image}
-      alt={item.name}
-      loading="lazy"
-    />
-    <div class="column">
-      <h3 class="cast-item__name">
-        {item.name}
-      </h3>
-      <span class="cast-item__tag">
-        {item.tag}
-      </span>
+{
+  href ? (
+    <a href={href} class="cast-item-link">
+      <article class="cast-item">
+        <div class="row-div">
+          <img
+            class="char-card__image"
+            src={item.image}
+            alt={item.name}
+            loading="lazy"
+          />
+          <div class="column">
+            <h3 class="cast-item__name">
+              {item.name}
+            </h3>
+            <span class="cast-item__tag">
+              {item.tag}
+            </span>
 
-      <p class="cast-item__description">
-        {item.description}
-      </p>
-    </div>
-  </div>
-</article>
+            <p class="cast-item__description">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      </article>
+    </a>
+  ) : (
+    <article class="cast-item">
+      <div class="row-div">
+        <img
+          class="char-card__image"
+          src={item.image}
+          alt={item.name}
+          loading="lazy"
+        />
+        <div class="column">
+          <h3 class="cast-item__name">
+            {item.name}
+          </h3>
+          <span class="cast-item__tag">
+            {item.tag}
+          </span>
 
+          <p class="cast-item__description">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </article>
+  )
+}
 <style>
   .row-div {
     display: flex;
@@ -82,5 +110,22 @@ const { item } = Astro.props;
     text-align: justify;
     padding: 0.25em 1em 0 0;
     color: var(--text5);
+  }
+
+  .cast-item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .cast-item-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  a.cast-item-link:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
   }
 </style>

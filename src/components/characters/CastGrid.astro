@@ -11,11 +11,12 @@ import type { CastItemData } from "./characters";
 
 interface Props {
   items: CastItemData[];
+  links?: Record<string, string>;
 }
 
-const { items } = Astro.props;
+const { items, links = {} } = Astro.props;
 ---
 
 <div class="cast-grid">
-  {items.map((item) => <CastItem item={item} />)}
+  {items.map((item) => <CastItem item={item} href={links[item.name]} />)}
 </div>

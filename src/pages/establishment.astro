@@ -1,0 +1,633 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/layout/Section.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/layout/Footer.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import Eyebrow from "../components/typography/Eyebrow.astro";
+import Heading from "../components/typography/Heading.astro";
+import Rule from "../components/typography/Rule.astro";
+import "@/styles/global.css";
+---
+
+<Layout title="Crown — Executive Briefing // Special Intervention Committee">
+  <ClassifiedBand label="TOP SECRET — CROWN SPECIAL INTERVENTION COMMITTEE" />
+
+  <!-- ─── PAGE HEADER ─── -->
+  <Section variant="black" spacing="sm">
+    <Container>
+      <Eyebrow>Executive Briefing</Eyebrow>
+      <Heading level={2} variant="section">The <em>Establishment</em></Heading>
+      <Rule />
+      <p class="prose page-intro">
+        The architects of the conspiracy. The wounded patriarch. The cold
+        strategist. Two men who believed the machinery of the state could
+        silence a song.
+      </p>
+    </Container>
+  </Section>
+
+  <!-- ─── EXECUTIVE BRIEFING HEADER ─── -->
+  <div class="briefing-band">
+    <pre class="briefing-header">
+----------------------------------------------------------------------------------------
+EXECUTIVE BRIEFING // CROWN SPECIAL INTERVENTION COMMITTEE
+TARGET SUBJECTS: THE LIVERPOOL SOUND MATRIX
+----------------------------------------------------------------------------------------
+    </pre>
+  </div>
+
+  <!-- ─── SPLIT-SCREEN FILES ─── -->
+  <div class="files-grid">
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PRINCE PHILIP -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="personnel-file">
+      <!-- Paperclip -->
+      <div class="paperclip" aria-hidden="true">
+        <svg width="24" height="60" viewBox="0 0 24 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2V48C6 51.3137 8.68629 54 12 54C15.3137 54 18 51.3137 18 48V10C18 6.68629 15.3137 4 12 4C8.68629 4 6 6.68629 6 10V46" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Surveillance Photo -->
+      <div class="photo-frame">
+        <img
+          class="surveillance-photo"
+          src="/phillip.jpg"
+          alt="Surveillance photograph — HRH Prince Philip"
+          loading="lazy"
+        />
+        <div class="viewfinder-grid" aria-hidden="true"></div>
+        <div class="label-tape">HRH PRINCE PHILIP</div>
+      </div>
+
+      <!-- Vital Statistics -->
+      <div class="data-box">
+        <span class="classified-redacted">CLASSIFIED // REDACTED</span>
+        <pre class="vitals">
+SECURITY CLEARANCE: ABOVE TOP SECRET (INHERENT)
+DOCUMENT REF:       CROWN-CSIC-001
+SUBJECT STATUS:     PRINCIPAL // PRIMARY ANTAGONIST
+--------------------------------------------------------------
+AGE:                44 [1965] / 49 [1970]
+ROLE:               CONSORT TO THE SOVEREIGN
+PRIMARY MOTIVE:     WOUNDED ARISTOCRATIC PRIDE
+        </pre>
+      </div>
+
+      <!-- Profile Content -->
+      <div class="profile-body">
+        <h3 class="agent-name">PRINCE PHILIP <span class="agent-subtitle">// The Wounded Patriarch</span></h3>
+
+        <blockquote class="agent-quote">
+          "They are four working-class boys from Liverpool who play guitars,
+          Dickie. If the British Empire cannot successfully direct the movements
+          of a skiffle band, then what on Earth are we keeping the guards
+          around for?"
+        </blockquote>
+
+        <div class="agent-section">
+          <span class="agent-section-label">The Hook</span>
+          <p>
+            The ultimate architect of the conspiracy. Driven by deeply wounded
+            aristocratic pride, he transforms a petty slight into a multi-year,
+            multi-million pound covert royal vendetta.
+          </p>
+        </div>
+
+        <div class="agent-section">
+          <span class="agent-section-label">The Comedy & Tragedy</span>
+          <p>
+            Philip is filmed with razor-sharp, Wes Anderson-style symmetry
+            — always dead-center in massive, silent, cavernous palace rooms.
+            He treats popular music not as art, but as an orderly military
+            campaign he is losing. His progression throughout the series
+            details his complete moral corruption, escalating from simple
+            psychological sabotage to demanding a live-fire assassination when
+            John returns his MBE.
+          </p>
+        </div>
+
+        <div class="agent-section">
+          <span class="agent-section-label">The Narrative Trajectory</span>
+          <ul class="agent-list">
+            <li>
+              <strong>1965 — The Offended Patriarch:</strong> John's "killing
+              people" comment at the MBE ceremony transforms Philip from
+              dutiful consort to vengeful conspirator. He convenes the
+              Committee for National Decorum and recruits Mountbatten.
+            </li>
+            <li>
+              <strong>1968 — The Obsessed Strategist:</strong> Increasingly
+              consumed by the campaign. Each success feeds his righteousness;
+              each setback deepens his obsession. He satisfies his satisfaction
+              through chaotic, uncontrollable channels that never match his
+              precise planning.
+            </li>
+            <li>
+              <strong>1970 — The Failed Avenger:</strong> John's MBE return
+              triggers Philip's final escalation to assassination. The farcical
+              failure leaves him with no victory — only the sordid evidence of
+              his conspiracy and the quiet humiliation of total defeat. He
+              has transformed from protector to destroyer.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Redacted lines -->
+        <div class="redacted-block">
+          <span class="redacted-bar"></span>
+          <span class="redacted-bar" style="width: 65%;"></span>
+          <span class="redacted-bar" style="width: 80%;"></span>
+        </div>
+      </div>
+
+      <!-- Ink Stamp -->
+      <div class="ink-stamp philip-stamp">MORAL<br/>CORRUPTION</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LORD MOUNTBATTEN -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="personnel-file">
+      <!-- Paperclip -->
+      <div class="paperclip" aria-hidden="true">
+        <svg width="24" height="60" viewBox="0 0 24 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2V48C6 51.3137 8.68629 54 12 54C15.3137 54 18 51.3137 18 48V10C18 6.68629 15.3137 4 12 4C8.68629 4 6 6.68629 6 10V46" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Surveillance Photo -->
+      <div class="photo-frame">
+        <img
+          class="surveillance-photo"
+          src="/mountbatten-01.jpg"
+          alt="Surveillance photograph — Lord Mountbatten"
+          loading="lazy"
+        />
+        <div class="viewfinder-grid" aria-hidden="true"></div>
+        <div class="label-tape">LORD MOUNTBATTEN</div>
+      </div>
+
+      <!-- Vital Statistics -->
+      <div class="data-box">
+        <span class="classified-redacted">CLASSIFIED // REDACTED</span>
+        <pre class="vitals">
+SECURITY CLEARANCE: ABOVE TOP SECRET (INHERENT)
+DOCUMENT REF:       CROWN-CSIC-002
+SUBJECT STATUS:     PRINCIPAL // STRATEGIC ARCHITECT
+--------------------------------------------------------------
+AGE:                65 [1965] / 70 [1970]
+ROLE:               ADMIRAL OF THE FLEET (RET.)
+PRIMARY WEAPON:     WARTIME PSYCHOLOGICAL OPERATIONS
+        </pre>
+      </div>
+
+      <!-- Profile Content -->
+      <div class="profile-body">
+        <h3 class="agent-name">LORD MOUNTBATTEN <span class="agent-subtitle">// The Cold Strategist</span></h3>
+
+        <blockquote class="agent-quote">
+          "A crisis is simply an un-choreographed transition of power. If the
+          boy dies, we don't mourn him. We manage the vacuum."
+        </blockquote>
+
+        <div class="agent-section">
+          <span class="agent-section-label">The Hook</span>
+          <p>
+            Prince Philip's elegant, terrifying strategic mentor. A legendary
+            veteran of wartime psychological operations who views the
+            counter-culture explosion purely as a fascinating Cold War case
+            study in soft-power containment.
+          </p>
+        </div>
+
+        <div class="agent-section">
+          <span class="agent-section-label">The Role</span>
+          <p>
+            The smooth, calculating corporate brain backing Philip's emotional
+            obsession. Mountbatten is the man who looks at the tragic, sudden
+            death of The Beatles' real-world manager, Brian Epstein, and
+            instantly maps it out on a blackboard as a <em>"sudden, unexpected
+            tactical advantage"</em> to be exploited by MI5.
+          </p>
+        </div>
+
+        <div class="agent-section">
+          <span class="agent-section-label">The Narrative Trajectory</span>
+          <ul class="agent-list">
+            <li>
+              <strong>1965 — The Strategic Architect:</strong> Recruited by
+              Philip after John's MBE gaffe. Applies the same analytical rigor
+              he used for D-Day planning to designing Operation Minuet.
+            </li>
+            <li>
+              <strong>1968 — The Fascinated Observer:</strong> Watches his
+              strategies succeed through unexpected channels — the targets'
+              own neuroses rather than direct manipulation. Documents these
+              "psychological ricochets" with professional satisfaction and
+              private bewilderment.
+            </li>
+            <li>
+              <strong>1970 — The Pragmatic Realist:</strong> Reluctantly designs
+              the charity concert assassination plot while privately doubting
+              its wisdom. After the farcical failure, oversees the cleanup
+              with professional detachment, having learned that cultural
+              influence cannot be defeated through conventional warfare
+              — only outlasted.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Redacted lines -->
+        <div class="redacted-block">
+          <span class="redacted-bar" style="width: 55%;"></span>
+          <span class="redacted-bar" style="width: 75%;"></span>
+          <span class="redacted-bar"></span>
+        </div>
+      </div>
+
+      <!-- Ink Stamp -->
+      <div class="ink-stamp mountbatten-stamp">PROJECT<br/>COMPROMISED</div>
+    </div>
+  </div>
+
+  <!-- ─── OPERATIONAL POST-MORTEM ─────────── -->
+  <Section variant="paper" spacing="lg">
+    <Container>
+      <Eyebrow>Epilogue — 1980</Eyebrow>
+      <Heading level={2} variant="section">Cold Storage <em>Administrative Outpost</em></Heading>
+      <Rule />
+
+      <div class="post-mortem-band">
+        <pre class="post-mortem-header">
+----------------------------------------------------------------------------------------
+OPERATIONAL POST-MORTEM (EPILOGUE: 1980)
+LOCATION: COLD STORAGE ADMINISTRATIVE OUTPOST // THE FALKLAND ISLANDS
+STATUS: ALL FILES CLOSED. SUBJECTS EXILED.
+----------------------------------------------------------------------------------------
+        </pre>
+      </div>
+
+      <p class="prose">
+        The final visual beat of these files shows Nigel and Clive sitting
+        across from each other at identical desks in a frozen room at the
+        bottom of the world — sent into exile by an embarrassed government.
+      </p>
+
+      <div class="exile-scene">
+        <div class="exile-item">
+          <span class="exile-char">Clive</span>
+          <p>
+            Still wears his high-society tweed coat while analyzing the
+            behavior of the local sheep using strict spy methodology.
+          </p>
+        </div>
+        <div class="exile-item">
+          <span class="exile-char">Nigel</span>
+          <p>
+            Silently watches the clock, waiting for a pension that will never
+            arrive. The machine, finally, at rest.
+          </p>
+        </div>
+      </div>
+
+      <p class="prose">
+        The architects are safe. Their agents are punished. The conspiracy is
+        buried. And a lone madman in New York achieves in a single afternoon
+        what the entire apparatus of the Crown could not accomplish in five
+        years. The universe, as ever, is indifferent.
+      </p>
+    </Container>
+  </Section>
+
+  <!-- ─── FOOTER ─── -->
+  <Footer />
+</Layout>
+
+<style>
+  /* ─── PAGE INTRO ─── */
+  .page-intro {
+    text-align: center;
+    max-width: 600px;
+    margin-inline: auto;
+    color: var(--text-muted);
+  }
+
+  /* ─── BRIEFING BAND ─── */
+  .briefing-band {
+    background: var(--bg);
+    padding: var(--space-3) var(--space-5);
+    border-bottom: 2px solid var(--bg4);
+  }
+
+  .briefing-header {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    line-height: 1.6;
+    color: var(--accent-blue);
+    letter-spacing: 0.04rem;
+    white-space: pre-wrap;
+    overflow: hidden;
+  }
+
+  /* ─── FILES GRID ─── */
+  .files-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--bg);
+  }
+
+  /* ─── PERSONNEL FILE ─── */
+  .personnel-file {
+    position: relative;
+    background: var(--bg2);
+    padding: var(--space-5);
+    border: var(--border-faint);
+    font-family: var(--font-mono);
+    overflow: hidden;
+  }
+
+  /* ─── PAPERCLIP ─── */
+  .paperclip {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    color: var(--text-muted);
+    opacity: 0.3;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* ─── SURVEILLANCE PHOTO ─── */
+  .photo-frame {
+    position: relative;
+    margin-bottom: var(--space-4);
+    border: 2px solid var(--bg4);
+    overflow: hidden;
+  }
+
+  .surveillance-photo {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) contrast(1.2) brightness(0.85);
+  }
+
+  .viewfinder-grid {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+
+  .label-tape {
+    position: absolute;
+    bottom: var(--space-2);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    color: #eee;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    padding: 4px 16px;
+    text-transform: uppercase;
+    border: 1px solid #333;
+  }
+
+  /* ─── VITAL STATISTICS ─── */
+  .data-box {
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--bg4);
+    background: var(--bg3);
+  }
+
+  .classified-redacted {
+    display: block;
+    background: var(--color-red);
+    color: #ccc;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.24rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 6px var(--space-2);
+  }
+
+  .vitals {
+    padding: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1.8;
+    color: var(--text4);
+    white-space: pre-wrap;
+    margin: 0;
+  }
+
+  /* ─── PROFILE BODY ─── */
+  .profile-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .agent-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 800;
+    color: var(--text1);
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.04rem;
+  }
+
+  .agent-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--accent-blue);
+    letter-spacing: 0.06rem;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .agent-quote {
+    border-left: 2px solid var(--text-accent-dim);
+    padding: var(--space-2) var(--space-3);
+    margin: var(--space-3) 0;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--text5);
+    background: var(--accent-blue-subtle);
+  }
+
+  .agent-section {
+    margin-bottom: var(--space-4);
+  }
+
+  .agent-section-label {
+    display: inline-block;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: var(--color-amber);
+    border-bottom: 1px solid var(--border-faint);
+    padding-bottom: 2px;
+    margin-bottom: var(--space-2);
+  }
+
+  .agent-section p {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text5);
+    margin: 0;
+  }
+
+  .agent-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .agent-list li {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--text5);
+    padding: var(--space-1) 0;
+    border-bottom: 1px solid var(--border-faint);
+  }
+
+  .agent-list li:last-child {
+    border-bottom: none;
+  }
+
+  .agent-list li strong {
+    color: var(--text3);
+    font-weight: 700;
+  }
+
+  /* ─── REDACTED BLOCK ─── */
+  .redacted-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: var(--space-4);
+    padding: var(--space-2);
+    border: 1px dashed var(--bg4);
+  }
+
+  .redacted-bar {
+    display: block;
+    height: 14px;
+    background: #111;
+    width: 100%;
+  }
+
+  /* ─── INK STAMP ─── */
+  .ink-stamp {
+    position: absolute;
+    bottom: 40px;
+    right: 30px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.14rem;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.3;
+    padding: 6px 12px;
+    border: 3px solid;
+    transform: rotate(-12deg);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .philip-stamp {
+    color: var(--color-red);
+    border-color: var(--color-red);
+  }
+
+  .mountbatten-stamp {
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+  }
+
+  /* ─── POST-MORTEM SECTION ─── */
+  .post-mortem-band {
+    margin: var(--space-4) 0;
+  }
+
+  .post-mortem-header {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    letter-spacing: 0.04rem;
+    white-space: pre-wrap;
+    overflow: hidden;
+    border: 1px solid var(--border-faint);
+    padding: var(--space-3);
+    background: var(--bg2);
+  }
+
+  .exile-scene {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    margin: var(--space-5) 0;
+  }
+
+  .exile-item {
+    background: var(--bg2);
+    border-left: 3px solid var(--text-muted);
+    padding: var(--space-4);
+  }
+
+  .exile-char {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+
+  .exile-item p {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text5);
+    margin: 0;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 800px) {
+    .files-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .exile-scene {
+      grid-template-columns: 1fr;
+    }
+
+    .ink-stamp {
+      bottom: 20px;
+      right: 20px;
+      font-size: 0.6rem;
+    }
+  }
+</style>
