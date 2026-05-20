@@ -30,6 +30,60 @@ The series tracks the *miserable symmetry* of power: the rigid machinery of the 
 
 ---
 
+### Pitch Deck Navigation
+
+Every pitch deck page includes a `<PitchDeckNav>` component that shows page number (`X / 7`) and links to the previous/next page in the deck order:
+
+| # | Page | Route |
+|---|---|---|
+| 1 | Cover | `/pitchdeck` |
+| 2 | The Hook & Logline | `/pitchhook` |
+| 3 | The World & Setting | `/world` |
+| 4 | The Operatives — MI5 | `/mi5` |
+| 5 | The Establishment | `/establishment` |
+| 6 | The Central Collision | `/collision` |
+| 7 | The Supporting Cast | `/supporting-cast` |
+
+A `<CTA>` component is available in `src/components/ui/CTA.astro` for consistent call-to-action buttons (primary, outline, mono variants) throughout the site.
+
+---
+
+### Pitch Deck Navigation
+
+Every pitch deck page includes a `<PitchDeckNav>` component that shows page number (`X / 7`) and links to the previous/next page in the deck order:
+
+| # | Page | Route |
+|---|---|---|
+| 1 | Cover | `/pitchdeck` |
+| 2 | The Hook & Logline | `/pitchhook` |
+| 3 | The World & Setting | `/world` |
+| 4 | The Operatives — MI5 | `/mi5` |
+| 5 | The Establishment | `/establishment` |
+| 6 | The Central Collision | `/collision` |
+| 7 | The Supporting Cast | `/supporting-cast` |
+
+A `<CTA>` component is available in `src/components/ui/CTA.astro` for consistent call-to-action buttons (primary, outline, mono variants) throughout the site.
+
+---
+
+### Pitch Deck Navigation
+
+Every pitch deck page includes a `<PitchDeckNav>` component that shows page number (`X / 7`) and links to the previous/next page in the deck order:
+
+| # | Page | Route |
+|---|---|---|
+| 1 | Cover | `/pitchdeck` |
+| 2 | The Hook & Logline | `/pitchhook` |
+| 3 | The World & Setting | `/world` |
+| 4 | The Operatives — MI5 | `/mi5` |
+| 5 | The Establishment | `/establishment` |
+| 6 | The Central Collision | `/collision` |
+| 7 | The Supporting Cast | `/supporting-cast` |
+
+A `<CTA>` component is available in `src/components/ui/CTA.astro` for consistent call-to-action buttons (primary, outline, mono variants) throughout the site.
+
+---
+
 ## Project Structure
 
 ```
@@ -102,9 +156,12 @@ Clicking character cards on the index page navigates to dedicated personnel-file
 
 | Route | Characters |
 |---|---|
+| `/pitchhook` | Pitch deck page — logline, hook, "Why Now?" thesis, Philip quote |
+| `/world` | The setting & visual architecture — two Londons, 1965–1970 timeline |
 | `/mi5` | Nigel Finch, Clive Barrow — MI5 operatives as classified personnel records |
 | `/establishment` | Prince Philip, Lord Mountbatten — Crown executive briefing |
 | `/collision` | John Lennon vs. Queen Elizabeth II — the central absurd ideological showdown |
+| `/supporting-cast` | Paul McCartney, George Harrison, Brian Epstein, Ringo Starr — the collateral |
 
 ---
 

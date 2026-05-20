@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/layout/Section.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/layout/Footer.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
+import CTA from "../components/ui/CTA.astro";
+import Heading from "../components/typography/Heading.astro";
+import Rule from "../components/typography/Rule.astro";
+import "@/styles/global.css";
+---
+
+<Layout title="Her Majesty's Displeasure — Series Bible & Pitch Deck">
+  <ClassifiedBand label="TOP SECRET — HER MAJESTY'S DISPLEASURE // SERIES BIBLE" />
+
+  <Section variant="black" spacing="lg">
+    <Container>
+      <!-- Cover image -->
+      <img
+        src="/pitch-deck-cover-page-nigel.png"
+        alt="Her Majesty's Displeasure — Pitch Deck Cover"
+        style="
+          width: 100%;
+          max-width: 700px;
+          height: auto;
+          display: block;
+          margin: 0 auto var(--space-6);
+          border: 1px solid var(--bg4);
+        "
+      />
+
+      <Rule />
+
+      <p class="prose" style="text-align: center; max-width: 650px; margin-inline: auto;">
+        A darkly satirical limited series pitch: When The Beatles are awarded
+        MBEs in 1965, Prince Philip responds not with pride — but by quietly
+        unleashing MI5 to rein them in. Two hapless intelligence officers.
+        Five years. One farcical conspiracy. The ultimate cosmic joke.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-5);">
+        <CTA href="/pitchhook" variant="primary" size="lg">Enter the Pitch Deck</CTA>
+        <CTA href="/" variant="outline" size="lg">View the Series Bible</CTA>
+      </div>
+    </Container>
+  </Section>
+
+  <PitchDeckNav current="/pitchdeck" />
+  <Footer />
+</Layout>
+
+<style>
+  /* ensure the cover doesn't overflow */
+  img {
+    max-width: 100%;
+  }
+</style>

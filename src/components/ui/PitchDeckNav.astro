@@ -1,0 +1,175 @@
+---
+/**
+ * Pitch deck navigation — prev / next page links.
+ * Define the order here so all pages stay in sync.
+ */
+
+interface PageEntry {
+  slug: string;
+  label: string;
+}
+
+const pages: PageEntry[] = [
+  { slug: "/pitchdeck", label: "Cover" },
+  { slug: "/pitchhook", label: "The Hook & Logline" },
+  { slug: "/world", label: "The World & Setting" },
+  { slug: "/mi5", label: "The Operatives — MI5" },
+  { slug: "/establishment", label: "The Establishment" },
+  { slug: "/collision", label: "The Central Collision" },
+  { slug: "/supporting-cast", label: "The Supporting Cast" },
+];
+
+interface Props {
+  current: string; // current page slug, e.g. "/mi5"
+}
+
+const { current } = Astro.props;
+
+const idx = pages.findIndex((p) => p.slug === current);
+const prev = idx > 0 ? pages[idx - 1] : null;
+const next = idx < pages.length - 1 ? pages[idx + 1] : null;
+const total = pages.length;
+const pageNum = idx + 1;
+---
+
+<nav class="pitchdeck-nav" aria-label="Pitch deck page navigation">
+  <div class="pitchdeck-nav__info">
+    <span class="pitchdeck-nav__count">{pageNum} / {total}</span>
+  </div>
+
+  <div class="pitchdeck-nav__buttons">
+    {
+      prev ? (
+        <a href={prev.slug} class="pitchdeck-nav__link pitchdeck-nav__link--prev">
+          <span class="pitchdeck-nav__arrow">←</span>
+          <span class="pitchdeck-nav__label">
+            <span class="pitchdeck-nav__sub">Previous</span>
+            <span class="pitchdeck-nav__title">{prev.label}</span>
+          </span>
+        </a>
+      ) : (
+        <span class="pitchdeck-nav__link pitchdeck-nav__link--disabled"></span>
+      )
+    }
+
+    {
+      next ? (
+        <a href={next.slug} class="pitchdeck-nav__link pitchdeck-nav__link--next">
+          <span class="pitchdeck-nav__label">
+            <span class="pitchdeck-nav__sub">Next</span>
+            <span class="pitchdeck-nav__title">{next.label}</span>
+          </span>
+          <span class="pitchdeck-nav__arrow">→</span>
+        </a>
+      ) : (
+        <span class="pitchdeck-nav__link pitchdeck-nav__link--disabled"></span>
+      )
+    }
+  </div>
+</nav>
+
+<style>
+  .pitchdeck-nav {
+    border-top: 1px solid var(--border-soft);
+    background: var(--bg);
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .pitchdeck-nav__info {
+    text-align: center;
+    margin-bottom: var(--space-3);
+  }
+
+  .pitchdeck-nav__count {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .pitchdeck-nav__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    max-width: var(--container-width);
+    margin-inline: auto;
+  }
+
+  .pitchdeck-nav__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: var(--border-faint);
+    text-decoration: none;
+    transition: border-color 180ms ease, background 180ms ease;
+    background: var(--bg2);
+  }
+
+  .pitchdeck-nav__link:hover {
+    border-color: var(--text-accent-dim);
+    background: var(--bg3);
+  }
+
+  .pitchdeck-nav__link--next {
+    text-align: right;
+    justify-content: flex-end;
+    grid-column: 2;
+  }
+
+  .pitchdeck-nav__link--prev {
+    grid-column: 1;
+  }
+
+  .pitchdeck-nav__link--disabled {
+    visibility: hidden;
+  }
+
+  .pitchdeck-nav__arrow {
+    font-size: 1.2rem;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+  }
+
+  .pitchdeck-nav__sub {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .pitchdeck-nav__title {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text3);
+  }
+
+  .pitchdeck-nav__link:hover .pitchdeck-nav__title {
+    color: var(--text1);
+  }
+
+  @media (max-width: 600px) {
+    .pitchdeck-nav__buttons {
+      grid-template-columns: 1fr;
+    }
+
+    .pitchdeck-nav__link--next {
+      grid-column: 1;
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .pitchdeck-nav__link--prev .pitchdeck-nav__arrow {
+      order: 0;
+    }
+
+    .pitchdeck-nav__link--next .pitchdeck-nav__arrow {
+      order: 2;
+    }
+  }
+</style>

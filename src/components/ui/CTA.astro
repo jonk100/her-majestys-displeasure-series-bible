@@ -1,0 +1,101 @@
+---
+/**
+ * Call-to-action component.
+ * Used throughout the site to direct users to the pitch deck.
+ */
+
+interface Props {
+  href?: string;
+  variant?: "primary" | "outline" | "mono";
+  size?: "sm" | "md" | "lg";
+}
+
+const { href = "/pitchdeck", variant = "primary", size = "md" } = Astro.props;
+
+const sizeMap = {
+  sm: "0.65rem",
+  md: "0.75rem",
+  lg: "0.85rem",
+};
+---
+
+<a href={href} class="cta cta--{variant} cta--{size}">
+  <span class="cta__inner">
+    <slot>View the Pitch Deck</slot>
+    <span class="cta__arrow">→</span>
+  </span>
+</a>
+
+<style>
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 180ms ease;
+    cursor: pointer;
+  }
+
+  .cta__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-mono);
+    font-size: inherit;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    transition: all 180ms ease;
+  }
+
+  .cta__arrow {
+    font-size: 1.1em;
+    transition: transform 180ms ease;
+  }
+
+  .cta:hover .cta__arrow {
+    transform: translateX(3px);
+  }
+
+  /* ─── VARIANTS ─── */
+  .cta--primary .cta__inner {
+    background: var(--accent-blue3);
+    color: #fff;
+    border: 1px solid var(--accent-blue3);
+  }
+
+  .cta--primary:hover .cta__inner {
+    background: var(--accent-blue2);
+    border-color: var(--accent-blue2);
+  }
+
+  .cta--outline .cta__inner {
+    background: transparent;
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
+  }
+
+  .cta--outline:hover .cta__inner {
+    background: var(--accent-blue-subtle);
+  }
+
+  .cta--mono .cta__inner {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text3);
+    border: 1px solid var(--border-faint);
+  }
+
+  .cta--mono:hover .cta__inner {
+    color: var(--text1);
+    border-color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* ─── SIZES ─── */
+  .cta--sm { font-size: 0.65rem; }
+  .cta--md { font-size: 0.75rem; }
+  .cta--lg { font-size: 0.85rem; }
+
+  .cta--sm .cta__inner { padding: var(--space-1) var(--space-3); }
+  .cta--lg .cta__inner { padding: var(--space-3) var(--space-5); letter-spacing: 0.2rem; }
+</style>
