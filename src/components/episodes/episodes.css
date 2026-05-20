@@ -11,7 +11,7 @@
   padding: var(--space-5) var(--space-2);
 
   border-bottom: 2px solid var(--accent-blue-muted);
-  background: var(--bg1);
+  background: linear-gradient(95deg, var(--bg1), var(--accent-blue-subtle));
 
   transition: background var(--transition-base);
 }
@@ -21,7 +21,7 @@
 }
 
 .episode-card:hover {
-  background: var(--bg3);
+  background: var(--bg4);
 }
 
 /* ─── EPISODE NUMBER ─── */

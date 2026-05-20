@@ -5,8 +5,8 @@ body {
 .eyebrow {
   margin-bottom: var(--space-3);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.25rem;
+  font-size: var(--fs3);
+  letter-spacing: 0.15rem;
   text-transform: uppercase;
   font-weight: 900;
   color: var(--accent-blue3);
@@ -25,7 +25,7 @@ body {
 
 .section-title em {
   font-style: italic;
-  color: var(--text-accent-subtle);
+  color: var(--text-accent);
 }
 
 .prose {
@@ -33,7 +33,7 @@ body {
   font-size: var(--fs3);
   line-height: clamp(1.5rem, 1.5rem + 3vw, 2rem);
   font-family: var(--font-sans);
-  color: var(--text3);
+  color: var(--text2);
   margin-bottom: var(--space-4);
 }
 
@@ -43,7 +43,7 @@ body {
 
 .prose strong {
   font-weight: 500;
-  color: var(--color-cream);
+  color: var(--text);
 }
 
 .mono-label {
@@ -58,7 +58,7 @@ body {
   letter-spacing: 0.2rem;
   text-transform: uppercase;
 
-  color: var(--color-amber);
+  color: var(--accent-blue3);
 }
 
 .heading-card {

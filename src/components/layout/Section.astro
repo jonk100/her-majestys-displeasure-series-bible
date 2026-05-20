@@ -31,8 +31,8 @@ const { variant = "dark", spacing = "md" } = Astro.props;
   }
 
   .section--paper {
-    background: var(--bg-subtle);
-    color: var(--color-ink);
+    background: var(--bg3);
+    color: var(--text5);
   }
 
   .section--black {
@@ -43,14 +43,16 @@ const { variant = "dark", spacing = "md" } = Astro.props;
     padding-block: var(--space-2);
   }
   .section--spacing-sm {
-    padding-block: var(--space-3);
+    padding-block: var(--space-4);
   }
 
   .section--spacing-md {
-    padding-block: var(--space-5);
+    padding-block: var(--space-6);
   }
 
   .section--spacing-lg {
     padding-block: var(--space-7);
+    padding: var(--space-7) 0;
+    margin: var(--space-7) 0;
   }
 </style>

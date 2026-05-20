@@ -36,12 +36,12 @@ import {
 
 <Layout title="Operation Minuet — Series Bible">
   <ClassifiedBand label="TOP SECRET — COMMITTEE FOR NATIONAL DECORUM" />
-	<Section class="hero-section" variant="black" padding="none">
-  	<Hero data={hero} />
+	<Section class="hero-section" variant="dark" padding="none">
+		<Hero data={hero} />
 	</Section>
 
   <!-- ─── OVERVIEW ─────────────────────────────────── -->
-		<Section variant="dark" spacing="lg">
+		<Section variant="black" spacing="lg">
 			<Eyebrow>The Premise</Eyebrow>
 			<Heading level={2} variant="section">Power <em>vs.</em> Art</Heading>
 			<Rule />
@@ -51,8 +51,11 @@ import {
 			<CompStrip items={comparisons} />
 		</Section>
 
+		<img src="cultural-threat-assessment.png" alt="Cultural Threat Assessment" style="width: 70%; height: auto; margin: auto;" />
+
+
   <!-- ─── TONE ─────────────────────────────────────── -->
-  <Section variant="black" spacing="lg">
+  <Section variant="dark" spacing="lg">
     <Eyebrow>Visual Language</Eyebrow>
     <Heading level={2} variant="section">Two <em>Worlds</em></Heading>
     <Rule />
@@ -65,10 +68,10 @@ import {
   </Section>
 
   <!-- ─── THEMES ───────────────────────────────────── -->
-  <Section variant="dark" spacing="lg">
+  <Section variant="paper" spacing="lg">
     <Eyebrow>Core Themes</Eyebrow>
-    	<Heading level={2} variant="section" class="section-title">The <em>Questions</em></Heading>
-    	<Rule />
+		<Heading level={2} variant="section" class="section-title">The <em>Questions</em></Heading>
+		<Rule />
     <p class="prose">
       Can an individual artist's authentic, chaotic rebellion survive a
       confrontation with the soulless machinery of the state — or will both be
@@ -80,7 +83,7 @@ import {
   </Section>
 
   <!-- ─── OPERATIVES ───────────────────────────────── -->
-  <Section variant="black" spacing="lg">
+  <Section variant="dark" spacing="lg">
     <Eyebrow>The Operatives — B-Plot</Eyebrow>
     <Heading level={2} variant="section">The <em>Agents</em></Heading>
     <Rule />
@@ -105,7 +108,7 @@ import {
   </Section>
 
   <!-- ─── SUPPORTING CAST ──────────────────────────── -->
-  <Section variant="dark" spacing="sm">
+  <Section variant="black" spacing="lg">
     <Eyebrow>Principal Characters</Eyebrow>
     <Heading level={2} variant="section">The <em>Players</em></Heading>
     <Rule />
@@ -113,7 +116,7 @@ import {
   </Section>
 
   <!-- ─── EPISODES ─────────────────────────────────── -->
-  <Section variant="black" spacing="lg">
+  <Section variant="paper" spacing="lg">
     <Eyebrow>Episode Structure</Eyebrow>
     <Heading level={2} variant="section">The <em>Campaign</em></Heading>
     <Rule />
@@ -126,7 +129,7 @@ import {
   </Section>
 
   <!-- ─── EPILOGUE ─────────────────────────────────── -->
-  <section class="epilogue">
+  <section class="epilogue" >
     <Container>
       <Eyebrow>Epilogue</Eyebrow>
       <Heading level={2} variant="section">{epilogue.location}</Heading>

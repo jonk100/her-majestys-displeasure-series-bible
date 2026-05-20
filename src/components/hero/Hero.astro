@@ -6,7 +6,7 @@
 
 import Container from "../layout/Container.astro";
 import Stack from "../ui/Stack.astro";
-
+import Rule from "../typography/Rule.astro";
 import Heading from "../typography/Heading.astro";
 import Eyebrow from "../typography/Eyebrow.astro";
 
@@ -43,9 +43,9 @@ const { data } = Astro.props;
         </div>
 
         <!-- FILE REF -->
-        <div class="hero__file-ref mono-label">
+        <!-- <div class="hero__file-ref mono-label">
           {data.fileRef}
-        </div>
+        </div> -->
       </Stack>
 
       <!-- LOG LINE -->
@@ -55,6 +55,11 @@ const { data } = Astro.props;
 
       <!-- META -->
       <HeroMeta items={data.meta} />
+      
+      <!-- FILE REF -->
+      <div class="hero__file-ref mono-label">
+        {data.fileRef}
+      </div>
     </Stack>
   </Container>
 
