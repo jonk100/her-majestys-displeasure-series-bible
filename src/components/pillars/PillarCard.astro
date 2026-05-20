@@ -1,0 +1,29 @@
+---
+/**
+ * Theme pillar card.
+ */
+
+import "./pillars.css";
+
+import type { PillarData } from "./pillars";
+
+interface Props {
+  pillar: PillarData;
+}
+
+const { pillar } = Astro.props;
+---
+
+<article class="pillar-card">
+  <div class="pillar-card__number">
+    {pillar.number}
+  </div>
+
+  <h3 class="pillar-card__title">
+    {pillar.title}
+  </h3>
+
+  <p class="pillar-card__description">
+    {pillar.description}
+  </p>
+</article>

@@ -1,0 +1,62 @@
+---
+/**
+ * Hero section.
+ * Now fully composed from primitives.
+ */
+
+import Container from "../layout/Container.astro";
+import Stack from "../ui/Stack.astro";
+
+import Heading from "../typography/Heading.astro";
+import Eyebrow from "../typography/Eyebrow.astro";
+
+import CrownIcon from "./CrownIcon.astro";
+import HeroMeta from "./HeroMeta.astro";
+
+import "./hero.css";
+
+import type { HeroData } from "./hero";
+
+interface Props {
+  data: HeroData;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="hero">
+  <Container>
+    <Stack gap="lg">
+      <!-- ICON -->
+      <div class="hero__icon">
+        <CrownIcon />
+      </div>
+
+      <!-- TITLE BLOCK -->
+      <Stack gap="sm">
+        <Heading level={1} variant="display">
+          {data.title}
+        </Heading>
+
+        <div class="hero__subtitle mono-label">
+          {data.subtitle}
+        </div>
+
+        <!-- FILE REF -->
+        <div class="hero__file-ref mono-label">
+          {data.fileRef}
+        </div>
+      </Stack>
+
+      <!-- LOG LINE -->
+      <p class="hero__logline prose">
+        {data.logline}
+      </p>
+
+      <!-- META -->
+      <HeroMeta items={data.meta} />
+    </Stack>
+  </Container>
+
+  <div class="hero__scroll-hint mono-label">↓ scroll ↓</div>
+</section>

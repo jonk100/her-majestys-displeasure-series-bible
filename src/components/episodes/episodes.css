@@ -1,0 +1,106 @@
+/* ─── EPISODE TIMELINE ─── */
+.episode-timeline {
+  margin-top: var(--space-6);
+}
+
+/* ─── EPISODE CARD ─── */
+.episode-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+
+  padding: var(--space-5) var(--space-2);
+
+  border-bottom: 2px solid var(--accent-blue-muted);
+  background: var(--bg1);
+
+  transition: background var(--transition-base);
+}
+
+.episode-card:first-child {
+  border-top: var(--border-faint);
+}
+
+.episode-card:hover {
+  background: var(--bg3);
+}
+
+/* ─── EPISODE NUMBER ─── */
+.episode-card__number {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.12rem;
+  font-weight: 600;
+  color: var(--text-accent-dim);
+}
+
+/* ─── SCENES / TIMEFRAME ─── */
+.episode-card__scenes {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--bg5);
+  color: var(--accent-blue);
+  background: var(--bg3);
+  padding: var(--space-1) var(--space-1);
+  opacity: 0.65;
+}
+
+/* ─── TITLE ─── */
+.episode-card__title {
+  margin-bottom: var(--space-2);
+  margin-left: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: var(--fs5);
+  font-weight: 600;
+  color: var(--text3);
+}
+
+/* ─── SUMMARY ─── */
+.episode-card__summary {
+  max-width: 720px;
+  font-size: var(--fs3);
+  line-height: 1.5;
+  color: var(--text4);
+  opacity: 0.6;
+  margin-left: var(--space-3);
+}
+
+/* ─── TENSION BAR ─── */
+.tension-bar {
+  margin-top: var(--space-3);
+}
+
+.tension-bar__track {
+  width: 720px;
+  height: 6px;
+  background: var(--text-accent-dark);
+}
+
+.tension-bar__fill {
+  height: 100%;
+
+  background: var(--color-amber);
+}
+
+.tension-bar__label {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs2);
+  letter-spacing: 0.08rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 700px) {
+  .episode-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .tension-bar__track {
+    width: 100%;
+  }
+}

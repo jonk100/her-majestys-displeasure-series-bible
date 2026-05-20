@@ -1,0 +1,36 @@
+---
+/**
+ * Vertical stack layout primitive.
+ */
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  gap?: "sm" | "md" | "lg";
+}
+
+const { gap = "md" } = Astro.props;
+---
+
+<div class={cn("stack", `stack--${gap}`)}>
+  <slot />
+</div>
+
+<style>
+  .stack {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stack--sm > * + * {
+    margin-top: var(--space-3);
+  }
+
+  .stack--md > * + * {
+    margin-top: var(--space-5);
+  }
+
+  .stack--lg > * + * {
+    margin-top: var(--space-7);
+  }
+</style>

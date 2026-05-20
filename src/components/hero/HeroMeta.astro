@@ -1,0 +1,25 @@
+---
+/**
+ * Hero metadata row.
+ */
+
+import type { HeroMetaItem } from "./hero";
+
+interface Props {
+  items: HeroMetaItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="hero-meta">
+  {
+    items.map((item) => (
+      <div class="hero-meta__item">
+        <span>{item.label}</span>
+
+        {item.value}
+      </div>
+    ))
+  }
+</div>

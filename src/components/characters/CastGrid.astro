@@ -1,0 +1,21 @@
+---
+/**
+ * Supporting cast grid.
+ */
+
+import "./characters.css";
+
+import CastItem from "./CastItem.astro";
+
+import type { CastItemData } from "./characters";
+
+interface Props {
+  items: CastItemData[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="cast-grid">
+  {items.map((item) => <CastItem item={item} />)}
+</div>

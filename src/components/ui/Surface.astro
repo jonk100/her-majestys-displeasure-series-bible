@@ -1,0 +1,65 @@
+---
+/**
+ * Generic surface wrapper.
+ */
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  variant?: "default" | "outlined" | "muted" | "glass" | "cold" | "warm";
+  padding?: "sm" | "md" | "lg";
+}
+
+const { as: Tag = "div", variant = "default", padding = "md" } = Astro.props;
+---
+
+<Tag
+  class={cn("surface", `surface--${variant}`, `surface--padding-${padding}`)}
+>
+  <slot />
+</Tag>
+
+<style>
+  .surface {
+    position: relative;
+  }
+
+  .surface--default {
+    background: rgba(15, 14, 10, 0.55);
+  }
+
+  .surface--muted {
+    background: rgba(200, 168, 75, 0.05);
+  }
+
+  .surface--cold {
+    background: rgba(15, 14, 10, 0.82);
+    border: var(--border-soft);
+  }
+
+  .surface--warm {
+    background: rgba(200, 168, 75, 0.05);
+    border: var(--border-soft);
+  }
+
+  .surface--outlined {
+    border: var(--border-soft);
+  }
+
+  .surface--glass {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .surface--padding-sm {
+    padding: var(--space-0);
+  }
+  .surface--padding-md {
+    padding: var(--space-3);
+  }
+  .surface--padding-lg {
+    padding: var(--space-6);
+  }
+</style>

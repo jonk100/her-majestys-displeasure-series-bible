@@ -1,0 +1,70 @@
+---
+/**
+ * Reusable heading primitive.
+ */
+
+import { cn } from '@/utils/cn';
+
+interface Props {
+  level?: 1 | 2 | 3 | 4;
+
+  variant?:
+    | 'display'
+    | 'section'
+    | 'card'
+    | 'mono';
+}
+
+const {
+  level = 2,
+  variant = 'section'
+} = Astro.props;
+
+const Tag =
+  `h${level}` as keyof HTMLElementTagNameMap;
+---
+
+<Tag
+  class={cn(
+    'heading',
+    `heading--${variant}`,
+    `heading--level-${level}`
+  )}
+>
+  <slot />
+</Tag>
+
+<style>
+  .heading {
+    line-height: 1.1;
+  }
+
+  .heading--display {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--color-cream);
+  }
+
+  .heading--section {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+
+    color: var(--color-cream);
+  }
+
+  .heading--card {
+    font-family: var(--font-serif);
+    padding: .5em;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text5);
+  }
+
+  .heading--mono {
+    font-family: var(--font-mono);
+  }
+</style>

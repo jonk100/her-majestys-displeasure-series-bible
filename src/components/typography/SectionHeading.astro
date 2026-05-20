@@ -1,0 +1,21 @@
+---
+/**
+ * Shared section heading.
+ */
+
+import Eyebrow from "./Eyebrow.astro";
+import Rule from "./Rule.astro";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+}
+
+const { eyebrow, title } = Astro.props;
+---
+
+{eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+
+<h2 class="section-title" set:html={title} />
+
+<Rule />

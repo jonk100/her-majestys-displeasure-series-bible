@@ -1,17 +1,216 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/layout/Section.astro";
+import SectionHeading from "../components/typography/SectionHeading.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/layout/Footer.astro";
+import Grid from "../components/ui/Grid.astro";
+import Stack from "../components/ui/Stack.astro";
+import Surface from "../components/ui/Surface.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import CompStrip from "../components/ui/CompStrip.astro";
+import Hero from "../components/hero/Hero.astro";
+import ToneGrid from "../components/tone/ToneGrid.astro";
+import PillarGrid from "../components/pillars/PillarGrid.astro";
+import CharacterCard from "../components/characters/CharacterCard.astro";
+import CastGrid from "../components/characters/CastGrid.astro";
+import EpisodeTimeline from "../components/episodes/EpisodeTimeline.astro";
+import Heading from "../components/typography/Heading.astro";
+import Eyebrow from "../components/typography/Eyebrow.astro";
+import Rule from "../components/typography/Rule.astro";
+import '@/styles/global.css';
 
+import {
+  hero,
+  premiseParagraphs,
+  comparisons,
+  tonePanels,
+  pillars,
+  featuredCharacters,
+  agentDetails,
+  cast,
+  episodes,
+  epilogue,
+} from "../data/her-majestys-displeasure";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Operation Minuet — Series Bible">
+  <ClassifiedBand label="TOP SECRET — COMMITTEE FOR NATIONAL DECORUM" />
+	<Section class="hero-section" variant="black" padding="none">
+  	<Hero data={hero} />
+	</Section>
+
+  <!-- ─── OVERVIEW ─────────────────────────────────── -->
+		<Section variant="dark" spacing="lg">
+			<Eyebrow>The Premise</Eyebrow>
+			<Heading level={2} variant="section">Power <em>vs.</em> Art</Heading>
+			<Rule />
+			<Stack gap="lg">
+				{premiseParagraphs.map((p) => <p class="prose" set:html={p} />)}
+			</Stack>
+			<CompStrip items={comparisons} />
+		</Section>
+
+  <!-- ─── TONE ─────────────────────────────────────── -->
+  <Section variant="black" spacing="lg">
+    <Eyebrow>Visual Language</Eyebrow>
+    <Heading level={2} variant="section">Two <em>Worlds</em></Heading>
+    <Rule />
+    <p class="prose">
+      Every frame is a collision. The visual language is a deliberate,
+      irreconcilable clash — deadpan institutional geometry against warm,
+      breathing chaos.
+    </p>
+    <ToneGrid panels={tonePanels} />
+  </Section>
+
+  <!-- ─── THEMES ───────────────────────────────────── -->
+  <Section variant="dark" spacing="lg">
+    <Eyebrow>Core Themes</Eyebrow>
+    	<Heading level={2} variant="section" class="section-title">The <em>Questions</em></Heading>
+    	<Rule />
+    <p class="prose">
+      Can an individual artist's authentic, chaotic rebellion survive a
+      confrontation with the soulless machinery of the state — or will both be
+      transformed by the encounter?
+    </p>
+    <Grid columns={3} gap="md">
+      <PillarGrid pillars={pillars} />
+    </Grid>
+  </Section>
+
+  <!-- ─── OPERATIVES ───────────────────────────────── -->
+  <Section variant="black" spacing="lg">
+    <Eyebrow>The Operatives — B-Plot</Eyebrow>
+    <Heading level={2} variant="section">The <em>Agents</em></Heading>
+    <Rule />
+    <p class="prose">
+      Two MI5 men. One a delusional artist manqué. One a weary conscience. Five
+      years. The bureaucratic heart of the show.
+    </p>
+
+    <Grid columns={2} gap="sm">
+      {featuredCharacters.map((char) => <CharacterCard character={char} />)}
+    </Grid>
+
+    <Grid columns={2} gap="sm">
+      {
+        featuredCharacters.map((agent) => (
+					<Surface variant="glass" padding="md">
+            <p class="prose feature-description" set:html={agent.description} />
+          </Surface>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <!-- ─── SUPPORTING CAST ──────────────────────────── -->
+  <Section variant="dark" spacing="sm">
+    <Eyebrow>Principal Characters</Eyebrow>
+    <Heading level={2} variant="section">The <em>Players</em></Heading>
+    <Rule />
+    <CastGrid items={cast} />
+  </Section>
+
+  <!-- ─── EPISODES ─────────────────────────────────── -->
+  <Section variant="black" spacing="lg">
+    <Eyebrow>Episode Structure</Eyebrow>
+    <Heading level={2} variant="section">The <em>Campaign</em></Heading>
+    <Rule />
+    <p class="prose">
+      Six episodes. Five years. One inevitable conclusion. Tension builds from
+      bureaucratic simmer to assassination attempt — then collapses, farcically,
+      to nothing. The universe wins.
+    </p>
+    <EpisodeTimeline episodes={episodes} />
+  </Section>
+
+  <!-- ─── EPILOGUE ─────────────────────────────────── -->
+  <section class="epilogue">
+    <Container>
+      <Eyebrow>Epilogue</Eyebrow>
+      <Heading level={2} variant="section">{epilogue.location}</Heading>
+      <Rule />
+      <Stack gap="md">
+        {epilogue.paragraphs.map((p) => <p class="prose" set:html={p} />)}
+      </Stack>
+      <div class="epilogue__end-card">
+        {epilogue.endCard.map((line) => <p>{line}</p>)}
+      </div>
+    </Container>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────── -->
+  <Footer />
+</Layout>
+
+<style>
+	.hero-section {
+		background: black;
+	}
+  .epilogue {
+    background: var(--bg);
+    color: var(--text5);
+    padding: var(--space-6) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .epilogue::before {
+    content: "CLASSIFIED";
+    position: absolute;
+    top: 40px;
+    right: -30px;
+    font-family: var(--font-mono);
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: 8px;
+    color: var(--text5));
+    opacity: 0.12;
+    transform: rotate(-15deg);
+    pointer-events: none;
+  }
+
+  .epilogue :global(.eyebrow) {
+    color: var(--color-amber-dark);
+  }
+
+  .epilogue :global(.section-title) {
+    color: var(--accent-blue);
+  }
+
+  .epilogue :global(.rule) {
+    background: var(--text-accent);
+    opacity: 0.3;
+  }
+
+  .epilogue :global(.prose) {
+    color: var(--text5);
+		font-size: var(--fs4);
+  }
+
+  .epilogue__end-card {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(15, 14, 10, 0.12);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    line-height: 1.9;
+    color: rgba(15, 14, 10, 0.5);
+  }
+
+  .epilogue__end-card p + p {
+    margin-top: var(--space-6);
+  }
+
+  .feature-description {
+    color: var(--text-muted);
+		font-size: var(--fs3);
+		line-height: 1.5;
+  }
+
+	.role-header {
+		color: var(--text-muted);
+	}
+
+</style>

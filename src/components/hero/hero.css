@@ -1,0 +1,91 @@
+/* ─── HERO SECTION ─── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-8);
+  background: var(--bg-dark);
+  overflow: hidden;
+  margin: auto;
+  text-align: center;
+}
+
+/* background texture only */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse 60% 40% at 50% 50%,
+      rgba(200, 168, 75, 0.07),
+      transparent 70%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(200, 168, 75, 0.04) 39px,
+      rgba(200, 168, 75, 0.04) 40px
+    );
+
+  pointer-events: none;
+}
+
+.hero__file-ref {
+  color: var(--text-accent);
+  opacity: 0.6;
+}
+
+.hero__icon {
+  opacity: 0.6;
+}
+
+.hero__subtitle {
+  color: var(--text-accent);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  padding: var(--space-3) 0;
+}
+
+.hero__logline {
+  max-width: 640px;
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.75;
+  margin: auto;
+  padding: var(--space-3) 0;
+}
+
+/* ─── META ─── */
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6);
+
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+
+  color: var(--text-muted);
+}
+
+.hero-meta__item span {
+  margin-right: 0.45rem;
+
+  color: var(--text-accent);
+}
+
+/* ─── SCROLL HINT ─── */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: var(--space-5);
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0.5;
+}

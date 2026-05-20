@@ -1,0 +1,280 @@
+--- File: ClassifiedBand.astro ---
+---
+/**
+ * Classified header band.
+ */
+
+import "./ui.css";
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="classified-band">
+  {label}
+</div>
+
+
+--- File: CompStrip.astro ---
+---
+/**
+ * Comparison reference strip.
+ */
+
+import "./ui.css";
+
+import Tag from "./Tag.astro";
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="comp-strip">
+  {items.map((item) => <Tag>{item}</Tag>)}
+</div>
+
+
+--- File: Tag.astro ---
+---
+/**
+ * Reusable tag component.
+ */
+
+import "./ui.css";
+---
+
+<div class="comp-tag">
+  <slot />
+</div>
+
+
+--- File: ui.css ---
+.classified-band {
+  padding: 0.45rem 0;
+
+  background: var(--color-red);
+
+  text-align: center;
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  color: white;
+}
+
+.comp-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+
+  margin-top: var(--space-6);
+}
+
+.comp-tag {
+  padding: 0.8rem 1.2rem;
+
+  border: var(--border-soft);
+
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06rem;
+
+  color: var(--color-amber);
+}
+
+--- File: Surface.astro ---
+---
+/**
+ * Generic surface wrapper.
+ */
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+
+  variant?: "default" | "outlined" | "warm" | "glass";
+
+  padding?: "sm" | "md" | "lg";
+}
+
+const { as: Tag = "div", variant = "default", padding = "md" } = Astro.props;
+---
+
+<Tag
+  class={cn("surface", `surface--${variant}`, `surface--padding-${padding}`)}
+>
+  <slot />
+</Tag>
+
+<style>
+  .surface {
+    position: relative;
+  }
+
+  .surface--default {
+    background: rgba(15, 14, 10, 0.55);
+  }
+
+  .surface--outlined {
+    border: var(--border-soft);
+  }
+
+  .surface--warm {
+    background: rgba(200, 168, 75, 0.05);
+    border: var(--border-soft);
+  }
+
+  .surface--glass {
+    backdrop-filter: blur(12px);
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .surface--padding-sm {
+    padding: var(--space-3);
+  }
+
+  .surface--padding-md {
+    padding: var(--space-5);
+  }
+
+  .surface--padding-lg {
+    padding: var(--space-6);
+  }
+</style>
+
+
+--- File: Stack.astro ---
+---
+/**
+ * Reusable heading primitive.
+ */
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  level?: 1 | 2 | 3 | 4;
+
+  variant?: "display" | "section" | "card" | "mono";
+}
+
+const { level = 2, variant = "section" } = Astro.props;
+
+const Tag = `h${level}` as keyof HTMLElementTagNameMap;
+---
+
+<Tag class={cn("heading", `heading--${variant}`)}>
+  <slot />
+</Tag>
+
+<style>
+  .heading {
+    line-height: 1.1;
+  }
+
+  .heading--display {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+
+    color: var(--color-cream);
+  }
+
+  .heading--section {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+
+    color: var(--color-cream);
+  }
+
+  .heading--card {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: var(--color-cream);
+  }
+
+  .heading--mono {
+    font-family: var(--font-mono);
+  }
+</style>
+
+
+--- File: Grid.astro ---
+---
+/**
+ * Reusable grid primitive.
+ */
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  columns?: 1 | 2 | 3 | 4;
+
+  gap?: "sm" | "md" | "lg";
+}
+
+const { columns = 2, gap = "md" } = Astro.props;
+---
+
+<div class={cn("grid", `grid--${columns}`, `grid--gap-${gap}`)}>
+  <slot />
+</div>
+
+<style>
+  .grid {
+    display: grid;
+  }
+
+  .grid--1 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid--gap-sm {
+    gap: var(--space-3);
+  }
+
+  .grid--gap-md {
+    gap: var(--space-5);
+  }
+
+  .grid--gap-lg {
+    gap: var(--space-7);
+  }
+
+  @media (max-width: 700px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+

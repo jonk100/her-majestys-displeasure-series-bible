@@ -1,0 +1,46 @@
+---
+/**
+ * Character profile card.
+ */
+
+import "./characters.css";
+
+import type { CharacterCardData } from "./characters";
+
+interface Props {
+  character: CharacterCardData;
+}
+
+const { character } = Astro.props;
+---
+
+<article class="char-card">
+  {
+    character.image && (
+      <img
+        class="char-card__image"
+        src={character.image}
+        alt={character.name}
+        loading="lazy"
+      />
+    )
+  }
+
+  <div class="char-card__overlay">
+    <span class="char-card__file">
+      {character.file}
+    </span>
+
+    <h3 class="char-card__name">
+      {character.name}
+    </h3>
+
+    <div class="char-card__role">
+      {character.role}
+    </div>
+
+    <blockquote class="char-card__quote">
+      {character.quote}
+    </blockquote>
+  </div>
+</article>

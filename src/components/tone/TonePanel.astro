@@ -1,0 +1,34 @@
+---
+/**
+ * Tone panel.
+ */
+
+import Heading from "../typography/Heading.astro";
+import Surface from "../ui/Surface.astro";
+import './tone.css';
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  tag: string;
+  title: string;
+  description: string;
+  variant?: "cold" | "warm";
+}
+
+const { tag, title, description, variant = "cold" } = Astro.props;
+---
+
+<Surface as="article" variant={variant} padding="sm" class="tone-panel">
+  <span class="tone-panel__tag label-mono">
+    {tag}
+  </span>
+
+  <Heading level={2} variant="card">
+    {title}
+  </Heading>
+
+  <p class="prose-muted">
+    {description}
+  </p>
+</Surface>

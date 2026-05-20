@@ -1,0 +1,147 @@
+--- File: SectionHeading.astro ---
+---
+/**
+ * Shared section heading.
+ */
+
+import Eyebrow from "./Eyebrow.astro";
+import Rule from "./Rule.astro";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+}
+
+const { eyebrow, title } = Astro.props;
+---
+
+{eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+
+<h2 class="section-title" set:html={title} />
+
+<Rule />
+
+
+--- File: Eyebrow.astro ---
+---
+/**
+ * Reusable eyebrow label.
+ */
+
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+}
+
+const { as: Tag = "div" } = Astro.props;
+---
+
+<Tag class="eyebrow">
+  <slot />
+</Tag>
+
+
+--- File: Rule.astro ---
+---
+/**
+ * Decorative horizontal rule.
+ */
+---
+
+<div class="rule"></div>
+
+
+--- File: prose.css ---
+.prose {
+  max-width: 760px;
+
+  font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+  line-height: 1.85;
+
+  color: rgba(242, 234, 216, 0.72);
+}
+
+.prose p + p {
+  margin-top: var(--space-4);
+}
+
+.prose strong {
+  color: var(--color-cream);
+  font-weight: 500;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+--- File: Heading.astro ---
+---
+/**
+ * Reusable heading primitive.
+ */
+
+import { cn } from '@/utils/cn';
+
+interface Props {
+  level?: 1 | 2 | 3 | 4;
+
+  variant?:
+    | 'display'
+    | 'section'
+    | 'card'
+    | 'mono';
+}
+
+const {
+  level = 2,
+  variant = 'section'
+} = Astro.props;
+
+const Tag =
+  `h${level}` as keyof HTMLElementTagNameMap;
+---
+
+<Tag
+  class={cn(
+    'heading',
+    `heading--${variant}`
+  )}
+>
+  <slot />
+</Tag>
+
+<style>
+  .heading {
+    line-height: 1.1;
+  }
+
+  .heading--display {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+
+    color: var(--color-cream);
+  }
+
+  .heading--section {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+
+    color: var(--color-cream);
+  }
+
+  .heading--card {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: var(--color-cream);
+  }
+
+  .heading--mono {
+    font-family: var(--font-mono);
+  }
+</style>
+

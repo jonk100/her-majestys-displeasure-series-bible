@@ -1,0 +1,20 @@
+---
+/**
+ * Tone comparison grid.
+ */
+
+import Grid from "../ui/Grid.astro";
+import TonePanel from "./TonePanel.astro";
+
+import type { TonePanelData } from "./tone";
+
+interface Props {
+  panels: TonePanelData[];
+}
+
+const { panels } = Astro.props;
+---
+
+<Grid columns={2} gap="sm">
+  {panels.map((panel) => <TonePanel {...panel} />)}
+</Grid>

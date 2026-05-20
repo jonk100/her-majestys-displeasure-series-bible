@@ -1,0 +1,39 @@
+/* ─── CLASSIFIED BAND ─── */
+.classified-band {
+  padding: 0.45rem 0;
+
+  background: var(--color-red);
+
+  text-align: center;
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  color: #fff;
+}
+
+/* ─── COMP STRIP ─── */
+.comp-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  font-size: 1.5em;
+}
+
+/* ─── TAG ─── */
+.comp-tag {
+  padding: 0.8rem 1.2rem;
+
+  border: var(--border-soft);
+
+  font-family: var(--sans);
+  font-size: .9rem;
+  letter-spacing: 0.08rem;
+  color: var(--color-amber);
+  background: var(--accent-blue-subtle);
+}

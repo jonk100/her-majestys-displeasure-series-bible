@@ -1,0 +1,30 @@
+.container {
+  width: min(var(--container-width), calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: var(--section-padding);
+}
+
+.stack-sm > * + * {
+  margin-top: var(--space-3);
+}
+
+.stack-md > * + * {
+  margin-top: var(--space-5);
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-7);
+}
+
+.rule {
+  width: 60%;
+  height: 1px;
+
+  margin: var(--space-3) var(--space-4) var(--space-4) 0;
+
+  background: var(--text-accent-subtle);
+  opacity: 0.75;
+}

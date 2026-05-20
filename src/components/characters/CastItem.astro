@@ -1,0 +1,86 @@
+---
+/**
+ * Supporting cast item.
+ */
+
+import "./characters.css";
+import { Image } from "astro:assets";
+
+import type { CastItemData } from "./characters";
+
+interface Props {
+  item: CastItemData;
+}
+
+const { item } = Astro.props;
+---
+
+<article class="cast-item">
+  <div class="row-div">
+    <img
+      class="char-card__image"
+      src={item.image}
+      alt={item.name}
+      loading="lazy"
+    />
+    <div class="column">
+      <h3 class="cast-item__name">
+        {item.name}
+      </h3>
+      <span class="cast-item__tag">
+        {item.tag}
+      </span>
+
+      <p class="cast-item__description">
+        {item.description}
+      </p>
+    </div>
+  </div>
+</article>
+
+<style>
+  .row-div {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-3);
+  }
+
+  .row-div > .char-card__image {
+    width: 120px;
+    height: auto;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+  }
+
+  .cast-item {
+    display: flex;
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--bg-subtle);
+  }
+
+  .cast-item__name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text);
+    background: var(--accent-blue-subtle);
+  }
+
+  .cast-item__tag {
+    font-size: small;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: justify;
+    padding: .5em 1em 0 1em;
+    margin-bottom: .5em;
+    color: var(--text-subtle);
+  }
+
+  .cast-item__description {
+    font-size: medium;
+    line-height: 1.4;
+    text-align: justify;
+    padding: 0.25em 1em 0 0;
+    color: var(--text5);
+  }
+</style>

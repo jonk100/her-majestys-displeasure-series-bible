@@ -1,0 +1,21 @@
+---
+/**
+ * Theme pillar grid.
+ */
+
+import "./pillars.css";
+
+import PillarCard from "./PillarCard.astro";
+
+import type { PillarData } from "./pillars";
+
+interface Props {
+  pillars: PillarData[];
+}
+
+const { pillars } = Astro.props;
+---
+
+<div class="pillar-grid">
+  {pillars.map((pillar) => <PillarCard pillar={pillar} />)}
+</div>

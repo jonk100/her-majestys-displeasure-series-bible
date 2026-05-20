@@ -1,0 +1,56 @@
+---
+/**
+ * Generic section wrapper.
+ */
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  variant?: "dark" | "paper" | "black";
+  spacing?: "xs" | "sm" | "md" | "lg" | "xl";
+}
+
+const { variant = "dark", spacing = "md" } = Astro.props;
+---
+
+<section
+  class={cn("section", `section--${variant}`, `section--spacing-${spacing}`)}
+>
+  <div class="container">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    position: relative;
+  }
+
+  .section--dark {
+    background: var(--bg2);
+  }
+
+  .section--paper {
+    background: var(--bg-subtle);
+    color: var(--color-ink);
+  }
+
+  .section--black {
+    background: var(--bg);
+  }
+
+  .section--spacing-xs {
+    padding-block: var(--space-2);
+  }
+  .section--spacing-sm {
+    padding-block: var(--space-3);
+  }
+
+  .section--spacing-md {
+    padding-block: var(--space-5);
+  }
+
+  .section--spacing-lg {
+    padding-block: var(--space-7);
+  }
+</style>

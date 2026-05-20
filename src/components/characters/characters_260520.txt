@@ -1,0 +1,214 @@
+--- File: CharacterCard.astro ---
+---
+/**
+ * Character profile card.
+ */
+
+import "./characters.css";
+
+import type { CharacterCardData } from "./characters";
+
+interface Props {
+  character: CharacterCardData;
+}
+
+const { character } = Astro.props;
+---
+
+<article class="char-card">
+  {
+    character.image && (
+      <img
+        class="char-card__image"
+        src={character.image}
+        alt={character.name}
+        loading="lazy"
+      />
+    )
+  }
+
+  <div class="char-card__overlay">
+    <span class="char-card__file">
+      {character.file}
+    </span>
+
+    <h3 class="char-card__name">
+      {character.name}
+    </h3>
+
+    <div class="char-card__role">
+      {character.role}
+    </div>
+
+    <blockquote class="char-card__quote">
+      {character.quote}
+    </blockquote>
+  </div>
+</article>
+
+
+--- File: CastGrid.astro ---
+---
+/**
+ * Supporting cast grid.
+ */
+
+import "./characters.css";
+
+import CastItem from "./CastItem.astro";
+
+import type { CastItemData } from "./characters";
+
+interface Props {
+  items: CastItemData[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="cast-grid">
+  {items.map((item) => <CastItem item={item} />)}
+</div>
+
+
+--- File: CastItem.astro ---
+---
+/**
+ * Supporting cast item.
+ */
+
+import "./characters.css";
+
+import type { CastItemData } from "./characters";
+
+interface Props {
+  item: CastItemData;
+}
+
+const { item } = Astro.props;
+---
+
+<article class="cast-item">
+  <h3 class="cast-item__name">
+    {item.name}
+  </h3>
+
+  <span class="cast-item__tag">
+    {item.tag}
+  </span>
+
+  <p class="cast-item__description">
+    {item.description}
+  </p>
+</article>
+
+
+--- File: characters.css ---
+.character-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: var(--space-6);
+}
+
+.char-card {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  min-height: 540px;
+  border: 1px solid rgba(200, 168, 75, 0.08);
+}
+
+.char-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(30%) contrast(1.05);
+  transition: filter 0.3s ease;
+}
+
+.char-card:hover .char-card__image {
+  filter: grayscale(0%) contrast(1.1);
+}
+
+.char-card__overlay {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: var(--space-6);
+
+  background: linear-gradient(
+    to top,
+    rgba(10, 9, 6, 0.97) 0%,
+    rgba(10, 9, 6, 0.72) 60%,
+    transparent 100%
+  );
+}
+
+.char-card__file {
+  display: block;
+  margin-bottom: var(--space-2);
+
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+
+  color: var(--color-amber);
+  opacity: 0.7;
+}
+
+.char-card__name {
+  margin-bottom: 0.15rem;
+
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-weight: 900;
+
+  color: var(--color-cream);
+}
+
+.char-card__role {
+  margin-bottom: var(--space-4);
+
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+
+  color: var(--color-muted);
+}
+
+.char-card__quote {
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--color-amber);
+
+  font-size: 0.9rem;
+  line-height: 1.7;
+  font-style: italic;
+
+  color: rgba(242, 234, 216, 0.65);
+}
+
+
+--- File: characters.ts ---
+/**
+ * Character component types.
+ */
+
+export interface CharacterCardData {
+  file: string;
+  name: string;
+  role: string;
+  quote: string;
+  image?: string;
+}
+
+export interface CastItemData {
+  name: string;
+  tag: string;
+  description: string;
+}
+
+

@@ -1,0 +1,19 @@
+---
+/**
+ * Comparison reference strip.
+ */
+
+import "./ui.css";
+
+import Tag from "./Tag.astro";
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="comp-strip">
+  {items.map((item) => <Tag>{item}</Tag>)}
+</div>

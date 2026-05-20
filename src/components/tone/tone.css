@@ -1,0 +1,23 @@
+/* tone-grid layout — kept here since it wraps Surface panels */
+.tone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.tone-panel {
+  display: flex;
+
+  gap: var(--space-1);
+}
+
+.tone-panel__tag {
+  display: flex;
+  padding: 0.5rem 0.5rem;
+  flex-direction: column;
+  font-family: var(--sans);
+  font-size: .675rem;
+  letter-spacing: 0.1rem;
+  color: var(--text-muted);
+  background: var(--accent-blue-subtle);
+}

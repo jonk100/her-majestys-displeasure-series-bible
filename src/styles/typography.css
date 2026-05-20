@@ -1,0 +1,83 @@
+body {
+  line-height: 1.5;
+}
+
+.eyebrow {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--accent-blue3);
+  opacity: 0.85;
+}
+
+.section-title {
+  margin-bottom: var(--space-5);
+
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 2rem + 3vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-subtle);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--text-accent-subtle);
+}
+
+.prose {
+  max-width: 870px;
+  font-size: var(--fs3);
+  line-height: clamp(1.5rem, 1.5rem + 3vw, 2rem);
+  font-family: var(--font-sans);
+  color: var(--text3);
+  margin-bottom: var(--space-4);
+}
+
+.prose + .prose {
+  margin-top: var(--space-4);
+}
+
+.prose strong {
+  font-weight: 500;
+  color: var(--color-cream);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+
+  color: var(--color-amber);
+}
+
+.heading-card {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.prose-muted {
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding: .5rem 1rem;
+  font-family: (var(--font-mono));
+  font-size: .9rem;
+
+}
+
+.heading-level-3 {
+  font-size: .875rem;
+}

@@ -1,0 +1,147 @@
+/* ─── CHARACTER PAIR GRID ─── */
+.character-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: var(--space-6);
+}
+
+/* ─── CARD ─── */
+.char-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg3);
+  min-height: 500px;
+  border: var(--border-faint);
+}
+
+.char-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(30%) contrast(1.05);
+  transition: filter 0.4s ease;
+}
+
+.char-card:hover .char-card__image {
+  filter: grayscale(0%) contrast(1.1);
+}
+
+/* ─── OVERLAY ─── */
+.char-card__overlay {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  bottom: 0;
+  padding: var(--space-3);
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.814) 0%,
+    rgba(10, 9, 6, 0.52) 50%,
+    transparent 100%
+  );
+}
+
+/* ─── FILE REFERENCE ─── */
+.char-card__file {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  background: var(--bg1);
+  opacity: .9;
+}
+
+/* ─── NAME ─── */
+.char-card__name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-weight: 800;
+  color: var(--text);
+  left: 0;
+  top: 30px;
+  position: absolute;
+  margin-left: var(--space-3);
+}
+
+/* ─── ROLE ─── */
+.char-card__role {
+  font-family: var(--font-mono);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: var(--space-2) var(--space-3);
+  font-size: .80rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--text-accent-dim);
+  background: var(--bg-subtle);
+}
+
+/* ─── QUOTE ─── */
+.char-card__quote {
+  padding: var(--space-3);
+  margin: 2.5rem 1rem;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  border-left: 2px solid var(--accent-blue3);
+  font-size: 1em;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--text5);
+  background: var(--accent-blue-subtle);
+}
+
+/* ─── CAST GRID ─── */
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: var(--space-6);
+  background: var(--border-faint);
+}
+
+.cast-item {
+  background: var(--bg3);
+  padding: var(--space-5);
+  border: var(--border-faint);
+}
+
+.cast-item__name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  color: var(--color-cream);
+}
+
+.cast-item__tag {
+  display: block;
+  margin-bottom: var(--space-3);
+
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+
+  color: var(--color-amber);
+  opacity: 0.6;
+}
+
+.cast-item__description {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(242, 234, 216, 0.55);
+}
