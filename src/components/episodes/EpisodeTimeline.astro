@@ -1,0 +1,21 @@
+---
+/**
+ * Episode timeline list.
+ */
+
+// styles are global; remove local CSS import to avoid missing file
+
+import EpisodeCard from "./EpisodeCard.astro";
+
+import type { Episode } from "@/types/episode";
+
+interface Props {
+  episodes: Episode[];
+}
+
+const { episodes } = Astro.props;
+---
+
+<div class="episode-timeline">
+  {episodes.map((episode) => <EpisodeCard episode={episode} />)}
+</div>

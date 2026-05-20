@@ -1,0 +1,25 @@
+---
+/**
+ * Episode tension indicator.
+ */
+
+// styles are global; remove local CSS import to avoid missing file
+
+interface Props {
+  width: number;
+  label: string;
+}
+
+const { width, label } = Astro.props;
+const fillWidth = Math.min(Math.max(Number(width) || 0, 0), 100);
+---
+
+<div class="tension-bar">
+  <div class="tension-bar__track">
+    <div class="tension-bar__fill" style={`width:${fillWidth}%`}></div>
+  </div>
+
+  <div class="tension-bar__label">
+    {label}
+  </div>
+</div>

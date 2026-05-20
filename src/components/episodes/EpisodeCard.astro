@@ -1,0 +1,39 @@
+---
+/**
+ * Individual episode card.
+ */
+
+// styles are global; remove local CSS import to avoid missing file
+
+import TensionBar from "./TensionBar.astro";
+
+import type { Episode } from "@/types/episode";
+
+interface Props {
+  episode: Episode;
+}
+
+const { episode } = Astro.props;
+---
+
+<article class="episode-card">
+  <div class="episode-card__number">
+    {episode.number}
+  </div>
+
+  <div class="episode-card__body">
+    <div class="episode-card__scenes">
+      {episode.scenes} · {episode.timeframe}
+    </div>
+
+    <h3 class="episode-card__title">
+      {episode.title}
+    </h3>
+
+    <p class="episode-card__summary">
+      {episode.summary}
+    </p>
+
+    <TensionBar width={episode.tension} label={episode.tensionLabel} />
+  </div>
+</article>
