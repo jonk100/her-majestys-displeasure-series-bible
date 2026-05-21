@@ -12,14 +12,20 @@ import Rule from "../components/typography/Rule.astro";
 import "@/styles/global.css";
 ---
 
-<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
-  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // COMMERCIAL LANDSCAPE" />
+<Layout
+  title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige"
+>
+  <ClassifiedBand
+    label="TOP SECRET — MI5 EXECUTIVE BRIEFING // COMMERCIAL LANDSCAPE"
+  />
 
   <!-- ─── PAGE HEADER ─── -->
   <Section variant="black" spacing="sm">
     <Container>
       <Eyebrow>Market Analysis</Eyebrow>
-      <Heading level={2} variant="section">Commercial <em>Landscape</em></Heading>
+      <Heading level={2} variant="section"
+        >Commercial <em>Landscape</em></Heading
+      >
       <Rule />
     </Container>
   </Section>
@@ -28,7 +34,12 @@ import "@/styles/global.css";
   <Section variant="paper" spacing="lg">
     <Container>
       <p class="prose">
-        <em>Her Majesty’s Displeasure</em> occupies a unique space in the current television landscape: a high-concept, prestige drama that blends the political satire of <em>The Thick of It</em> with the period production values of <em>The Crown</em>, all filtered through a distinctly British sense of absurdist fatalism.
+        <em>Her Majesty’s Displeasure</em> occupies a unique space in the current
+        television landscape: a high-concept, prestige drama that blends the political
+        satire of <em>The Thick of It</em> with the period production values of <em
+          >The Crown</em
+        >, all filtered through a distinctly British sense of absurdist
+        fatalism.
       </p>
     </Container>
   </Section>
@@ -43,11 +54,18 @@ import "@/styles/global.css";
       </div>
       <div class="comparison-body">
         <p class="prose">
-          Our structural and comedic baseline. Armando Iannucci's masterpiece proves audiences love watching powerful historical figures panic behind closed doors over trivial things. It establishes the tone of institutional absurdity we're going for.
+          Our structural and comedic baseline. Armando Iannucci's masterpiece
+          proves audiences love watching powerful historical figures panic
+          behind closed doors over trivial things. It establishes the tone of
+          institutional absurdity we're going for.
         </p>
       </div>
       <div class="comparison-image">
-        <img src="/thebeatles07.jpg" alt="The Death of Stalin poster" class="comp-image" />
+        <img
+          src="/deathofstalin.png"
+          alt="The Death of Stalin poster"
+          class="comp-image"
+        />
       </div>
     </div>
 
@@ -59,11 +77,19 @@ import "@/styles/global.css";
       </div>
       <div class="comparison-body">
         <p class="prose">
-          Our tonal framework for the intelligence world. Nigel Finch and Clive Barrow do not carry sleek gadgets or drive fast cars; they carry folders of stale expense reports and nurse a deep, quiet depression inside leaking basement offices. It roots our spy narrative in gritty, realistic, deeply British workplace humor.
+          Our tonal framework for the intelligence world. Nigel Finch and Clive
+          Barrow do not carry sleek gadgets or drive fast cars; they carry
+          folders of stale expense reports and nurse a deep, quiet depression
+          inside leaking basement offices. It roots our spy narrative in gritty,
+          realistic, deeply British workplace humor.
         </p>
       </div>
       <div class="comparison-image">
-        <img src="/thebeatles08.jpg" alt="Slow Horses poster" class="comp-image" />
+        <img
+          src="/slowhorses.jpg"
+          alt="Slow Horses poster"
+          class="comp-image"
+        />
       </div>
     </div>
 
@@ -75,11 +101,14 @@ import "@/styles/global.css";
       </div>
       <div class="comparison-body">
         <p class="prose">
-          Our visual and pacing north star. Steven Conrad’s masterpiece proved that an espionage thriller can utilize perfectly symmetrical, deadpan cinematography to amplify both intense loneliness and hilarious situational irony.
+          Our visual and pacing north star. Steven Conrad’s masterpiece proved
+          that an espionage thriller can utilize perfectly symmetrical, deadpan
+          cinematography to amplify both intense loneliness and hilarious
+          situational irony.
         </p>
       </div>
       <div class="comparison-image">
-        <img src="/thebeatles06.jpg" alt="Patriot poster" class="comp-image" />
+        <img src="/patriot.jpg" alt="Patriot poster" class="comp-image" />
       </div>
     </div>
   </div>
@@ -94,19 +123,28 @@ import "@/styles/global.css";
         <div class="audience-item">
           <div class="audience-icon">🎭</div>
           <h4>Core Viewers</h4>
-          <p>35-54 years old, educated, culturally engaged. Fans of historical drama, political satire, and British comedy.</p>
+          <p>
+            35-54 years old, educated, culturally engaged. Fans of historical
+            drama, political satire, and British comedy.
+          </p>
         </div>
 
         <div class="audience-item">
           <div class="audience-icon">🌍</div>
           <h4>International Appeal</h4>
-          <p>The Beatles' global legacy ensures built-in international interest, particularly in the UK, US, and Japan.</p>
+          <p>
+            The Beatles' global legacy ensures built-in international interest,
+            particularly in the UK, US, and Japan.
+          </p>
         </div>
 
         <div class="audience-item">
           <div class="audience-icon">📈</div>
           <h4>Streaming Potential</h4>
-          <p>Bingeworthy, episode-by-episode escalation with high rewatchability for its layered satire and historical details.</p>
+          <p>
+            Bingeworthy, episode-by-episode escalation with high rewatchability
+            for its layered satire and historical details.
+          </p>
         </div>
       </div>
     </Container>
@@ -136,7 +174,9 @@ import "@/styles/global.css";
     border: 1px solid var(--border-soft);
     border-radius: var(--radius);
     padding: var(--space-4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
   .comparison-card:hover {
@@ -154,7 +194,7 @@ import "@/styles/global.css";
 
   .comparison-label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: var(--fs1);
     font-weight: 800;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
