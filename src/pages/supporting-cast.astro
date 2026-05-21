@@ -7,11 +7,14 @@ import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
+import PitchDeckNav from "@/components/ui/PitchDeckNav.astro";
 import "@/styles/global.css";
 ---
 
 <Layout title="MI5 Interception Log — Supporting Cast Profiles">
-  <ClassifiedBand label="TOP SECRET — MI5 INTERCEPTION LOG // SPECIAL INTEREST SUB-FILES" />
+  <ClassifiedBand
+    label="TOP SECRET — MI5 INTERCEPTION LOG // SPECIAL INTEREST SUB-FILES"
+  />
 
   <!-- ─── PAGE HEADER ─── -->
   <Section variant="black" spacing="sm">
@@ -29,14 +32,14 @@ import "@/styles/global.css";
 
   <!-- ─── 2×2 GRID ─── -->
   <div class="supporting-grid">
-
     <!-- ═══════════════════════════════════════════ -->
     <!-- PAUL MCCARTNEY — TOP LEFT -->
     <!-- ═══════════════════════════════════════════ -->
     <div class="profile-card profile-card--paul">
       <!-- MI5 Field Log header -->
       <div class="section-band">
-        <pre class="section-header">
+        <pre
+          class="section-header">
 ----------------------------------------------------------------------------------------
 MI5 FIELD LOG // COVERT PSYCHOLOGICAL NUDGES
 THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
@@ -55,12 +58,15 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
           <div class="photo-label">CALENDAR // TIMELINE // ORGANIZER</div>
         </div>
 
-        <h3 class="card-name">PAUL MCCARTNEY <span class="card-subtitle">// The Unwitting Diplomat</span></h3>
+        <h3 class="card-name">
+          PAUL MCCARTNEY <span class="card-subtitle"
+            >// The Unwitting Diplomat</span>
+        </h3>
 
         <blockquote class="card-quote">
-          "We just need to organize a bit, lads. Set a schedule. We're a
-          family, aren't we? If we just show up at nine every morning, we can
-          patch this all up before tea."
+          "We just need to organize a bit, lads. Set a schedule. We're a family,
+          aren't we? If we just show up at nine every morning, we can patch this
+          all up before tea."
         </blockquote>
 
         <div class="profile-section">
@@ -76,10 +82,10 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
         <div class="profile-section">
           <span class="section-label">The Threat Profile</span>
           <p>
-            <strong>High Operational Stability.</strong> Paul is the engine
-            keeping the Beatles alive. If he succeeds in organizing the band,
-            their soft-power cultural influence will endure indefinitely. To
-            defeat the band, MI5 knows they must break Paul's spirit.
+            <strong>High Operational Stability.</strong> Paul is the engine keeping
+            the Beatles alive. If he succeeds in organizing the band, their soft-power
+            cultural influence will endure indefinitely. To defeat the band, MI5 knows
+            they must break Paul's spirit.
           </p>
         </div>
 
@@ -89,14 +95,16 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
             In 1969, Nigel Finch exploits Paul's hidden establishment anxieties
             by forging a classified palace memo hinting that the Queen intends
             to bypass John and offer Paul a solo knighthood. Flattered but
-            deeply suspicious, Paul completely misinterprets the landscape
-            — wrongly accusing Yoko Ono of orchestrating a plot to divide the
+            deeply suspicious, Paul completely misinterprets the landscape —
+            wrongly accusing Yoko Ono of orchestrating a plot to divide the
             band, entirely blind to the MI5 agents pulling the strings.
           </p>
         </div>
 
         <!-- Tug-of-war center memo -->
-        <div class="memo-ribbon">AXIS OF CREATIVE DIVISION: RE-ROUTE OPERATIVE RESOURCES</div>
+        <div class="memo-ribbon">
+          AXIS OF CREATIVE DIVISION: RE-ROUTE OPERATIVE RESOURCES
+        </div>
       </div>
     </div>
 
@@ -106,7 +114,8 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
     <div class="profile-card profile-card--george">
       <!-- same MI5 header -->
       <div class="section-band">
-        <pre class="section-header">
+        <pre
+          class="section-header">
 ----------------------------------------------------------------------------------------
 MI5 FIELD LOG // COVERT PSYCHOLOGICAL NUDGES
 THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
@@ -125,7 +134,10 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
           <div class="photo-label">INCENSE // SANSKRIT // FREQUENCY SHIFT</div>
         </div>
 
-        <h3 class="card-name card-name--george">GEORGE HARRISON <span class="card-subtitle">// The Spiritual Escape Pod</span></h3>
+        <h3 class="card-name card-name--george">
+          GEORGE HARRISON <span class="card-subtitle"
+            >// The Spiritual Escape Pod</span>
+        </h3>
 
         <blockquote class="card-quote card-quote--george">
           "It's all just maya, anyway. Illusion. We're shouting at each other
@@ -136,28 +148,27 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
         <div class="profile-section">
           <span class="section-label">The Stance</span>
           <p>
-            Meditative, creatively stifled, and increasingly distant. Armed
-            with a newly acquired sitar, an obsession with Eastern mysticism,
-            and a growing resentment toward the Lennon-McCartney songwriting
-            monopoly.
+            Meditative, creatively stifled, and increasingly distant. Armed with
+            a newly acquired sitar, an obsession with Eastern mysticism, and a
+            growing resentment toward the Lennon-McCartney songwriting monopoly.
           </p>
         </div>
 
         <div class="profile-section">
           <span class="section-label">The Threat Profile</span>
           <p>
-            <strong>Accidental Revolutionary.</strong> George doesn't care
-            about the British Empire or the Crown; he just wants creative
-            respect. Yet, his journey into avant-garde spiritualism makes him
-            the easiest wedge for intelligence operations to exploit.
+            <strong>Accidental Revolutionary.</strong> George doesn't care about the
+            British Empire or the Crown; he just wants creative respect. Yet, his
+            journey into avant-garde spiritualism makes him the easiest wedge for
+            intelligence operations to exploit.
           </p>
         </div>
 
         <div class="profile-section">
           <span class="section-label">The Comedic Feedback Loop</span>
           <p>
-            George is the victim of the show's funniest backfire. To isolate
-            him from the band, Nigel Finch clumsily plants a text on Indian
+            George is the victim of the show's funniest backfire. To isolate him
+            from the band, Nigel Finch clumsily plants a text on Indian
             philosophy on George's amplifier. Instead of neutralizing him, the
             nudge works <em>too well</em>: it triggers George's lifelong
             devotion to the sitar and Eastern faith, introducing an entirely
@@ -167,7 +178,9 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
         </div>
 
         <!-- Same memo ribbon -->
-        <div class="memo-ribbon memo-ribbon--george">AXIS OF CREATIVE DIVISION: RE-ROUTE OPERATIVE RESOURCES</div>
+        <div class="memo-ribbon memo-ribbon--george">
+          AXIS OF CREATIVE DIVISION: RE-ROUTE OPERATIVE RESOURCES
+        </div>
       </div>
     </div>
 
@@ -176,7 +189,8 @@ THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE
     <!-- ═══════════════════════════════════════════ -->
     <div class="profile-card profile-card--brian">
       <div class="section-band section-band--faded">
-        <pre class="section-header">
+        <pre
+          class="section-header">
 ----------------------------------------------------------------------------------------
 MI5 INTERCEPTION LOG // SPECIAL INTEREST SUB-FILES
 THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
@@ -192,10 +206,15 @@ THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
             alt="Brian Epstein — Deceased Asset"
             loading="lazy"
           />
-          <div class="photo-label">DECEASED // FILE CLOSED // SHIELD TERMINATED</div>
+          <div class="photo-label">
+            DECEASED // FILE CLOSED // SHIELD TERMINATED
+          </div>
         </div>
 
-        <h3 class="card-name">BRIAN EPSTEIN <span class="card-subtitle">// The Vulnerable Shield</span></h3>
+        <h3 class="card-name">
+          BRIAN EPSTEIN <span class="card-subtitle"
+            >// The Vulnerable Shield</span>
+        </h3>
 
         <blockquote class="card-quote">
           "The press will be here any moment. We simply cannot afford another…
@@ -216,10 +235,10 @@ THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
         <div class="profile-section">
           <span class="section-label">The Threat Profile</span>
           <p>
-            <strong>The Ultimate Fortress.</strong> As long as "Eppy" manages
-            the band's finances and protects their public image, MI5 cannot
-            penetrate their inner circle. He is the sophisticated mediator
-            standing between working-class genius and upper-class malice.
+            <strong>The Ultimate Fortress.</strong> As long as "Eppy" manages the
+            band's finances and protects their public image, MI5 cannot penetrate
+            their inner circle. He is the sophisticated mediator standing between
+            working-class genius and upper-class malice.
           </p>
         </div>
 
@@ -235,7 +254,7 @@ THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
         </div>
 
         <!-- Ink stamp -->
-        <div class="ink-stamp">VALUED PROTECTOR<br/>TERMINATED</div>
+        <div class="ink-stamp">VALUED PROTECTOR<br />TERMINATED</div>
       </div>
     </div>
 
@@ -244,7 +263,8 @@ THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
     <!-- ═══════════════════════════════════════════ -->
     <div class="profile-card profile-card--ringo">
       <div class="section-band">
-        <pre class="section-header">
+        <pre
+          class="section-header">
 ----------------------------------------------------------------------------------------
 MI5 INTERCEPTION LOG // SPECIAL INTEREST SUB-FILES
 THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
@@ -263,7 +283,10 @@ THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
           <div class="photo-label">IMMUNE // NO USEFUL NEUROSES</div>
         </div>
 
-        <h3 class="card-name card-name--ringo">RINGO STARR <span class="card-subtitle">// The Un-Spayable Anchor</span></h3>
+        <h3 class="card-name card-name--ringo">
+          RINGO STARR <span class="card-subtitle"
+            >// The Un-Spayable Anchor</span>
+        </h3>
 
         <blockquote class="card-quote card-quote--ringo">
           "I just want to play the drums, look after my mates, and make sure
@@ -283,10 +306,10 @@ THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
         <div class="profile-section">
           <span class="section-label">The Threat Profile</span>
           <p>
-            <strong>Absolute Immunity.</strong> Ringo is the ultimate
-            cryptographic nightmare for MI5. Because he has zero political
-            ambition, no existential crises, and no desire for creative control,
-            he is entirely immune to psychological warfare.
+            <strong>Absolute Immunity.</strong> Ringo is the ultimate cryptographic
+            nightmare for MI5. Because he has zero political ambition, no existential
+            crises, and no desire for creative control, he is entirely immune to psychological
+            warfare.
           </p>
         </div>
 
@@ -304,301 +327,304 @@ THE IMMACULATE SHIELD VS. THE IMMUNE ANCHOR
         </div>
 
         <!-- Diagnostic stamp -->
-        <div class="ink-stamp ink-stamp--ringo">EVALUATION:<br/>NO USEFUL NEUROSES<br/>IDENTIFIED: UN-MANIPULABLE</div>
+        <div class="ink-stamp ink-stamp--ringo">
+          EVALUATION:<br />NO USEFUL NEUROSES<br />IDENTIFIED: UN-MANIPULABLE
+        </div>
       </div>
     </div>
-
   </div>
 
+  <PitchDeckNav current="/supporting-cast" /> 
   <!-- ─── FOOTER ─── -->
-  <Footer />
-</Layout>
+    <Footer />
+  </PitchDeckNav>
 
-<style>
-  /* ─── PAGE INTRO ─── */
-  .page-intro {
-    text-align: center;
-    max-width: 650px;
-    margin-inline: auto;
-    color: var(--text-muted);
-  }
+  <style>
+    /* ─── PAGE INTRO ─── */
+    .page-intro {
+      text-align: center;
+      max-width: 650px;
+      margin-inline: auto;
+      color: var(--text-muted);
+    }
 
-  /* ─── 2×2 GRID ─── */
-  .supporting-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: var(--bg);
-  }
-
-  /* ─── PROFILE CARD ─── */
-  .profile-card {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .profile-card--paul {
-    background: var(--bg2);
-  }
-
-  .profile-card--george {
-    background: var(--bg1);
-  }
-
-  .profile-card--brian {
-    background: var(--bg3);
-  }
-
-  .profile-card--ringo {
-    background: var(--bg2);
-  }
-
-  .card-inner {
-    padding: var(--space-4) var(--space-4);
-  }
-
-  /* ─── SECTION BAND ─── */
-  .section-band {
-    background: var(--bg);
-    padding: var(--space-2) var(--space-3);
-    border-bottom: 2px solid var(--bg4);
-  }
-
-  .section-band--faded {
-    opacity: 0.6;
-  }
-
-  .section-header {
-    font-family: var(--font-mono);
-    font-size: 0.5rem;
-    line-height: 1.5;
-    color: var(--accent-blue);
-    letter-spacing: 0.03rem;
-    white-space: pre-wrap;
-    overflow: hidden;
-    margin: 0;
-  }
-
-  .profile-card--george .section-header {
-    color: var(--text-muted);
-  }
-
-  .profile-card--brian .section-header,
-  .profile-card--ringo .section-header {
-    color: var(--color-amber);
-  }
-
-  /* ─── PHOTO FRAME ─── */
-  .photo-frame {
-    position: relative;
-    margin-bottom: var(--space-3);
-    overflow: hidden;
-    border: 1px solid var(--bg4);
-  }
-
-  .photo-frame--faded {
-    opacity: 0.5;
-  }
-
-  .portrait-photo {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .portrait-photo--faded {
-    filter: grayscale(100%) brightness(0.5);
-  }
-
-  .photo-label {
-    position: absolute;
-    bottom: var(--space-1);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #111;
-    color: #888;
-    font-family: var(--font-mono);
-    font-size: 0.5rem;
-    font-weight: 700;
-    letter-spacing: 0.12rem;
-    padding: 3px 10px;
-    text-transform: uppercase;
-    border: 1px solid #333;
-    white-space: nowrap;
-  }
-
-  .profile-card--george .photo-label {
-    background: #1a1520;
-    color: var(--text-muted);
-  }
-
-  .profile-card--ringo .photo-label {
-    color: var(--accent-blue);
-    border-color: var(--accent-blue);
-  }
-
-  /* ─── NAME ─── */
-  .card-name {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 1.8vw, 1.4rem);
-    font-weight: 800;
-    color: var(--text1);
-    margin: 0 0 var(--space-1);
-    letter-spacing: 0.02rem;
-  }
-
-  .card-name--george {
-    color: var(--text3);
-  }
-
-  .card-name--ringo {
-    color: var(--accent-blue);
-  }
-
-  .card-subtitle {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    font-weight: 400;
-    color: var(--accent-blue);
-    letter-spacing: 0.05rem;
-    display: block;
-    margin-top: 2px;
-  }
-
-  .profile-card--george .card-subtitle {
-    color: var(--text-muted);
-  }
-
-  .profile-card--ringo .card-subtitle {
-    color: var(--accent-blue);
-  }
-
-  /* ─── QUOTE ─── */
-  .card-quote {
-    border-left: 2px solid var(--accent-blue);
-    padding: var(--space-1) var(--space-2);
-    margin: var(--space-2) 0;
-    font-size: 0.72rem;
-    line-height: 1.5;
-    font-style: italic;
-    color: var(--text4);
-    background: var(--accent-blue-subtle);
-  }
-
-  .card-quote--george {
-    border-left-color: var(--text-muted);
-    background: rgba(107, 109, 107, 0.08);
-    color: var(--text5);
-  }
-
-  .card-quote--ringo {
-    border-left-color: var(--accent-blue);
-    color: var(--text4);
-  }
-
-  /* ─── PROFILE SECTIONS ─── */
-  .profile-section {
-    margin-bottom: var(--space-3);
-  }
-
-  .section-label {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.5rem;
-    font-weight: 700;
-    letter-spacing: 0.18rem;
-    text-transform: uppercase;
-    color: var(--accent-blue);
-    border-bottom: 1px solid var(--border-faint);
-    padding-bottom: 2px;
-    margin-bottom: var(--space-1);
-  }
-
-  .profile-card--george .section-label {
-    color: var(--text-muted);
-  }
-
-  .profile-card--brian .section-label,
-  .profile-card--ringo .section-label {
-    color: var(--color-amber);
-  }
-
-  .profile-section p {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    line-height: 1.5;
-    color: var(--text5);
-    margin: 0;
-  }
-
-  .profile-section strong {
-    color: var(--text3);
-  }
-
-  /* ─── MEMO RIBBON ─── */
-  .memo-ribbon {
-    font-family: var(--font-mono);
-    font-size: 0.55rem;
-    font-weight: 700;
-    letter-spacing: 0.15rem;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 6px var(--space-2);
-    margin-top: var(--space-3);
-    border: 1px dashed var(--accent-blue);
-    color: var(--accent-blue);
-    background: rgba(10, 33, 60, 0.3);
-  }
-
-  .memo-ribbon--george {
-    border-color: var(--text-muted);
-    color: var(--text-muted);
-    background: rgba(107, 109, 107, 0.1);
-  }
-
-  /* ─── INK STAMP ─── */
-  .ink-stamp {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    font-weight: 900;
-    letter-spacing: 0.12rem;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.3;
-    padding: 5px 10px;
-    border: 3px solid var(--color-red);
-    color: var(--color-red);
-    transform: rotate(-12deg);
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .ink-stamp--ringo {
-    border-color: var(--accent-blue);
-    color: var(--accent-blue);
-    font-size: 0.5rem;
-  }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
+    /* ─── 2×2 GRID ─── */
     .supporting-grid {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--bg);
+    }
+
+    /* ─── PROFILE CARD ─── */
+    .profile-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card--paul {
+      background: var(--bg2);
+    }
+
+    .profile-card--george {
+      background: var(--bg1);
+    }
+
+    .profile-card--brian {
+      background: var(--bg3);
+    }
+
+    .profile-card--ringo {
+      background: var(--bg2);
+    }
+
+    .card-inner {
+      padding: var(--space-4) var(--space-4);
+    }
+
+    /* ─── SECTION BAND ─── */
+    .section-band {
+      background: var(--bg);
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 2px solid var(--bg4);
+    }
+
+    .section-band--faded {
+      opacity: 0.6;
+    }
+
+    .section-header {
+      font-family: var(--font-mono);
+      font-size: var(--fs1);
+      line-height: 1.5;
+      color: var(--accent-blue);
+      letter-spacing: 0.03rem;
+      white-space: pre-wrap;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .profile-card--george .section-header {
+      color: var(--text-muted);
+    }
+
+    .profile-card--brian .section-header,
+    .profile-card--ringo .section-header {
+      color: var(--color-amber);
+    }
+
+    /* ─── PHOTO FRAME ─── */
+    .photo-frame {
+      position: relative;
+      margin-bottom: var(--space-3);
+      overflow: hidden;
+      border: 1px solid var(--bg4);
+    }
+
+    .photo-frame--faded {
+      opacity: 0.5;
+    }
+
+    .portrait-photo {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portrait-photo--faded {
+      filter: grayscale(100%) brightness(0.5);
     }
 
     .photo-label {
-      font-size: 0.45rem;
-      white-space: normal;
+      position: absolute;
+      bottom: var(--space-1);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111;
+      color: #888;
+      font-family: var(--font-mono);
+      font-size: var(--fs1);
+      font-weight: 700;
+      letter-spacing: 0.12rem;
+      padding: 3px 10px;
+      text-transform: uppercase;
+      border: 1px solid #333;
+      white-space: nowrap;
     }
 
-    .ink-stamp {
-      bottom: 10px;
-      right: 10px;
-      font-size: 0.5rem;
+    .profile-card--george .photo-label {
+      background: #1a1520;
+      color: var(--text-muted);
     }
-  }
-</style>
+
+    .profile-card--ringo .photo-label {
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    /* ─── NAME ─── */
+    .card-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.8vw, 1.4rem);
+      font-weight: 800;
+      color: var(--text1);
+      margin: 0 0 var(--space-1);
+      letter-spacing: 0.02rem;
+    }
+
+    .card-name--george {
+      color: var(--text3);
+    }
+
+    .card-name--ringo {
+      color: var(--accent-blue);
+    }
+
+    .card-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: var(--accent-blue);
+      letter-spacing: 0.05rem;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .profile-card--george .card-subtitle {
+      color: var(--text-muted);
+    }
+
+    .profile-card--ringo .card-subtitle {
+      color: var(--accent-blue);
+    }
+
+    /* ─── QUOTE ─── */
+    .card-quote {
+      border-left: 2px solid var(--accent-blue);
+      padding: var(--space-1) var(--space-2);
+      margin: var(--space-2) 0;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: var(--text4);
+      background: var(--accent-blue-subtle);
+    }
+
+    .card-quote--george {
+      border-left-color: var(--text-muted);
+      background: rgba(107, 109, 107, 0.08);
+      color: var(--text5);
+    }
+
+    .card-quote--ringo {
+      border-left-color: var(--accent-blue);
+      color: var(--text4);
+    }
+
+    /* ─── PROFILE SECTIONS ─── */
+    .profile-section {
+      margin-bottom: var(--space-3);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--fs1);
+      font-weight: 700;
+      letter-spacing: 0.18rem;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      border-bottom: 1px solid var(--border-faint);
+      padding-bottom: 2px;
+      margin-bottom: var(--space-1);
+    }
+
+    .profile-card--george .section-label {
+      color: var(--text-muted);
+    }
+
+    .profile-card--brian .section-label,
+    .profile-card--ringo .section-label {
+      color: var(--color-amber);
+    }
+
+    .profile-section p {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--text5);
+      margin: 0;
+    }
+
+    .profile-section strong {
+      color: var(--text3);
+    }
+
+    /* ─── MEMO RIBBON ─── */
+    .memo-ribbon {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.15rem;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 6px var(--space-2);
+      margin-top: var(--space-3);
+      border: 1px dashed var(--accent-blue);
+      color: var(--accent-blue);
+      background: rgba(10, 33, 60, 0.3);
+    }
+
+    .memo-ribbon--george {
+      border-color: var(--text-muted);
+      color: var(--text-muted);
+      background: rgba(107, 109, 107, 0.1);
+    }
+
+    /* ─── INK STAMP ─── */
+    .ink-stamp {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 900;
+      letter-spacing: 0.12rem;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.3;
+      padding: 5px 10px;
+      border: 3px solid var(--color-red);
+      color: var(--color-red);
+      transform: rotate(-12deg);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .ink-stamp--ringo {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      font-size: var(--fs1);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .supporting-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-label {
+        font-size: 0.45rem;
+        white-space: normal;
+      }
+
+      .ink-stamp {
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.5rem;
+      }
+    }
+  </style></Layout
+>

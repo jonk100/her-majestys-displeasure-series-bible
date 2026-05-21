@@ -7,14 +7,17 @@ import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
+import PitchDeckNav from "@/components/ui/PitchDeckNav.astro";
 import "@/styles/global.css";
 ---
 
 <Layout title="MI5 Monitoring Station — Core Frequency Anomaly">
-  <ClassifiedBand label="TOP SECRET — MI5 MONITORING STATION // CORE FREQUENCY ANOMALY" />
+  <ClassifiedBand
+    label="TOP SECRET — MI5 MONITORING STATION // CORE FREQUENCY ANOMALY"
+  />
 
   <!-- ─── PAGE HEADER ─── -->
-  <Section variant="black" spacing="sm">
+  <Section variant="black" spacing="md">
     <Container>
       <Eyebrow>Central Collision</Eyebrow>
       <Heading level={2} variant="section">The <em>Battleground</em></Heading>
@@ -29,7 +32,8 @@ import "@/styles/global.css";
 
   <!-- ─── MONITORING STATION HEADER ─── -->
   <div class="monitoring-band">
-    <pre class="monitoring-header">
+    <pre
+      class="monitoring-header">
 ----------------------------------------------------------------------------------------
 MI5 MONITORING STATION // CORE FREQUENCY ANOMALY
 THE REBELLION VS. THE CROWN
@@ -57,7 +61,11 @@ THE REBELLION VS. THE CROWN
         <div class="photo-label">ABBEY ROAD // RECORDING TAPE BOX</div>
       </div>
 
-      <h3 class="collision-name">JOHN LENNON <span class="collision-subtitle">// The Unintentional Anarchist</span></h3>
+      <h3 class="collision-name">
+        JOHN LENNON <span class="collision-subtitle"
+          >// The Unintentional Anarchist</span
+        >
+      </h3>
 
       <blockquote class="collision-quote">
         "We are where we are, lads. Best be relaxed. We're about to get medals.
@@ -77,11 +85,10 @@ THE REBELLION VS. THE CROWN
       <div class="profile-section">
         <span class="section-label">The Threat Profile</span>
         <p>
-          <strong>High Cultural Authority.</strong> John isn't trying to
-          overthrow the government; he's just naturally skeptical of royal pomp.
-          But to a rigid establishment, his casual, effortless influence over
-          millions of youth makes him look more dangerous than an army of
-          foreign agents.
+          <strong>High Cultural Authority.</strong> John isn't trying to overthrow
+          the government; he's just naturally skeptical of royal pomp. But to a rigid
+          establishment, his casual, effortless influence over millions of youth makes
+          him look more dangerous than an army of foreign agents.
         </p>
       </div>
 
@@ -91,8 +98,8 @@ THE REBELLION VS. THE CROWN
           Stumbles into a multi-year psychological war he doesn't know he's
           fighting. Every time MI5 tries to subtle-sabotage him, his music just
           gets sharper, weirder, and more radicalized — culminating in the
-          ultimate act of defiance: returning his actual MBE medal to
-          Buckingham Palace.
+          ultimate act of defiance: returning his actual MBE medal to Buckingham
+          Palace.
         </p>
       </div>
 
@@ -100,23 +107,22 @@ THE REBELLION VS. THE CROWN
         <span class="section-label">The Comedy DNA</span>
         <ul class="agent-list">
           <li>
-            <strong>The Unwitting Catalyst:</strong> John's "killing people"
-            comment at the MBE ceremony is pure working-class irreverence, not
-            calculated political protest. He has no idea he just made the most
-            powerful enemy of his life.
+            <strong>The Unwitting Catalyst:</strong> John's "killing people" comment
+            at the MBE ceremony is pure working-class irreverence, not calculated
+            political protest. He has no idea he just made the most powerful enemy
+            of his life.
           </li>
           <li>
-            <strong>The Inverse Feedback Loop:</strong> Every MI5 manipulation
-            designed to destroy him — the "Jesus" controversy amplification,
-            the media hostility, the institutional pressure — pushes him
-            further into radicalization. The conspiracy creates the very threat
-            it was designed to neutralize.
+            <strong>The Inverse Feedback Loop:</strong> Every MI5 manipulation designed
+            to destroy him — the "Jesus" controversy amplification, the media hostility,
+            the institutional pressure — pushes him further into radicalization. The
+            conspiracy creates the very threat it was designed to neutralize.
           </li>
           <li>
-            <strong>The Accidental Radical:</strong> His genuine political
-            awakening — driven by authentic conviction and primal therapy — is
-            also partially the product of the very conspiracy designed to
-            destroy him. Dramatic irony as the engine of tragedy.
+            <strong>The Accidental Radical:</strong> His genuine political awakening
+            — driven by authentic conviction and primal therapy — is also partially
+            the product of the very conspiracy designed to destroy him. Dramatic irony
+            as the engine of tragedy.
           </li>
         </ul>
       </div>
@@ -126,8 +132,8 @@ THE REBELLION VS. THE CROWN
         <p>
           Torn between his desire for peace and his naturally combative
           personality. He preaches love and understanding while being quick to
-          anger and harsh judgment. This contradiction makes him vulnerable
-          — he genuinely wants to make the world better but his methods often
+          anger and harsh judgment. This contradiction makes him vulnerable — he
+          genuinely wants to make the world better but his methods often
           alienate the very people he needs to reach. He's caught between
           loyalty to The Beatles (his artistic family) and his growing need for
           individual expression. Every choice that serves his personal growth
@@ -140,10 +146,10 @@ THE REBELLION VS. THE CROWN
         <p>
           Abandonment anxiety (father left, mother died, band fracturing).
           Impostor syndrome despite massive success. Susceptible to paranoia
-          when under pressure. Self-destructive tendencies when feeling
-          trapped. And a deep-seated need for authenticity in an increasingly
-          artificial world — a need that makes him both impossible to control
-          and dangerously predictable to those who understand it.
+          when under pressure. Self-destructive tendencies when feeling trapped.
+          And a deep-seated need for authenticity in an increasingly artificial
+          world — a need that makes him both impossible to control and
+          dangerously predictable to those who understand it.
         </p>
       </div>
 
@@ -151,27 +157,25 @@ THE REBELLION VS. THE CROWN
         <span class="section-label">The Narrative Arc — Three Acts</span>
         <ul class="agent-list">
           <li>
-            <strong>1965 — The Unwitting Catalyst:</strong> John's casual
-            "killing people" quip at the MBE ceremony is pure instinct, not
-            rebellion. He's uncomfortable with royal formality but hasn't yet
-            developed the political consciousness that will define his later
-            years. His casual disrespect unknowingly triggers Philip's
-            five-year vendetta.
+            <strong>1965 — The Unwitting Catalyst:</strong> John's casual "killing
+            people" quip at the MBE ceremony is pure instinct, not rebellion. He's
+            uncomfortable with royal formality but hasn't yet developed the political
+            consciousness that will define his later years. His casual disrespect
+            unknowingly triggers Philip's five-year vendetta.
           </li>
           <li>
-            <strong>1968 — The Manipulated Radical:</strong> Operation Minuet's
-            psychological campaign amplifies every controversy around him. The
-            "Jesus" firestorm, media hostility, institutional pressure — all
-            orchestrated or amplified by MI5. His growing political awareness
-            is genuine but partially manufactured. He becomes the radical
-            Philip needs him to be.
+            <strong>1968 — The Manipulated Radical:</strong> Operation Minuet's psychological
+            campaign amplifies every controversy around him. The "Jesus" firestorm,
+            media hostility, institutional pressure — all orchestrated or amplified
+            by MI5. His growing political awareness is genuine but partially manufactured.
+            He becomes the radical Philip needs him to be.
           </li>
           <li>
-            <strong>1970 — The Defiant Survivor:</strong> Returns his MBE.
-            Survives an assassination attempt he never knows about. The Beatles
-            dissolve through their own dynamics, not Philip's design. He walks
-            away free, never learning how close he came to death or that his
-            political journey was partially a puppet show. Survival as victory.
+            <strong>1970 — The Defiant Survivor:</strong> Returns his MBE. Survives
+            an assassination attempt he never knows about. The Beatles dissolve through
+            their own dynamics, not Philip's design. He walks away free, never learning
+            how close he came to death or that his political journey was partially
+            a puppet show. Survival as victory.
           </li>
         </ul>
       </div>
@@ -192,10 +196,16 @@ THE REBELLION VS. THE CROWN
           loading="lazy"
         />
         <div class="royal-border" aria-hidden="true"></div>
-        <div class="photo-label photo-label--queen">BUCKINGHAM PALACE // OFFICIAL PORTRAIT</div>
+        <div class="photo-label photo-label--queen">
+          BUCKINGHAM PALACE // OFFICIAL PORTRAIT
+        </div>
       </div>
 
-      <h3 class="collision-name collision-name--queen">HER MAJESTY THE QUEEN <span class="collision-subtitle">// The Oblivious Institution</span></h3>
+      <h3 class="collision-name collision-name--queen">
+        HER MAJESTY THE QUEEN <span class="collision-subtitle"
+          >// The Oblivious Institution</span
+        >
+      </h3>
 
       <blockquote class="collision-quote collision-quote--queen">
         "They seem like very polite young men, Philip. The short one with the
@@ -206,9 +216,9 @@ THE REBELLION VS. THE CROWN
       <div class="profile-section">
         <span class="section-label">The Stance</span>
         <p>
-          Perfectly poised, completely unbothered, and utterly detached from
-          the panic brewing in her own basement. Armed with inherited centuries
-          of tradition, absolute social grace, and a genuine indifference to
+          Perfectly poised, completely unbothered, and utterly detached from the
+          panic brewing in her own basement. Armed with inherited centuries of
+          tradition, absolute social grace, and a genuine indifference to
           rock-and-roll.
         </p>
       </div>
@@ -216,10 +226,10 @@ THE REBELLION VS. THE CROWN
       <div class="profile-section">
         <span class="section-label">The Threat Profile</span>
         <p>
-          <strong>Absolute Institutional Weight.</strong> She represents the
-          massive, immovable iceberg of the British Empire. She doesn't dislike
-          the Beatles; she graciously hands them their medals because her Prime
-          Minister told her to.
+          <strong>Absolute Institutional Weight.</strong> She represents the massive,
+          immovable iceberg of the British Empire. She doesn't dislike the Beatles;
+          she graciously hands them their medals because her Prime Minister told her
+          to.
         </p>
       </div>
 
@@ -230,9 +240,9 @@ THE REBELLION VS. THE CROWN
           Philip uses the entire apparatus of MI5 to protect her honor from
           Lennon's "rebellion," Her Majesty remains blissfully unaware of the
           multi-million dollar conspiracy operating in her name. She treats the
-          Beatles like a passing weather system, entirely blind to the fact
-          that her husband has turned her palace into a paranoid cold-war
-          command center.
+          Beatles like a passing weather system, entirely blind to the fact that
+          her husband has turned her palace into a paranoid cold-war command
+          center.
         </p>
       </div>
 
@@ -240,25 +250,22 @@ THE REBELLION VS. THE CROWN
         <span class="section-label">The Comedy DNA</span>
         <ul class="agent-list">
           <li>
-            <strong>The Oblivious Iceberg:</strong> The Queen is the
-            massive, immovable institution — while Philip rages and
-            Mountbatten schemes downstairs, she's signing state papers
-            and asking about the corgis. The entire conspiracy operates
-            in a building whose owner has no idea it exists.
+            <strong>The Oblivious Iceberg:</strong> The Queen is the massive, immovable
+            institution — while Philip rages and Mountbatten schemes downstairs, she's
+            signing state papers and asking about the corgis. The entire conspiracy
+            operates in a building whose owner has no idea it exists.
           </li>
           <li>
-            <strong>The Flat Arc:</strong> She maintains absolute
-            consistency while everyone around her spirals. Her presence
-            at Committee meetings serves as both legitimacy and restraint
-            — she contributes hilariously mundane counterpoints to
-            Mountbatten's psychological warfare briefings (questioning
+            <strong>The Flat Arc:</strong> She maintains absolute consistency while
+            everyone around her spirals. Her presence at Committee meetings serves
+            as both legitimacy and restraint — she contributes hilariously mundane
+            counterpoints to Mountbatten's psychological warfare briefings (questioning
             budgets, suggesting tea service protocols).
           </li>
           <li>
-            <strong>The Final Judgment:</strong> Her one scene of moral
-            weight — a look, not a speech — delivers the series'
-            verdict. Patience defeats everything. The institution endures
-            not by acting, but by refusing to.
+            <strong>The Final Judgment:</strong> Her one scene of moral weight — a
+            look, not a speech — delivers the series' verdict. Patience defeats everything.
+            The institution endures not by acting, but by refusing to.
           </li>
         </ul>
       </div>
@@ -266,15 +273,15 @@ THE REBELLION VS. THE CROWN
       <div class="profile-section">
         <span class="section-label">The Motivation</span>
         <p>
-          Her overriding motivation is <strong>institutional
-          preservation</strong>. She views the monarchy as a thousand-year
-          institution that must outlast any individual crisis, including
-          her husband's wounded pride. John's 1965 comment is, to her, a
-          momentary irritation that will be forgotten if ignored, but
-          could become a lasting scandal if mishandled. Her secondary
-          motivation is managing Philip's escalating obsession — by
-          participating in the Committee, she hopes to moderate his
-          impulses and prevent actions that could genuinely threaten the
+          Her overriding motivation is <strong
+            >institutional preservation</strong
+          >. She views the monarchy as a thousand-year institution that must
+          outlast any individual crisis, including her husband's wounded pride.
+          John's 1965 comment is, to her, a momentary irritation that will be
+          forgotten if ignored, but could become a lasting scandal if
+          mishandled. Her secondary motivation is managing Philip's escalating
+          obsession — by participating in the Committee, she hopes to moderate
+          his impulses and prevent actions that could genuinely threaten the
           Crown.
         </p>
       </div>
@@ -282,16 +289,16 @@ THE REBELLION VS. THE CROWN
       <div class="profile-section">
         <span class="section-label">The Internal Conflict</span>
         <p>
-          Torn between duty to her husband and duty to the Crown. She is
-          loyal to Philip and feels a deep, if formal, affection for him.
-          But his Operation Minuet runs counter to her every instinct for
-          caution and stability. Every time she reluctantly sanctions a
-          part of his plan, she weighs the risk of indulging his folly
-          against the risk of directly opposing him and causing a
-          domestic crisis. She is a fundamentally conservative individual
-          forced to oversee a radically unconventional and undignified
-          operation. Her struggle is to maintain the dignity of her
-          office while being party to something utterly lacking in it.
+          Torn between duty to her husband and duty to the Crown. She is loyal
+          to Philip and feels a deep, if formal, affection for him. But his
+          Operation Minuet runs counter to her every instinct for caution and
+          stability. Every time she reluctantly sanctions a part of his plan,
+          she weighs the risk of indulging his folly against the risk of
+          directly opposing him and causing a domestic crisis. She is a
+          fundamentally conservative individual forced to oversee a radically
+          unconventional and undignified operation. Her struggle is to maintain
+          the dignity of her office while being party to something utterly
+          lacking in it.
         </p>
       </div>
 
@@ -299,25 +306,23 @@ THE REBELLION VS. THE CROWN
         <span class="section-label">The Narrative Arc — Three Acts</span>
         <ul class="agent-list">
           <li>
-            <strong>1965 — The Cautious Voice:</strong> Witnesses John's
-            comment with diplomatic composure. When Philip convenes the
-            Committee, she participates reluctantly, hoping her presence
-            will moderate his response. "He's an artist, Philip. They're
-            meant to be dramatic."
+            <strong>1965 — The Cautious Voice:</strong> Witnesses John's comment with
+            diplomatic composure. When Philip convenes the Committee, she participates
+            reluctantly, hoping her presence will moderate his response. "He's an
+            artist, Philip. They're meant to be dramatic."
           </li>
           <li>
-            <strong>1968 — The Reluctant Moderator:</strong> Serves as
-            the Committee's conscience. Her contributions are hilariously
-            mundane — questioning budgets, suggesting protocol. Watches
-            Philip's growing obsession with increasing concern.
+            <strong>1968 — The Reluctant Moderator:</strong> Serves as the Committee's
+            conscience. Her contributions are hilariously mundane — questioning budgets,
+            suggesting protocol. Watches Philip's growing obsession with increasing
+            concern.
           </li>
           <li>
-            <strong>1970 — The Vindicated Survivor:</strong> John's MBE
-            return triggers Philip's assassination demand. Her horror
-            represents her moral line. When the plot collapses into
-            farce, her reaction is weary vindication. Her final look to
-            Philip reaffirms: institutions endure by staying above
-            personal vendettas.
+            <strong>1970 — The Vindicated Survivor:</strong> John's MBE return triggers
+            Philip's assassination demand. Her horror represents her moral line. When
+            the plot collapses into farce, her reaction is weary vindication. Her
+            final look to Philip reaffirms: institutions endure by staying above personal
+            vendettas.
           </li>
         </ul>
       </div>
@@ -325,7 +330,7 @@ THE REBELLION VS. THE CROWN
 
     <!-- ─── CENTER OVERLAP STAMP ─── -->
     <div class="center-stamp" aria-hidden="true">
-      CULTURAL CONTAGION DIRECTIVE<br/>
+      CULTURAL CONTAGION DIRECTIVE<br />
       <span class="stamp-sub">DO NOT CROSS FILE</span>
     </div>
   </div>
@@ -334,11 +339,14 @@ THE REBELLION VS. THE CROWN
   <Section variant="paper" spacing="lg">
     <Container>
       <Eyebrow>Diagnostic Summary</Eyebrow>
-      <Heading level={2} variant="section">The Anatomy of an <em>Irreverent Farce</em></Heading>
+      <Heading level={2} variant="section"
+        >The Anatomy of an <em>Irreverent Farce</em></Heading
+      >
       <Rule />
 
       <div class="diagnostic-band">
-        <pre class="diagnostic-header">
+        <pre
+          class="diagnostic-header">
 ----------------------------------------------------------------------------------------
 DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
 ----------------------------------------------------------------------------------------
@@ -355,15 +363,15 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
         <div class="asymmetric-item">
           <span class="asymmetric-char asymmetric-char--lennon">Lennon</span>
           <p>
-            fights a very loud, very public battle against the concept of
-            "The Establishment."
+            fights a very loud, very public battle against the concept of "The
+            Establishment."
           </p>
         </div>
         <div class="asymmetric-item">
           <span class="asymmetric-char asymmetric-char--queen">The Queen</span>
           <p>
-            <em>is</em> the establishment, but she is too busy reviewing state
-            paperwork and managing royal lineages to notice his protest.
+            <em>is</em> the establishment, but she is too busy reviewing state paperwork
+            and managing royal lineages to notice his protest.
           </p>
         </div>
       </div>
@@ -372,13 +380,14 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
         The real conflict is fought entirely in the shadow between them. Prince
         Philip and his bumbling agents treat a pop band's lyrics like a matter
         of imperial national security, launching a secret war against a
-        counter-culture movement that doesn't even know it's under attack. It
-        is the ultimate collision of working-class chaos against centuries of
-        royal choreography.
+        counter-culture movement that doesn't even know it's under attack. It is
+        the ultimate collision of working-class chaos against centuries of royal
+        choreography.
       </p>
     </Container>
   </Section>
 
+  <PitchDeckNav current="/collision" />
   <!-- ─── FOOTER ─── -->
   <Footer />
 </Layout>
@@ -386,16 +395,16 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
 <style>
   /* ─── PAGE INTRO ─── */
   .page-intro {
-    text-align: center;
     max-width: 650px;
-    margin-inline: auto;
-    color: var(--text-muted);
+    color: var(--text5);
+    font-size: var(--fs4);
+    margin: var(--space-1);
   }
 
   /* ─── MONITORING BAND ─── */
   .monitoring-band {
     background: var(--bg);
-    padding: var(--space-3) var(--space-5);
+    padding: var(--space-1) var(--space-5);
     border-bottom: 2px solid var(--bg4);
   }
 
@@ -403,7 +412,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
     max-width: var(--container-width);
     margin: 0 auto;
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     line-height: 1.6;
     color: var(--accent-blue);
     letter-spacing: 0.04rem;
@@ -440,7 +449,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
   .collision-badge {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.55rem;
+    font-size: var(--fs1);
     font-weight: 800;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
@@ -465,7 +474,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
 
   .portrait-photo {
     width: 100%;
-    height: 320px;
+    height: 500px;
     object-fit: cover;
     display: block;
   }
@@ -478,14 +487,13 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
   .tape-overlay {
     position: absolute;
     inset: 0;
-    background:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 40px,
-        rgba(0, 0, 0, 0.03) 40px,
-        rgba(0, 0, 0, 0.03) 42px
-      );
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(0, 0, 0, 0.03) 40px,
+      rgba(0, 0, 0, 0.03) 42px
+    );
     pointer-events: none;
   }
 
@@ -504,7 +512,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
     background: #111;
     color: #888;
     font-family: var(--font-mono);
-    font-size: 0.55rem;
+    font-size: var(--fs1);
     font-weight: 700;
     letter-spacing: 0.15rem;
     padding: 4px 12px;
@@ -515,7 +523,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
 
   .photo-label--queen {
     background: #1a1520;
-    color: var(--color-amber);
+    color: var(--accent-blue);
     border-color: rgba(200, 168, 75, 0.3);
   }
 
@@ -563,6 +571,8 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
     border-left-color: var(--color-amber);
     background: rgba(138, 110, 42, 0.06);
     color: var(--text5);
+    padding-right: 3rem;
+    margin-right: 3rem;
   }
 
   /* ─── PROFILE SECTIONS ─── */
@@ -573,7 +583,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
   .section-label {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.55rem;
+    font-size: var(--fs2);
     font-weight: 700;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
@@ -589,7 +599,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
 
   .profile-section p {
     font-family: var(--font-sans);
-    font-size: 0.82rem;
+    font-size: var(--fs3);
     line-height: 1.6;
     color: var(--text5);
     margin: 0;
@@ -607,7 +617,7 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
   }
 
   .agent-list li {
-    font-size: 0.8rem;
+    font-size: var(--fs3);
     line-height: 1.55;
     color: var(--text5);
     padding: var(--space-1) 0;
