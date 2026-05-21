@@ -16,8 +16,7 @@ import "@/styles/global.css";
   <ClassifiedBand label="TOP SECRET — MI5 OPERATION MINUET // PERSONNEL" />
 
   <!-- ─── PAGE HEADER ─── -->
-  <Section variant="black" spacing="sm">
-    <Container>
+  <Section variant="black" spacing="md">
       <Eyebrow>Classified Personnel Records</Eyebrow>
       <Heading level={2} variant="section">The <em>Operatives</em></Heading>
       <Rule />
@@ -25,7 +24,6 @@ import "@/styles/global.css";
         Two MI5 men. One a delusional artist manqué. One a weary conscience.
         Five years. The bureaucratic heart of the show.
       </p>
-    </Container>
   </Section>
 
   <!-- ─── SPLIT-SCREEN PERSONNEL FILES ─── -->
@@ -298,9 +296,8 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
 
   <!-- ─── THE COMEDY OF ANTI-COMPETENCE ─────────── -->
   <Section variant="paper" spacing="lg">
-    <Container>
       <Eyebrow>The Engine</Eyebrow>
-      <Heading level={2} variant="section"
+      <Heading level={3} variant="section"
         >The Comedy of <em>Anti-Competence</em></Heading
       >
       <Rule />
@@ -328,7 +325,6 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
         Eastern literature accidentally triggering George Harrison's lifelong
         obsession with the sitar.
       </p>
-    </Container>
   </Section>
 
   <!-- ─── PITCH DECK NAV ─── -->
@@ -341,26 +337,25 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
 <style>
   /* ─── PAGE INTRO ─── */
   .page-intro {
-    text-align: center;
     max-width: 600px;
-    margin-inline: auto;
-    color: var(--text5);
+    color: var(--text3);
+
   }
 
   /* ─── FILES GRID ─── */
   .files-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    gap: .5rem;
     background: var(--bg);
   }
 
   /* ─── PERSONNEL FILE ─── */
   .personnel-file {
     position: relative;
-    background: var(--bg2);
+    background: var(--bg3);
     padding: var(--space-5);
-    border: var(--border-faint);
+    border: 1px solid var(--red-text-subtle);
     font-family: var(--font-mono);
     overflow: hidden;
   }
@@ -380,7 +375,7 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
   .photo-frame {
     position: relative;
     margin-bottom: var(--space-4);
-    border: 2px solid var(--bg4);
+    border: 2px solid var(--red-text-muted);
     overflow: hidden;
   }
 
@@ -407,15 +402,15 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
     bottom: var(--space-2);
     left: 50%;
     transform: translateX(-50%);
-    background: #111;
-    color: #eee;
+    background: var(--bg-dark-subtle);
+    color: var(--text5);
     font-family: var(--font-mono);
-    font-size: var(--fs1);
+    font-size: var(--fs0);
     font-weight: 700;
     letter-spacing: 0.2rem;
     padding: 4px 16px;
     text-transform: uppercase;
-    border: 1px solid #333;
+    border: 1px solid var(--red-text-muted);
   }
 
   /* ─── VITAL STATISTICS ─── */
@@ -442,7 +437,7 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
     font-family: var(--font-mono);
     font-size: var(--fs1);
     line-height: 1.6;
-    color: var(--text4);
+    color: var(--red-text5);
     white-space: pre-wrap;
     margin: 0;
   }
@@ -455,8 +450,8 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
 
   .agent-name {
     font-family: var(--font-serif);
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
-    font-weight: 800;
+    font-size: var(--fs6);
+    font-weight: 600;
     color: var(--text1);
     margin: 0 0 var(--space-2);
     letter-spacing: 0.04rem;
@@ -464,7 +459,7 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
 
   .agent-subtitle {
     font-family: var(--font-mono);
-    font-size: var(--fs1);
+    font-size: var(--fs3);
     font-weight: 400;
     color: var(--accent-blue);
     letter-spacing: 0.06rem;
@@ -489,7 +484,7 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
 
   .agent-section-label {
     display: inline-block;
-    font-size: var(--fs1);
+    font-size: var(--fs2);
     font-weight: 700;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
@@ -501,7 +496,7 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
 
   .agent-section p {
     font-family: var(--font-sans);
-    font-size: var(--fs3);
+    font-size: var(--fs4);
     line-height: 1.6;
     color: var(--text5);
     margin: 0;
@@ -514,11 +509,9 @@ PRIMARY WEAPON:     AESTHETIC PENETRATION PROTOCOLS / KLAUS
   }
 
   .agent-list li {
-    font-size: var(--fs2);
-    line-height: 1.55;
+    font-size: var(--fs4);
     color: var(--text5);
     padding: var(--space-1) 0;
-    border-bottom: 1px solid var(--border-faint);
   }
 
   .agent-list li:last-child {

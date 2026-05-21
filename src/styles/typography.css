@@ -13,7 +13,17 @@ body {
   opacity: 0.85;
 }
 
-.section-title {
+.section-title h2 {
+  margin-bottom: var(--space-5);
+
+  font-family: var(--font-serif);
+  font-size: var(--fs8);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-subtle);
+}
+
+.section-title h2 {
   margin-bottom: var(--space-5);
 
   font-family: var(--font-serif);
@@ -30,7 +40,7 @@ body {
 
 .prose {
   max-width: 870px;
-  font-size: var(--fs3);
+  font-size: var(--fs4);
   line-height: clamp(1.5rem, 1.5rem + 3vw, 2rem);
   font-family: var(--font-sans);
   color: var(--text2);
@@ -78,6 +88,6 @@ body {
 
 }
 
-.heading-level-3 {
+.heading--level-3 {
   font-size: .875rem;
 }

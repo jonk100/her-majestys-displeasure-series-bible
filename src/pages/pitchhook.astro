@@ -9,30 +9,31 @@ import CTA from "../components/ui/CTA.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
+import ThreatBand from "@/components/ui/ThreatBand.astro";
+import QuoteBand from "@/components/ui/QuoteBand.astro";
 import "@/styles/global.css";
 ---
 
-<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
-  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // INCIPIENT THREAT EVALUATION" />
+<Layout
+  title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige"
+>
+  <ClassifiedBand
+    label="TOP SECRET — MI5 EXECUTIVE BRIEFING // INCIPIENT THREAT EVALUATION"
+  />
 
   <!-- ─── PAGE HEADER ─── -->
-  <Section variant="black" spacing="sm">
-    <Container>
+  <Section variant="black" spacing="md">
       <Eyebrow>Executive Briefing</Eyebrow>
       <Heading level={2} variant="section">The <em>Hook</em></Heading>
       <Rule />
-    </Container>
+      <!-- ─── INCIPIENT THREAT BAND ─── -->
+      <ThreatBand>
+----------------------------------------------------------------------------
+ MI5 EXECUTIVE BRIEFING // INCIPIENT THREAT EVALUATION CULTURAL
+ SOFT-POWER VS. IMPERIAL PRESTIGE
+----------------------------------------------------------------------------
+      </ThreatBand>
   </Section>
-
-  <!-- ─── INCIPIENT THREAT BAND ─── -->
-  <div class="threat-band">
-    <pre class="threat-header">
-----------------------------------------------------------------------------------------
-MI5 EXECUTIVE BRIEFING // INCIPIENT THREAT EVALUATION
-CULTURAL SOFT-POWER VS. IMPERIAL PRESTIGE
-----------------------------------------------------------------------------------------
-    </pre>
-  </div>
 
   <!-- ─── HARD SPLIT-SCREEN ─── -->
   <div class="hook-split">
@@ -83,28 +84,26 @@ CULTURAL SOFT-POWER VS. IMPERIAL PRESTIGE
   <Section variant="paper" spacing="lg">
     <Container>
       <Eyebrow>Thesis</Eyebrow>
-      <Heading level={2} variant="section">Why <em>Now?</em></Heading>
+      <Heading level={3} variant="section">Why <em>Now?</em></Heading>
       <Rule />
-      <p class="prose">
+      <p class="prose why-now">
         We live in an era fascinated by the hidden machinery of institutional
         power, yet we are constantly reminded of the fragile egos managing it.
-        <em>Her Majesty's Displeasure</em> is a dark, cynical satire that
-        explores the ultimate cosmic farce: the grand British Empire wasting
-        vast state intelligence apparatuses, spinning self-fulfilling
-        cryptographic nightmares, and fighting a covert, multi-year domestic
-        war against a rock-and-roll band — all to defend the wounded pride of
-        a prince over a casual joke made in a royal lavatory.
+        <em>Her Majesty's Displeasure</em> is a dark, cynical satire that explores
+        the ultimate cosmic farce: the grand British Empire wasting vast state intelligence
+        apparatuses, spinning self-fulfilling cryptographic nightmares, and fighting
+        a covert, multi-year domestic war against a rock-and-roll band — all to defend
+        the wounded pride of a prince over a casual joke made in a royal lavatory.
       </p>
     </Container>
   </Section>
 
   <!-- ─── PHILIP QUOTE ─────────── -->
-  <div class="quote-band">
-    <pre class="quote-text">
-"If the British Empire cannot successfully direct the movements of a skiffle band,
-then what on Earth are we keeping the guards around for?" — PRINCE PHILIP
-    </pre>
-  </div>
+  <QuoteBand
+    >"If the British Empire cannot successfully direct the movements of a
+    skiffle band, then what on Earth are we keeping the guards around for?" —
+    PRINCE PHILIP
+  </QuoteBand>
 
   <!-- ─── PITCH DECK NAV ─── -->
   <PitchDeckNav current="/pitchhook" />
@@ -114,25 +113,6 @@ then what on Earth are we keeping the guards around for?" — PRINCE PHILIP
 </Layout>
 
 <style>
-  /* ─── THREAT BAND ─── */
-  .threat-band {
-    background: var(--bg);
-    padding: var(--space-3) var(--space-5);
-    border-bottom: 2px solid var(--bg4);
-  }
-
-  .threat-header {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    line-height: 1.6;
-    color: var(--accent-blue);
-    letter-spacing: 0.04rem;
-    white-space: pre-wrap;
-    overflow: hidden;
-  }
-
   /* ─── HARD SPLIT-SCREEN ─── */
   .hook-split {
     display: grid;
@@ -177,8 +157,8 @@ then what on Earth are we keeping the guards around for?" — PRINCE PHILIP
     inset: 0;
     background: linear-gradient(
       to bottom,
-      transparent 60%,
-      rgba(0, 0, 0, 0.85) 100%
+      transparent 70%,
+      rgba(0, 0, 0, 0.25) 100%
     );
     pointer-events: none;
   }
@@ -188,7 +168,7 @@ then what on Earth are we keeping the guards around for?" — PRINCE PHILIP
     top: var(--space-4);
     left: var(--space-4);
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: var(--fs0);
     font-weight: 800;
     letter-spacing: 0.24rem;
     text-transform: uppercase;
@@ -210,16 +190,16 @@ then what on Earth are we keeping the guards around for?" — PRINCE PHILIP
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.82);
+    background: var(--bg-subtle);
     backdrop-filter: blur(8px);
-    padding: var(--space-6) var(--space-6);
+    padding: var(--space-3) var(--space-6);
     z-index: 10;
     border-top: 1px solid rgba(200, 168, 75, 0.15);
   }
 
   .logline-label {
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: var(--fs2);
     font-weight: 800;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
@@ -229,37 +209,14 @@ then what on Earth are we keeping the guards around for?" — PRINCE PHILIP
 
   .logline-text {
     font-family: var(--font-sans);
-    font-size: clamp(0.9rem, 1.5vw, 1.15rem);
-    line-height: 1.65;
+    font-size: var(--fs4);
+    line-height: 1.5;
     color: var(--text1);
     margin: 0;
-    max-width: 900px;
+    max-width: 1100px;
     margin-inline: auto;
     text-align: center;
     font-weight: 400;
-  }
-
-  /* ─── QUOTE BAND ─── */
-  .quote-band {
-    background: var(--bg2);
-    padding: var(--space-5) var(--space-5);
-    border-top: 2px solid var(--bg4);
-    border-bottom: 2px solid var(--bg4);
-  }
-
-  .quote-text {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    line-height: 1.8;
-    color: var(--text-muted);
-    letter-spacing: 0.03rem;
-    text-align: center;
-    white-space: pre-wrap;
-    overflow: hidden;
-    border-left: 2px solid var(--accent-blue);
-    padding-left: var(--space-4);
   }
 
   /* ─── RESPONSIVE ─── */

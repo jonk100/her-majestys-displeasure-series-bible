@@ -3,34 +3,20 @@
  * Reusable heading primitive.
  */
 
-import { cn } from '@/utils/cn';
+import { cn } from "@/utils/cn";
 
 interface Props {
   level?: 1 | 2 | 3 | 4;
 
-  variant?:
-    | 'display'
-    | 'section'
-    | 'card'
-    | 'mono';
+  variant?: "display" | "section" | "card" | "mono";
 }
 
-const {
-  level = 2,
-  variant = 'section'
-} = Astro.props;
+const { level = 2, variant = "section" } = Astro.props;
 
-const Tag =
-  `h${level}` as keyof HTMLElementTagNameMap;
+const Tag = `h${level}` as keyof HTMLElementTagNameMap;
 ---
 
-<Tag
-  class={cn(
-    'heading',
-    `heading--${variant}`,
-    `heading--level-${level}`
-  )}
->
+<Tag class={cn("heading", `heading--${variant}`, `heading--level-${level}`)}>
   <slot />
 </Tag>
 
@@ -41,25 +27,37 @@ const Tag =
 
   .heading--display {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: var(--fs12);
     font-style: italic;
     font-weight: 900;
     letter-spacing: -0.04em;
     color: var(--color-cream);
   }
 
-  .heading--section {
+  .heading--level-2 {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-size: var(--fs11);
+    font-weight: 900;
+    color: var(--text1);
+  }
 
-    color: var(--color-cream);
+  .heading--level-3 {
+    font-family: var(--font-serif);
+    font-size: var(--fs10);
+    font-weight: 800;
+    color: var(--text2);
+  }
+  .heading--level-4 {
+    font-family: var(--font-serif);
+    font-size: var(--fs9);
+    font-weight: 600;
+    color: var(--text3);
   }
 
   .heading--card {
     font-family: var(--font-serif);
-    padding: .5em;
-    font-size: 1.4rem;
+    padding: 0.5em;
+    font-size: var(--fs7);
     font-weight: 600;
     color: var(--text5);
   }

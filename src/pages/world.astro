@@ -8,28 +8,28 @@ import CTA from "../components/ui/CTA.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
+import ThreatBand from "@/components/ui/ThreatBand.astro";
 import "@/styles/global.css";
+import QuoteBand from "@/components/ui/QuoteBand.astro";
 ---
 
 <Layout title="MI5 Strategic Assessment — Environmental Matrix">
-  <ClassifiedBand label="TOP SECRET — MI5 STRATEGIC ASSESSMENT // ENVIRONMENTAL MATRIX" />
+  <ClassifiedBand
+    label="TOP SECRET — MI5 STRATEGIC ASSESSMENT // ENVIRONMENTAL MATRIX"
+  />
 
   <!-- ─── PAGE HEADER ─── -->
   <Section variant="black" spacing="sm">
     <Eyebrow>Strategic Assessment</Eyebrow>
     <Heading level={2} variant="section">The World & <em>Setting</em></Heading>
     <Rule />
+    <ThreatBand>
+-----------------------------------------------------------------------------
+  MI5 STRATEGIC ASSESSMENT // ENVIRONMENTAL MATRIX TIMELINE: 1965 – 1970 //
+  THE FIVE-YEAR METAMORPHOSIS
+-----------------------------------------------------------------------------
+    </ThreatBand>
   </Section>
-
-  <!-- ─── TIMELINE BAND ─── -->
-  <div class="band">
-    <pre class="band-header">
------------------------------------------------------------------------------
-MI5 STRATEGIC ASSESSMENT // ENVIRONMENTAL MATRIX
-TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
------------------------------------------------------------------------------
-    </pre>
-  </div>
 
   <!-- ─── SECTION 1: TWO LONDONS ─── -->
   <Section variant="dark" spacing="sm">
@@ -37,12 +37,11 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
     <Heading level={3} variant="section">Two <em>Londons</em></Heading>
     <Rule />
     <p class="prose world-prose">
-      <em>Her Majesty's Displeasure</em> is set in the shifting fault lines
-      of late-1960s London — a city actively tearing itself away from its
-      imperial past. The series functions as a claustrophobic, dark workplace
-      comedy split between two highly insulated, opposing bubbles: the rigid,
-      silent, administrative halls of British power and the loud, chaotic,
-      smoke-filled incubator of Abbey Road Studio Two.
+      <em>Her Majesty's Displeasure</em> is set in the shifting fault lines of late-1960s
+      London — a city actively tearing itself away from its imperial past. The series
+      functions as a claustrophobic, dark workplace comedy split between two highly
+      insulated, opposing bubbles: the rigid, silent, administrative halls of British
+      power and the loud, chaotic, smoke-filled incubator of Abbey Road Studio Two.
     </p>
   </Section>
 
@@ -50,11 +49,28 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
   <div class="world-block world-block--crown">
     <div class="world-block__image-col">
       <div class="image-stack">
-        <img src="/thepalace01.jpg" alt="Buckingham Palace — Cold Corridors" class="stack-img" loading="lazy" />
-        <img src="/thepalace02.jpg" alt="Ministry of Defence Briefing Room" class="stack-img" loading="lazy" />
-        <img src="/thepalace03.jpg" alt="Royal Architecture — Frozen in Time" class="stack-img" loading="lazy" />
+        <img
+          src="/thepalace01.jpg"
+          alt="Buckingham Palace — Cold Corridors"
+          class="stack-img"
+          loading="lazy"
+        />
+        <img
+          src="/thepalace02.jpg"
+          alt="Ministry of Defence Briefing Room"
+          class="stack-img"
+          loading="lazy"
+        />
+        <img
+          src="/thepalace03.jpg"
+          alt="Royal Architecture — Frozen in Time"
+          class="stack-img"
+          loading="lazy"
+        />
       </div>
-      <div class="image-stack__label">BUCKINGHAM PALACE // MINISTRY OF DEFENCE // WHITEHALL</div>
+      <div class="image-stack__label">
+        BUCKINGHAM PALACE // MINISTRY OF DEFENCE // WHITEHALL
+      </div>
     </div>
     <div class="world-block__text-col">
       <div class="world-block__badge">THE CROWN</div>
@@ -62,27 +78,51 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
 
       <div class="world-block__trait">
         <span class="trait-label">The Look</span>
-        <p>Cold, sterile, desaturated wide-shots of Buckingham Palace corridors and Ministry of Defence briefing rooms. Every frame is a perfectly composed, melancholic still-life of imperial decay.</p>
+        <p>
+          Cold, sterile, desaturated wide-shots of Buckingham Palace corridors
+          and Ministry of Defence briefing rooms. Every frame is a perfectly
+          composed, melancholic still-life of imperial decay.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label">The Rule</span>
-        <p>Absolute Wes Anderson-style symmetry. The architecture is massive, grand, and frozen in time. The human beings inside these frames are dwarfed by centuries of inherited stone — looking isolated, rigid, and deeply paranoid.</p>
+        <p>
+          Absolute Wes Anderson-style symmetry. The architecture is massive,
+          grand, and frozen in time. The human beings inside these frames are
+          dwarfed by centuries of inherited stone — looking isolated, rigid, and
+          deeply paranoid.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label">The Palette</span>
-        <p>Desaturated greys, muted blues, pale yellows. The color slowly leaches out of these scenes as the series progresses, mirroring the moral decay of the conspiracy itself.</p>
+        <p>
+          Desaturated greys, muted blues, pale yellows. The color slowly leaches
+          out of these scenes as the series progresses, mirroring the moral
+          decay of the conspiracy itself.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label">The Soundscape</span>
-        <p>The clatter of a typewriter from an adjacent room. The tick of a grandfather clock. Footsteps echoing on marble. Silence that lasts one beat too long. The palace breathes in a different rhythm than the city outside its walls.</p>
+        <p>
+          The clatter of a typewriter from an adjacent room. The tick of a
+          grandfather clock. Footsteps echoing on marble. Silence that lasts one
+          beat too long. The palace breathes in a different rhythm than the city
+          outside its walls.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label">The Comedic Function</span>
-        <p>The comedy comes from introducing visually chaotic elements — a clumsy spy, a joint passed in a bathroom, an avant-garde artist's screeching noise — into these rigidly composed, deadpan frames. The institution's perfect geometry is constantly polluted by the messy reality it tries to contain.</p>
+        <p>
+          The comedy comes from introducing visually chaotic elements — a clumsy
+          spy, a joint passed in a bathroom, an avant-garde artist's screeching
+          noise — into these rigidly composed, deadpan frames. The institution's
+          perfect geometry is constantly polluted by the messy reality it tries
+          to contain.
+        </p>
       </div>
     </div>
   </div>
@@ -91,47 +131,91 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
   <div class="world-block world-block--band">
     <div class="world-block__text-col world-block__text-col--band">
       <div class="world-block__badge world-block__badge--band">THE BAND</div>
-      <h3 class="world-block__title world-block__title--band">The Cluttered Canvas</h3>
+      <h3 class="world-block__title world-block__title--band">
+        The Cluttered Canvas
+      </h3>
 
       <div class="world-block__trait">
         <span class="trait-label trait-label--band">The Look</span>
-        <p>Warm, high-contrast, amber-tinted close-ups of Abbey Road Studio Two. The frame is packed with cigarette smoke, tangled microphone cables, half-empty teacups, lyric sheets scribbled on napkins, and glowing amplifier tubes.</p>
+        <p>
+          Warm, high-contrast, amber-tinted close-ups of Abbey Road Studio Two.
+          The frame is packed with cigarette smoke, tangled microphone cables,
+          half-empty teacups, lyric sheets scribbled on napkins, and glowing
+          amplifier tubes.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label trait-label--band">The Rule</span>
-        <p>Cluttered, living, and claustrophobic. The camera here breathes, moves, and feels fluid — capturing a volcanic creative explosion happening in real-time. Unmotivated pans, handheld urgency, crash zooms on a snare hit.</p>
+        <p>
+          Cluttered, living, and claustrophobic. The camera here breathes,
+          moves, and feels fluid — capturing a volcanic creative explosion
+          happening in real-time. Unmotivated pans, handheld urgency, crash
+          zooms on a snare hit.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label trait-label--band">The Palette</span>
-        <p>Warm ambers, saturated reds, golden hour tones. The palette shifts across the series — from the bright primary colors of 1965 pop to the darker, psychedelic hues of 1968–1970. The lighting grows harsher as the band fractures.</p>
+        <p>
+          Warm ambers, saturated reds, golden hour tones. The palette shifts
+          across the series — from the bright primary colors of 1965 pop to the
+          darker, psychedelic hues of 1968–1970. The lighting grows harsher as
+          the band fractures.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label trait-label--band">The Soundscape</span>
-        <p>Studio chatter bleeding through headphones. The hum of an amp warming up. A guitar string snapping. Laughter, then an argument, then laughter again. Music being built from the inside out.</p>
+        <p>
+          Studio chatter bleeding through headphones. The hum of an amp warming
+          up. A guitar string snapping. Laughter, then an argument, then
+          laughter again. Music being built from the inside out.
+        </p>
       </div>
 
       <div class="world-block__trait">
         <span class="trait-label trait-label--band">The Comedic Function</span>
-        <p>The comedy here is warmer, more human — the absurdity of four lads from Liverpool trying to make art while an empire conspires against them in a building a mile away. Every time MI5 tries to subtle-sabotage the creative process, the music just gets weirder and better.</p>
+        <p>
+          The comedy here is warmer, more human — the absurdity of four lads
+          from Liverpool trying to make art while an empire conspires against
+          them in a building a mile away. Every time MI5 tries to
+          subtle-sabotage the creative process, the music just gets weirder and
+          better.
+        </p>
       </div>
     </div>
     <div class="world-block__image-col">
       <div class="image-stack">
-        <img src="/thebeatles01.jpg" alt="Abbey Road Studio Two" class="stack-img" loading="lazy" />
-        <img src="/thebeatles03.jpg" alt="The Beatles in Session" class="stack-img" loading="lazy" />
-        <img src="/thebeatles04.jpg" alt="Creative Chaos" class="stack-img" loading="lazy" />
+        <img
+          src="/thebeatles01.jpg"
+          alt="Abbey Road Studio Two"
+          class="stack-img"
+          loading="lazy"
+        />
+        <img
+          src="/thebeatles03.jpg"
+          alt="The Beatles in Session"
+          class="stack-img"
+          loading="lazy"
+        />
+        <img
+          src="/thebeatles04.jpg"
+          alt="Creative Chaos"
+          class="stack-img"
+          loading="lazy"
+        />
       </div>
-      <div class="image-stack__label image-stack__label--band">ABBEY ROAD STUDIO TWO // APPLE CORPS // LONDON N.W.3</div>
+      <div class="image-stack__label image-stack__label--band">
+        ABBEY ROAD STUDIO TWO // APPLE CORPS // LONDON N.W.3
+      </div>
     </div>
   </div>
 
   <!-- ─── VISUAL COLLISION SPLIT ─── -->
   <Section variant="black" spacing="md">
     <Eyebrow>Visual Collision</Eyebrow>
-    <Heading level={2} variant="section">When Worlds <em>Collide</em></Heading>
+    <Heading level={3} variant="section">When Worlds <em>Collide</em></Heading>
     <Rule />
     <p class="prose">
       The series' visual language is a deliberate, irreconcilable clash. Every
@@ -143,19 +227,33 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
 
   <div class="collision-split">
     <div class="collision-half collision-half--crown-simple">
-      <img src="/thepalace02.jpg" alt="Palace Interior" class="collision-img" loading="lazy" />
+      <img
+        src="/thepalace02.jpg"
+        alt="Palace Interior"
+        class="collision-img"
+        loading="lazy"
+      />
       <div class="collision-img-label">THE ESTABLISHMENT: ORDER</div>
     </div>
     <div class="collision-half collision-half--band-simple">
-      <img src="/thebeatles07.jpg" alt="Beatles in Studio" class="collision-img" loading="lazy" />
-      <div class="collision-img-label collision-img-label--band">THE REBELLION: CHAOS</div>
+      <img
+        src="/thebeatles07.jpg"
+        alt="Beatles in Studio"
+        class="collision-img"
+        loading="lazy"
+      />
+      <div class="collision-img-label collision-img-label--band">
+        THE REBELLION: CHAOS
+      </div>
     </div>
   </div>
 
   <!-- ─── MACRO TIMELINE ─── -->
   <Section variant="black" spacing="lg">
     <Eyebrow>Cultural Arc</Eyebrow>
-    <Heading level={2} variant="section">From Medals to <em>Radicalism</em></Heading>
+    <Heading level={3} variant="section"
+      >From Medals to <em>Radicalism</em></Heading
+    >
     <Rule />
     <p class="prose">
       The five-year narrative arc tracks the fastest, most volatile cultural
@@ -168,13 +266,18 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
         <div class="timeline-era__year">1965</div>
         <div class="timeline-era__label">The Polite Mirage</div>
         <p>
-          The era of the clean-cut "mop-tops." The band wears matching
-          tailored collarless suits, accepts royal honors, and plays by the
+          The era of the clean-cut "mop-tops." The band wears matching tailored
+          collarless suits, accepts royal honors, and plays by the
           establishment's rules. The Crown believes they can be managed with
           subtle, polite bureaucratic "nudges."
         </p>
         <div class="timeline-era__img">
-          <img src="/thebeatles05.jpg" alt="The Beatles — 1965" class="timeline-img" loading="lazy" />
+          <img
+            src="/thebeatles05.jpg"
+            alt="The Beatles — 1965"
+            class="timeline-img"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -182,14 +285,18 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
         <div class="timeline-era__year">1966 – 1967</div>
         <div class="timeline-era__label">The Psychedelic Rupture</div>
         <p>
-          <em>Sgt. Pepper</em> convinces Philip the threat is real. The band
-          experiments with LSD, Eastern philosophy, and avant-garde
-          composition. The colors in their world begin to bleed outside the
-          lines. MI5's "nudges" start claiming credit for chaos they didn't
-          cause.
+          <em>Sgt. Pepper</em> convinces Philip the threat is real. The band experiments
+          with LSD, Eastern philosophy, and avant-garde composition. The colors in
+          their world begin to bleed outside the lines. MI5's "nudges" start claiming
+          credit for chaos they didn't cause.
         </p>
         <div class="timeline-era__img">
-          <img src="/thebeatles06.jpg" alt="The Beatles — 1967" class="timeline-img" loading="lazy" />
+          <img
+            src="/thebeatles06.jpg"
+            alt="The Beatles — 1967"
+            class="timeline-img"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -199,14 +306,19 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
         <div class="timeline-era__year">1968 – 1969</div>
         <div class="timeline-era__label">The Fracture</div>
         <p>
-          The White Album sessions. The illusion breaks. John brings Yoko
-          to the studio. George grows frustrated with the songwriting monopoly.
-          The band stops being a band and becomes a legal entity in dispute.
-          Clive charts "Revolution 9" for seventy-two straight hours, convinced
-          it contains encrypted Soviet launch codes.
+          The White Album sessions. The illusion breaks. John brings Yoko to the
+          studio. George grows frustrated with the songwriting monopoly. The
+          band stops being a band and becomes a legal entity in dispute. Clive
+          charts "Revolution 9" for seventy-two straight hours, convinced it
+          contains encrypted Soviet launch codes.
         </p>
         <div class="timeline-era__img">
-          <img src="/thebeatles08.jpg" alt="The Beatles — 1968" class="timeline-img" loading="lazy" />
+          <img
+            src="/thebeatles08.jpg"
+            alt="The Beatles — 1968"
+            class="timeline-img"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -217,11 +329,16 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
           The rooftop concert. The failed assassination. The farcical collapse.
           The Beatles dissolve through their own dynamics, not Philip's
           masterful design. A lone madman in New York achieves in a single
-          afternoon what the entire apparatus of the Crown could not
-          accomplish in five years. The universe wins.
+          afternoon what the entire apparatus of the Crown could not accomplish
+          in five years. The universe wins.
         </p>
         <div class="timeline-era__img">
-          <img src="/misc-hmd01.jpg" alt="1970 — The End" class="timeline-img" loading="lazy" />
+          <img
+            src="/misc-hmd01.jpg"
+            alt="1970 — The End"
+            class="timeline-img"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -230,7 +347,7 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
   <!-- ─── KEY LOCATIONS ─── -->
   <Section variant="dark" spacing="lg">
     <Eyebrow>Geography</Eyebrow>
-    <Heading level={2} variant="section">Key <em>Locations</em></Heading>
+    <Heading level={3} variant="section">Key <em>Locations</em></Heading>
     <Rule />
     <p class="prose">
       The series moves between a handful of highly insulated, pressure-cooker
@@ -242,32 +359,57 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
       <div class="location-card">
         <div class="location-card__icon">🏛️</div>
         <h4>Buckingham Palace</h4>
-        <p>The seat of the conspiracy. Philip's domain. Cavernous, silent, symmetrical. Every conversation echoes. Every piece of furniture is older than anyone in the room. The war room for a war nobody knows is being fought.</p>
+        <p>
+          The seat of the conspiracy. Philip's domain. Cavernous, silent,
+          symmetrical. Every conversation echoes. Every piece of furniture is
+          older than anyone in the room. The war room for a war nobody knows is
+          being fought.
+        </p>
       </div>
       <div class="location-card">
         <div class="location-card__icon">🎵</div>
         <h4>Abbey Road Studios</h4>
-        <p>The creative incubator. Warm, cramped, alive. The place where the most influential music of the 20th century is being made while two men in suits sit in a car outside, taking notes.</p>
+        <p>
+          The creative incubator. Warm, cramped, alive. The place where the most
+          influential music of the 20th century is being made while two men in
+          suits sit in a car outside, taking notes.
+        </p>
       </div>
       <div class="location-card">
         <div class="location-card__icon">🏢</div>
         <h4>MI5 — Thames House</h4>
-        <p>The bureaucratic engine. Fluorescent lights. Filing cabinets. Typewriters. The place where Clive files his "victory reports" and Nigel stares at the clock, counting the minutes to his pension.</p>
+        <p>
+          The bureaucratic engine. Fluorescent lights. Filing cabinets.
+          Typewriters. The place where Clive files his "victory reports" and
+          Nigel stares at the clock, counting the minutes to his pension.
+        </p>
       </div>
       <div class="location-card">
         <div class="location-card__icon">✈️</div>
         <h4>Kenwood — Weybridge</h4>
-        <p>John's suburban prison. A mock-Tudor mansion in the stockbroker belt. The place where a marriage unravels while an empire watches through the hedges. Psychedelic wallpaper meets post-war respectability.</p>
+        <p>
+          John's suburban prison. A mock-Tudor mansion in the stockbroker belt.
+          The place where a marriage unravels while an empire watches through
+          the hedges. Psychedelic wallpaper meets post-war respectability.
+        </p>
       </div>
       <div class="location-card">
         <div class="location-card__icon">🌿</div>
         <h4>Rishikesh, India</h4>
-        <p>The operational dead zone. The Beatles meditate while MI5 agents sit in a sweltering hotel, unable to surveil anyone. The conspiracy's impotence exposed through spiritual tourism.</p>
+        <p>
+          The operational dead zone. The Beatles meditate while MI5 agents sit
+          in a sweltering hotel, unable to surveil anyone. The conspiracy's
+          impotence exposed through spiritual tourism.
+        </p>
       </div>
       <div class="location-card">
         <div class="location-card__icon">❄️</div>
         <h4>The Falklands — 1980</h4>
-        <p>The epilogue. Cold storage at the bottom of the world. Two desks. One clock. A radio. The punchline to a five-year joke neither man finds funny.</p>
+        <p>
+          The epilogue. Cold storage at the bottom of the world. Two desks. One
+          clock. A radio. The punchline to a five-year joke neither man finds
+          funny.
+        </p>
       </div>
     </div>
   </Section>
@@ -278,27 +420,39 @@ TIMELINE: 1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS
     <Heading level={2} variant="section">The Satirical <em>Core</em></Heading>
     <Rule />
     <p class="prose">
-      As the counter-culture accelerates completely out of the state's
-      control, Prince Philip's intelligence operation spirals from a petty
-      exercise in domestic surveillance into a desperate, panicked thriller.
-      The show captures the exact moment the British Empire realizes its
-      grand, centuries-old machinery of control is entirely powerless against
-      four working-class boys armed with feedback loops, Eastern philosophy,
-      and a guitar amplifier.
+      As the counter-culture accelerates completely out of the state's control,
+      Prince Philip's intelligence operation spirals from a petty exercise in
+      domestic surveillance into a desperate, panicked thriller. The show
+      captures the exact moment the British Empire realizes its grand,
+      centuries-old machinery of control is entirely powerless against four
+      working-class boys armed with feedback loops, Eastern philosophy, and a
+      guitar amplifier.
     </p>
 
     <div class="misc-gallery">
-      <img src="/misc-hmd02.jpg" alt="The Cultural Fault Line" class="misc-img" loading="lazy" />
-      <img src="/misc-hmd03.jpg" alt="Empire Meets Counterculture" class="misc-img" loading="lazy" />
-      <img src="/misc-hmd04.jpg" alt="The Machinery of Control" class="misc-img" loading="lazy" />
+      <img
+        src="/casing-the-joint.png"
+        alt="The Cultural Fault Line"
+        class="misc-img"
+        loading="lazy"
+      />
+      <img
+        src="/mock-image-cultural-backlash.png"
+        alt="Empire Meets Counterculture"
+        class="misc-img"
+        loading="lazy"
+      />
+      <img
+        src="/misc-hmd04.jpg"
+        alt="The Machinery of Control"
+        class="misc-img"
+        loading="lazy"
+      />
     </div>
 
-    <div class="diagnostic-quote">
-      <pre class="quote-mono">
-DIAGNOSTIC: "The architecture of the palace was built to last a thousand years.
-The music of Abbey Road was built to change the world by Tuesday."
-      </pre>
-    </div>
+    <QuoteBand>
+      DIAGNOSTIC: "The architecture of the palace was built to last a thousand years. The music of Abbey Road was built to change the world by Tuesday."
+    </QuoteBand>
   </Section>
 
   <!-- ─── PITCH DECK NAV ─── -->
@@ -334,10 +488,8 @@ The music of Abbey Road was built to change the world by Tuesday."
   }
 
   .world-prose {
-    text-align: center;
     max-width: 720px;
-    margin-inline: auto;
-    color: var(--text4);
+    color: var(--text5);
   }
 
   /* ─── WORLD BLOCKS ─── */
@@ -357,10 +509,10 @@ The music of Abbey Road was built to change the world by Tuesday."
   }
 
   .world-block__image-col {
-    padding: var(--space-5);
+    padding: var(--space-4);
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-4);
   }
 
   .image-stack {
@@ -371,7 +523,7 @@ The music of Abbey Road was built to change the world by Tuesday."
 
   .stack-img {
     width: 100%;
-    height: 180px;
+    height: 250px;
     object-fit: cover;
     display: block;
     filter: grayscale(30%) contrast(1.05);
@@ -379,7 +531,7 @@ The music of Abbey Road was built to change the world by Tuesday."
   }
 
   .world-block--band .stack-img {
-    filter: saturate(1.1) contrast(1.0) sepia(0.1);
+    filter: saturate(1.1) contrast(1) sepia(0.1);
   }
 
   .image-stack__label {
@@ -387,7 +539,7 @@ The music of Abbey Road was built to change the world by Tuesday."
     font-size: var(--fs1);
     letter-spacing: 0.18rem;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--text-subtle);
     text-align: center;
     padding: var(--space-1);
     border: 1px solid var(--border-faint);
@@ -411,12 +563,12 @@ The music of Abbey Road was built to change the world by Tuesday."
   .world-block__badge {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.55rem;
+    font-size: var(--fs0);
     font-weight: 800;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
     padding: 4px 12px;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
     border: 1px solid var(--accent-blue);
     color: var(--accent-blue);
   }
@@ -431,7 +583,7 @@ The music of Abbey Road was built to change the world by Tuesday."
     font-size: clamp(1.2rem, 2vw, 1.6rem);
     font-weight: 800;
     color: var(--text1);
-    margin: 0 0 var(--space-4);
+    margin: 0 0 var(--space-2);
   }
 
   .world-block__title--band {
@@ -439,29 +591,29 @@ The music of Abbey Road was built to change the world by Tuesday."
   }
 
   .world-block__trait {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
   }
 
   .trait-label {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: var(--fs1);
+    font-size: var(--fs3);
     font-weight: 700;
     letter-spacing: 0.18rem;
     text-transform: uppercase;
     color: var(--accent-blue);
-    border-bottom: 1px solid var(--border-faint);
+    border-bottom: 1px solid var(--accent-blue-light);
     padding-bottom: 2px;
     margin-bottom: var(--space-1);
   }
 
   .trait-label--band {
-    color: var(--color-amber);
+    color: var(--accent-blue-light);
   }
 
   .world-block__trait p {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: var(--fs4);
     line-height: 1.55;
     color: var(--text5);
     margin: 0;
@@ -582,7 +734,7 @@ The music of Abbey Road was built to change the world by Tuesday."
   }
 
   .timeline-era--late .timeline-img {
-    filter: saturate(1.0) sepia(0.08);
+    filter: saturate(1) sepia(0.08);
   }
 
   /* ─── KEY LOCATIONS ─── */
@@ -597,7 +749,9 @@ The music of Abbey Road was built to change the world by Tuesday."
     background: var(--bg2);
     border: var(--border-faint);
     padding: var(--space-4);
-    transition: transform 180ms ease, border-color 180ms ease;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease;
   }
 
   .location-card:hover {

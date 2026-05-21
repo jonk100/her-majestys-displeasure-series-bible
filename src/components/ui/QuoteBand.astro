@@ -1,0 +1,32 @@
+---
+
+---
+
+<div class="quote-band">
+  <pre class="quote-text">
+    <slot />
+  </pre>
+</div>
+
+<style>
+  .quote-band {
+    background: var(--bg2);
+    padding: var(--space-5) var(--space-5);
+    border-top: 2px solid var(--bg4);
+    border-bottom: 2px solid var(--bg4);
+  }
+
+  .quote-text {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs2);
+    line-height: 1.8;
+    color: var(--text-muted);
+    letter-spacing: 0.03rem;
+    white-space: pre-wrap;
+    overflow: hidden;
+    border-left: 3px solid var(--accent-blue);
+    padding: var(--space-2) 0 0 var(--space-5);
+  }
+</style>

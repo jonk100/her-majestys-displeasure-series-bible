@@ -6,13 +6,14 @@
 import { cn } from "@/utils/cn";
 
 interface Props {
-  gap?: "sm" | "md" | "lg";
+  gap?: "xs" | "sm" | "md" | "lg";
+  className?: string;
 }
 
-const { gap = "md" } = Astro.props;
+const { gap = "md", className } = Astro.props;
 ---
 
-<div class={cn("stack", `stack--${gap}`)}>
+<div class={cn("stack", `stack--${gap}, ${className}`)}>
   <slot />
 </div>
 
@@ -20,6 +21,10 @@ const { gap = "md" } = Astro.props;
   .stack {
     display: flex;
     flex-direction: column;
+  }
+
+  .stack--xs > * + * {
+    margin-top: var(--space-1);
   }
 
   .stack--sm > * + * {

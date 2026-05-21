@@ -1,0 +1,29 @@
+---
+import Stack from "@/components/ui/Stack.astro";
+---
+
+<Stack className="threat-header">
+  <pre class="threat-header">
+    <slot />
+  </pre>
+</Stack>
+
+<style>
+  /* ─── THREAT BAND ─── */
+  .threat-band {
+    /* background: var(--bg); */
+    /* padding: var(--space-3) var(--space-5); */
+  }
+
+  .threat-header {
+    max-width: var(--container-width);
+    margin: 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs0);
+    line-height: 1.7;
+    color: var(--red-text-muted);
+    letter-spacing: 0.04rem;
+    white-space: pre-wrap;
+    overflow: hidden;
+  }
+</style>
