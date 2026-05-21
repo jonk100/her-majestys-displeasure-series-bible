@@ -19,7 +19,8 @@
   --text-accent:   rgb(150, 230, 170);
   --text-accent-dim:   rgb(56, 105, 75);
   --text-accent-muted:   rgb(30, 67, 40);
-  --text-accent-dark:   rgb(9, 35, 19);
+  --text-accent-dark:   rgb(1, 18, 8);
+  --text-accent-dark-subtle:   rgba(1, 18, 8, 0.5);
   --text-accent-subtle:   rgba(130, 230, 130, 0.15);
 
   --bg: rgb(2, 7, 2);
@@ -29,6 +30,7 @@
   --bg4: rgb(18, 30, 18);
   --bg5: rgb(24, 38, 24);
   --bg-subtle: rgba(6, 16, 6, 0.7);
+  --bg-dark-subtle: rgba(2, 9, 9, 0.75);
 
   --color-amber: rgb(75, 177, 200);
   --accent-blue: var(--color-amber);
@@ -38,7 +40,8 @@
   --accent-blue-muted: rgb(35, 46, 69);
   --accent-blue-subtle: rgba(10, 33, 60, 0.5);
   --accent-blue-light: rgba(150, 207, 250, 1);
-  --accent-blue-dark: rgba(5, 20, 50, 1);
+  --accent-blue-dark: rgba(1, 4, 22, 1);
+  --accent-blue-dark-subtle: rgba(1, 4, 22, 0.5);
   --color-amber-dark: #8a6e2a;
 
   --color-red: #8b1a1a;

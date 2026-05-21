@@ -5,205 +5,235 @@ import Container from "../components/layout/Container.astro";
 import Footer from "../components/layout/Footer.astro";
 import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
 import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
-import CTA from "../components/ui/CTA.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
 import "@/styles/global.css";
+
+/**
+ * @typedef {Object} EpisodeData
+ * @property {number} number - Episode number (1–6)
+ * @property {string} year - Date/year label shown on the spine node
+ * @property {string} title - Shared episode title (shown on both sides)
+ * @property {Object} mi5 - MI5/Crown perspective content
+ * @property {string} mi5.milestone - Key story beat from the MI5 POV
+ * @property {string} mi5.body - Narrative summary from the MI5 POV (HTML allowed)
+ * @property {string} mi5.tone - Tonal descriptor for the MI5 side
+ * @property {Object} beatles - Beatles perspective content
+ * @property {string} beatles.milestone - Key story beat from the Beatles POV
+ * @property {string} beatles.body - Narrative summary from the Beatles POV (HTML allowed)
+ * @property {string} beatles.tone - Tonal descriptor for the Beatles side
+ */
+
+/** @type {EpisodeData[]} */
+const episodes = [
+  {
+    number: 1,
+    year: "Oct 1965",
+    title: "A Toast to Her Majesty",
+    mi5: {
+      milestone: "Lennon's quip triggers Philip's cold fury",
+      body: `Phillip bypasses the PM and tasks overlooked civil servants Nigel Finch and Clive Barrow
+             with <em>Operation Minuet</em>. Nigel wants his pension. Clive thinks history has
+             handed him a canvas.`,
+      tone: "Crisp, symmetrical satire of bureaucratic stagnation.",
+    },
+    beatles: {
+      milestone: "The MBE Ceremony at Buckingham Palace",
+      body: `The lads from Liverpool smoke a joint in the royal bathroom to steady their nerves,
+             then collect their medals. John's throwaway quip sets a chain of events in motion
+             that will echo across a decade.`,
+      tone: "Innocent charm masking the cultural revolution ahead.",
+    },
+  },
+  {
+    number: 2,
+    year: "1966",
+    title: "The Klaus Technique",
+    mi5: {
+      milestone:
+        "Nigel sparks George's sitar obsession; Clive amplifies the Jesus quote.",
+      body: `Nigel leaves an Eastern philosophy text on George's amp. Clive adopts the persona of
+             a pretentious German art critic named "Klaus" to infiltrate John's avant-garde circle, and
+             works overtime to weaponize the Jesus quote against the band.`,
+      tone: "Fast-paced institutional farce. Paranoid surveillance logs vs. effortless creative explosion.",
+    },
+    beatles: {
+      milestone:
+        "<em>Rubber Soul</em> & <em>Revolver</em> sessions; 'More popular than Jesus'",
+      body: `As the band continues to push every musical boundary, <em>Revolver</em> marks their creative peak —
+             just in time for John's "more popular than Jesus" quote to ignite outrage across the Bible Belt. 
+             The band decides their touring days have come to an end.`,
+      tone: "Creative explosion meets cultural backlash. Confidence grows even as the establishment pushes back.",
+    },
+  },
+  {
+    number: 3,
+    year: "Aug 1967",
+    title: "Tactical Advantages",
+    mi5: {
+      milestone:
+        "Philip and Mountbatten evaluate Epstein's death as a 'tactical advantage'",
+      body: `<em>Sgt. Pepper</em> leaves the agents feeling utterly defeated. Then Brian Epstein
+             overdoses. In a chilling palace meeting, the Crown views the band's beloved manager
+             not as a human tragedy but as an unexpected opportunity — and steps into the power vacuum.`,
+      tone: "The turning point. Satire trades lightness for cold psychological weight.",
+    },
+    beatles: {
+      milestone:
+        "<em>Sgt. Pepper's Lonely Hearts Club Band</em> is released; later, the death of Brian Epstein.",
+      body: `The band releases their masterpiece studio album. They stand at the peak of their cultural authority,
+             with nothing in their way. Then, their manager, protector, mediator, anchor — Brian Epstein - is gone. 
+             The vacuum he leaves will eventually pull them apart.`,
+      tone: "Creative peak meets personal tragedy. The beginning of the end for the band's unity.",
+    },
+  },
+  {
+    number: 4,
+    year: "1968",
+    title: "The Frequency of Revolution",
+    mi5: {
+      milestone:
+        "Clive convinces himself 'Revolution 9' contains KGB launch codes",
+      body: `Secretly listening in to a fractured broadcast of the White Album sessions, Clive stays
+             awake for days parsing avant-garde noise as Soviet intelligence. Nigel watches his
+             partner unravel.`,
+      tone: "Claustrophobic and darkly funny. The agents begin to mirror the deterioration they were ordered to cause.",
+    },
+    beatles: {
+      milestone: "The <em>White Album</em> recordings; Yoko Ono arrives.",
+      body: `The band records a sprawling double album in a state of mutual exhaustion. John's
+             deepening bond with Yoko Ono intensifies the fractures — four enormous egos turning
+             inward, consuming the unity that made them great.`,
+      tone: "Fracture and experimentation. The creative energy turns corrosive.",
+    },
+  },
+  {
+    number: 5,
+    year: "Late 1969",
+    title: "Operation Elegy",
+    mi5: {
+      milestone: "Philip raises the stakes; Nigel's conscience finally breaks",
+      body: `Nigel's forged knighthood letter backfires spectacularly as John returns his MBE.
+             Philip demands a permanent solution. Faced with actual blood on his hands, Nigel finds
+             he doesn't have the stomach for it anymore.`,
+      tone: "High-stakes espionage thriller. A moral crisis managed from inside a cubicle.",
+    },
+    beatles: {
+      milestone: "The <em>Get Back</em> sessions; John returns his MBE",
+      body: `The band endures the grueling, videotaped Get Back sessions under Twickenham's
+             fluorescent lights. John makes a proud trip to the post office to make a protest
+             and to publicly reject the establishment that once feted him.`,
+      tone: "The final spiral. Conflicts reach their climax; the world descends into chaos around them.",
+    },
+  },
+  {
+    number: 6,
+    year: "1970, 1980",
+    title: "The Ultimate Cosmic Joke",
+    mi5: {
+      milestone:
+        "Nigel quietly tanks Elegy; a dark, cold exile; the radio crackles",
+      body: `Nigel orchestrates the operation's failure through bad paperwork and logistics.
+             As the agents are exiled to a remote office in the Falklands, the band splits
+             through pure, organic means. Years later, a transistor radio announces John Lennon's murder
+             by a lone, deranged fan. Two frozen, forgotten old men stare at each other as the wind howls outside.`,
+      tone: "Crushing, brilliant dramatic irony. Their secret war was fought for absolutely nothing.",
+    },
+    beatles: {
+      milestone:
+        "The Rooftop Concert; the breakup and divorce; and a 1980 epilogue",
+      body: `The Beatles make one last performance on the roof of Apple Corps. Shortly after, it's over. 
+             Not with a bang. With lawyers and grudges, paperwork and emotions. Each of the Beatles goes on to have a 
+             successful solo career, but a decade later, John Lennon steps out of 
+             the Dakota building in New York, where he's shot dead by a stranger who loved his music.`,
+      tone: "Ironic tragedy. The Crown's goal achieved by a madman in an afternoon — after five years of expensive failure.",
+    },
+  },
+];
 ---
 
-<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
-  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // NARRATIVE PROTOCOL" />
+<Layout title="MI5 Executive Briefing — Narrative Arc">
+  <ClassifiedBand
+    label="TOP SECRET — MI5 EXECUTIVE BRIEFING // NARRATIVE PROTOCOL"
+  />
 
   <!-- ─── PAGE HEADER ─── -->
-  <Section variant="black" spacing="sm">
-    <Container>
+  <Section variant="dark" spacing="md">
+    <!-- <Container> -->
       <Eyebrow>Season Outline</Eyebrow>
       <Heading level={2} variant="section">The <em>Narrative Arc</em></Heading>
       <Rule />
-    </Container>
+    <!-- </Container> -->
   </Section>
 
-  <!-- ─── VISUAL FORMATTING STRATEGY ─── -->
-  <Section variant="paper" spacing="lg">
+  <!-- ─── INTRO ─── -->
+  <!-- <Section variant="paper" spacing="lg">
     <Container>
       <p class="prose">
-        The narrative arc follows a split tonal timeline, visually representing the parallel worlds of the Crown/MI5 and the Beatles/Apple Corps, and their eventual intersection.
+        The narrative arc follows a split tonal timeline, presenting the
+        parallel worlds of the Crown/MI5 and the Beatles/Apple Corps side by
+        side as they inch toward their inevitable intersection.
       </p>
     </Container>
+  </Section> -->
+
+  <!-- ─── VERTICAL TWO-COLUMN TIMELINE ─── -->
+  <Section variant="black" spacing="md">
+    <Container>
+      <!-- Column headers -->
+      <div class="timeline-headers">
+        <div class="col-header col-header--mi5">
+          <span>Crown &amp; MI5</span>
+          <span class="col-pip col-pip--mi5"></span>
+        </div>
+        <div><!-- spine gap --></div>
+        <div class="col-header col-header--beatles">
+          <span class="col-pip col-pip--beatles"></span>
+          <span>The Beatles</span>
+        </div>
+      </div>
+
+      <!-- Timeline body: 1fr [spine] 1fr grid -->
+      <div class="timeline-body">
+        <!-- Vertical spine line (sits behind the grid cells) -->
+        <div class="spine-line" aria-hidden="true"></div>
+
+        {
+          episodes.map((ep) => (
+            <>
+              {/* ── MI5 cell ── */}
+              <div class="ep-cell ep-cell--mi5">
+                <span class="ep-label ep-label--mi5">MI5 Perspective</span>
+                <h3 class="ep-title">"{ep.title}"</h3>
+                <p class="ep-milestone" set:html={ep.mi5.milestone} />
+                <p class="ep-body" set:html={ep.mi5.body} />
+                <p class="ep-tone">{ep.mi5.tone}</p>
+              </div>
+
+              {/* ── Spine node ── */}
+              <div class="ep-node" aria-label={`Episode ${ep.number}`}>
+                <div>.</div>
+                <div class="ep-dot">E{ep.number}</div>
+                <span class="ep-year">{ep.year}</span>
+              </div>
+
+              {/* ── Beatles cell ── */}
+              <div class="ep-cell ep-cell--beatles">
+                <span class="ep-label ep-label--beatles">
+                  Beatles Perspective
+                </span>
+                <h3 class="ep-title">"{ep.title}"</h3>
+                <p class="ep-milestone" set:html={ep.beatles.milestone} />
+                <p class="ep-body" set:html={ep.beatles.body} />
+                <p class="ep-tone">{ep.beatles.tone}</p>
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </Container>
   </Section>
-
-  <!-- ─── NARRATIVE TIMELINE ─── -->
-  <div class="narrative-timeline">
-    <!-- Central Tape Line -->
-    <div class="tape-line">
-      <div class="tape-label">MAGNETIC RECORDING TAPE — CLASSIFIED</div>
-    </div>
-
-    <!-- Upper Domain: The Crown & MI5 -->
-    <div class="upper-domain">
-      <div class="domain-label">UPPER DOMAIN — THE APPARATUS</div>
-      
-      <div class="episode-grid">
-        <!-- Episode 1 -->
-        <div class="episode-card episode-card--mi5">
-          <div class="episode-number">EPISODE 1</div>
-          <div class="episode-title">"A TOAST TO HER MAJESTY"</div>
-          <div class="episode-scenes">Scenes 1–16</div>
-          <div class="episode-milestone">October 26, 1965 – The MBE Ceremony at Buckingham Palace</div>
-          <div class="episode-narrative">
-            <p>In the royal bathroom, the working-class boys from Liverpool smoke a joint to calm their nerves. Minutes later, John Lennon delivers his casual "killing people" quip directly to the Crown, triggering a cold, quiet fury in Prince Philip. Viewing the band’s rising cultural authority as a direct threat to the establishment, Philip bypasses the Prime Minister and tasks two overlooked MI5 civil servants, Nigel Finch and Clive Barrow, with a classified containment project: <em>Operation Minuet</em>.</p>
-          </div>
-          <div class="episode-tone">A crisp, symmetrical introduction to bureaucratic stagnation. Nigel just wants to protect his government pension; Clive thinks he has been handed a historical canvas.</div>
-        </div>
-
-        <!-- Episode 2 -->
-        <div class="episode-card episode-card--mi5">
-          <div class="episode-number">EPISODE 2</div>
-          <div class="episode-title">"THE KLAUS TECHNIQUE"</div>
-          <div class="episode-scenes">Scenes 17–31</div>
-          <div class="episode-milestone">1966 – The <em>Rubber Soul</em> / <em>Revolver</em> sessions and the "More popular than Jesus" controversy</div>
-          <div class="episode-narrative">
-            <p>Tasked with manufacturing "subtle social wedges," the agents move into the field. Nigel manipulates George Harrison’s growing creative alienation by anonymously leaving a text on Eastern philosophy on his amp, inadvertently sparking George’s lifelong obsession with the sitar. Meanwhile, Clive adopts a ridiculous undercover persona—"Klaus," a pretentious German art critic—to infiltrate John's avant-garde circle. When John's "Jesus" quote hits the American press, Clive frantically works to amplify the Bible Belt backlash to ruin the band's US marketability.</p>
-          </div>
-          <div class="episode-tone">Fast-paced, institutional farce. The agents' clinical, paranoid surveillance logs directly contrast with the fluid, effortless creative explosion happening inside Abbey Road Studio Two.</div>
-        </div>
-
-        <!-- Episode 3 -->
-        <div class="episode-card episode-card--mi5">
-          <div class="episode-number">EPISODE 3</div>
-          <div class="episode-title">"TACTICAL ADVANTAGES"</div>
-          <div class="episode-scenes">Scenes 32–49</div>
-          <div class="episode-milestone">August 1967 – The release of <em>Sgt. Pepper</em> and the sudden death of Brian Epstein</div>
-          <div class="episode-narrative">
-            <p>The band achieves its counter-culture peak, leaving the agents feeling utterly defeated. However, the sudden, tragic overdose of the Beatles' immaculate manager, Brian Epstein, changes the board. In a chilling Buckingham Palace meeting, Prince Philip and Lord Mountbatten evaluate Epstein’s death not as a human tragedy, but as a "sudden, unexpected tactical advantage". With the band's primary protector and financial mediator gone, MI5 steps into the vacuum to accelerate the internal bleeding.</p>
-          </div>
-          <div class="episode-tone">The turning point. The series shifts focus, trading its lighter satirical comedy for a colder, psychological weight as the state apparatus begins to exploit the band's genuine grief and isolation.</div>
-        </div>
-
-        <!-- Episode 4 -->
-        <div class="episode-card episode-card--mi5">
-          <div class="episode-number">EPISODE 4</div>
-          <div class="episode-title">"THE FREQUENCY OF REVOLUTION"</div>
-          <div class="episode-scenes">Scenes 50–60</div>
-          <div class="episode-milestone">1968 – The <em>White Album</em> sessions and the arrival of Yoko Ono</div>
-          <div class="episode-narrative">
-            <p>As the band fractures under the weight of their own egos, Nigel and Clive become trapped in a feedback loop of their own making. Listening to the grueling, fractured recording sessions through hidden MI5 microphones, Clive becomes profoundly unhinged. He stays up for days analyzing the avant-garde soundscape of "Revolution 9," entirely convinced it contains encrypted KGB launch codes and Soviet geographic coordinates. Nigel watches his partner lose his mind, realizing they are chasing ghosts while the band is simply destroying itself without their help.</p>
-          </div>
-          <div class="episode-tone">Claustrophobic, paranoid, and darkly funny. The agents begin to mirror the exact psychological deterioration they were ordered to inflict on their targets.</div>
-        </div>
-
-        <!-- Episode 5 -->
-        <div class="episode-card episode-card--mi5">
-          <div class="episode-number">EPISODE 5</div>
-          <div class="episode-title">"OPERATION ELEGY"</div>
-          <div class="episode-scenes">Scenes 61–71</div>
-          <div class="episode-milestone">late 1969 – The miserable <em>Get Back</em> sessions and John returning his MBE</div>
-          <div class="episode-narrative">
-            <p>To widen the rift between the songwriters, Nigel intercepts a palace memo and sends Paul McCartney a forged letter hinting at an impending solo knighthood, making Paul appear like an establishment stooge to the radicalized John. The plan backfires spectacularly when John, furious at the establishment's continuous games, publicly returns his MBE medal to the Queen. This public rejection of a royal honor triggers total panic at the top. Prince Philip bypasses psychological containment entirely and demands a permanent solution: <em>Operation Elegy</em>—the authorized assassination of John Lennon during an upcoming public charity performance. Faced with actual blood on his hands, Nigel’s conscience finally breaks, turning him into a quiet saboteur of his own agency.</p>
-          </div>
-          <div class="episode-tone">High-stakes espionage thriller. The bleak, cold winter of 1969 mirrors Nigel’s moral crisis as he tries to dismantle a state-sponsored murder plot from inside his own cubicle.</div>
-        </div>
-
-        <!-- Episode 6 -->
-        <div class="episode-card episode-card--mi5">
-          <div class="episode-number">EPISODE 6</div>
-          <div class="episode-title">"THE ULTIMATE COSMIC JOKE"</div>
-          <div class="episode-scenes">Scenes 72–87</div>
-          <div class="episode-milestone">1970 – The Rooftop Concert, the official breakup, and a 1980 Epilogue</div>
-          <div class="episode-narrative">
-            <p>Nigel successfully, quietly tanks the <em>Elegy</em> assassination attempt through orchestrated logistical errors and bad paperwork, forcing the state to retreat. The Beatles perform on the roof of Apple Corps and split forever, achieving the Crown's original goal through pure, organic creative exhaustion rather than covert design.</p>
-            <p><strong>The Epilogue (1980):</strong> A jump forward in time. An aged, greyer Nigel and Clive sit at identical, dusty desks under flickering fluorescent bulbs in a forgotten, administrative outpost in the Falkland Islands—exiled by an embarrassed government. A small transistor radio crackles to life with a breaking news bulletin: <em>John Lennon has been shot and killed in New York by a deranged fan</em>.</p>
-          </div>
-          <div class="episode-tone">A crushing, brilliant dramatic irony. The agents stare at each other in the silence of their frozen office, realizing a lone madman achieved in a single afternoon what the entire multi-million dollar machinery of the British Empire spent five years failing to do. It ends on their faces as the wind howls outside—two forgotten old men who realize their secret war was fought for absolutely nothing.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Lower Domain: The Beatles & Apple Corps -->
-    <div class="lower-domain">
-      <div class="domain-label">LOWER DOMAIN — THE FREQUENCY</div>
-      
-      <div class="episode-grid">
-        <!-- Episode 1 -->
-        <div class="episode-card episode-card--beatles">
-          <div class="episode-number">EPISODE 1</div>
-          <div class="episode-title">"A TOAST TO HER MAJESTY"</div>
-          <div class="episode-scenes">Scenes 1–16</div>
-          <div class="episode-milestone">October 26, 1965 – The MBE Ceremony at Buckingham Palace</div>
-          <div class="episode-narrative">
-            <p>The Beatles receive their MBE medals from the Queen. In the royal bathroom, the working-class boys from Liverpool smoke a joint to calm their nerves. John Lennon delivers his casual "killing people" quip directly to the Crown, setting in motion a chain of events that will echo through the coming decade.</p>
-          </div>
-          <div class="episode-tone">The beginning of the end. The band's innocent charm masks the cultural revolution they are about to unleash.</div>
-        </div>
-
-        <!-- Episode 2 -->
-        <div class="episode-card episode-card--beatles">
-          <div class="episode-number">EPISODE 2</div>
-          <div class="episode-title">"THE KLAUS TECHNIQUE"</div>
-          <div class="episode-scenes">Scenes 17–31</div>
-          <div class="episode-milestone">1966 – The <em>Rubber Soul</em> / <em>Revolver</em> sessions and the "More popular than Jesus" controversy</div>
-          <div class="episode-narrative">
-            <p>The band pushes musical boundaries with <em>Revolver</em> while John's "more popular than Jesus" comment sparks outrage in America. Their creative evolution creates both artistic breakthroughs and public relations disasters.</p>
-          </div>
-          <div class="episode-tone">Creative explosion meets cultural backlash. The band's confidence grows even as the establishment pushes back.</div>
-        </div>
-
-        <!-- Episode 3 -->
-        <div class="episode-card episode-card--beatles">
-          <div class="episode-number">EPISODE 3</div>
-          <div class="episode-title">"TACTICAL ADVANTAGES"</div>
-          <div class="episode-scenes">Scenes 32–49</div>
-          <div class="episode-milestone">August 1967 – The release of <em>Sgt. Pepper</em> and the sudden death of Brian Epstein</div>
-          <div class="episode-narrative">
-            <p>The band releases their masterpiece <em>Sgt. Pepper</em>, only to have their manager Brian Epstein die of an overdose. The loss creates a vacuum that will eventually tear them apart.</p>
-          </div>
-          <div class="episode-tone">Creative peak meets personal tragedy. The beginning of the end for the band's unity.</div>
-        </div>
-
-        <!-- Episode 4 -->
-        <div class="episode-card episode-card--beatles">
-          <div class="episode-number">EPISODE 4</div>
-          <div class="episode-title">"THE FREQUENCY OF REVOLUTION"</div>
-          <div class="episode-scenes">Scenes 50–60</div>
-          <div class="episode-milestone">1968 – The <em>White Album</em> sessions and the arrival of Yoko Ono</div>
-          <div class="episode-narrative">
-            <p>The band records the sprawling <em>White Album</em> as relationships fracture. John's relationship with Yoko Ono intensifies the tension within the group.</p>
-          </div>
-          <div class="episode-tone">Fracture and experimentation. The band's creative energy turns inward, destroying the unity that made them great.</div>
-        </div>
-
-        <!-- Episode 5 -->
-        <div class="episode-card episode-card--beatles">
-          <div class="episode-number">EPISODE 5</div>
-          <div class="episode-title">"OPERATION ELEGY"</div>
-          <div class="episode-scenes">Scenes 61–71</div>
-          <div class="episode-milestone">late 1969 – The miserable <em>Get Back</em> sessions and John returning his MBE</div>
-          <div class="episode-narrative">
-            <p>The band's tensions reach a breaking point during the <em>Get Back</em> sessions. John publicly returns his MBE in protest, signaling his complete rejection of the establishment.</p>
-          </div>
-          <div class="episode-tone">The final spiral. The band's internal conflicts reach a climax as the world around them descends into chaos.</div>
-        </div>
-
-        <!-- Episode 6 -->
-        <div class="episode-card episode-card--beatles">
-          <div class="episode-number">EPISODE 6</div>
-          <div class="episode-title">"THE ULTIMATE COSMIC JOKE"</div>
-          <div class="episode-scenes">Scenes 72–87</div>
-          <div class="episode-milestone">1970 – The Rooftop Concert, the official breakup, and a 1980 Epilogue</div>
-          <div class="episode-narrative">
-            <p>The band performs their famous rooftop concert and officially breaks up. Years later, John Lennon is assassinated by Mark David Chapman, completing the tragic circle.</p>
-          </div>
-          <div class="episode-tone">Ironic tragedy. The cultural revolution they started consumes one of its leaders, while the spies who tried to stop them end up as forgotten relics.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Connection Lines (CSS only) -->
-    <div class="connection-lines">
-      <!-- These will be created with CSS absolutely positioned -->
-    </div>
-  </div>
 
   <!-- ─── NAVIGATION ─── -->
   <PitchDeckNav current="/narrative" />
@@ -213,259 +243,215 @@ import "@/styles/global.css";
 </Layout>
 
 <style>
-  /* ─── NARRATIVE TIMELINE LAYOUT ─── */
-  .narrative-timeline {
-    position: relative;
-    width: 100%;
-    min-height: 150vh; /* Will expand based on content */
-    background: var(--bg);
-    overflow: hidden;
-  }
 
-  /* ─── CENTRAL TAPE LINE ─── */
-  .tape-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(to right, 
-      transparent 0%, 
-      var(--accent-blue) 10%, 
-      var(--accent-blue) 90%, 
-      transparent 100%);
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-
-  .tape-line::before,
-  .tape-line::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-blue);
-    border-radius: 50%;
-    transform: translateY(-50%);
-  }
-
-  .tape-line::before {
-    left: 10%;
-  }
-
-  .tape-line::after {
-    right: 10%;
-  }
-
-  .tape-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--bg);
-    padding: 4px 12px;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    border: 1px solid var(--border-soft);
-  }
-
-  /* ─── DOMAINS ─── */
-  .upper-domain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 50%;
-    background: #e0e0e0; /* Sterile grey */
-    border-bottom: 2px solid var(--accent-blue);
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .lower-domain {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #f5f0e1; /* Warm cream */
-    border-top: 2px solid var(--accent-blue);
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .domain-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 8px 16px;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    font-weight: 800;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border-soft);
-    border-right: 1px solid var(--border-soft);
-    color: var(--text-muted);
-    z-index: 5;
-  }
-
-  .upper-domain .domain-label {
-    top: auto;
-    bottom: 0;
-    left: auto;
-    right: 0;
-    border: none;
-    border-left: 1px solid var(--border-soft);
-    border-top: 1px solid var(--border-soft);
-  }
-
-  /* ─── EPISODE GRID ─── */
-  .episode-grid {
+  /* ─── COLUMN HEADERS ─── */
+  .timeline-headers {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-6);
-    padding: var(--space-8) var(--space-6);
-    max-width: var(--container-width);
-    margin: 0 auto;
-    width: 100%;
+    grid-template-columns: 1fr var(--spine-w) 1fr;
+    margin-bottom: var(--space-2);
+    border-bottom: 2px solid var(--text-accent-subtle);
+    padding-bottom: var(--space-3);
   }
 
-  /* ─── EPISODE CARDS ─── */
-  .episode-card {
-    background: var(--bg);
-    border: 1px solid var(--border-faint);
-    border-radius: var(--radius);
-    padding: var(--space-5);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-  }
-
-  .episode-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
-    border-color: var(--accent-blue);
-  }
-
-  .episode-card--mi5 {
-    background: #fff;
-    border-color: #e0e0e0;
-  }
-
-  .episode-card--beatles {
-    background: #fff;
-    border-color: #e0e0e0;
-  }
-
-  .episode-number {
+  .col-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: var(--fs3);
     font-weight: 800;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
-    color: var(--accent-blue);
-    margin-bottom: var(--space-2);
-  }
-
-  .episode-title {
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
-    font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: var(--space-2);
-    color: var(--text1);
-  }
-
-  .episode-scenes {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
     color: var(--text-muted);
-    margin-bottom: var(--space-3);
   }
 
-  .episode-milestone {
+  .col-header--mi5 {
+    justify-content: flex-end;
+  }
+
+  .col-header--beatles {
+    justify-content: flex-start;
+  }
+
+  .col-pip {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .col-pip--mi5 {
+    background: #c82b2b;
+  }
+
+  .col-pip--beatles {
+    background: var(--accent-blue);
+  }
+
+  /* ─── TIMELINE BODY: 3-column grid ─── */
+  :root {
+    --spine-w: 80px;
+  }
+
+  .timeline-body {
+    display: grid;
+    grid-template-columns: 1fr var(--spine-w) 1fr;
+    position: relative;
+  }
+
+  /* ─── SPINE LINE: runs the full height behind the grid ─── */
+  .spine-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    /*
+     * Centre of the spine column:
+     * left edge of spine = 1fr wide left column, so we use
+     * calc(). The spine column is var(--spine-w) wide, so
+     * the midpoint sits at 50% + half the spine width.
+     */
+    left: calc(50% - 0.5px);
+    width: 1px;
+    background: var(--border);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ─── SPINE NODE ─── */
+  .ep-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-8) 0;
+    position: relative;
+    z-index: 1;
+    gap: var(--space-2);
+  }
+
+  /** The circular episode number badge on the spine */
+  .ep-dot {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-sans);
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.5;
-    margin-bottom: var(--space-3);
-    color: var(--text3);
-    border-left: 3px solid var(--accent-blue);
+    font-size: var(--fs3);
+    font-weight: 700;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  /** Short date label below the spine dot */
+  .ep-year {
+    font-family: var(--font-mono);
+    font-size: var(--fs1);
+    font-weight: 400;
+    color: var(--text4);
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ─── EPISODE CELLS ─── */
+  .ep-cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--text-accent-muted);
+  }
+
+  .ep-cell--mi5 {
+    text-align: right;
+    align-items: flex-end;
+    padding-right: var(--space-3);
+  }
+
+  .ep-cell--beatles {
+    text-align: left;
+    align-items: flex-start;
     padding-left: var(--space-3);
   }
 
-  .episode-narrative {
-    margin-bottom: var(--space-4);
-  }
+  /* ─── CELL TYPOGRAPHY ─── */
 
-  .episode-narrative p {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--text2);
-  }
-
-  .episode-tone {
-    margin-top: var(--space-4);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--border-soft);
+  /** "MI5 Perspective" / "Beatles Perspective" eyebrow label */
+  .ep-label {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: var(--fs1);
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+
+  .ep-label--mi5 {
+    color: var(--accent-red, #c82b2b);
+    background: #98020259;
+    padding: 0 0 0 2rem;
+  }
+
+  .ep-label--beatles {
+    color: var(--accent-blue);
+    background: #2089b931;
+    padding: 0 1rem 0 0;
+  }
+
+  /** Episode title (shared across both columns) */
+  .ep-title {
+    font-family: var(--font-sans);
+    font-size: var(--fs3);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text4);
+  }
+
+  /** Key historical milestone shown in italic */
+  .ep-milestone {
+    font-family: var(--font-sans);
+    font-size: var(--fs2);
+    font-style: italic;
+    color: var(--text5);
+    line-height: 1.5;
+  }
+
+  /** Main narrative body text */
+  .ep-body {
+    font-family: var(--font-sans);
+    font-size: var(--fs3);
+    line-height: 1.65;
+    color: var(--text3);
+  }
+
+  /** Tonal descriptor shown at the bottom of each cell */
+  .ep-tone {
+    font-family: var(--font-mono);
+    font-size: var(--fs2);
     font-weight: 500;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--text-muted);
-  }
-
-  /* ─── CONNECTION LINES (CSS ONLY) ─── */
-  .connection-lines {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 0;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .connection-line {
-    position: absolute;
-    top: 0;
-    height: 2px;
-    background: var(--accent-blue);
-    opacity: 0.6;
-    transform-origin: left center;
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--border);
   }
 
   /* ─── RESPONSIVE ─── */
-  @media (max-width: 800px) {
-    .narrative-timeline {
-      min-height: 200vh;
+  @media (max-width: 700px) {
+    :root {
+      --spine-w: 48px;
     }
 
-    .episode-grid {
-      padding: var(--space-6) var(--space-4);
+    .ep-cell {
+      padding: var(--space-3) var(--space-2);
     }
 
-    .episode-card {
-      padding: var(--space-4);
-    }
-  }
-
-  @media (max-width: 600px) {
-    .episode-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .tape-label {
-      font-size: 0.6rem;
-      padding: 3px 10px;
+    .ep-year {
+      display: none;
     }
   }
 </style>
