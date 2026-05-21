@@ -1,30 +1,63 @@
 ---
-import Stack from "@/components/ui/Stack.astro";
+/**
+ * ThreatBand.astro
+ *
+ * A monospaced MI5-style header band. Supports two usage modes:
+ *
+ * — Props mode (new): pass line1 and optional line2; dashes are auto-generated.
+ *
+ * @example
+ * <ThreatBand
+ *   line1="MI5 FIELD LOG // COVERT PSYCHOLOGICAL NUDGES"
+ *   line2="THE DIPLOMAT VS. THE DISCIPLINARY COUNTER-MEASURE"
+ * />
+ *
+ * — Slot mode (legacy): pass pre-formatted text as children, exactly as before.
+ *
+ * @example
+ * <ThreatBand>
+ *   --------------------------------------------------------------------------------
+ *   MI5 FIELD LOG // COVERT PSYCHOLOGICAL NUDGES
+ *   --------------------------------------------------------------------------------
+ * </ThreatBand>
+ */
+
+interface Props {
+  /** First line of text displayed between the dash rules. Only used in props mode. */
+  line1?: string;
+  /** Second line of text displayed between the dash rules. Only used in props mode. */
+  line2?: string;
+  /** Number of dashes in each rule. Defaults to 88. Only used in props mode. */
+  dashes?: number;
+}
+
+const { line1, line2, dashes = 88 } = Astro.props;
+
+/** Whether to use props mode or fall back to the slot. */
+const useProps = !!line1;
+
+/** @type {string} A single horizontal rule made of dashes. */
+const rule = "-".repeat(dashes);
 ---
 
-<Stack className="threat-header">
-  <pre class="threat-header">
-    <slot />
-  </pre>
-</Stack>
+<pre class="threat-header">{useProps
+    ? `${rule}\n ${line1}${line2 ? `\n ${line2}` : ""}\n${rule}`
+    : <slot />
+}</pre>
 
 <style>
-  /* ─── THREAT BAND ─── */
-  .threat-band {
-    /* background: var(--bg); */
-    /* padding: var(--space-3) var(--space-5); */
-  }
-
   .threat-header {
+    /* background: var(--bg5); */
     max-width: var(--container-width);
-    margin: 0 0;
     font-family: var(--font-mono);
-    font-size: var(--fs0);
+    font-size: var(--fs-xxs);
     line-height: 1.7;
     color: var(--red-text5);
     font-weight: 900;
     letter-spacing: 0.04rem;
     white-space: pre-wrap;
     overflow: hidden;
+    padding: 0;
+    margin: 0;
   }
 </style>

@@ -40,8 +40,8 @@ body {
 
 .prose {
   max-width: 870px;
-  font-size: var(--fs4);
-  line-height: clamp(1.5rem, 1.5rem + 3vw, 2rem);
+  font-size: var(--fs3);
+  line-height: clamp(1.5rem, 1.5rem + .2vw, 1.75rem);
   font-family: var(--font-sans);
   color: var(--text2);
   margin-bottom: var(--space-4);

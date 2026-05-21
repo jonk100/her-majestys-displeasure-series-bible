@@ -15,6 +15,9 @@ import ProfileCard from "@/components/characters/ProfileCard.astro";
 import ProfileSection from "@/components/characters/ProfileSection.astro";
 import AgentList from "@/components/characters/AgentList.astro";
 import "@/styles/global.css";
+
+// @TODO: wrap in new PitchDeckLayout, replacing Layout
+// @TODO: see if SmallProfileCard can be used here or integrated with ProfileCard
 ---
 
 <Layout title="Crown — Executive Briefing // Special Intervention Committee">
@@ -25,13 +28,8 @@ import "@/styles/global.css";
     <Eyebrow>Executive Briefing</Eyebrow>
     <Heading level={2} variant="section">The <em>Establishment</em></Heading>
     <Rule />
-<ThreatBand
-><!-- prettier-ignore -->{/* prettier-ignore */}<!-- prettier-ignore -->
----------------------------------------------------------------------------------------- 
-EXECUTIVE BRIEFING // CROWN SPECIAL INTERVENTION COMMITTEE TARGET 
-SUBJECTS: THE LIVERPOOL SOUND MATRIX 
-----------------------------------------------------------------------------------------
-    </ThreatBand>
+<ThreatBand line1="EXECUTIVE BRIEFING // CROWN SPECIAL INTERVENTION COMMITTEE TARGET" line2="SUBJECTS: THE LIVERPOOL SOUND MATRIX" />
+
     <p class="prose page-intro">
       The architects of the conspiracy. The wounded patriarch. The cold strategist. Two men who believed the machinery of the state could silence a song.
     </p>

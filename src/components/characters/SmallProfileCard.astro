@@ -1,0 +1,329 @@
+---
+/**
+ * SmallProfileCard.astro
+ *
+ * A reusable MI5-dossier-style profile card for pitch deck character profiles.
+ *
+ * @example
+ * <SmallProfileCard name="Joe" role="The Guy" q={quote} stamp="lg">
+ *   <ThreatBand slot="band" line1="MI5 FIELD LOG" line2="THE DIPLOMAT" />
+ *   <h5>The Stance</h5>
+ *   <p>Immaculate, etc....</p>
+ * </SmallProfileCard>
+ */
+
+interface Props {
+  /** The subject's full name, displayed in the card header. */
+  name: string;
+  /** Optional subtitle role descriptor (e.g. "The Unwitting Diplomat"). */
+  role?: string;
+  /** The pull-quote displayed in the blockquote block. */
+  q: string;
+  /** Optional stamp style. "lg" = large upright stamp (default). "sm" = small rotated red stamp. */
+  stamp?: "lg" | "sm";
+  /** Optional stamp text. Defaults to "EVALUATION:\nNO USEFUL NEUROSES\nIDENTIFIED: UN-MANIPULABLE" */
+  stampText?: string;
+  /** Path to the portrait image. */
+  src?: string;
+  /** Alt text for the portrait image. */
+  alt?: string;
+  /** Optional photo label overlaid on the image (e.g. "CALENDAR // TIMELINE // ORGANIZER"). */
+  photoLabel?: string;
+  /** Optional memo ribbon text displayed above the stamp (e.g. "AXIS OF CREATIVE DIVISION: RE-ROUTE OPERATIVE RESOURCES"). Omit to hide the ribbon entirely. */
+  ribbon?: string;
+  /** Optional CSS class(es) to add to the root element. */
+  class?: string;
+  /** Optional inline styles to add to the root element. */
+  style?: string;
+}
+
+const {
+  name,
+  role,
+  q,
+  stamp = "lg",
+  stampText,
+  ribbon,
+  src,
+  alt = `${name} — Profile`,
+  photoLabel,
+  class: className,
+  style,
+} = Astro.props;
+
+/**
+ * Resolve the stamp label.
+ * Falls back to a default MI5 evaluation text if none is provided.
+ */
+const resolvedStampText =
+  stampText ?? "EVALUATION:\nNO USEFUL NEUROSES\nIDENTIFIED: UN-MANIPULABLE";
+---
+
+<div class:list={["spc", className]} style={style}>
+
+  <!-- ── NAME ── -->
+  <h3 class="spc__name">
+    {name}
+    {role && <span class="spc__role">// {role}</span>}
+  </h3>
+
+  <div class="spc__inner">
+    <!-- ── PORTRAIT ── -->
+    {src && (
+      <div class="spc__photo-frame">
+        <img class="spc__photo" src={src} alt={alt} loading="lazy" />
+        {photoLabel && <div class="spc__photo-label">{photoLabel}</div>}
+      </div>
+    )}
+  </div>
+  <slot name="band" />
+
+  <div class="spc__body">
+    
+    <!-- ── PULL QUOTE ── -->
+    <blockquote class="spc__quote">
+      {q}
+    </blockquote>
+
+    <!-- ── SLOTTED SECTIONS ── -->
+    <div class="spc__sections">
+      <slot />
+    </div>
+
+    <!-- ── MEMO RIBBON ── -->
+    {ribbon && <div class="spc__ribbon">{ribbon}</div>}
+
+    <!-- ── STAMP ── -->
+    <div class:list={["spc__stamp", stamp === "sm" ? "spc__stamp--sm" : "spc__stamp--lg"]}>
+      {resolvedStampText}
+    </div>
+  </div>
+
+</div>
+
+<style>
+  /* ─── ROOT ─────────────────────────────────────────── */
+  .spc {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg2);
+    margin: var(--space-2);
+  }
+
+  .spc__inner {
+    padding: var(--space-4);
+    padding-bottom: 0; /* blockquote has its own margin */
+  }
+
+  .spc__body {
+    padding: var(--space-1) var(--space-4);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── PORTRAIT ──────────────────────────────────────── */
+  .spc__photo-frame {
+    position: relative;
+    /* margin-bottom: var(--space-3); */
+    overflow: hidden;
+    border: 1px solid var(--bg4);
+    /*
+     * Taller than the original 200px.
+     * object-position: top ensures faces are preserved
+     * and the bottom of the photo is cropped.
+     */
+    height: 300px;
+  }
+
+  .spc__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .spc__photo-label {
+    position: absolute;
+    bottom: var(--space-1);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    color: #888;
+    font-family: var(--font-mono);
+    font-size: var(--fs1);
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    white-space: nowrap;
+  }
+
+  /* ─── NAME / ROLE ────────────────────────────────────── */
+  .spc__name {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-weight: 800;
+    color: var(--text1);
+    margin: 0 0 var(--space-1);
+    letter-spacing: 0.02rem;
+    padding: 0 var(--space-4);
+    padding-top: var(--space-4);
+  }
+
+  .spc__role {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--accent-blue);
+    letter-spacing: 0.05rem;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ─── PULL QUOTE ─────────────────────────────────────── */
+  .spc__quote {
+    border-left: 2px solid var(--accent-blue);
+    padding: var(--space-2) var(--space-2);
+    margin: var(--space-2) 0;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--text4);
+    background: var(--accent-blue-subtle);
+  }
+
+  /* ─── SLOTTED SECTIONS ───────────────────────────────── */
+
+  /*
+   * Target <h5> elements dropped in via slot.
+   * Acts as the "section-label" from the original card.
+   */
+  .spc__sections :global(h5) {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--fs1);
+    font-weight: 700;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    border-bottom: 1px solid var(--border-faint);
+    padding-bottom: 2px;
+    margin: 0 0 var(--space-1);
+  }
+
+  .spc__sections :global(h5) {
+    color: var(--spc-heading, var(--accent-blue));
+  }
+
+  /*
+   * Target <p> elements dropped in via slot.
+   *
+   * The combination of:
+   *   - line-height: 1.5 at font-size 0.75rem  → ~1.125rem per line
+   *   - min-height: calc(1.5 * 0.75rem * 3)    → forces 3-line floor
+   *   - -webkit-line-clamp: 3 + overflow hidden → caps at 3 lines
+   *
+   * This means all sections are exactly 3 lines tall regardless of content.
+   */
+  .spc__sections :global(p) {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--text5);
+    margin: 0 0 var(--space-3);
+
+    /* 3-line floor: blank space fills when content is short */
+    min-height: calc(0.75rem * 1.5 * 3);
+
+    /* 3-line ceiling: overflow becomes "…" when content is long */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .spc__sections :global(strong) {
+    color: var(--text3);
+  }
+
+  /* ─── MEMO RIBBON ────────────────────────────────────── */
+
+  /*
+   * Optional dashed band displayed above the stamp.
+   * Renders only when the ribbon prop is provided.
+   */
+  .spc__ribbon {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 6px var(--space-2);
+    margin-top: var(--space-3);
+    border: 1px dashed var(--accent-blue);
+    color: var(--accent-blue);
+    background: rgba(10, 33, 60, 0.3);
+  }
+
+  /* ─── STAMP ──────────────────────────────────────────── */
+
+  /*
+   * Base stamp — shared rules.
+   */
+  .spc__stamp {
+    font-family: var(--font-mono);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.3;
+    white-space: pre-line; /* honours \n in stampText */
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /*
+   * "lg" stamp — Ringo-style: large, upright, amber-blue, bottom of flow.
+   * Does not use absolute positioning so it never covers content.
+   */
+  .spc__stamp--lg {
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 0.12rem;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.3;
+    padding: 5px 10px;
+    background: var(--dark);
+    border: 3px solid var(--orange-1);
+    color: var(--orange-1);
+    transform: rotate(-12deg);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 3;
+    font-size: var(--fs1);
+    box-shadow: 0 0px 60px var(--orange);
+  }
+
+  /*
+   * "sm" stamp — Brian-style: small, rotated, red, absolutely positioned.
+   */
+  .spc__stamp--sm {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 0.6rem;
+    letter-spacing: 0.12rem;
+    text-align: center;
+    padding: 5px 10px;
+    border: 3px solid var(--color-red);
+    color: var(--color-red);
+    transform: rotate(-12deg);
+    opacity: 0.5;
+  }
+</style>

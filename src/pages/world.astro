@@ -11,6 +11,9 @@ import Rule from "../components/typography/Rule.astro";
 import ThreatBand from "@/components/ui/ThreatBand.astro";
 import "@/styles/global.css";
 import QuoteBand from "@/components/ui/QuoteBand.astro";
+
+// @TODO: wrap in new PitchDeckLayout, replacing Layout
+// @TODO: see if we can get any components or CSS out of this page
 ---
 
 <Layout title="MI5 Strategic Assessment — Environmental Matrix">
@@ -23,12 +26,7 @@ import QuoteBand from "@/components/ui/QuoteBand.astro";
     <Eyebrow>Strategic Assessment</Eyebrow>
     <Heading level={2} variant="section">The World & <em>Setting</em></Heading>
     <Rule />
-    <ThreatBand>
------------------------------------------------------------------------------
-  MI5 STRATEGIC ASSESSMENT // ENVIRONMENTAL MATRIX TIMELINE: 1965 – 1970 //
-  THE FIVE-YEAR METAMORPHOSIS
------------------------------------------------------------------------------
-    </ThreatBand>
+    <ThreatBand line1="MI5 STRATEGIC ASSESSMENT // ENVIRONMENTAL MATRIX TIMELINE:" line2="1965 – 1970 // THE FIVE-YEAR METAMORPHOSIS" />
   </Section>
 
   <!-- ─── SECTION 1: TWO LONDONS ─── -->

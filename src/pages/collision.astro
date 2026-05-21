@@ -13,6 +13,9 @@ import ProfileSection from "@/components/characters/ProfileSection.astro";
 import AgentList from "@/components/characters/AgentList.astro";
 import "@/styles/global.css";
 import ThreatBand from "@/components/ui/ThreatBand.astro";
+
+// @TODO: wrap in new PitchDeckLayout, replacing Layout
+// @TODO: see if SmallProfileCard can be used here or integrated with ProfileCard
 ---
 
 <Layout title="MI5 Monitoring Station — Core Frequency Anomaly">
@@ -31,11 +34,7 @@ import ThreatBand from "@/components/ui/ThreatBand.astro";
         centuries of royal choreography. A rebellion that isn't really a
         rebellion. An institution that isn't even paying attention.
       </p>
-      <ThreatBand>
-----------------------------------------------------------------------------------------
- MI5 MONITORING STATION // CORE FREQUENCY ANOMALY THE REBELLION VS. THE CROWN
-----------------------------------------------------------------------------------------
-      </ThreatBand>
+      <ThreatBand line1="MI5 MONITORING STATOIN // CORE FREQUENCY ANOMALY" line2="THE REBELLION VS. THE CROWN" />
     </Container>
   </Section>
 

@@ -9,45 +9,39 @@ import CTA from "../components/ui/CTA.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
+import PitchDeckLayout from "@/layouts/PitchDeckLayout.astro";
 import "@/styles/global.css";
+
+// @TODO: see if we can get any components or CSS out of this page
 ---
 
-<Layout
-  title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige"
+<PitchDeckLayout
+  title="Tone & Aesthetics"
+  eyebrow="Creative Briefing"
+  classificationLabel="TOP SECRET — MI5 EXECUTIVE BRIEFING // AESTHETIC PROTOCOL"
+  currentPath="/tone"
 >
-  <ClassifiedBand
-    label="TOP SECRET — MI5 EXECUTIVE BRIEFING // AESTHETIC PROTOCOL"
-  />
-
-  <!-- ─── PAGE HEADER ─── -->
-  <Section variant="black" spacing="sm">
-    <Container>
-      <Eyebrow>Creative Briefing</Eyebrow>
-      <Heading level={2} variant="section">Tone & <em>Aesthetics</em></Heading>
-      <Rule />
-      <p class="prose">
-        The visual language of <em>Her Majesty's Displeasure</em> is a deliberate
-        clash of two worlds, inspired by the work of Wes Anderson and Steven Conrad.
-        It operates on a principle of <strong>Miserable Symmetry</strong>—the
-        idea that the rigid, mathematical systems of the state will always
-        attempt to iron out the beautiful, unpredictable wrinkles of human art,
-        failing spectacularly in the process.
-      </p>
-    </Container>
-  </Section>
-
-
+<p slot="header">
+  The visual language of <em>Her Majesty's Displeasure</em> is a deliberate
+  clash of two worlds, inspired by the work of Wes Anderson and Steven Conrad.
+  It operates on a principle of <strong>Miserable Symmetry</strong>—the
+  idea that the rigid, mathematical systems of the state will always
+  attempt to iron out the beautiful, unpredictable wrinkles of human art,
+  failing spectacularly in the process.
+</p>
 
   <!-- ─── THE TWO WORLDS ─── -->
+
+  <Section variant="dark" spacing="md">
   <div class="world-split">
     <!-- WORLD A: THE APPARATUS -->
     <div class="world-half world-half--apparatus">
-      <Section variant="black" spacing="sm">
+      <!-- <Section spacing="md" variant="dark"> -->
         <Container>
-          <Heading level={3} variant="section">World A: The Apparatus</Heading>
+          <Heading level={4} variant="section">World A: The Apparatus</Heading>
           <p class="subtitle">The Crown & MI5</p>
         </Container>
-      </Section>
+      <!-- </Section> -->
 
       <div class="world-content">
         <div class="world-image">
@@ -106,12 +100,12 @@ import "@/styles/global.css";
 
     <!-- WORLD B: THE FREQUENCY -->
     <div class="world-half world-half--frequency">
-      <Section variant="black" spacing="sm">
+      <!-- <Section variant="black" spacing="md"> -->
         <Container>
-          <Heading level={3} variant="section">World B: The Frequency</Heading>
+          <Heading level={4} variant="section">World B: The Frequency</Heading>
           <p class="subtitle">The Beatles & Abbey Road</p>
         </Container>
-      </Section>
+      <!-- </Section> -->
 
       <div class="world-content">
         <div class="world-image">
@@ -161,12 +155,12 @@ import "@/styles/global.css";
       </div>
     </div>
   </div>
-
+</Section>
   <!-- ─── TIMELINE & CULTURAL SHIFT ─── -->
-  <Section variant="paper" spacing="lg">
+  <Section variant="paper" spacing="md">
     <Container>
       <Eyebrow>Historical Context</Eyebrow>
-      <Heading level={2} variant="section">The 1965–1970 Timeline</Heading>
+      <Heading level={3} variant="section">The 1965–1970 Timeline</Heading>
       <Rule />
       <p class="prose">
         This section establishes the show's timeline and explains how it tracks
@@ -177,13 +171,7 @@ import "@/styles/global.css";
       </p>
     </Container>
   </Section>
-
-  <!-- ─── NAVIGATION ─── -->
-  <PitchDeckNav current="/tone" />
-
-  <!-- ─── FOOTER ─── -->
-  <Footer />
-</Layout>
+</PitchDeckLayout>
 
 <style>
   /* ─── WORLD IMAGE ─── */
@@ -225,12 +213,12 @@ import "@/styles/global.css";
     right: 0;
     padding: var(--space-2);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: var(--fs0);
     font-weight: 800;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
-    color: var(--bg);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: var(--text-muted);
+    background: var(--bg-subtle);
   }
 
   /* ─── WORLD SPLIT ─── */
@@ -251,40 +239,47 @@ import "@/styles/global.css";
   }
 
   .world-half--apparatus {
-    background: var(--bg2);
-    border-right: 2px solid var(--bg4);
+    background: var(--bg);
+    border-right: 2px solid var(--text-muted);
   }
 
   .world-half--frequency {
-    background: var(--bg);
+    background: var(--orange6);
   }
 
   .subtitle {
     font-family: var(--font-mono);
-    font-size: var(--fs2);
+    font-size: var(--fs3);
     font-weight: 800;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
     color: var(--accent-blue);
-    margin: var(--space-2) 0 0;
+    margin: var(--space-3) 0 0 0;
   }
 
   .world-content {
-    margin-top: var(--space-4);
+    margin-top: var(--space-6);
   }
 
+  .world-content p {
+    font-size: var(--fs2);
+  }
   .visual-principles {
-    margin-top: var(--space-4);
+    /* margin-top: var(--space-5); */
   }
 
   .visual-principles h4 {
     font-family: var(--font-mono);
-    font-size: var(--fs3);
+    font-size: var(--fs2);
     font-weight: 800;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     color: var(--red-text5);
     margin: var(--space-4) 0 var(--space-2);
+  }
+
+  .visual-principles p {
+    font-size: var(--fs3);
   }
 
   /* ─── RESPONSIVE ─── */

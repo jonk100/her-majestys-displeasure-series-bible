@@ -9,90 +9,81 @@ import CTA from "../components/ui/CTA.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
+import PitchDeckLayout from "@/layouts/PitchDeckLayout.astro";
 import "@/styles/global.css";
+
+// @TODO: See if we can eliminate any css from this page
 ---
 
-<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
-  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // PRODUCTION PROTOCOL" />
-
-  <!-- ─── PAGE HEADER ─── -->
-  <Section variant="black" spacing="sm">
-    <Container>
-      <Eyebrow>Risk Management</Eyebrow>
-      <Heading level={2} variant="section">Production & <em>Legal Strategy</em></Heading>
-      <Rule />
-    </Container>
-  </Section>
-
-  <!-- ─── LEGAL DISCLAIMER HEADER ─── -->
-  <Section variant="paper" spacing="lg">
-    <Container>
-      <div class="legal-header">
-        <h3>LEGAL DISCLAIMER</h3>
-        <p class="prose">
-          This production operates under established legal defenses for satire and parody. All portrayals of real persons are fictionalized for dramatic and comedic effect. The series makes significant creative use of ambient audio and process recordings to avoid traditional music licensing constraints.
-        </p>
-      </div>
-    </Container>
-  </Section>
+<PitchDeckLayout
+  classificationLabel="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige"
+  title="Production & <em>Legal Strategy</em>"
+  eyebrow="Risk Management"
+  currentPath="/production"
+>
+  <div slot="header" class="legal-header">
+    <h3>LEGAL DISCLAIMER</h3>
+    <p class="prose">
+      This production operates under established legal defenses for satire and parody. All portrayals of real persons are fictionalized for dramatic and comedic effect. The series
+      makes significant creative use of ambient audio and process recordings to avoid traditional music licensing constraints.
+    </p>
+  </div>
 
   <!-- ─── RISK MANAGEMENT & PRODUCTION REALITIES ─── -->
-  <Section variant="paper" spacing="lg">
+  <Section variant="dark" spacing="lg" style="max-width: 1100px; margin: auto;">
     <Container>
       <Heading level={3} variant="section">RISK MANAGEMENT & PRODUCTION REALITIES</Heading>
       <Rule />
 
       <div class="legal-section">
         <h4>Navigating the Music Problem and Living Public Figures</h4>
-        
+
         <div class="legal-point">
           <h5><strong>The Music Solution (Atmospheric Process Over Master Tracks):</strong></h5>
           <p class="prose">
-            The most immediate question from financiers will be the astronomical cost of licensing pristine Beatles master recordings. <em>Her Majesty’s Displeasure</em> cleverly side-steps this issue by making its soundtrack an immersive element of the surveillance plot. Because the audience is experiencing this world largely through the headphones of Nigel and Clive, we rarely hear clean, polished studio tracks. Instead, the soundtrack relies on low-fidelity microphone feeds, ambient room hiss, muffled vocal takes, tape tracking errors, and isolated acoustic instruments (like George practicing tuning patterns on a sitar). This approach significantly alters and lowers the music rights profile, shifting the production budget away from commercial radio hits and toward a highly textured, original ambient score.
+            The most immediate question from financiers will be the astronomical cost of licensing pristine Beatles master recordings. <em>Her Majesty’s Displeasure</em> cleverly side-steps
+            this issue by making its soundtrack an immersive element of the surveillance plot. Because the audience is experiencing this world largely through the headphones of Nigel
+            and Clive, we rarely hear clean, polished studio tracks. Instead, the soundtrack relies on low-fidelity microphone feeds, ambient room hiss, muffled vocal takes, tape tracking
+            errors, and isolated acoustic instruments (like George practicing tuning patterns on a sitar). This approach significantly alters and lowers the music rights profile, shifting
+            the production budget away from commercial radio hits and toward a highly textured, original ambient score.
           </p>
         </div>
 
         <div class="legal-point">
           <h5><strong>The Legal Landscape (The Satirical Shield):</strong></h5>
           <p class="prose">
-            The series portrays real-world public figures (Prince Philip, Lord Mountbatten, Paul McCartney, Ringo Starr) alongside major historical events. Under UK and US defamation laws, deceased public figures cannot be defamed, giving the production wide creative latitude regarding the antagonists. For the surviving public figures, the series relies strictly on the established legal defense of <strong>Satire and Parody</strong>, combined with the fact that the primary fictional plot engine—MI5’s secret war—is framed as a historical absurdity that explicitly clears the Crown of any genuine historical harm, as reinforced by our final structural disclaimer.
+            The series portrays real-world public figures (Prince Philip, Lord Mountbatten, Paul McCartney, Ringo Starr) alongside major historical events. Under UK and US
+            defamation laws, deceased public figures cannot be defamed, giving the production wide creative latitude regarding the antagonists. For the surviving public figures,
+            the series relies strictly on the established legal defense of <strong>Satire and Parody</strong>, combined with the fact that the primary fictional plot engine—MI5’s
+            secret war—is framed as a historical absurdity that explicitly clears the Crown of any genuine historical harm, as reinforced by our final structural disclaimer.
           </p>
         </div>
       </div>
     </Container>
   </Section>
-
-  <!-- ─── NAVIGATION ─── -->
-  <PitchDeckNav current="/production" />
-
-  <!-- ─── FOOTER ─── -->
-  <Footer />
-</Layout>
+</PitchDeckLayout>
 
 <style>
   /* ─── LEGAL DISCLAIMER ─── */
   .legal-header {
-    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--text);
     padding: var(--space-5) var(--space-5);
-    background: var(--bg2);
     margin-bottom: var(--space-6);
   }
 
   .legal-header h3 {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: var(--space-3);
     border-bottom: 1px solid var(--border-soft);
     padding-bottom: var(--space-2);
   }
 
   .legal-header p {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: var(--fs1);
     line-height: 1.6;
     color: var(--text2);
   }
@@ -104,7 +95,7 @@ import "@/styles/global.css";
 
   .legal-section h4 {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: var(--fs3);
     font-weight: 800;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
@@ -126,14 +117,22 @@ import "@/styles/global.css";
 
   .legal-point h5 {
     font-family: var(--font-sans);
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: var(--fs4);
     margin-bottom: var(--space-2);
     color: var(--text1);
   }
 
   .legal-point h5 strong {
     color: var(--accent-blue);
+  }
+
+  .legal-point p {
+    font-size: var(--fs3);
+    color: var(--text4);
+  }
+
+  .legal-point em {
+    color: var(--text);
   }
 
   /* ─── RESPONSIVE ─── */

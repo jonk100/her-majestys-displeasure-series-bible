@@ -1,0 +1,83 @@
+---
+// src/layouts/PitchDeckLayout.astro
+import Layout from "./Layout.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
+import Footer from "../components/layout/Footer.astro";
+import Section from "@/components/layout/Section.astro";
+import Container from "@/components/layout/Container.astro";
+import Eyebrow from "@/components/typography/Eyebrow.astro";
+import Heading from "@/components/typography/Heading.astro";
+import Rule from "@/components/typography/Rule.astro";
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  // Accepts HTML markup like "Production & <em>Legal Strategy</em>"
+  classificationLabel?: string;
+  currentPath: string;
+}
+
+const { title: rawTitle, eyebrow, classificationLabel = "TOP SECRET — MI5 EXECUTIVE BRIEFING // SYSTEM OVERVIEW", currentPath } = Astro.props;
+
+// This removes any HTML tags (like <em> or <strong>) for the browser tab title
+const cleanTitle = rawTitle.replace(/<[^>]*>/g, "");
+---
+
+<Layout title={cleanTitle}>
+  <slot name="head" slot="head" />
+  <header slot="header" class="header">
+    <ClassifiedBand label={classificationLabel} />
+
+    {/* ─── PAGE HEADER ─── */}
+    <Section variant="black" spacing="md">
+      <Container>
+        {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+        <Heading level={2} variant="section">
+          {/* ─── Accepts HTML markup like <em></em> ─── */}
+          <span set:html={rawTitle} />
+        </Heading>
+        <Rule />
+        <div class="header--slot">
+          <slot name="header" />
+        </div>
+      </Container>
+    </Section>
+  </header>
+  <slot name="hero" />
+
+  <main class="pitch-deck--main">
+    <slot name="main-top" />
+
+    <div id="pitch-deck--default-slot">
+      <slot />
+    </div>
+
+    <slot name="main-bottom" />
+  </main>
+
+  <slot name="zero" />
+  <PitchDeckNav current={currentPath} />
+  <Footer />
+</Layout>
+
+<style>
+  /* You can add pitch deck specific layout wrappers here */
+  .pitch-deck-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header--slot {
+    font-size: var(--fs3);
+    padding: var(--space-3) var(--space-2);
+    color: var(--tex1);
+    max-width: 900px;
+    width: inherit;
+  }
+
+  .header--slot em {
+    color: var(--text-accent) !important;
+  }
+</style>
