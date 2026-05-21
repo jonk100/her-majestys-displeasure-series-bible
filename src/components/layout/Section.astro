@@ -8,13 +8,14 @@ import { cn } from "@/utils/cn";
 interface Props {
   variant?: "dark" | "paper" | "black";
   spacing?: "xs" | "sm" | "md" | "lg" | "xl";
+  className?: string;
 }
 
-const { variant = "dark", spacing = "md" } = Astro.props;
+const { variant = "dark", spacing = "md", className } = Astro.props;
 ---
 
 <section
-  class={cn("section", `section--${variant}`, `section--spacing-${spacing}`)}
+  class={cn("section", `section--${variant}`, `section--spacing-${spacing}`, `${className}`)}
 >
   <div class="container">
     <slot />

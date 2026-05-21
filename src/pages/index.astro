@@ -8,7 +8,6 @@ import Grid from "../components/ui/Grid.astro";
 import Stack from "../components/ui/Stack.astro";
 import Surface from "../components/ui/Surface.astro";
 import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
-import CTA from "../components/ui/CTA.astro";
 import CompStrip from "../components/ui/CompStrip.astro";
 import Hero from "../components/hero/Hero.astro";
 import ToneGrid from "../components/tone/ToneGrid.astro";
@@ -33,21 +32,17 @@ import {
   episodes,
   epilogue,
 } from "../data/her-majestys-displeasure";
+import PitchDeckCTA from "@/components/pitchdeck/PitchDeckCTA.astro";
 ---
 
 <Layout title="Operation Minuet — Series Bible">
   <ClassifiedBand label="TOP SECRET — COMMITTEE FOR NATIONAL DECORUM" />
-	<Section class="hero-section" variant="dark" padding="none">
+	<Section className="hero-section" variant="dark" spacing="xs">
 		<Hero data={hero} />
 	</Section>
 
   <!-- ─── CTA ──────────────────────────────────────── -->
-  <Section variant="black" spacing="sm" style="text-align: center; padding-block: var(--space-4);">
-    <div style="display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap;">
-      <CTA href="/pitchdeck" variant="primary" size="lg">View the Pitch Deck</CTA>
-      <CTA href="/pitchhook" variant="outline" size="lg">Enter the Deck</CTA>
-    </div>
-  </Section>
+<PitchDeckCTA />
 
   <!-- ─── OVERVIEW ─────────────────────────────────── -->
 		<Section variant="black" spacing="lg">

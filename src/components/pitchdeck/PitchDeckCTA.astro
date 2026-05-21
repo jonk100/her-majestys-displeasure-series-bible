@@ -1,0 +1,15 @@
+---
+import Section from '../layout/Section.astro';
+import CTA from '../ui/CTA.astro';
+---
+
+<Section
+  spacing="sm"
+>
+  <div
+    style="display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap;"
+  >
+    <CTA href="/pitchdeck" variant="primary" size="lg">View the Pitch Deck</CTA>
+    <CTA href="/pitchhook" variant="outline" size="lg">Enter the Deck</CTA>
+  </div>
+</Section>
