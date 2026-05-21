@@ -1,0 +1,304 @@
+---
+/**
+ * WorldHalf.astro
+ *
+ * A self-contained "world" block: an image stack on one side, a badge +
+ * title + trait rows on the other. Works standalone or inside any grid.
+ *
+ * The parent is responsible for the outer grid and background colour —
+ * this component carries no opinions about what sits beside it.
+ *
+ * Layout:
+ *   - Default: [images | text]
+ *   - flip:    [text | images]  (Beatles side convention)
+ *
+ * @example Crown side, inside a two-column grid in world.astro
+ * ```astro
+ * <div class="world-grid">
+ *   <WorldHalf
+ *     variant="crown"
+ *     badge="THE CROWN"
+ *     title="The Symmetrical Vacuum"
+ *     imageLabel="BUCKINGHAM PALACE // MINISTRY OF DEFENCE // WHITEHALL"
+ *     images={[
+ *       { src: "/thepalace01.jpg", alt: "Buckingham Palace — Cold Corridors" },
+ *       { src: "/thepalace02.jpg", alt: "Ministry of Defence Briefing Room" },
+ *     ]}
+ *     traits={[
+ *       { label: "The Look",    body: "Cold, sterile, desaturated wide-shots…" },
+ *       { label: "The Palette", body: "Desaturated greys, muted blues…" },
+ *     ]}
+ *   />
+ *   <WorldHalf variant="beatles" flip … />
+ * </div>
+ * ```
+ *
+ * @example Standalone on any future page
+ * ```astro
+ * <WorldHalf variant="crown" badge="…" title="…" images={[…]} traits={[…]} />
+ * ```
+ */
+
+interface Image {
+  src: string;
+  alt: string;
+}
+
+interface Trait {
+  /** All-caps label for the row (e.g. "The Look"). */
+  label: string;
+  /** Body text. Inline HTML (e.g. <em>) is supported via set:html. */
+  body: string;
+}
+
+interface Props {
+  /**
+   * Visual variant — controls accent colour and image filter.
+   * "crown"   → blue accents, greyscale image filter.
+   * "beatles" → amber accents, warm/saturated image filter.
+   */
+  variant: "crown" | "beatles";
+
+  /**
+   * Reverses the column order so the text column appears first visually.
+   * Use this for the Beatles side when images should sit on the right.
+   * Default: false (images left, text right).
+   */
+  flip?: boolean;
+
+  /** All-caps faction badge label (e.g. "THE CROWN", "THE BAND"). */
+  badge: string;
+
+  /** Large serif heading (e.g. "The Symmetrical Vacuum"). */
+  title: string;
+
+  /** Monospaced caption rendered beneath the image stack. */
+  imageLabel: string;
+
+  /** One or more images stacked vertically in the image column. */
+  images: Image[];
+
+  /** Ordered list of trait rows shown in the text column. */
+  traits: Trait[];
+
+  /**
+   * Optional fixed height for each stacked image in px.
+   * Defaults to 250. Useful when the component is used at a different
+   * scale (e.g. a narrower column or a hero block).
+   */
+  imageHeight?: number;
+}
+
+const {
+  variant,
+  flip = false,
+  badge,
+  title,
+  imageLabel,
+  images,
+  traits,
+  imageHeight = 250,
+} = Astro.props;
+
+const isBeatles = variant === "beatles";
+---
+
+<div
+  class:list={[
+    "world-half",
+    `world-half--${variant}`,
+    { "world-half--flip": flip },
+  ]}
+>
+  <!-- ── IMAGE COLUMN ── -->
+  <div class="wh-images">
+    <div class="wh-image-stack">
+      {
+        images.map((img) => (
+          <img
+            src={img.src}
+            alt={img.alt}
+            class:list={["wh-img", { "wh-img--beatles": isBeatles }]}
+            style={`height: ${imageHeight}px;`}
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+    <div
+      class:list={["wh-image-label", { "wh-image-label--beatles": isBeatles }]}
+    >
+      {imageLabel}
+    </div>
+  </div>
+
+  <!-- ── TEXT COLUMN ── -->
+  <div class="wh-text">
+    <div class:list={["wh-badge", { "wh-badge--beatles": isBeatles }]}>
+      {badge}
+    </div>
+
+    <h3 class:list={["wh-title", { "wh-title--beatles": isBeatles }]}>
+      {title}
+    </h3>
+
+    {
+      traits.map((trait) => (
+        <div class="wh-trait">
+          <span
+            class:list={[
+              "wh-trait-label",
+              { "wh-trait-label--beatles": isBeatles },
+            ]}
+          >
+            {trait.label}
+          </span>
+          <p set:html={trait.body} />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  /* ── OUTER SHELL ── */
+  /*
+   * The component itself is a two-column grid. The parent page controls
+   * any outer grid that places multiple WorldHalfs side by side.
+   * Width is 100% of whatever container it's placed in.
+   */
+  .world-half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+  }
+
+  /* Flip: swap visual order without changing DOM order */
+  .world-half--flip .wh-text {
+    order: -1;
+  }
+
+  /* ── IMAGE COLUMN ── */
+  .wh-images {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .wh-image-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .wh-img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(30%) contrast(1.05);
+    border: 1px solid var(--bg4);
+  }
+
+  .wh-img--beatles {
+    filter: saturate(1.1) contrast(1) sepia(0.1);
+  }
+
+  .wh-image-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs1);
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    text-align: center;
+    padding: var(--space-1);
+    border: 1px solid var(--border-faint);
+    background: var(--bg3);
+  }
+
+  .wh-image-label--beatles {
+    color: var(--color-amber);
+    border-color: rgba(200, 168, 75, 0.2);
+    background: rgba(18, 30, 18, 0.8);
+  }
+
+  /* ── TEXT COLUMN ── */
+  .wh-text {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  /* ── BADGE ── */
+  .wh-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--fs0);
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    margin-bottom: var(--space-1);
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+  }
+
+  .wh-badge--beatles {
+    border-color: var(--color-amber);
+    color: var(--color-amber);
+  }
+
+  /* ── TITLE ── */
+  .wh-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 800;
+    color: var(--text1);
+    margin: 0 0 var(--space-2);
+  }
+
+  .wh-title--beatles {
+    color: var(--text-accent);
+  }
+
+  /* ── TRAIT ROWS ── */
+  .wh-trait {
+    margin-bottom: var(--space-4);
+  }
+
+  .wh-trait-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--fs3);
+    font-weight: 700;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    border-bottom: 1px solid var(--accent-blue-light);
+    padding-bottom: 2px;
+    margin-bottom: var(--space-1);
+  }
+
+  .wh-trait-label--beatles {
+    color: var(--accent-blue-light);
+  }
+
+  .wh-trait p {
+    font-family: var(--font-sans);
+    font-size: var(--fs4);
+    line-height: 1.55;
+    color: var(--text5);
+    margin: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .world-half {
+      grid-template-columns: 1fr;
+    }
+
+    /* Undo flip on narrow viewports — natural stacking order */
+    .world-half--flip .wh-text {
+      order: 0;
+    }
+  }
+</style>

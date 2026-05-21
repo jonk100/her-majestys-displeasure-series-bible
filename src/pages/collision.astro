@@ -8,6 +8,9 @@ import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
 import PitchDeckNav from "@/components/ui/PitchDeckNav.astro";
+import ProfileCard from "@/components/characters/ProfileCard.astro";
+import ProfileSection from "@/components/characters/ProfileSection.astro";
+import AgentList from "@/components/characters/AgentList.astro";
 import "@/styles/global.css";
 import ThreatBand from "@/components/ui/ThreatBand.astro";
 ---
@@ -30,308 +33,256 @@ import ThreatBand from "@/components/ui/ThreatBand.astro";
       </p>
       <ThreatBand>
 ----------------------------------------------------------------------------------------
-MI5 MONITORING STATION // CORE FREQUENCY ANOMALY THE REBELLION VS. THE
-CROWN
+ MI5 MONITORING STATION // CORE FREQUENCY ANOMALY THE REBELLION VS. THE CROWN
 ----------------------------------------------------------------------------------------
       </ThreatBand>
+    </Container>
   </Section>
 
-  <!-- ─── SPLIT-SCREEN COLLISION ─── -->
-  <div class="collision-grid">
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- JOHN LENNON — LEFT -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="collision-panel collision-panel--lennon">
-      <div class="collision-badge">THE REBELLION</div>
+  <Section variant="black" spacing="md">
+    <div class="collision-grid">
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- JOHN LENNON — LEFT -->
+      <!-- ═══════════════════════════════════════════ -->
+      <ProfileCard
+        variant="lennon"
+        photo="/john.jpg"
+        photoAlt="John Lennon — 1965"
+        photoLabel="ABBEY ROAD // RECORDING TAPE BOX"
+        badge="THE REBELLION"
+        name="JOHN LENNON"
+        subtitle="// The Unintentional Anarchist"
+        quote="We are where we are, lads. Best be relaxed. We're about to get medals. I mean, they're honors for pop music. It's not like we actually had to kill anyone to get them."
+        style="background: var(--bg-subtle); padding: 4rem; border: 1px solid var(--red-text-subtle); border-right: none;"
+      >
+        <ProfileSection label="The Stance">
+          <p>
+            Slouching, irreverent, and chemically relaxed. Armed with a
+            working-class Liverpool wit, a packed joint in his velvet jacket
+            pocket, and an instinctive disdain for institutional pretension.
+          </p>
+        </ProfileSection>
 
-      <!-- Surveillance-style image -->
-      <div class="photo-frame">
-        <img
-          class="portrait-photo"
-          src="/john.jpg"
-          alt="John Lennon — 1965"
-          loading="lazy"
-        />
-        <div class="tape-overlay" aria-hidden="true"></div>
-        <div class="photo-label">ABBEY ROAD // RECORDING TAPE BOX</div>
-      </div>
+        <ProfileSection label="The Threat Profile">
+          <p>
+            <strong>High Cultural Authority.</strong> John isn't trying to overthrow
+            the government; he's just naturally skeptical of royal pomp. But to a
+            rigid establishment, his casual, effortless influence over millions of
+            youth makes him look more dangerous than an army of foreign agents.
+          </p>
+        </ProfileSection>
 
-      <h3 class="collision-name">
-        JOHN LENNON <span class="collision-subtitle"
-          >// The Unintentional Anarchist</span
-        >
-      </h3>
+        <ProfileSection label="The Comedy DNA">
+          <AgentList
+            items={[
+              {
+                term: "The Unwitting Catalyst",
+                body: `John's "killing people" comment at the MBE ceremony is pure
+               working-class irreverence, not calculated political protest.
+               He has no idea he just made the most powerful enemy of his life.`,
+              },
+              {
+                term: "The Inverse Feedback Loop",
+                body: `Every MI5 manipulation designed to destroy him — the "Jesus"
+               controversy amplification, the media hostility, the institutional
+               pressure — pushes him further into radicalization. The conspiracy
+               creates the very threat it was designed to neutralize.`,
+              },
+              {
+                term: "The Accidental Radical",
+                body: `His genuine political awakening — driven by authentic conviction
+               and primal therapy — is also partially the product of the very
+               conspiracy designed to destroy him. Dramatic irony as the engine
+               of tragedy.`,
+              },
+            ]}
+          />
+        </ProfileSection>
 
-      <blockquote class="collision-quote">
-        "We are where we are, lads. Best be relaxed. We're about to get medals.
-        I mean, they're honors for pop music. It's not like we actually had to
-        kill anyone to get them."
-      </blockquote>
+        <ProfileSection label="The Trajectory">
+          <p>
+            Stumbles into a multi-year psychological war he doesn't know he's
+            fighting. Every time MI5 tries to subtle-sabotage him, his music
+            just gets sharper, weirder, and more radicalized — culminating in
+            the ultimate act of defiance: returning his actual MBE medal to
+            Buckingham Palace.
+          </p>
+        </ProfileSection>
 
-      <div class="profile-section">
-        <span class="section-label">The Stance</span>
-        <p>
-          Slouching, irreverent, and chemically relaxed. Armed with a
-          working-class Liverpool wit, a packed joint in his velvet jacket
-          pocket, and an instinctive disdain for institutional pretension.
-        </p>
-      </div>
+        <ProfileSection label="The Internal Conflict">
+          <p>
+            Torn between his desire for peace and his naturally combative
+            personality. He preaches love and understanding while being quick to
+            anger and harsh judgment. This contradiction makes him vulnerable —
+            he genuinely wants to make the world better but his methods often
+            alienate the very people he needs to reach. He's caught between
+            loyalty to The Beatles (his artistic family) and his growing need
+            for individual expression. Every choice that serves his personal
+            growth seems to damage the band, creating guilt he masks with
+            defiance.
+          </p>
+        </ProfileSection>
 
-      <div class="profile-section">
-        <span class="section-label">The Threat Profile</span>
-        <p>
-          <strong>High Cultural Authority.</strong> John isn't trying to overthrow
-          the government; he's just naturally skeptical of royal pomp. But to a rigid
-          establishment, his casual, effortless influence over millions of youth makes
-          him look more dangerous than an army of foreign agents.
-        </p>
-      </div>
+        <ProfileSection label="The Vulnerabilities">
+          <p>
+            Abandonment anxiety (father left, mother died, band fracturing).
+            Impostor syndrome despite massive success. Susceptible to paranoia
+            when under pressure. Self-destructive tendencies when feeling
+            trapped. And a deep-seated need for authenticity in an increasingly
+            artificial world — a need that makes him both impossible to control
+            and dangerously predictable to those who understand it.
+          </p>
+        </ProfileSection>
 
-      <div class="profile-section">
-        <span class="section-label">The Trajectory</span>
-        <p>
-          Stumbles into a multi-year psychological war he doesn't know he's
-          fighting. Every time MI5 tries to subtle-sabotage him, his music just
-          gets sharper, weirder, and more radicalized — culminating in the
-          ultimate act of defiance: returning his actual MBE medal to Buckingham
-          Palace.
-        </p>
-      </div>
+        <ProfileSection label="The Narrative Arc — Three Acts">
+          <AgentList
+            items={[
+              {
+                term: "1965 — The Unwitting Catalyst",
+                body: `John's casual "killing people" quip at the MBE ceremony is pure
+               instinct, not rebellion. His casual disrespect unknowingly triggers
+               Philip's five-year vendetta.`,
+              },
+              {
+                term: "1968 — The Manipulated Radical",
+                body: `Operation Minuet's psychological campaign amplifies every
+               controversy around him. He becomes the radical Philip needs him
+               to be.`,
+              },
+              {
+                term: "1970 — The Defiant Survivor",
+                body: `Returns his MBE. Survives an assassination attempt he never
+               knows about. He walks away free, never learning how close he
+               came to death.`,
+              },
+            ]}
+          />
+        </ProfileSection>
+      </ProfileCard>
 
-      <div class="profile-section">
-        <span class="section-label">The Comedy DNA</span>
-        <ul class="agent-list">
-          <li>
-            <strong>The Unwitting Catalyst:</strong> John's "killing people" comment
-            at the MBE ceremony is pure working-class irreverence, not calculated
-            political protest. He has no idea he just made the most powerful enemy
-            of his life.
-          </li>
-          <li>
-            <strong>The Inverse Feedback Loop:</strong> Every MI5 manipulation designed
-            to destroy him — the "Jesus" controversy amplification, the media hostility,
-            the institutional pressure — pushes him further into radicalization. The
-            conspiracy creates the very threat it was designed to neutralize.
-          </li>
-          <li>
-            <strong>The Accidental Radical:</strong> His genuine political awakening
-            — driven by authentic conviction and primal therapy — is also partially
-            the product of the very conspiracy designed to destroy him. Dramatic irony
-            as the engine of tragedy.
-          </li>
-        </ul>
-      </div>
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- THE QUEEN — RIGHT -->
+      <!-- ═══════════════════════════════════════════ -->
+      <ProfileCard
+        variant="crown"
+        photo="/queen.jpg"
+        photoAlt="Queen Elizabeth - 1960's"
+        photoLabel="BUCKINGHAM PALACE // OFFICIAL PORTRAIT"
+        badge="HER MAJESTY THE QUEEN"
+        name="Queen Elizabeth"
+        subtitle="// The Oblivious Institution"
+        quote="They seem like very polite young men, Philip. The short one with the drums has a lovely smile. Do stop pacing, you're making the corgis anxious."
+        style="background: var(--bg-subtle); padding: 4rem; border: 1px solid var(--red-text-subtle); border-left: none;"
+      >
+        <ProfileSection label="The Stance">
+          <p>
+            Perfectly poised, completely unbothered, and utterly detached from
+            the panic brewing in her own basement. Armed with inherited
+            centuries of tradition, absolute social grace, and a genuine
+            indifference to rock-and-roll.
+          </p>
+        </ProfileSection>
+        <ProfileSection label="The Threat Profile">
+          <p>
+            <strong> Absolute Institutional Weight. </strong>
+            She represents the massive, immovable iceberg of the British Empire. She
+            doesn't dislike the Beatles; she graciously hands them their medals because
+            her Prime Minister told her to.
+          </p>
+        </ProfileSection>
+        <ProfileSection label="The Grand Satirical Irony">
+          <p>
+            The Queen is the epic center of the show's cosmic joke. While Prince
+            Philip uses the entire apparatus of MI5 to protect her honor from
+            Lennon's "rebellion," Her Majesty remains blissfully unaware of the
+            multi-million dollar conspiracy operating in her name. She treats
+            the Beatles like a passing weather system, entirely blind to the
+            fact that her husband has turned her palace into a paranoid cold-war
+            command center.
+          </p>
+        </ProfileSection>
+        <ProfileSection label="The Comedy DNA">
+          <AgentList
+            items={[
+              {
+                term: "The Oblivious Iceberg",
+                body: `The Queen is the massive, immovable institution — while Philip rages and Mountbatten schemes downstairs, 
+                  she's signing state papers and asking about the corgis. The entire conspiracy operates in a building whose owner
+                  has no idea it exists.`,
+              },
+              {
+                term: "The Flat Arc",
+                body: `She maintains absolute consistency while
+                everyone around her spirals. Her presence at Committee meetings serves
+                as both legitimacy and restraint — she contributes hilariously mundane
+                counterpoints to Mountbatten's psychological warfare briefings (questioning
+                budgets, suggesting tea service protocols).`,
+              },
+              {
+                term: "The Final Judgment",
+                body: `Her one scene of moral weight — a look, not a speech — delivers the series' verdict. Patience defeats everything. The institution endures not by acting, but by refusing to.`,
+              },
+            ]}
+          />
+        </ProfileSection>
+        <ProfileSection label="The Motivation">
+          <p>
+            Her overriding motivation is <strong
+              >institutional preservation</strong
+            >. She views the monarchy as a thousand-year institution that must
+            outlast any individual crisis, including her husband's wounded
+            pride. John's 1965 comment is, to her, a momentary irritation that
+            will be forgotten if ignored, but could become a lasting scandal if
+            mishandled. Her secondary motivation is managing Philip's escalating
+            obsession — by participating in the Committee, she hopes to moderate
+            his impulses and prevent actions that could genuinely threaten the
+            Crown.
+          </p>
+        </ProfileSection>
+        <ProfileSection label="The Internal Conflict">
+          <p>
+            Torn between duty to her husband and duty to the Crown. She is loyal
+            to Philip and feels a deep, if formal, affection for him. But his
+            Operation Minuet runs counter to her every instinct for caution and
+            stability. Every time she reluctantly sanctions a part of his plan,
+            she weighs the risk of indulging his folly against the risk of
+            directly opposing him and causing a domestic crisis. She is a
+            fundamentally conservative individual forced to oversee a radically
+            unconventional and undignified operation. Her struggle is to
+            maintain the dignity of her office while being party to something
+            utterly lacking in it.
+          </p>
+        </ProfileSection>
+        <ProfileSection label="The Narrative Arc - Three Acts">
+          <AgentList
+            items={[
+              {
+                term: "1965 — The Cautious Voice",
+                body: "Witnesses John's comment with diplomatic composure. When Philip convenes the Committee, she participates reluctantly, hoping her presence will moderate his response. 'He's an artist, Philip. They're meant to be dramatic.'",
+              },
+              {
+                term: "1968 — The Reluctant Moderator",
+                body: "Serves as the Committee's conscience. Her contributions are hilariously mundane — questioning budgets, suggesting protocol. Watches Philip's growing obsession with increasing concern.",
+              },
+              {
+                term: "1970 — The Vindicated Survivor",
+                body: "John's MBE return triggers Philip's assassination demand. Her horror represents her moral line. When the plot collapses into farce, her reaction is weary vindication. Her final look to Philip reaffirms: institutions endure by staying above personal vendettas.",
+              },
+            ]}
+          />
+        </ProfileSection>
+      </ProfileCard>
 
-      <div class="profile-section">
-        <span class="section-label">The Internal Conflict</span>
-        <p>
-          Torn between his desire for peace and his naturally combative
-          personality. He preaches love and understanding while being quick to
-          anger and harsh judgment. This contradiction makes him vulnerable — he
-          genuinely wants to make the world better but his methods often
-          alienate the very people he needs to reach. He's caught between
-          loyalty to The Beatles (his artistic family) and his growing need for
-          individual expression. Every choice that serves his personal growth
-          seems to damage the band, creating guilt he masks with defiance.
-        </p>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Vulnerabilities</span>
-        <p>
-          Abandonment anxiety (father left, mother died, band fracturing).
-          Impostor syndrome despite massive success. Susceptible to paranoia
-          when under pressure. Self-destructive tendencies when feeling trapped.
-          And a deep-seated need for authenticity in an increasingly artificial
-          world — a need that makes him both impossible to control and
-          dangerously predictable to those who understand it.
-        </p>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Narrative Arc — Three Acts</span>
-        <ul class="agent-list">
-          <li>
-            <strong>1965 — The Unwitting Catalyst:</strong> John's casual "killing
-            people" quip at the MBE ceremony is pure instinct, not rebellion. He's
-            uncomfortable with royal formality but hasn't yet developed the political
-            consciousness that will define his later years. His casual disrespect
-            unknowingly triggers Philip's five-year vendetta.
-          </li>
-          <li>
-            <strong>1968 — The Manipulated Radical:</strong> Operation Minuet's psychological
-            campaign amplifies every controversy around him. The "Jesus" firestorm,
-            media hostility, institutional pressure — all orchestrated or amplified
-            by MI5. His growing political awareness is genuine but partially manufactured.
-            He becomes the radical Philip needs him to be.
-          </li>
-          <li>
-            <strong>1970 — The Defiant Survivor:</strong> Returns his MBE. Survives
-            an assassination attempt he never knows about. The Beatles dissolve through
-            their own dynamics, not Philip's design. He walks away free, never learning
-            how close he came to death or that his political journey was partially
-            a puppet show. Survival as victory.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- THE QUEEN — RIGHT -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="collision-panel collision-panel--queen">
-      <div class="collision-badge collision-badge--right">THE CROWN</div>
-
-      <!-- Formal portrait-style image -->
-      <div class="photo-frame photo-frame--queen">
-        <img
-          class="portrait-photo portrait-photo--queen"
-          src="/queen.jpg"
-          alt="Her Majesty The Queen — Official Portrait"
-          loading="lazy"
-        />
-        <div class="royal-border" aria-hidden="true"></div>
-        <div class="photo-label photo-label--queen">
-          BUCKINGHAM PALACE // OFFICIAL PORTRAIT
-        </div>
-      </div>
-
-      <h3 class="collision-name collision-name--queen">
-        HER MAJESTY THE QUEEN <span class="collision-subtitle"
-          >// The Oblivious Institution</span
-        >
-      </h3>
-
-      <blockquote class="collision-quote collision-quote--queen">
-        "They seem like very polite young men, Philip. The short one with the
-        drums has a lovely smile. Do stop pacing, you're making the corgis
-        anxious."
-      </blockquote>
-
-      <div class="profile-section">
-        <span class="section-label">The Stance</span>
-        <p>
-          Perfectly poised, completely unbothered, and utterly detached from the
-          panic brewing in her own basement. Armed with inherited centuries of
-          tradition, absolute social grace, and a genuine indifference to
-          rock-and-roll.
-        </p>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Threat Profile</span>
-        <p>
-          <strong>Absolute Institutional Weight.</strong> She represents the massive,
-          immovable iceberg of the British Empire. She doesn't dislike the Beatles;
-          she graciously hands them their medals because her Prime Minister told her
-          to.
-        </p>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Grand Satirical Irony</span>
-        <p>
-          The Queen is the epic center of the show's cosmic joke. While Prince
-          Philip uses the entire apparatus of MI5 to protect her honor from
-          Lennon's "rebellion," Her Majesty remains blissfully unaware of the
-          multi-million dollar conspiracy operating in her name. She treats the
-          Beatles like a passing weather system, entirely blind to the fact that
-          her husband has turned her palace into a paranoid cold-war command
-          center.
-        </p>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Comedy DNA</span>
-        <ul class="agent-list">
-          <li>
-            <strong>The Oblivious Iceberg:</strong> The Queen is the massive, immovable
-            institution — while Philip rages and Mountbatten schemes downstairs, she's
-            signing state papers and asking about the corgis. The entire conspiracy
-            operates in a building whose owner has no idea it exists.
-          </li>
-          <li>
-            <strong>The Flat Arc:</strong> She maintains absolute consistency while
-            everyone around her spirals. Her presence at Committee meetings serves
-            as both legitimacy and restraint — she contributes hilariously mundane
-            counterpoints to Mountbatten's psychological warfare briefings (questioning
-            budgets, suggesting tea service protocols).
-          </li>
-          <li>
-            <strong>The Final Judgment:</strong> Her one scene of moral weight — a
-            look, not a speech — delivers the series' verdict. Patience defeats everything.
-            The institution endures not by acting, but by refusing to.
-          </li>
-        </ul>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Motivation</span>
-        <p>
-          Her overriding motivation is <strong
-            >institutional preservation</strong
-          >. She views the monarchy as a thousand-year institution that must
-          outlast any individual crisis, including her husband's wounded pride.
-          John's 1965 comment is, to her, a momentary irritation that will be
-          forgotten if ignored, but could become a lasting scandal if
-          mishandled. Her secondary motivation is managing Philip's escalating
-          obsession — by participating in the Committee, she hopes to moderate
-          his impulses and prevent actions that could genuinely threaten the
-          Crown.
-        </p>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Internal Conflict</span>
-        <p>
-          Torn between duty to her husband and duty to the Crown. She is loyal
-          to Philip and feels a deep, if formal, affection for him. But his
-          Operation Minuet runs counter to her every instinct for caution and
-          stability. Every time she reluctantly sanctions a part of his plan,
-          she weighs the risk of indulging his folly against the risk of
-          directly opposing him and causing a domestic crisis. She is a
-          fundamentally conservative individual forced to oversee a radically
-          unconventional and undignified operation. Her struggle is to maintain
-          the dignity of her office while being party to something utterly
-          lacking in it.
-        </p>
-      </div>
-
-      <div class="profile-section">
-        <span class="section-label">The Narrative Arc — Three Acts</span>
-        <ul class="agent-list">
-          <li>
-            <strong>1965 — The Cautious Voice:</strong> Witnesses John's comment with
-            diplomatic composure. When Philip convenes the Committee, she participates
-            reluctantly, hoping her presence will moderate his response. "He's an
-            artist, Philip. They're meant to be dramatic."
-          </li>
-          <li>
-            <strong>1968 — The Reluctant Moderator:</strong> Serves as the Committee's
-            conscience. Her contributions are hilariously mundane — questioning budgets,
-            suggesting protocol. Watches Philip's growing obsession with increasing
-            concern.
-          </li>
-          <li>
-            <strong>1970 — The Vindicated Survivor:</strong> John's MBE return triggers
-            Philip's assassination demand. Her horror represents her moral line. When
-            the plot collapses into farce, her reaction is weary vindication. Her
-            final look to Philip reaffirms: institutions endure by staying above personal
-            vendettas.
-          </li>
-        </ul>
+      <!-- ─── CENTER OVERLAP STAMP ─── -->
+      <div class="center-stamp" aria-hidden="true">
+        CULTURAL CONTAGION DIRECTIVE<br />
+        <span class="stamp-sub">DO NOT CROSS FILE</span>
       </div>
     </div>
-
-    <!-- ─── CENTER OVERLAP STAMP ─── -->
-    <div class="center-stamp" aria-hidden="true">
-      CULTURAL CONTAGION DIRECTIVE<br />
-      <span class="stamp-sub">DO NOT CROSS FILE</span>
-    </div>
-  </div>
+  </Section>
 
   <!-- ─── DIAGNOSTIC SUMMARY ─────────── -->
-  <Section variant="paper" spacing="lg">
+  <Section variant="paper" spacing="md" style="max-width: 980px; margin: 0 auto;">
     <Container>
       <Eyebrow>Diagnostic Summary</Eyebrow>
       <Heading level={2} variant="section"
@@ -423,209 +374,6 @@ DIAGNOSTIC SUMMARY // THE ANATOMY OF AN IRREVERENT FARCE
     background: var(--bg);
     position: relative;
     overflow: hidden;
-  }
-
-  /* ─── COLLISION PANEL ─── */
-  .collision-panel {
-    padding: var(--space-6) var(--space-5);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .collision-panel--lennon {
-    background: var(--bg2);
-    border-right: 2px solid var(--bg);
-  }
-
-  .collision-panel--queen {
-    background: var(--bg1);
-  }
-
-  .collision-badge {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--fs1);
-    font-weight: 800;
-    letter-spacing: 0.2rem;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    margin-bottom: var(--space-4);
-    border: 1px solid var(--accent-blue);
-    color: var(--accent-blue);
-  }
-
-  .collision-badge--right {
-    border-color: var(--color-amber);
-    color: var(--color-amber);
-  }
-
-  /* ─── PHOTO FRAMES ─── */
-  .photo-frame {
-    position: relative;
-    margin-bottom: var(--space-4);
-    overflow: hidden;
-    border: 1px solid var(--bg4);
-  }
-
-  .portrait-photo {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .portrait-photo--queen {
-    filter: saturate(1.1) contrast(1.05);
-    object-position: center 20%;
-  }
-
-  .tape-overlay {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 40px,
-      rgba(0, 0, 0, 0.03) 40px,
-      rgba(0, 0, 0, 0.03) 42px
-    );
-    pointer-events: none;
-  }
-
-  .royal-border {
-    position: absolute;
-    inset: 0;
-    border: 8px solid rgba(200, 168, 75, 0.15);
-    pointer-events: none;
-  }
-
-  .photo-label {
-    position: absolute;
-    bottom: var(--space-2);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #111;
-    color: #888;
-    font-family: var(--font-mono);
-    font-size: var(--fs1);
-    font-weight: 700;
-    letter-spacing: 0.15rem;
-    padding: 4px 12px;
-    text-transform: uppercase;
-    border: 1px solid #333;
-    white-space: nowrap;
-  }
-
-  .photo-label--queen {
-    background: #1a1520;
-    color: var(--accent-blue);
-    border-color: rgba(200, 168, 75, 0.3);
-  }
-
-  /* ─── COLLISION NAMES ─── */
-  .collision-name {
-    font-family: var(--font-serif);
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-    font-weight: 800;
-    color: var(--text1);
-    margin: 0 0 var(--space-2);
-    letter-spacing: 0.02rem;
-  }
-
-  .collision-name--queen {
-    color: var(--color-cream);
-  }
-
-  .collision-subtitle {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 400;
-    color: var(--accent-blue);
-    letter-spacing: 0.06rem;
-    display: block;
-    margin-top: 2px;
-  }
-
-  .collision-name--queen .collision-subtitle {
-    color: var(--color-amber);
-  }
-
-  /* ─── QUOTES ─── */
-  .collision-quote {
-    border-left: 2px solid var(--accent-blue);
-    padding: var(--space-2) var(--space-3);
-    margin: var(--space-3) 0;
-    font-size: 0.8rem;
-    line-height: 1.6;
-    font-style: italic;
-    color: var(--text4);
-    background: var(--accent-blue-subtle);
-  }
-
-  .collision-quote--queen {
-    border-left-color: var(--color-amber);
-    background: rgba(138, 110, 42, 0.06);
-    color: var(--text5);
-    padding-right: 3rem;
-    margin-right: 3rem;
-  }
-
-  /* ─── PROFILE SECTIONS ─── */
-  .profile-section {
-    margin-bottom: var(--space-4);
-  }
-
-  .section-label {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--fs2);
-    font-weight: 700;
-    letter-spacing: 0.2rem;
-    text-transform: uppercase;
-    color: var(--accent-blue);
-    border-bottom: 1px solid var(--border-faint);
-    padding-bottom: 2px;
-    margin-bottom: var(--space-2);
-  }
-
-  .collision-panel--queen .section-label {
-    color: var(--color-amber);
-  }
-
-  .profile-section p {
-    font-family: var(--font-sans);
-    font-size: var(--fs3);
-    line-height: 1.6;
-    color: var(--text5);
-    margin: 0;
-  }
-
-  .profile-section strong {
-    color: var(--text3);
-  }
-
-  /* ─── AGENT LIST STYLES (shared with mi5/establishment) ─── */
-  .agent-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .agent-list li {
-    font-size: var(--fs3);
-    line-height: 1.55;
-    color: var(--text5);
-    padding: var(--space-1) 0;
-    border-bottom: 1px solid var(--border-faint);
-  }
-
-  .agent-list li:last-child {
-    border-bottom: none;
-  }
-
-  .agent-list li strong {
-    color: var(--text3);
-    font-weight: 700;
   }
 
   /* ─── CENTER STAMP ─── */

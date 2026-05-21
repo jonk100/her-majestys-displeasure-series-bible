@@ -82,7 +82,7 @@
   --fs16: clamp(6rem, 6rem + 10vw, 8rem);
 
   /* Layout */
-  --container-width: 1100px;
+  --container-width: 1400px;
   --section-padding: clamp(3rem, 8vw, 6rem);
   /* Spacing */
   --space-1: 0.25rem;

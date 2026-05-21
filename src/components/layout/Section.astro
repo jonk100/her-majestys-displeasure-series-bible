@@ -9,13 +9,15 @@ interface Props {
   variant?: "dark" | "paper" | "black";
   spacing?: "xs" | "sm" | "md" | "lg" | "xl";
   className?: string;
+  style?: string;
 }
 
-const { variant = "dark", spacing = "md", className } = Astro.props;
+const { variant = "dark", spacing = "md", className, style } = Astro.props;
 ---
 
 <section
   class={cn("section", `section--${variant}`, `section--spacing-${spacing}`, `${className}`)}
+  style={style}
 >
   <div class="container">
     <slot />

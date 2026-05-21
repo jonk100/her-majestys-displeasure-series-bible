@@ -1,9 +1,13 @@
 ---
+interface Props {
+  fontSize?: string;
+}
 
+const { fontSize } = Astro.props;
 ---
 
 <div class="quote-band">
-  <pre class="quote-text">
+  <pre class="quote-text" style={`font-size: ${fontSize};`}>
     <slot />
   </pre>
 </div>

@@ -1,0 +1,75 @@
+---
+/**
+ * AgentList.astro
+ *
+ * A styled list of term + body pairs, rendered as a <ul> with bottom-bordered
+ * items. Used inside ProfileSection wherever the content is a set of named
+ * points (Comedy DNA, Narrative Arc, Vulnerabilities, etc.).
+ *
+ * Each item has an optional bold `term` and a required `body` string.
+ * Both support inline HTML (e.g. <em> for titles).
+ *
+ * @example
+ * ```astro
+ * <AgentList items={[
+ *   {
+ *     term: "The Unwitting Catalyst",
+ *     body: "John's 'killing people' comment was pure working-class irreverence…"
+ *   },
+ *   {
+ *     term: "The Inverse Feedback Loop",
+ *     body: "Every MI5 manipulation designed to destroy him only radicalised him further."
+ *   },
+ * ]} />
+ * ```
+ */
+
+interface ListItem {
+  /** Bold lead-in term. Optional — omit for unnumbered plain items. */
+  term?: string;
+  /** Body text. Rendered as innerHTML so inline HTML tags are supported. */
+  body: string;
+}
+
+interface Props {
+  items: ListItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="agent-list">
+  {
+    items.map((item) => (
+      <li>
+        {item.term && <strong>{item.term}:</strong>}{" "}
+        <span set:html={item.body} />
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .agent-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .agent-list li {
+    font-size: var(--fs3);
+    line-height: 1.55;
+    color: var(--text5);
+    padding: var(--space-1) 0;
+    border-bottom: 1px solid var(--border-faint);
+  }
+
+  .agent-list li:last-child {
+    border-bottom: none;
+  }
+
+  .agent-list li strong {
+    color: var(--text3);
+    font-weight: 700;
+  }
+</style>

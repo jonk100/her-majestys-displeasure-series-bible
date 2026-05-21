@@ -1,0 +1,273 @@
+---
+/**
+ * ProfileCard.astro
+ *
+ * Renders a surveillance-style character profile card used across the
+ * MI5, Establishment, Collision, and Supporting Cast pages.
+ *
+ * The card consists of:
+ *   - A photo frame with an optional overlay and a bottom label
+ *   - A faction badge (e.g. "THE REBELLION", "THE CROWN")
+ *   - A name heading with an inline subtitle/archetype
+ *   - A pull quote
+ *   - A <slot /> for ProfileSection children below the quote
+ *
+ * @example
+ * ```astro
+ * <ProfileCard
+ *   variant="lennon"
+ *   photo="/john.jpg"
+ *   photoAlt="John Lennon — 1965"
+ *   photoLabel="ABBEY ROAD // RECORDING TAPE BOX"
+ *   badge="THE REBELLION"
+ *   name="JOHN LENNON"
+ *   subtitle="// The Unintentional Anarchist"
+ *   quote="We are where we are, lads..."
+ * >
+ *   <ProfileSection label="The Stance">…</ProfileSection>
+ * </ProfileCard>
+ * ```
+ */
+
+interface Props {
+  /**
+   * Visual variant — controls accent colour and overlay style.
+   * "mi5"     → blue accent, scan-line tape overlay
+   * "lennon"  → blue accent, scan-line tape overlay (same as mi5)
+   * "crown"   → amber accent, royal-border overlay
+   * "beatles" → amber accent, no overlay
+   */
+  variant?: "mi5" | "lennon" | "crown" | "beatles";
+
+  /** Path to the portrait photograph. */
+  photo: string;
+
+  /** Alt text for the portrait photograph. */
+  photoAlt: string;
+
+  /** Monospaced label shown at the bottom of the photo frame. */
+  photoLabel: string;
+
+  /** Short all-caps faction label shown above the name (e.g. "THE REBELLION"). */
+  badge: string;
+
+  /** Character name in all-caps (e.g. "JOHN LENNON"). */
+  name: string;
+
+  /** Archetype subtitle shown inline under the name (e.g. "// The Unintentional Anarchist"). */
+  subtitle: string;
+
+  /** Pull quote shown beneath the name. */
+  quote: string;
+
+  class?: string;
+  style?: string;
+}
+
+const { variant = "mi5", photo, photoAlt, photoLabel, badge, name, subtitle, quote, class: className, style } = Astro.props;
+
+const isCrown = variant === "crown";
+const isBeatles = variant === "beatles";
+const isWarm = isCrown || isBeatles;
+---
+
+<div class:list={["profile-card", `profile-card--${variant}`, className]} style={style}>
+  <!-- ── FACTION BADGE ── -->
+  <div class:list={["collision-badge", { "collision-badge--warm": isWarm }]}>
+    {badge}
+  </div>
+
+  <!-- ── PHOTO FRAME ── -->
+  <div class:list={["photo-frame", { "photo-frame--queen": isCrown }]}>
+    <img class:list={["portrait-photo", { "portrait-photo--queen": isCrown }]} src={photo} alt={photoAlt} loading="lazy" />
+    {!isWarm && <div class="tape-overlay" aria-hidden="true" />}
+    {isCrown && <div class="royal-border" aria-hidden="true" />}
+    <div class:list={["photo-label", { "photo-label--warm": isWarm }]}>
+      {photoLabel}
+    </div>
+    <slot name="vitals" />
+  </div>
+
+  <!-- ── NAME + SUBTITLE ── -->
+  <h3 class:list={["collision-name", { "collision-name--warm": isWarm }]}>
+    {name}
+    <span class:list={["collision-subtitle", { "collision-subtitle--warm": isWarm }]}>
+      {subtitle}
+    </span>
+  </h3>
+
+  <!-- ── PULL QUOTE ── -->
+  <blockquote class:list={["collision-quote", { "collision-quote--warm": isWarm }]}>
+    "{quote}"
+  </blockquote>
+
+  <!-- ── PROFILE SECTIONS (caller supplies these) ── -->
+  <slot />
+</div>
+
+<style>
+  .profile-card {
+    padding: var(--space-6) var(--space-5);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── BADGE ── */
+  .collision-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--fs1);
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+  }
+
+  .collision-badge--warm {
+    border-color: var(--color-amber);
+    color: var(--color-amber);
+  }
+
+  /* ── PHOTO FRAME ── */
+  .photo-frame {
+    position: relative;
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+    border: 1px solid var(--bg4);
+  }
+
+  .portrait-photo {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .portrait-photo--queen {
+    filter: saturate(1.1) contrast(1.05);
+    object-position: center 20%;
+  }
+
+  /* Scan-line overlay for surveillance aesthetic */
+  .tape-overlay {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 0, 0, 0.03) 40px, rgba(0, 0, 0, 0.03) 42px);
+    pointer-events: none;
+  }
+
+  /* Gold border for the royal portrait */
+  .royal-border {
+    position: absolute;
+    inset: 0;
+    border: 8px solid rgba(200, 168, 75, 0.15);
+    pointer-events: none;
+  }
+
+  /* Photo caption bar */
+  .photo-label {
+    position: absolute;
+    bottom: var(--space-2);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    color: #888;
+    font-family: var(--font-mono);
+    font-size: var(--fs1);
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    padding: 4px 12px;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    white-space: nowrap;
+  }
+
+  .photo-label--warm {
+    background: #1a1520;
+    color: var(--accent-blue);
+    border-color: rgba(200, 168, 75, 0.3);
+  }
+
+  /* ── NAME ── */
+  .collision-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 800;
+    color: var(--text1);
+    margin: 0 0 var(--space-2);
+    letter-spacing: 0.02rem;
+  }
+
+  .collision-name--warm {
+    color: var(--color-cream);
+  }
+
+  .collision-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--accent-blue);
+    letter-spacing: 0.06rem;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .collision-subtitle--warm {
+    color: var(--color-amber);
+  }
+
+  /* ── PULL QUOTE ── */
+  .collision-quote {
+    border-left: 2px solid var(--accent-blue);
+    padding: var(--space-2) var(--space-3);
+    margin: var(--space-3) 0;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--text4);
+    background: var(--accent-blue-subtle);
+  }
+
+  .collision-quote--warm {
+    border-left-color: var(--color-amber);
+    background: rgba(138, 110, 42, 0.06);
+    color: var(--text5);
+    padding-right: 3rem;
+    margin-right: 3rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    .photo-label {
+      font-size: 0.45rem;
+      white-space: normal;
+    }
+  }
+
+  /* ─── AGENT LIST STYLES (shared with mi5/establishment) ─── */
+  .agent-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .agent-list li {
+    font-size: var(--fs3);
+    line-height: 1.55;
+    color: var(--text5);
+    padding: var(--space-1) 0;
+    border-bottom: 1px solid var(--border-faint);
+  }
+
+  .agent-list li:last-child {
+    border-bottom: none;
+  }
+
+  .agent-list li strong {
+    color: var(--text3);
+    font-weight: 700;
+  }
+</style>

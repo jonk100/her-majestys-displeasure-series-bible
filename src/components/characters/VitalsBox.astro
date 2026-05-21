@@ -1,0 +1,119 @@
+---
+/**
+ * VitalsBox.astro
+ *
+ * Renders a surveillance-style vital statistics block — the classified
+ * data-box seen on personnel files. Designed to be dropped into a
+ * ProfileCard (or any page) above the default <slot /> content.
+ *
+ * The box has three layers:
+ *   1. A red "CLASSIFIED // REDACTED" header bar
+ *   2. A <pre> block of key/value vitals rows
+ *   3. An optional horizontal rule separator rendered as dashes
+ *
+ * @example
+ * ```astro
+ * <ProfileCard ...>
+ *   <VitalsBox
+ *     docRef="CROWN-CSIC-001"
+ *     status="PRINCIPAL // PRIMARY ANTAGONIST"
+ *     items={[
+ *       { key: "AGE",            value: "44 [1965] / 49 [1970]" },
+ *       { key: "ROLE",           value: "CONSORT TO THE SOVEREIGN" },
+ *       { key: "PRIMARY MOTIVE", value: "WOUNDED ARISTOCRATIC PRIDE" },
+ *     ]}
+ *   />
+ *   <ProfileSection label="The Hook">…</ProfileSection>
+ * </ProfileCard>
+ * ```
+ */
+
+interface VitalItem {
+  /** Left-hand column label (e.g. "AGE", "ROLE"). Padded to align values. */
+  key: string;
+  /** Right-hand column value. */
+  value: string;
+}
+
+interface Props {
+  /**
+   * Document reference code shown in the fixed header block.
+   * e.g. "CROWN-CSIC-001"
+   */
+  docRef: string;
+
+  /**
+   * Subject status line shown in the fixed header block.
+   * e.g. "PRINCIPAL // PRIMARY ANTAGONIST"
+   */
+  status: string;
+
+  /** Array of key/value pairs rendered as padded monospace rows. */
+  items: VitalItem[];
+}
+
+const { docRef, status, items } = Astro.props;
+
+/**
+ * Pads a key string with trailing spaces so all values line up in a
+ * fixed-width monospace column. Finds the longest key and aligns to that.
+ *
+ * @param key - The label string to pad.
+ * @param maxLen - The length of the longest key in the set.
+ * @returns The key padded with trailing spaces to `maxLen` characters.
+ */
+function padKey(key: string, maxLen: number): string {
+  return key.padEnd(maxLen, " ");
+}
+
+const maxKeyLen = Math.max(...items.map((i) => i.key.length));
+
+/** Separator line matching the width of a typical vitals row. */
+const separator = "-".repeat(62);
+---
+
+<div class="vitals-box">
+  <span class="vitals-classified">CLASSIFIED // REDACTED</span>
+  <pre
+    class="vitals-pre">
+SECURITY CLEARANCE: ABOVE TOP SECRET (INHERENT)
+DOCUMENT REF:       {docRef}
+SUBJECT STATUS:     {status}
+{separator}
+{items.map((item) => `${padKey(item.key, maxKeyLen)}  ${item.value}`).join("\n")}
+  </pre>
+</div>
+
+<style>
+  /* ─── OUTER BOX ─── */
+  .vitals-box {
+    margin-bottom: var(--space-1);
+    border: 1px solid var(--bg4);
+    background: var(--bg3);
+  }
+
+  /* ─── RED HEADER BAR ─── */
+  .vitals-classified {
+    display: block;
+    background: var(--color-red);
+    color: #ccc;
+    font-family: var(--font-mono);
+    font-size: var(--fs0);
+    font-weight: 800;
+    letter-spacing: 0.24rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1px var(--space-2);
+  }
+
+  /* ─── MONOSPACE DATA BLOCK ─── */
+  .vitals-pre {
+    padding: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--fs0);
+    line-height: 1.8;
+    color: var(--text4);
+    white-space: pre-wrap;
+    margin: 0;
+  }
+</style>

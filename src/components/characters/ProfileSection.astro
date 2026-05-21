@@ -1,0 +1,87 @@
+---
+/**
+ * ProfileSection.astro
+ *
+ * A labelled content section used inside ProfileCard (and anywhere else
+ * a `section-label` + body pattern is needed).
+ *
+ * The body can be plain text, a <p>, an <AgentList>, or any other markup
+ * passed through the default slot.
+ *
+ * @example Plain text body
+ * ```astro
+ * <ProfileSection label="The Stance">
+ *   <p>Slouching, irreverent, and chemically relaxed…</p>
+ * </ProfileSection>
+ * ```
+ *
+ * @example With an AgentList
+ * ```astro
+ * <ProfileSection label="The Comedy DNA">
+ *   <AgentList items={[
+ *     { term: "The Unwitting Catalyst", body: "John's quip was pure instinct…" },
+ *   ]} />
+ * </ProfileSection>
+ * ```
+ */
+
+interface Props {
+  /** All-caps label shown above the section body. */
+  label: string;
+
+  /**
+   * Accent colour applied to the label.
+   * Defaults to "blue" (MI5/Lennon side).
+   * Pass "amber" for Crown/Queen side panels.
+   */
+  accent?: "blue" | "amber";
+}
+
+const { label, accent = "blue" } = Astro.props;
+---
+
+<div class="profile-section">
+  <span class:list={["section-label", `section-label--${accent}`]}>
+    {label}
+  </span>
+  <slot />
+</div>
+
+<style>
+  .profile-section {
+    margin-bottom: var(--space-4);
+  }
+
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--fs2);
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-faint);
+    padding-bottom: 2px;
+    margin-bottom: var(--space-2);
+  }
+
+  .section-label--blue {
+    color: var(--accent-blue);
+  }
+
+  .section-label--amber {
+    color: var(--color-amber);
+  }
+
+  /* Default prose inside a section */
+  :global(.profile-section p) {
+    font-family: var(--font-sans);
+    font-size: var(--fs3);
+    line-height: 1.6;
+    color: var(--text5);
+    margin: 0;
+  }
+
+  :global(.profile-section p strong) {
+    color: var(--text3);
+  }
+</style>
