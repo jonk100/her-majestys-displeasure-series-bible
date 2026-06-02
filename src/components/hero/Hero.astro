@@ -7,7 +7,7 @@
 import Container from "../layout/Container.astro";
 import Stack from "../ui/Stack.astro";
 import Rule from "../typography/Rule.astro";
-import Heading from "../typography/Heading.astro";
+import Heading from "../typography/Heading/Heading.astro";
 import Eyebrow from "../typography/Eyebrow.astro";
 import PitchDeckCTA from "../pitchdeck/PitchDeckCTA.astro";
 
@@ -35,7 +35,7 @@ const { data } = Astro.props;
 
       <!-- TITLE BLOCK -->
       <Stack gap="sm">
-        <Heading level={1} variant="display">
+        <Heading level={1} variant="display" class="hero__title">
           {data.title}
         </Heading>
 

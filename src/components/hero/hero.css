@@ -41,6 +41,18 @@
   padding: var(--space-4) var(--space-4);
 }
 
+.hero__title {
+  font-size: clamp(3rem, 3rem + 3vw, 8rem);
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 400px) {
+  .hero__title {
+    font-size: clamp(1.5rem, 1.5rem + 3vw, 3rem);
+  }
+}
+
 .hero__icon {
   opacity: 1;
   color: var(--text-accent);
