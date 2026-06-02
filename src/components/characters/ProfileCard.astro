@@ -28,6 +28,7 @@
  * </ProfileCard>
  * ```
  */
+import MonoLabel from "@/components/ui/MonoLabel/MonoLabel.astro";
 
 interface Props {
   /**
@@ -39,13 +40,8 @@ interface Props {
    */
   variant?: "mi5" | "lennon" | "crown" | "beatles";
 
-  /** Path to the portrait photograph. */
   photo: string;
-
-  /** Alt text for the portrait photograph. */
   photoAlt: string;
-
-  /** Monospaced label shown at the bottom of the photo frame. */
   photoLabel: string;
 
   /** Short all-caps faction label shown above the name (e.g. "THE REBELLION"). */
@@ -82,9 +78,9 @@ const isWarm = isCrown || isBeatles;
     <img class:list={["portrait-photo", { "portrait-photo--queen": isCrown }]} src={photo} alt={photoAlt} loading="lazy" />
     {!isWarm && <div class="tape-overlay" aria-hidden="true" />}
     {isCrown && <div class="royal-border" aria-hidden="true" />}
-    <div class:list={["photo-label", { "photo-label--warm": isWarm }]}>
-      {photoLabel}
-    </div>
+    <!-- <div class:list={["photo-label", { "photo-label--warm": isWarm }]}> -->
+    <MonoLabel variant="caption">{photoLabel}</MonoLabel>
+    <!-- </div> -->
     <slot name="vitals" />
   </div>
 
@@ -169,26 +165,26 @@ const isWarm = isCrown || isBeatles;
 
   /* Photo caption bar */
   .photo-label {
-    position: absolute;
-    bottom: var(--space-2);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #111;
-    color: #888;
-    font-family: var(--font-mono);
-    font-size: var(--fs1);
-    font-weight: 700;
-    letter-spacing: 0.15rem;
-    padding: 4px 12px;
-    text-transform: uppercase;
-    border: 1px solid #333;
-    white-space: nowrap;
+    /* position: absolute; */
+    /* bottom: var(--space-2); */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    /* background: #111; */
+    /* color: #888; */
+    /* font-family: var(--font-mono); */
+    /* font-size: var(--fs1); */
+    /* font-weight: 700; */
+    /* letter-spacing: 0.15rem; */
+    /* padding: 4px 12px; */
+    /* text-transform: uppercase; */
+    /* border: 1px solid #333; */
+    /* white-space: nowrap; */
   }
 
   .photo-label--warm {
-    background: #1a1520;
-    color: var(--accent-blue);
-    border-color: rgba(200, 168, 75, 0.3);
+    /* background: #1a1520; */
+    /* color: var(--accent-blue); */
+    /* border-color: rgba(200, 168, 75, 0.3); */
   }
 
   /* ── NAME ── */
@@ -222,18 +218,20 @@ const isWarm = isCrown || isBeatles;
   /* ── PULL QUOTE ── */
   .collision-quote {
     border-left: 2px solid var(--accent-blue);
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-2) var(--space-1);
     margin: var(--space-3) 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     font-style: italic;
     color: var(--text4);
-    background: var(--accent-blue-subtle);
+    background: var(--blue-dark);
+    min-height: calc(1.6 * 0.8rem * 4);
+    width: 100%;
   }
 
   .collision-quote--warm {
     border-left-color: var(--color-amber);
-    background: rgba(138, 110, 42, 0.06);
+    background: rgba(138, 110, 42, 0.2);
     color: var(--text5);
     padding-right: 3rem;
     margin-right: 3rem;
@@ -250,13 +248,15 @@ const isWarm = isCrown || isBeatles;
   /* ─── AGENT LIST STYLES (shared with mi5/establishment) ─── */
   .agent-list {
     list-style: none;
+    line-height: var(--lh-looser);
     padding: 0;
     margin: 0;
+    margin-top: auto;
   }
 
   .agent-list li {
-    font-size: var(--fs3);
-    line-height: 1.55;
+    font-size: var(--fs-md);
+    line-height: var(--lh-looser);
     color: var(--text5);
     padding: var(--space-1) 0;
     border-bottom: 1px solid var(--border-faint);

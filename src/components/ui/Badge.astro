@@ -1,0 +1,37 @@
+---
+import type { BadgeVariant } from "@/components/ui/variants";
+import { badgeVariant } from "@/components/ui/variants";
+import type { FixedSize } from "@/components/gv";
+import { fixedSize } from "@/components/gv";
+
+interface Props {
+  variant?: BadgeVariant;
+  size?: FixedSize;
+  class?: string;
+  style?: string;
+}
+
+const { variant = "blue", size = "sm", class: className, style } = Astro.props;
+const { color, border } = badgeVariant[variant];
+---
+
+<div
+  class:list={["badge", className]}
+  style={`--badge-color: ${color}; --badge-border: ${border}; --badge-size: ${fixedSize[size]}; ${style ?? ""}`}
+>
+  <slot />
+</div>
+
+<style>
+  .badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--badge-size);
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border: 1px solid var(--badge-border);
+    color: var(--badge-color);
+  }
+</style>

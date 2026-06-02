@@ -14,23 +14,26 @@ const { fontSize } = Astro.props;
 
 <style>
   .quote-band {
-    background: var(--bg2);
-    padding: var(--space-5) var(--space-5);
+    max-width: 760px;
+    background: linear-gradient(90deg,var(--bg1), transparent);
+    padding: var(--space-2) var(--space-2);
     border-top: 2px solid var(--bg4);
     border-bottom: 2px solid var(--bg4);
+    margin: 0;
+    border-left: 3px solid var(--accent-blue);
+
   }
 
   .quote-text {
     max-width: var(--container-width);
     margin: 0 auto;
     font-family: var(--font-mono);
-    font-size: var(--fs2);
-    line-height: 1.8;
+    font-size: var(--fs-xxxl);
+    line-height: var(--lh-normal);
     color: var(--text-muted);
     letter-spacing: 0.03rem;
     white-space: pre-wrap;
     overflow: hidden;
-    border-left: 3px solid var(--accent-blue);
     padding: var(--space-2) 0 0 var(--space-5);
   }
 </style>

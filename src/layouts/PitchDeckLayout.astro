@@ -6,7 +6,7 @@ import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
 import Footer from "../components/layout/Footer.astro";
 import Section from "@/components/layout/Section.astro";
 import Container from "@/components/layout/Container.astro";
-import Eyebrow from "@/components/typography/Eyebrow.astro";
+import Eyebrow from "@/components/typography/Eyebrow/Eyebrow.astro";
 import Heading from "@/components/typography/Heading.astro";
 import Rule from "@/components/typography/Rule.astro";
 
@@ -32,7 +32,7 @@ const cleanTitle = rawTitle.replace(/<[^>]*>/g, "");
     {/* ─── PAGE HEADER ─── */}
     <Section variant="black" spacing="md">
       <Container>
-        {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+        {eyebrow && <Eyebrow lowercase={false} size="xxl" tone="red" weight="900" tracking="widest">{eyebrow}</Eyebrow>}
         <Heading level={2} variant="section">
           {/* ─── Accepts HTML markup like <em></em> ─── */}
           <span set:html={rawTitle} />
@@ -67,6 +67,11 @@ const cleanTitle = rawTitle.replace(/<[^>]*>/g, "");
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+
+  .prose {
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .header--slot {

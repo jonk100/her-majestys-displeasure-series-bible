@@ -1,0 +1,33 @@
+---
+import type { MonoLabelSize } from "@/components/ui/variants";
+import { monoLabelSize } from "@/components/ui/variants";
+import type { AccentColor } from "@/components/gv";
+import { accentColor } from "@/components/gv";
+
+interface Props {
+  size?: MonoLabelSize;
+  color?: AccentColor;
+  class?: string;
+  style?: string;
+}
+
+const { size = "sm", color = "muted", class: className, style } = Astro.props;
+---
+
+<span
+  class:list={["mono-label", className]}
+  style={`--ml-size: ${monoLabelSize[size]}; --ml-color: ${accentColor[color]}; ${style ?? ""}`}
+>
+  <slot />
+</span>
+
+<style>
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: var(--ml-size);
+    font-weight: 700;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: var(--ml-color);
+  }
+</style>

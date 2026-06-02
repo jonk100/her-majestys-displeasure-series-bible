@@ -1,0 +1,131 @@
+---
+interface Props {
+  href: string | null;
+  direction: 'prev' | 'next';
+  label: string;
+  subLabel: string;
+  class?: string;
+  style?: string;
+}
+
+const { href, direction, label, subLabel, class: className, style } = Astro.props;
+
+const isDisabled = href === null;
+const isPrev = direction === 'prev';
+const isNext = direction === 'next';
+---
+
+{isDisabled ? (
+  <span 
+    class:list={[
+      "nav-link",
+      "nav-link--disabled",
+      isPrev ? "nav-link--prev" : "nav-link--next",
+      className
+    ]} 
+    style={style}
+  >
+    <span class="nav-link__arrow">{isPrev ? '←' : '→'}</span>
+    <span class="nav-link__label">
+      <span class="nav-link__sub">{subLabel}</span>
+      <span class="nav-link__title">{label}</span>
+    </span>
+  </span>
+) : (
+  <a 
+    href={href} 
+    class:list={[
+      "nav-link",
+      isPrev ? "nav-link--prev" : "nav-link--next",
+      className
+    ]} 
+    style={style}
+  >
+    <span class="nav-link__arrow">{isPrev ? '←' : '→'}</span>
+    <span class="nav-link__label">
+      <span class="nav-link__sub">{subLabel}</span>
+      <span class="nav-link__title">{label}</span>
+    </span>
+  </a>
+)}
+
+<style>
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: var(--border-faint);
+    text-decoration: none;
+    transition: border-color 180ms ease, background 180ms ease;
+    background: var(--bg2);
+    color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-link:hover {
+    border-color: var(--text-accent-dim);
+    background: var(--bg3);
+  }
+
+  .nav-link--disabled {
+    visibility: hidden;
+  }
+
+  /* PREV BUTTON SPECIFICS */
+  .nav-link--prev {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  /* NEXT BUTTON SPECIFICS */
+  .nav-link--next {
+    flex-direction: row-reverse; /* Flips horizontal render layout entirely */
+    text-align: right;
+    justify-content: flex-start; /* Keeps the gap spacing tight to elements from right side */
+  }
+
+  /* Ensures internal labels align text correctly block-by-block */
+  .nav-link--next .nav-link__label {
+    text-align: right;
+    width: 100%;
+  }
+
+  .nav-link__arrow {
+    font-size: 1.2rem;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+  }
+
+  .nav-link__sub {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xl);
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .nav-link__title {
+    font-family: var(--font-sans);
+    font-size: var(--fslg);
+    font-weight: 500;
+    color: var(--text3);
+  }
+
+  .nav-link:hover .nav-link__title {
+    color: var(--text1);
+  }
+
+  @media (max-width: 600px) {
+    .nav-link--next {
+      flex-direction: row; /* Resets layout tracking for mobile lists */
+      text-align: left;
+    }
+    .nav-link--next .nav-link__label {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,12 +1,12 @@
 /* ─── HERO SECTION ─── */
 .hero {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 50px);
   position: relative;
   display: flex;
   align-items: center;
   padding-block: var(--space-8);
   overflow: hidden;
-  margin: auto;
+  margin: 1rem auto;
   text-align: center;
 }
 
@@ -19,15 +19,15 @@
   background:
     radial-gradient(
       ellipse 60% 40% at 50% 50%,
-      rgba(200, 168, 75, 0.07),
-      transparent 70%
+      rgba(200, 168, 75, 0.09),
+      transparent 90%
     ),
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 39px,
-      rgba(200, 168, 75, 0.04) 39px,
-      rgba(200, 168, 75, 0.04) 40px
+      rgba(200, 168, 75, 0.08) 39px,
+      rgba(200, 168, 75, 0.08) 40px
     );
 
   pointer-events: none;
@@ -46,7 +46,7 @@
   color: var(--text-accent);
   transform: scale(3.5);
   position: absolute;
-  top: 60px;
+  top: 75px;
   left: 0;
   right: 0;
 }
@@ -60,13 +60,13 @@
 }
 
 .hero__logline {
-  max-width: 640px;
+  max-width: 740px;
   font-style: italic;
   color: var(--text5);
   margin: auto;
-  font-size: var(--fs4);
+  font-size: var(--fs6);
   padding: var(--space-2) 0;
-  padding-bottom: var(--space-4);
+  padding-bottom: var(--space-6);
 }
 
 /* ─── META ─── */
@@ -74,20 +74,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-6);
+  gap: var(--space-8);
   font-family: var(--font-mono);
   margin: var(--space-2) 0;
-  padding: var(--space-3) 0;
+  padding: var(--space-2) 0;
   font-size: var(--fs2);
   letter-spacing: 0.12rem;
   text-transform: uppercase;
   color: var(--text-accent-light);
-  border-top: 1px solid var(--bg5);
+  border-top: 1px solid var(--bg);
 }
 
 .hero-meta__item span {
   margin-right: 0.45rem;
-
   color: var(--accent-blue);
   font-weight: 600;
 }
@@ -95,10 +94,15 @@
 /* ─── SCROLL HINT ─── */
 .hero__scroll-hint {
   position: absolute;
-  bottom: var(--space-1);
+  bottom: var(--space-6);
   color: var(--text-muted);
   font-size: var(--fs6);
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.5;
+}
+
+.cta--inner {
+  min-width: 300px;
+  margin: auto;
 }

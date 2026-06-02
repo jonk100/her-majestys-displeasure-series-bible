@@ -1,0 +1,300 @@
+:root {
+/*=====================================================*/
+/*===== A blue-green accent color for UI elements =====*/
+/*=====================================================*/
+--accent-blue-5:                    rgb(195, 235, 255);
+--accent-blue-4:                    rgb(165, 230, 255);
+--accent-blue-3:                    rgb(130, 225, 255);
+--accent-blue-2:                    rgb(103, 220, 255);
+--accent-blue-1:                    rgb(83, 215, 255);
+--accent-blue:                      rgb(63, 195, 235);
+--accent-blue1:                     rgb(43, 172, 221);
+--accent-blue2:                     rgb(15, 150, 190);
+--accent-blue3:                     rgb(5, 125, 165);
+--accent-blue4:                     rgb(3, 100, 145);
+--accent-blue5:                     rgb(0, 80, 140);
+--accent-blue6:                     rgb(0, 60, 130);
+--accent-blue-light:                rgba(150, 207, 250, 1);
+--accent-blue-muted:                rgb(35, 46, 69);
+--accent-blue-subtle:               rgba(10, 33, 60, 0.5);
+--accent-blue-dark:                 rgba(1, 4, 22, 1);
+--accent-blue-dark-subtle:          rgba(1, 4, 22, 0.5);
+
+--blue-5:                           var(--accent-blue-5);
+--blue-4:                           var(--accent-blue-4);
+--blue-3:                           var(--accent-blue-3);
+--blue-2:                           var(--accent-blue-2);
+--blue-1:                           var(--accent-blue-1);
+--blue:                             var(--accent-blue);
+--blue1:                            var(--accent-blue1);
+--blue2:                            var(--accent-blue2);
+--blue3:                            var(--accent-blue3);
+--blue4:                            var(--accent-blue4);
+--blue5:                            var(--accent-blue5);
+--blue6:                            var(--accent-blue6);
+--blue-muted:                       var(--accent-blue-muted);
+--blue-subtle:                      var(--accent-blue-subtle);
+--blue-dark:                        var(--accent-blue-dark);
+--blue-dark-subtle:                 var(--accent-blue-dark-subtle);
+--blue-light:                       var(--accent-blue-light);
+
+/*=====================================================*/
+/*===== A green-blue accent color for UI elements =====*/
+/*=====================================================*/
+--text-accent-6:                    rgb(230, 255, 255);
+--text-accent-5:                    rgb(210, 255, 239);
+--text-accent-4:                    rgb(190, 255, 210);
+--text-accent-light:                rgba(180, 250, 195);
+--text-accent-3:                    var(--text-accent-light);
+--text-accent-2:                    rgb(170, 250, 190);
+--text-accent-1:                    rgb(160, 245, 185);
+--text-accent:                      rgb(150, 230, 170);
+--text-accent1:                     rgb(135, 225, 155);
+--text-accent2:                     rgb(110, 215, 130);
+--text-accent3:                     rgb(80, 200, 100);
+--text-accent4:                     rgb(60, 160, 80);
+--text-accent5:                     rgb(40, 120, 60);
+--text-accent6:                     rgb(20, 80, 40);
+--text-accent-subtle:               rgba(100, 230, 120, 0.5);
+--text-accent-dim:                  rgb(16, 60, 25);
+--text-accent-muted:                rgb(11, 24, 13);
+--text-accent-dark:                 rgb(1, 19, 5);
+--text-accent-dark-subtle:          rgba(1, 18, 8, 0.5);
+
+--green-6:                          var(--text-accent-6);
+--green-5:                          var(--text-accent-5);
+--green-4:                          var(--text-accent-4);
+--green-3:                          var(--text-accent-3);
+--green-2:                          var(--text-accent-2);
+--green-1:                          var(--text-accent-1);
+--green:                            var(--text-accent);
+--green1:                           var(--text-accent1);
+--green2:                           var(--text-accent2);
+--green3:                           var(--text-accent3);
+--green4:                           var(--text-accent4);
+--green5:                           var(--text-accent5);
+--green6:                           var(--text-accent6);
+--green-dim:                        var(--text-accent-dim);
+--green-muted:                      var(--text-accent-muted);
+--green-subtle:                     var(--text-accent-subtle);
+--green-dark:                       var(--text-accent-dark);
+--green-muted:                      var(--text-accent-muted);
+--green-dark:                       var(--text-accent-dark);
+--green-dark-subtle:                var(--text-accent-dark-subtle);
+
+/*=====================================================*/
+/* An orange-green accent color scale =================*/
+/*=====================================================*/
+--orange-6:                         rgb(255, 240, 240);
+--orange-5:                         rgb(255, 225, 225);
+--orange-4:                         rgb(255, 210, 210);
+--orange-3:                         rgb(255, 180, 180);
+--orange-2:                         rgb(240, 120, 120);
+--orange-1:                         rgb(220, 80, 80);
+--orange:                           rgb(200, 43, 43);
+--orange1:                          rgb(165, 43, 43);
+--orange2:                          rgb(145, 33, 33);
+--orange3:                          rgb(125, 29, 29);
+--orange4:                          rgb(100, 20, 20 );
+--orange5:                          rgb(70, 10, 13);
+--orange6:                          rgb(40, 2, 2);
+--orange-muted:                     rgb(43, 33, 33);
+--orange-subtle:                    rgba(200, 43, 43, 0.417);
+            
+/*=====================================================*/
+/* An amber accent color scale ========================*/
+/*=====================================================*/
+  --color-amber-6:                 rgb(253, 251, 236);
+  --color-amber-5:                 rgb(249, 244, 212);
+  --color-amber-4:                 rgb(243, 235, 180);
+  --color-amber-3:                 rgb(235, 222, 142);
+  --color-amber-2:                 rgb(224, 206, 103);
+  --color-amber-1:                 rgb(209, 186, 67);
+  --color-amber:                   rgb(190, 162, 37);  
+  --color-amber1:                  rgb(164, 137, 27);
+  --color-amber2:                  rgb(137, 113, 19);
+  --color-amber3:                  rgb(111, 91, 12);
+  --color-amber4:                  rgb(86, 70, 7);
+  --color-amber5:                  rgb(61, 50, 4);
+  --color-amber6:                  rgb(38, 31, 2);
+  --amber-6:                       var(--color-amber-6);
+  --amber-5:                       var(--color-amber-5);
+  --amber-4:                       var(--color-amber-4);
+  --amber-3:                       var(--color-amber-3);
+  --amber-2:                       var(--color-amber-2);
+  --amber-1:                       var(--color-amber-1);
+  --amber:                         var(--color-amber);
+  --amber1:                        var(--color-amber1);
+  --amber2:                        var(--color-amber2);
+  --amber3:                        var(--color-amber3);
+  --amber4:                        var(--color-amber4);
+  --amber5:                        var(--color-amber5);
+  --amber6:                        var(--color-amber6);
+
+/*=====================================================*/
+/* An redish-red accent color scale ===================*/
+/*=====================================================*/
+--color-red-6:                     rgb(249, 237, 237);
+  --color-red-5:                   rgb(243, 212, 212);
+  --color-red-4:                   rgb(231, 172, 172);
+  --color-red-3:                   rgb(215, 128, 128);
+  --color-red-2:                   rgb(196, 85, 85);
+  --color-red-1:                   rgb(168, 48, 48);
+  --color-red:                     rgb(139, 26, 26);  
+  --color-red1:                    rgb(120, 20, 20);
+  --color-red2:                    rgb(101, 15, 15);
+  --color-red3:                    rgb(83, 11, 11);
+  --color-red4:                    rgb(65, 7, 7);
+  --color-red5:                    rgb(48, 4, 4);
+  --color-red6:                    rgb(32, 1, 1);
+  --red-6:                         var(--color-red-6);
+  --red-5:                         var(--color-red-5);
+  --red-4:                         var(--color-red-4);
+  --red-3:                         var(--color-red-3);
+  --red-2:                         var(--color-red-2);
+  --red-1:                         var(--color-red-1);
+  --red:                           var(--color-red);
+  --red1:                          var(--color-red1);
+  --red2:                          var(--color-red2);
+  --red3:                          var(--color-red3);
+  --red4:                          var(--color-red4);
+  --red5:                          var(--color-red5);
+  --red6:                          var(--color-red6);
+
+  /*=====================================================*/
+  /* A gray-blue neutral color scale ====================*/
+  /*=====================================================*/
+  --color-gray-6:                  rgb(248, 249, 250);
+  --color-gray-5:                  rgb(233, 236, 239);
+  --color-gray-4:                  rgb(206, 212, 218);
+  --color-gray-3:                  rgb(173, 181, 189);
+  --color-gray-2:                  rgb(142, 154, 166);
+  --color-gray-1:                  rgb(108, 117, 125);
+  --color-gray:                    rgb(73, 80, 87);  
+  --color-gray1:                   rgb(52, 58, 64);
+  --color-gray2:                   rgb(33, 37, 41);
+  --color-gray3:                   rgb(25, 28, 31);
+  --color-gray4:                   rgb(18, 20, 22);
+  --color-gray5:                   rgb(12, 13, 15);
+  --color-gray6:                   rgb(6, 7, 8);
+  --gray-6:                        var(--color-gray-6);
+  --gray-5:                        var(--color-gray-5);
+  --gray-4:                        var(--color-gray-4);
+  --gray-3:                        var(--color-gray-3);
+  --gray-2:                        var(--color-gray-2);
+  --gray-1:                        var(--color-gray-1);
+  --gray:                          var(--color-gray);
+  --gray1:                         var(--color-gray1);
+  --gray2:                         var(--color-gray2);
+  --gray3:                         var(--color-gray3);
+  --gray4:                         var(--color-gray4);
+  --gray5:                         var(--color-gray5);
+  --gray6:                         var(--color-gray6);
+
+  /*=====================================================*/
+  /* A sage-green neutral color scale ===================*/
+  /*=====================================================*/
+  --color-sage-6:                  rgb(247, 248, 246);
+  --color-sage-5:                  rgb(229, 232, 226);
+  --color-sage-4:                  rgb(199, 204, 194);
+  --color-sage-3:                  rgb(167, 173, 161);
+  --color-sage-2:                  rgb(136, 143, 130);
+  --color-sage-1:                  rgb(107, 112, 102);
+  --color-sage:                    rgb(79, 84, 75);  
+  --color-sage1:                   rgb(61, 65, 58);
+  --color-sage2:                   rgb(44, 47, 42);
+  --color-sage3:                   rgb(34, 36, 32);
+  --color-sage4:                   rgb(25, 27, 24);
+  --color-sage5:                   rgb(17, 18, 16);
+  --color-sage6:                   rgb(9, 10, 9);
+  --sage-6:                        var(--color-sage-6);
+  --sage-5:                        var(--color-sage-5);
+  --sage-4:                        var(--color-sage-4);
+  --sage-3:                        var(--color-sage-3);
+  --sage-2:                        var(--color-sage-2);
+  --sage-1:                        var(--color-sage-1);
+  --sage:                          var(--color-sage);
+  --sage1:                         var(--color-sage1);
+  --sage2:                         var(--color-sage2);
+  --sage3:                         var(--color-sage3);
+  --sage4:                         var(--color-sage4);
+  --sage5:                         var(--color-sage5);
+  --sage6:                         var(--color-sage6);
+
+  /*=====================================================*/
+  /* A zinc-blue neutral color scale ===================*/
+  /*=====================================================*/
+  --color-zinc-6:                  rgb(244, 244, 245);
+  --color-zinc-5:                  rgb(228, 228, 231);
+  --color-zinc-4:                  rgb(204, 204, 210);
+  --color-zinc-3:                  rgb(161, 161, 170);
+  --color-zinc-2:                  rgb(113, 113, 122);
+  --color-zinc-1:                  rgb(82, 82, 91);
+  --color-zinc:                    rgb(63, 63, 70);  
+  --color-zinc1:                   rgb(47, 47, 53);
+  --color-zinc2:                   rgb(32, 32, 36);
+  --color-zinc3:                   rgb(24, 24, 27);
+  --color-zinc4:                   rgb(18, 18, 20);
+  --color-zinc5:                   rgb(12, 12, 14);
+  --color-zinc6:                   rgb(7, 7, 8);
+  --zinc-6:                        var(--color-zinc-6);
+  --zinc-5:                        var(--color-zinc-5);
+  --zinc-4:                        var(--color-zinc-4);
+  --zinc-3:                        var(--color-zinc-3);
+  --zinc-2:                        var(--color-zinc-2);
+  --zinc-1:                        var(--color-zinc-1);
+  --zinc:                          var(--color-zinc);
+  --zinc1:                         var(--color-zinc1);
+  --zinc2:                         var(--color-zinc2);
+  --zinc3:                         var(--color-zinc3);
+  --zinc4:                         var(--color-zinc4);
+  --zinc5:                         var(--color-zinc5);
+  --zinc6:                         var(--color-zinc6);
+}
+
+/*=====================================================*/
+/* Semantic renamings for the above color scales ======*/
+/*=====================================================*/
+
+
+/*=====================================================*/
+/* Semantic renamings for the above color scales ======*/
+/*=====================================================*/
+:root {
+  --bg0:     var(--zinc6);
+  --bg:                var(--zinc6);
+  --bg1:                var(--zinc4);
+  --bg2:                var(--zinc3);
+  --bg3:                var(--zinc2);
+  --bg4:                var(--zinc1);
+  --bg5:                var(--zinc);
+  --bggreen:          var(--green-dark);
+  --bgblue:           var(--blue-muted);
+  --bgred:            var(--red6);
+  --bgorange:         var(--orange6);
+  --bgamber:          var(--amber6);
+  --bggray:             var(--gray4);
+  --bgsage:             var(--sage5);
+
+  --fc:              var(--gray-6);
+  --fc1:             var(--gray-5);
+  --fc2:             var(--gray-4);
+  --fc3:             var(--gray-3);
+  --fcgreen:               var(--green-4);
+  --fcblue:               var(--blue-4);
+  --fcred:               var(--red-4);
+  --fcorange:               var(--orange-4);
+  --fcamber:               var(--amber-4);
+  --fcsage:               var(--sage-4);
+  --fczinc:               var(--zinc-4);
+  --fcaccent:               var(--blue);
+  --fcmuted:               var(--zinc-2);
+  --fcneutral:               var(--zinc-5);
+  --fcinverse:               var(--bg3);
+
+  --accent: var(--green6);
+  --accent-hover: var(--green-dark-subtle);
+
+
+
+}

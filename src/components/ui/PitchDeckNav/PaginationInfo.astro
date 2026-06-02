@@ -1,0 +1,40 @@
+---
+/**
+ * Displays pagination information in the format "x / y".
+ * Reusable for any pagination UI.
+ */
+
+interface Props {
+  /** Current page number (1-based) */
+  current: number;
+  /** Total number of pages */
+  total: number;
+  /** Optional additional classes */
+  class?: string;
+  /** Optional inline styles */
+  style?: string;
+}
+
+const { current, total, class: className, style } = Astro.props;
+
+const pageNum = current;
+const totalPages = total;
+
+// Build class string manually
+let classes = "pagination-info";
+if (className) classes += ` ${className}`;
+---
+
+<span class={classes} style={style}>
+  {pageNum} / {totalPages}
+</span>
+
+<style>
+.pagination-info {
+  font-family: var(--font-mono);
+  font-size: var(--fs-lg);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+</style>

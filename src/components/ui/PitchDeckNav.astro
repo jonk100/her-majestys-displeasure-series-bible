@@ -1,4 +1,7 @@
 ---
+import PaginationInfo from "./PitchDeckNav/PaginationInfo.astro";
+import NavLink from "./PitchDeckNav/NavLink.astro";
+
 /**
  * Pitch deck navigation — prev / next page links.
  * Define the order here so all pages stay in sync.
@@ -39,19 +42,18 @@ const pageNum = idx + 1;
 
 <nav class="pitchdeck-nav" aria-label="Pitch deck page navigation">
   <div class="pitchdeck-nav__info">
-    <span class="pitchdeck-nav__count">{pageNum} / {total}</span>
+    <PaginationInfo current={pageNum} total={total} />
   </div>
 
   <div class="pitchdeck-nav__buttons">
     {
       prev ? (
-        <a href={prev.slug} class="pitchdeck-nav__link pitchdeck-nav__link--prev">
-          <span class="pitchdeck-nav__arrow">←</span>
-          <span class="pitchdeck-nav__label">
-            <span class="pitchdeck-nav__sub">Previous</span>
-            <span class="pitchdeck-nav__title">{prev.label}</span>
-          </span>
-        </a>
+        <NavLink 
+          href={prev.slug} 
+          direction="prev" 
+          label={prev.label} 
+          subLabel="Previous" 
+        />
       ) : (
         <span class="pitchdeck-nav__link pitchdeck-nav__link--disabled"></span>
       )
@@ -59,13 +61,12 @@ const pageNum = idx + 1;
 
     {
       next ? (
-        <a href={next.slug} class="pitchdeck-nav__link pitchdeck-nav__link--next">
-          <span class="pitchdeck-nav__label">
-            <span class="pitchdeck-nav__sub">Next</span>
-            <span class="pitchdeck-nav__title">{next.label}</span>
-          </span>
-          <span class="pitchdeck-nav__arrow">→</span>
-        </a>
+        <NavLink 
+          href={next.slug} 
+          direction="next" 
+          label={next.label} 
+          subLabel="Next" 
+        />
       ) : (
         <span class="pitchdeck-nav__link pitchdeck-nav__link--disabled"></span>
       )
@@ -76,7 +77,7 @@ const pageNum = idx + 1;
 <style>
   .pitchdeck-nav {
     border-top: 1px solid var(--border-soft);
-    background: var(--bg);
+    background: transparent;
     padding: var(--space-5) var(--space-6);
   }
 
@@ -87,7 +88,7 @@ const pageNum = idx + 1;
 
   .pitchdeck-nav__count {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: var(--fs-lg);
     letter-spacing: 0.2rem;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -140,7 +141,7 @@ const pageNum = idx + 1;
   .pitchdeck-nav__sub {
     display: block;
     font-family: var(--font-mono);
-    font-size: 0.55rem;
+    font-size: var(--fs-xl);
     letter-spacing: 0.18rem;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -149,7 +150,7 @@ const pageNum = idx + 1;
 
   .pitchdeck-nav__title {
     font-family: var(--font-sans);
-    font-size: 0.82rem;
+    font-size: var(--fslg);
     font-weight: 500;
     color: var(--text3);
   }

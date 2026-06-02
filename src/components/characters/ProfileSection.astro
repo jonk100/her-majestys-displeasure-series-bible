@@ -74,11 +74,12 @@ const { label, accent = "blue" } = Astro.props;
 
   /* Default prose inside a section */
   :global(.profile-section p) {
-    font-family: var(--font-sans);
-    font-size: var(--fs3);
-    line-height: 1.6;
-    color: var(--text5);
+    font-family: var(--font-mono);
+    font-size: var(--fsmd);
+    line-height: var(--lh-looser);
+    color: var(--text3);
     margin: 0;
+    text-align: justify;
   }
 
   :global(.profile-section p strong) {

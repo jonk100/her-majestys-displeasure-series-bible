@@ -1,0 +1,65 @@
+---
+// Heading.astro
+/**
+ * Reusable heading primitive.
+ * Level controls the HTML tag and default size/weight.
+ * Variant controls the visual treatment.
+ */
+
+import "./heading.css";
+
+import {
+  TEXT_TONE_CLASSES,
+  TEXT_WEIGHT_CLASSES,
+} from "@/styles/typography/typography";
+
+import type { TextTone, TextWeight } from "@/styles/typography/typography.types";
+
+import {
+  HEADING_LEVEL_CLASSES,
+  HEADING_VARIANT_CLASSES,
+} from "./heading.ts";
+
+import type { HeadingLevel, HeadingVariant } from "./Heading.types.ts";
+
+import { cn } from "@/utils/cn";
+
+interface Props {
+  /** HTML heading level. Defaults to `2`. */
+  level?: HeadingLevel;
+  /** Visual treatment. Defaults to `section`. */
+  variant?: HeadingVariant;
+  /** Optional tone override. Defaults to the variant's own color. */
+  tone?: TextTone;
+  /** Optional weight override. Defaults to the variant's own weight. */
+  weight?: TextWeight;
+  /** Optional additional classes. */
+  class?: string;
+  /** Optional inline styles. */
+  style?: string;
+}
+
+const {
+  level   = 2,
+  variant = "section",
+  tone,
+  weight,
+  class: className,
+  style,
+} = Astro.props satisfies Props;
+
+const Tag = `h${level}` as keyof HTMLElementTagNameMap;
+
+const classes = cn(
+  "heading",
+  HEADING_LEVEL_CLASSES[level],
+  HEADING_VARIANT_CLASSES[variant],
+  tone   && TEXT_TONE_CLASSES[tone],
+  weight && TEXT_WEIGHT_CLASSES[weight],
+  className,
+);
+---
+
+<Tag class={classes} style={style}>
+  <slot />
+</Tag>

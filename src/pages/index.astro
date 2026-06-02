@@ -1,14 +1,13 @@
 ---
+import Overview from '../components/sections/home/Overview.astro';
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/layout/Section.astro";
-import SectionHeading from "../components/typography/SectionHeading.astro";
 import Container from "../components/layout/Container.astro";
 import Footer from "../components/layout/Footer.astro";
 import Grid from "../components/ui/Grid.astro";
 import Stack from "../components/ui/Stack.astro";
 import Surface from "../components/ui/Surface.astro";
 import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
-import CompStrip from "../components/ui/CompStrip.astro";
 import Hero from "../components/hero/Hero.astro";
 import ToneGrid from "../components/tone/ToneGrid.astro";
 import PillarGrid from "../components/pillars/PillarGrid.astro";
@@ -16,7 +15,7 @@ import CharacterCard from "../components/characters/CharacterCard.astro";
 import CastGrid from "../components/characters/CastGrid.astro";
 import EpisodeTimeline from "../components/episodes/EpisodeTimeline.astro";
 import Heading from "../components/typography/Heading.astro";
-import Eyebrow from "../components/typography/Eyebrow.astro";
+import Eyebrow from "../components/typography/Eyebrow/Eyebrow.astro";
 import Rule from "../components/typography/Rule.astro";
 import '@/styles/global.css';
 
@@ -42,24 +41,20 @@ import PitchDeckCTA from "@/components/pitchdeck/PitchDeckCTA.astro";
 	</Section>
 
   <!-- ─── CTA ──────────────────────────────────────── -->
-<PitchDeckCTA />
+  <PitchDeckCTA />
 
   <!-- ─── OVERVIEW ─────────────────────────────────── -->
-		<Section variant="black" spacing="lg">
-			<Eyebrow>The Premise</Eyebrow>
-			<Heading level={2} variant="section">Power <em>vs.</em> Art</Heading>
-			<Rule />
-			<Stack gap="lg">
-				{premiseParagraphs.map((p) => <p class="prose" set:html={p} />)}
-			</Stack>
-			<CompStrip items={comparisons} />
-		</Section>
+  <Overview />  
 
-		<img src="cultural-threat-assessment.png" alt="Cultural Threat Assessment" style="width: 70%; height: auto; margin: auto;" />
-
+  <img 
+    src="cultural-threat-assessment.png" 
+    alt="Cultural Threat Assessment" 
+    style="width: 60%; height: auto; margin: 4rem auto;"
+  />
+  
 
   <!-- ─── TONE ─────────────────────────────────────── -->
-  <Section variant="dark" spacing="lg">
+  <Section variant="dark" spacing="md">
     <Eyebrow>Visual Language</Eyebrow>
     <Heading level={2} variant="section">Two <em>Worlds</em></Heading>
     <Rule />
@@ -72,7 +67,7 @@ import PitchDeckCTA from "@/components/pitchdeck/PitchDeckCTA.astro";
   </Section>
 
   <!-- ─── THEMES ───────────────────────────────────── -->
-  <Section variant="paper" spacing="lg">
+  <Section variant="black" spacing="md">
     <Eyebrow>Core Themes</Eyebrow>
 		<Heading level={2} variant="section" class="section-title">The <em>Questions</em></Heading>
 		<Rule />

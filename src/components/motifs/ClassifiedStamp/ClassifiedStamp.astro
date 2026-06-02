@@ -1,0 +1,46 @@
+---
+// src/components/ui/ClassifiedStamp.astro
+
+/**
+ * ClassifiedStamp.astro
+ *
+ * Compact mono-style classification / status stamp.
+ *
+ * Usage:
+ * <ClassifiedStamp label="TOP SECRET" />
+ * <ClassifiedStamp label="MI5 ARCHIVE" variant="blue" />
+ */
+
+import "./classified-stamp.css";
+
+import {
+  badgeVariant,
+  monoLabelSize,
+} from "./classifiedStamp";
+
+import type {
+  ClassifiedStampProps,
+} from "./ClassifiedStamp.types";
+
+const {
+  label,
+  variant = "muted",
+  size = "md",
+  uppercase = true,
+} = Astro.props;
+
+const variantStyles = badgeVariant[variant];
+const fontSize = monoLabelSize[size];
+---
+
+<span
+  class="classified-stamp"
+  style={`
+    --stamp-color: ${variantStyles.color};
+    --stamp-border: ${variantStyles.border};
+    --stamp-size: ${fontSize};
+  `}
+  data-uppercase={uppercase}
+>
+  {label}
+</span>

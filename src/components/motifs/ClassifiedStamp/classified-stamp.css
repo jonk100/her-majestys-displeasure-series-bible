@@ -1,0 +1,66 @@
+/* src/components/ui/classified-stamp.css */
+
+/**
+ * Classified stamp / archive label.
+ * Small mono UI chrome with subtle military dossier styling.
+ */
+
+.classified-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+
+  padding:
+    0.35rem
+    0.75rem;
+
+  border:
+    1px solid
+    var(--stamp-border);
+
+  color:
+    var(--stamp-color);
+
+  background:
+    rgba(255, 255, 255, 0.02);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--stamp-size);
+
+  letter-spacing:
+    0.18rem;
+
+  line-height:
+    1;
+
+  white-space:
+    nowrap;
+
+  opacity:
+    0.92;
+
+  text-rendering:
+    geometricPrecision;
+
+  transition:
+    var(--transition-base);
+}
+
+.classified-stamp[data-uppercase="true"] {
+  text-transform: uppercase;
+}
+
+.classified-stamp:hover {
+  opacity: 1;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  transform:
+    translateY(-1px);
+}

@@ -1,0 +1,32 @@
+---
+import MonoLabel from "@/components/ui/MonoLabel.astro";
+import type { MonoLabelSize } from "@/components/ui/variants";
+import type { AccentColor } from "@/components/gv";
+
+interface Props {
+  size?: MonoLabelSize;
+  color?: AccentColor;
+  class?: string;
+  style?: string;
+}
+
+const { size = "md", color = "blue", class: className, style } = Astro.props;
+---
+
+<MonoLabel
+  size={size}
+  color={color}
+  class:list={["section-label", className]}
+  {style}
+>
+  <slot />
+</MonoLabel>
+
+<style>
+  .section-label {
+    display: inline-block;
+    border-bottom: 1px solid var(--border-faint);
+    padding-bottom: 2px;
+    margin-bottom: var(--space-1);
+  }
+</style>

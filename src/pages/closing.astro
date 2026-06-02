@@ -8,27 +8,30 @@ import PitchDeckNav from "../components/ui/PitchDeckNav.astro";
 import CTA from "../components/ui/CTA.astro";
 import Eyebrow from "../components/typography/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
+import NewHeading from "../components/typography/Heading/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
+import PitchDeckLayout from "@/layouts/PitchDeckLayout.astro";
 import "@/styles/global.css";
 
 // @TODO: wrap in new PitchDeckLayout, replacing Layout
 // @TODO: refactor for components
 ---
 
-<Layout title="MI5 Executive Briefing — Cultural Soft-Power vs. Imperial Prestige">
-  <ClassifiedBand label="TOP SECRET — MI5 EXECUTIVE BRIEFING // FINAL STATEMENT" />
-
-  <!-- ─── PAGE HEADER ─── -->
-  <Section variant="black" spacing="sm">
-    <Container>
-      <Eyebrow>Final Thoughts</Eyebrow>
-      <Heading level={2} variant="section">The <em>Ultimate Cosmic Joke</em></Heading>
-      <Rule />
-    </Container>
-  </Section>
-
+<PitchDeckLayout 
+  title="The Ultimate <em>Cosmic Joke</em>"
+  currentPath="/closing"
+  eyebrow="Final Thoughts"
+  classificationLabel="TOP SECRET — MI5 EXECUTIVE BRIEFING // FINAL STATEMENT"
+>
+<p slot="header">
+  The ultimate irony of <em>Her Majesty’s Displeasure</em> is that the entire
+  multi-year, multi-million pound covert operation—the surveillance,
+  the psychological warfare, the administrative sabotage, even the
+  contemplated assassination—was rendered utterly meaningless by a
+  single, deranged fan with a cheap pistol in New York City.
+</p>
   <!-- ─── ULTIMATE COSMIC JOKE ─── -->
-  <Section variant="paper" spacing="lg">
+  <Section variant="dark" spacing="sm">
     <Container>
       <!-- Visual Description -->
       <div class="visual-description">
@@ -65,6 +68,8 @@ import "@/styles/global.css";
 
         <!-- Additional Content -->
         <div class="additional-content">
+          <NewHeading level={2} variant="card">Read the Pilot Episode</NewHeading>
+
           <p class="prose">
             At its core, <em>Her Majesty’s Displeasure</em> is a tragedy dressed up as a brilliant workplace comedy. It is an exploration of the absolute futility of institutional control when faced with the unpredictable, volcanic power of human art and culture.
           </p>
@@ -78,13 +83,7 @@ import "@/styles/global.css";
       </div>
     </Container>
   </Section>
-
-  <!-- ─── NAVIGATION ─── -->
-  <PitchDeckNav current="/closing" />
-
-  <!-- ─── FOOTER ─── -->
-  <Footer />
-</Layout>
+</PitchDeckLayout>
 
 <style>
   .visual-description {
@@ -107,13 +106,13 @@ import "@/styles/global.css";
     font-size: 0.75rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05rem;
+    letter-spacing: var(--tracking-wide);
   }
 
   .closing-statement p {
     margin-bottom: var(--space-4);
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.var(--lh-normal);
   }
 
   .closing-statement p:last-child {
@@ -123,6 +122,12 @@ import "@/styles/global.css";
   .additional-content {
     margin-top: var(--space-6);
     padding-top: var(--space-6);
-    border-top: 2px solid var(--border-soft);
+    border-top: 2px solid var(--fcaccent);
   }
+
+
+  .heading--level-4 {
+    text-decoration: underline;
+  }
+    
 </style>

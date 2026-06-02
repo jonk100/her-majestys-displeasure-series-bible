@@ -51,14 +51,17 @@ const { items } = Astro.props;
 
 <style>
   .agent-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-top: auto;
   }
 
   .agent-list li {
-    font-size: var(--fs3);
-    line-height: 1.55;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xxl);
     color: var(--text5);
     padding: var(--space-1) 0;
     border-bottom: 1px solid var(--border-faint);
@@ -70,6 +73,6 @@ const { items } = Astro.props;
 
   .agent-list li strong {
     color: var(--text3);
-    font-weight: 700;
+    font-weight: 500;
   }
 </style>

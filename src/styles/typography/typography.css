@@ -1,0 +1,62 @@
+:root {
+  /* Fluid sizes */
+  .text-size--xxs { font-size: var(--fsxxs); }
+  .text-size--xs  { font-size: var(--fsxs); }
+  .text-size--sm  { font-size: var(--fssm); }
+  .text-size--md  { font-size: var(--fsmd); }
+  .text-size--lg  { font-size: var(--fslg); }
+  .text-size--xl  { font-size: var(--fsxl); }
+  .text-size--xxl { font-size: var(--fsxxl); }
+
+  /* Fixed sizes */
+  .text-size-fixed--xxs { font-size: var(--fs-xxs); }
+  .text-size-fixed--xs  { font-size: var(--fs-xs); }
+  .text-size-fixed--sm  { font-size: var(--fs-sm); }
+  .text-size-fixed--md  { font-size: var(--fs-md); }
+  .text-size-fixed--lg  { font-size: var(--fs-lg); }
+  .text-size-fixed--xl  { font-size: var(--fs-xl); }
+  .text-size-fixed--xxl { font-size: var(--fs-xxl); }
+
+  /* Tones */
+  .text-tone--default { color: var(--text); }
+  .text-tone--muted   { color: var(--text-muted); }
+  .text-tone--subtle  { color: var(--text-subtle); }
+  .text-tone--inverse { color: var(--fcinverse); }
+  .text-tone--accent  { color: var(--text-accent); }
+  .text-tone--blue    { color: var(--fcblue); }
+  .text-tone--green   { color: var(--fcgreen); }
+  .text-tone--red     { color: var(--fcred); }
+  .text-tone--amber   { color: var(--fcamber); }
+  .text-tone--orange  { color: var(--fcorange); }
+  .text-tone--neutral { color: var(--fcneutral); }
+
+  /* Weights */
+  .text-weight--100 { font-weight: 100; }
+  .text-weight--200 { font-weight: 200; }
+  .text-weight--300 { font-weight: 300; }
+  .text-weight--400 { font-weight: 400; }
+  .text-weight--500 { font-weight: 500; }
+  .text-weight--600 { font-weight: 600; }
+  .text-weight--700 { font-weight: 700; }
+  .text-weight--800 { font-weight: 800; }
+  .text-weight--900 { font-weight: 900; }
+
+  /* Line Heights (Leading) */
+  .text-leading--none     { line-height: var(--lh-none); }
+  .text-leading--tightest { line-height: var(--lh-tightest); }
+  .text-leading--tighter  { line-height: var(--lh-tighter); }
+  .text-leading--tight    { line-height: var(--lh-tight); }
+  .text-leading--normal   { line-height: var(--lh-normal); }
+  .text-leading--loose    { line-height: var(--lh-loose); }
+  .text-leading--looser   { line-height: var(--lh-looser); }
+  .text-leading--loosest  { line-height: var(--lh-loosest); }             
+
+  /* Letter Spacing (Tracking) */
+  .text-tracking--tightest { letter-spacing: var(--text-tracking-tightest); }
+  .text-tracking--tighter  { letter-spacing: var(--text-tracking-tighter); }
+  .text-tracking--tight    { letter-spacing: var(--text-tracking-tight); }
+  .text-tracking--normal   { letter-spacing: var(--text-tracking-normal); }
+  .text-tracking--wide     { letter-spacing: var(--text-tracking-wide); }
+  .text-tracking--wider    { letter-spacing: var(--text-tracking-wider); }
+  .text-tracking--widest   { letter-spacing: var(--text-tracking-widest); }
+}

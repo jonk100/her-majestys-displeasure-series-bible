@@ -1,0 +1,77 @@
+---
+/**
+ * Small uppercase section label.
+ * Uses the shared fixed size scale — eyebrows never scale with the viewport.
+ */
+
+import {
+  TEXT_SIZE_FIXED_CLASSES,
+  TEXT_TONE_CLASSES,
+  TEXT_WEIGHT_CLASSES,
+  TEXT_TRACKING_CLASSES,
+} from "../../../styles/typography/typography";
+
+import type { TextSizeFixed, TextTone, TextWeight, TextTracking } from "../../../styles/typography/typography.types";
+
+import { EYEBROW_TRANSFORM_CLASSES } from "./eyebrow.ts";
+
+import { cn } from "@/utils/cn.ts";
+
+interface Props {
+  /** HTML tag to render. Defaults to `p`. */
+  as?: keyof HTMLElementTagNameMap;
+  /** Maps to the shared fixed size scale. Defaults to `sm`. */
+  size?: TextSizeFixed;
+  tone?: TextTone;
+  weight?: TextWeight;
+  tracking?: TextTracking;
+  /** Renders text as lowercase. Defaults to false (uppercase). */
+  lowercase?: boolean;
+  /** Optional additional classes. */
+  class?: string;
+  /** Optional inline styles. */
+  style?: string;
+}
+
+const {
+  as: Tag   = "p",
+  size      = "xl",
+  tracking  = "wide",
+  tone      = "blue",
+  weight    = "600",
+  lowercase = false,
+  class: className,
+  style,
+} = Astro.props satisfies Props;
+
+const classes = cn(
+  "eyebrow",
+  TEXT_SIZE_FIXED_CLASSES[size],
+  TEXT_TONE_CLASSES[tone],
+  TEXT_WEIGHT_CLASSES[weight],
+  TEXT_TRACKING_CLASSES[tracking],
+  lowercase ? EYEBROW_TRANSFORM_CLASSES.lower : EYEBROW_TRANSFORM_CLASSES.upper,
+  className,
+);
+---
+
+<Tag class={classes} style={style}>
+  <slot />
+</Tag>
+
+<style>
+  .eyebrow {
+    display: inline-block;
+    margin: 0;
+    /* letter-spacing: var(--tracking-tightest); */
+    line-height: var(--lh-tightest);
+  }
+
+  .eyebrow--uppercase { 
+    text-transform: uppercase; 
+  }
+
+  .eyebrow--lowercase {
+    text-transform: none; 
+  }
+</style>

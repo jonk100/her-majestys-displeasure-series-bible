@@ -1,0 +1,61 @@
+---
+// MonoLabel.astro
+import type { TextSize, TextTone } from "@/styles/typography/typography.types";
+import type { MonoLabelVariant } from "./monoLabel.ts";
+import { MONO_LABEL_VARIANT_CLASSES } from "./monoLabel.ts";
+import { TEXT_SIZE_CLASSES, TEXT_TONE_CLASSES } from "@/styles/typography/typography";
+
+interface Props {
+  size?: TextSize;
+  tone?: TextTone;
+  variant?: MonoLabelVariant;
+  class?: string;
+  style?: string;
+}
+
+const { size = "xs", tone = "red", variant = "tag", class: className, style } = Astro.props;
+---
+
+<span
+  class:list={[
+    "mono-label",
+    MONO_LABEL_VARIANT_CLASSES[variant], // e.g., "mono-label--tag"
+    TEXT_SIZE_CLASSES[size],             // Applies global font-size class (e.g., "text-size--md")
+    TEXT_TONE_CLASSES[tone],             // Applies global text color class (e.g., "text-tone--neutral")
+    className
+  ]}
+  style={style}
+>
+  <slot />
+</span>
+
+<style>
+  .mono-label {
+    font-family: var(--font-mono);
+    
+    font-weight: 700;
+    letter-spacing: var(--tracking-widest);
+    /* display: inline-block; */
+  }
+
+  /* 
+    Instead of passing classes to border/outline via CSS variables, 
+    let your global typography utility classes handle the text color,
+    and use currentColor to make the borders match automatically!
+  */
+  .mono-label--tag {
+    text-transform: uppercase;
+    outline: 1px solid currentColor;
+  }
+
+  .mono-label--caption {
+    display: flex;
+    text-transform: uppercase;
+    border: 2px solid var(--bg5);
+    justify-content: center; 
+    padding: 4px 12px;
+    margin: 1rem auto;
+    background: var(--bg);
+    width: fit-content;
+  }
+</style>

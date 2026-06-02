@@ -4,7 +4,7 @@ import Section from "../components/layout/Section.astro";
 import Container from "../components/layout/Container.astro";
 import Footer from "../components/layout/Footer.astro";
 import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
-import Eyebrow from "../components/typography/Eyebrow.astro";
+import Eyebrow from "../components/typography/Eyebrow/Eyebrow.astro";
 import Heading from "../components/typography/Heading.astro";
 import Rule from "../components/typography/Rule.astro";
 import PitchDeckNav from "@/components/ui/PitchDeckNav.astro";
@@ -26,7 +26,7 @@ import ThreatBand from "@/components/ui/ThreatBand.astro";
   <!-- ─── PAGE HEADER ─── -->
   <Section variant="black" spacing="md">
     <Container>
-      <Eyebrow>Central Collision</Eyebrow>
+      <Eyebrow size="xxl" tone="red">Central Collision</Eyebrow>
       <Heading level={2} variant="section">The <em>Battleground</em></Heading>
       <Rule />
       <p class="prose page-intro">
@@ -281,9 +281,9 @@ import ThreatBand from "@/components/ui/ThreatBand.astro";
   </Section>
 
   <!-- ─── DIAGNOSTIC SUMMARY ─────────── -->
-  <Section variant="paper" spacing="md" style="max-width: 980px; margin: 0 auto;">
+  <Section variant="dark" spacing="md" style="max-width: 980px; margin: 0 auto;">
     <Container>
-      <Eyebrow>Diagnostic Summary</Eyebrow>
+      <Eyebrow tone="muted">Diagnostic Summary</Eyebrow>
       <Heading level={2} variant="section"
         >The Anatomy of an <em>Irreverent Farce</em></Heading
       >

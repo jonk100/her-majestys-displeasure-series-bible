@@ -9,6 +9,7 @@ import Stack from "../ui/Stack.astro";
 import Rule from "../typography/Rule.astro";
 import Heading from "../typography/Heading.astro";
 import Eyebrow from "../typography/Eyebrow.astro";
+import PitchDeckCTA from "../pitchdeck/PitchDeckCTA.astro";
 
 import CrownIcon from "./CrownIcon.astro";
 import HeroMeta from "./HeroMeta.astro";
@@ -49,7 +50,7 @@ const { data } = Astro.props;
       </Stack>
 
       <!-- LOG LINE -->
-      <p class="hero__logline prose">
+      <p class="hero__logline">
         {data.logline}
       </p>
 
@@ -61,7 +62,7 @@ const { data } = Astro.props;
         {data.fileRef}
       </div>
     </Stack>
+    <PitchDeckCTA />
   </Container>
-
   <div class="hero__scroll-hint mono-label">↓ scroll ↓</div>
 </section>

@@ -1,0 +1,19 @@
+---
+import Badge from "@/components/ui/Badge.astro";
+import { cardVariant } from "@/components/characters/variants";
+import type { CardVariant } from "@/components/characters/variants";
+
+interface Props {
+  /** Drives colour automatically from the card variant. */
+  faction: CardVariant;
+  /** The label text, e.g. "THE REBELLION" or "THE CROWN". */
+  label: string;
+}
+
+const { faction, label } = Astro.props;
+const { warm } = cardVariant[faction];
+---
+
+<Badge variant={warm ? "amber" : "blue"}>
+  {label}
+</Badge>

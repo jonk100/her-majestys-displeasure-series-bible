@@ -1,0 +1,260 @@
+/* Mobile Responsive Styles for Her Majesty's Displeasure */
+
+/* ─── TABLET & BELOW (768px) ─── */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero {
+    min-height: auto;
+    padding-block: var(--space-6);
+    margin: 0.5rem auto;
+  }
+
+  .hero__icon {
+    transform: scale(2.5);
+    top: 50px;
+  }
+
+  .hero__subtitle {
+    font-size: var(--fs3);
+    letter-spacing: 0.3em;
+  }
+
+  .hero__logline {
+    font-size: var(--fs4);
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .hero-meta {
+    gap: var(--space-4);
+    font-size: var(--fs1);
+  }
+
+  /* Character Cards */
+  .char-card {
+    min-height: 400px;
+  }
+
+  .char-card__name {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    top: 20px;
+  }
+
+  .char-card__quote {
+    margin: 1.5rem 0.75rem;
+    font-size: 0.9em;
+  }
+
+  /* Episode Cards */
+  .episode-card {
+    grid-template-columns: 80px 1fr;
+    padding: var(--space-4) var(--space-2);
+  }
+
+  .episode-card__title {
+    font-size: var(--fs4);
+  }
+
+  .episode-card__summary {
+    max-width: 100%;
+    font-size: var(--fs2);
+  }
+
+  .tension-bar__track {
+    width: 100%;
+  }
+
+  /* Cast Grid */
+  .cast-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Epilogue */
+  .epilogue::before {
+    font-size: 48px;
+    top: 20px;
+    right: -20px;
+  }
+
+  .epilogue__end-card {
+    font-size: 0.62rem;
+  }
+
+  /* Page-level image */
+  img[style*="width: 60%"] {
+    width: 90% !important;
+    margin: 2rem auto !important;
+  }
+
+  /* Grid components (from index.astro) */
+  :global(.grid) {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Section spacing */
+  section {
+    padding: var(--space-4) 0;
+  }
+}
+
+/* ─── MOBILE (480px) ─── */
+@media (max-width: 480px) {
+  /* Hero Section */
+  .hero {
+    padding-block: var(--space-4);
+  }
+
+  .hero__icon {
+    transform: scale(2);
+    top: 30px;
+  }
+
+  .hero__subtitle {
+    font-size: var(--fs2);
+    letter-spacing: 0.2em;
+  }
+
+  .hero__logline {
+    font-size: var(--fs3);
+  }
+
+  .hero-meta {
+    gap: var(--space-2);
+    font-size: 0.7rem;
+    letter-spacing: 0.08rem;
+  }
+
+  .hero__scroll-hint {
+    font-size: var(--fs5);
+    bottom: var(--space-4);
+  }
+
+  /* Character Cards */
+  .character-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .char-card {
+    min-height: 350px;
+  }
+
+  .char-card__name {
+    font-size: 1.4rem;
+    top: 15px;
+  }
+
+  .char-card__role {
+    font-size: 0.7rem;
+  }
+
+  .char-card__quote {
+    margin: 1rem 0.5rem;
+    font-size: 0.85em;
+    padding: var(--space-2);
+  }
+
+  /* Episode Cards */
+  .episode-card {
+    grid-template-columns: 1fr;
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .episode-card__number {
+    font-size: 0.8rem;
+  }
+
+  .episode-card__scenes {
+    font-size: 0.75rem;
+  }
+
+  .episode-card__title {
+    font-size: var(--fs3);
+    margin-left: 0;
+  }
+
+  .episode-card__summary {
+    font-size: var(--fs1);
+    margin-left: 0;
+  }
+
+  /* Cast Items */
+  .cast-item {
+    padding: var(--space-3);
+  }
+
+  .cast-item__name {
+    font-size: 1rem;
+  }
+
+  .cast-item__description {
+    font-size: 0.75rem;
+  }
+
+  /* Epilogue */
+  .epilogue {
+    padding: var(--space-4) 0;
+  }
+
+  .epilogue::before {
+    font-size: 32px;
+    top: 10px;
+    right: -10px;
+    letter-spacing: 4px;
+  }
+
+  .epilogue__end-card {
+    font-size: 0.58rem;
+    line-height: 1.7;
+  }
+
+  /* Page-level image */
+  img[style*="width: 60%"] {
+    width: 100% !important;
+    margin: 1.5rem auto !important;
+  }
+
+  /* Classified Band */
+  .classified-band {
+    font-size: 0.55rem;
+    letter-spacing: 0.15rem;
+    padding: 0.35rem 0;
+  }
+
+  /* Typography adjustments */
+  .prose {
+    font-size: var(--fs2) !important;
+  }
+
+  /* Section spacing */
+  section {
+    padding: var(--space-3) 0;
+  }
+
+  /* Container padding */
+  :global(.container) {
+    padding: 0 var(--space-3);
+  }
+}
+
+/* ─── SMALL MOBILE (360px) ─── */
+@media (max-width: 360px) {
+  .hero__subtitle {
+    font-size: var(--fs1);
+  }
+
+  .char-card {
+    min-height: 300px;
+  }
+
+  .char-card__name {
+    font-size: 1.2rem;
+  }
+
+  .episode-card__title {
+    font-size: var(--fs2);
+  }
+
+  .classified-band {
+    font-size: 0.5rem;
+    letter-spacing: 0.1rem;
+  }
+}

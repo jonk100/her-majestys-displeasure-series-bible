@@ -1,0 +1,10 @@
+/* eyebrow.css */
+.eyebrow {
+  display: inline-block;
+  margin: 0;
+  letter-spacing: var(--tracking-tightest);
+  line-height: var(--lh-tightest);
+}
+
+.eyebrow--uppercase { text-transform: uppercase; }
+.eyebrow--lowercase { text-transform: none; }

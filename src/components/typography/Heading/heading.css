@@ -1,0 +1,66 @@
+/* --- heading.css --- */
+/* CSS companion for ./Heading.astro */
+.heading {
+  line-height: 1.1;
+}
+
+/* Levels */
+.heading--level-1 {
+  font-family: var(--font-serif);
+  font-size: var(--fs11);
+  font-weight: 900;
+  color: var(--text1);
+}
+
+.heading--level-2 {
+  font-family: var(--font-serif);
+  font-size: var(--fs9);
+  font-weight: 900;
+  color: var(--text1);
+}
+
+.heading--level-3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs7);
+  font-weight: 800;
+  color: var(--text2);
+}
+
+.heading--level-4 {
+  font-family: var(--font-serif);
+  font-size: var(--fs6);
+  font-weight: 700;
+  color: var(--text3);
+}
+
+.heading--level-5 {
+  font-family: var(--font-serif);
+  font-size: var(--fs5);
+  font-weight: 600;
+  color: var(--text3);
+}
+
+/* Variants */
+.heading--display {
+  font-family: var(--font-serif);
+  font-size: var(--fs12);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--color-cream);
+}
+
+.heading--section {
+  /* inherits from level */
+}
+
+.heading--card {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.5em;
+  color: var(--text5);
+}
+
+.heading--mono {
+  font-family: var(--font-mono);
+}

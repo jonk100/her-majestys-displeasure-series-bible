@@ -1,0 +1,22 @@
+---
+import Section from '../../layout/Section.astro';
+import Heading from '../../typography/Heading/Heading.astro';
+import Eyebrow from '../../typography/Eyebrow/Eyebrow.astro';
+import Rule from '../../typography/Rule.astro';
+import Stack from '../../ui/Stack.astro';
+import CompStrip from '../../ui/CompStrip.astro';
+
+import { premiseParagraphs, comparisons } from '@/data/her-majestys-displeasure';
+// import "@/components/ui/ui.css";
+
+---
+
+<Section variant="black" spacing="lg">
+  <Eyebrow size="xxl">The Premise</Eyebrow>
+  <Heading level={2} variant="section">Power <em>vs.</em> Art</Heading>
+  <Rule />
+  <Stack gap="lg">
+    {premiseParagraphs.map((p) => <p class="prose" set:html={p} />)}
+  </Stack>
+  <CompStrip items={comparisons} />
+</Section>
