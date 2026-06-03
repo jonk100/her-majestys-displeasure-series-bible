@@ -45,6 +45,7 @@
   font-size: clamp(3rem, 3rem + 3vw, 8rem);
   margin: 0;
   padding: 0;
+  
 }
 
 @media (max-width: 400px) {
