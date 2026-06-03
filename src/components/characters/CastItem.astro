@@ -1,9 +1,13 @@
 ---
 /**
- * Supporting cast item.
+ * Supporting cast item refactored with design system primitives.
  */
 
 import "./characters.css";
+import Stack from "@/design/ui/layout/Stack.astro";
+import Inline from "@/design/ui/layout/Inline.astro";
+import Image from "@/design/ui/primitives/Image.astro";
+import Text from "@/design/ui/typography/Text.astro";
 
 import type { CastItemData } from "./characters";
 
@@ -19,113 +23,101 @@ const { item, href } = Astro.props;
   href ? (
     <a href={href} class="cast-item-link">
       <article class="cast-item">
-        <div class="row-div">
-          <img
-            class="char-card__image"
+        <Inline gap="md" align="start" wrap={false} class="cast-item__inner">
+          <Image
             src={item.image}
             alt={item.name}
-            loading="lazy"
+            shape="portrait"
+            radius="sm"
+            class="cast-item__image"
           />
-          <div class="column">
-            <h3 class="cast-item__name">
+          <Stack gap="xs" class="cast-item__content">
+            <Text type="h4" class="cast-item__name">
               {item.name}
-            </h3>
-            <span class="cast-item__tag">
+            </Text>
+            <Text type="label" tone="accent" class="cast-item__tag">
               {item.tag}
-            </span>
-
-            <p class="cast-item__description">
+            </Text>
+            <Text type="body-sm" tone="subtle" class="cast-item__description">
               {item.description}
-            </p>
-          </div>
-        </div>
+            </Text>
+          </Stack>
+        </Inline>
       </article>
     </a>
   ) : (
     <article class="cast-item">
-      <div class="row-div">
-        <img
-          class="char-card__image"
+      <Inline gap="md" align="start" wrap={false} class="cast-item__inner">
+        <Image
           src={item.image}
           alt={item.name}
-          loading="lazy"
+          shape="portrait"
+          radius="sm"
+          class="cast-item__image"
         />
-        <div class="column">
-          <h3 class="cast-item__name">
+        <Stack gap="xs" class="cast-item__content">
+          <Text type="h4" class="cast-item__name">
             {item.name}
-          </h3>
-          <span class="cast-item__tag">
+          </Text>
+          <Text type="label" tone="accent" class="cast-item__tag">
             {item.tag}
-          </span>
-
-          <p class="cast-item__description">
+          </Text>
+          <Text type="body-sm" tone="subtle" class="cast-item__description">
             {item.description}
-          </p>
-        </div>
-      </div>
+          </Text>
+        </Stack>
+      </Inline>
     </article>
   )
 }
+
 <style>
-  .row-div {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-3);
-  }
-
-  .row-div > .char-card__image {
-    width: 120px;
-    height: auto;
-    border-radius: var(--border-radius);
-    object-fit: cover;
-  }
-
   .cast-item {
-    display: flex;
     width: 100%;
-    padding: var(--space-3);
+    padding: var(--space-4);
     background: var(--bg-subtle);
+    border: 1px solid var(--border-faint);
+    transition: background-color 0.2s ease;
+  }
+
+  .cast-item:hover {
+    background: var(--bg3);
+  }
+
+  .cast-item__image {
+    width: 120px !important;
+    margin: 0 !important;
   }
 
   .cast-item__name {
-    font-size: 1.5rem;
-    font-weight: bold;
+    margin: 0;
     color: var(--text);
-    background: var(--accent-blue-subtle);
   }
 
   .cast-item__tag {
-    font-size: small;
-    font-weight: bold;
-    line-height: 1.4;
-    text-align: justify;
-    padding: .5em 1em 0 1em;
-    margin-bottom: .5em;
-    color: var(--text-subtle);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
   }
 
   .cast-item__description {
-    font-size: medium;
-    line-height: 1.4;
-    text-align: justify;
-    padding: 0.25em 1em 0 0;
-    color: var(--text5);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    .cast-item__inner {
+      flex-direction: column !important;
+    }
+    
+    .cast-item__image {
+      width: 100% !important;
+      height: 240px !important;
+    }
   }
 
   .cast-item-link {
     display: block;
     text-decoration: none;
     color: inherit;
-    transition: transform 180ms ease, box-shadow 180ms ease;
-  }
-
-  .cast-item-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  a.cast-item-link:focus-visible {
-    outline: 2px solid var(--accent-blue);
-    outline-offset: 2px;
   }
 </style>

@@ -1,22 +1,31 @@
 ---
+/**
+ * Overview section refactored with design system primitives.
+ */
+
 import Section from '../../layout/Section.astro';
-import Heading from '../../typography/Heading/Heading.astro';
-import Eyebrow from '../../typography/Eyebrow/Eyebrow.astro';
-import Rule from '../../typography/Rule.astro';
-import Stack from '../../ui/Stack.astro';
+import SectionLabel from '@/design/ui/typography/SectionLabel.astro';
+import Text from '@/design/ui/typography/Text.astro';
+import Stack from '@/design/ui/layout/Stack.astro';
 import CompStrip from '../../ui/CompStrip.astro';
 
 import { premiseParagraphs, comparisons } from '@/data/her-majestys-displeasure';
-// import "@/components/ui/ui.css";
 
 ---
 
 <Section variant="black" spacing="lg">
-  <Eyebrow size="xxl">The Premise</Eyebrow>
-  <Heading level={2} variant="section">Power <em>vs.</em> Art</Heading>
-  <Rule />
-  <Stack gap="lg">
-    {premiseParagraphs.map((p) => <p class="prose" set:html={p} />)}
+  <Stack gap="xl">
+    <Stack gap="md">
+      <SectionLabel text="The Premise" tone="accent" />
+      <Text as="h2" type="h2">Power <em>vs.</em> Art</Text>
+    </Stack>
+    
+    <Stack gap="lg">
+      {premiseParagraphs.map((p) => (
+        <Text type="body" tone="subtle" set:html={p} />
+      ))}
+    </Stack>
+
+    <CompStrip items={comparisons} />
   </Stack>
-  <CompStrip items={comparisons} />
 </Section>

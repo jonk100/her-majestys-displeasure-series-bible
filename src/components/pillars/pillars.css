@@ -4,7 +4,8 @@
   grid-template-columns: repeat(3, 1fr);
   margin-top: var(--space-6);
   gap: var(--space-2);
-  width: 60vw;
+  width: min(100%, 80vw);
+  margin-inline: auto;
 }
 
 /* ─── PILLAR CARD ─── */
@@ -51,5 +52,6 @@
 @media (max-width: 900px) {
   .pillar-grid {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 }

@@ -1,0 +1,19 @@
+:root {
+  /** -------------------------------------------------------------
+  /**     ── Colors: Raw RGB Representations (Alpha Support) ──  */
+  /** ----------------------------------------------------------*/
+  --primary-rgb:   66, 133, 210;  
+  --secondary-rgb: 200, 92, 94;    
+  --accent-rgb:    200, 193, 92;   
+  --surface-0-rgb: 0, 0, 2;
+  --surface-1-rgb: 5, 7, 10;
+  --surface-2-rgb: 12, 17, 25;
+  --surface-3-rgb: 15, 20, 30;
+  --surface-4-rgb: 17, 25, 35;
+  --surface-5-rgb: 30, 40, 50;
+
+  --danger-rgb:    255, 90, 90;    
+  --success-rgb:   90, 255, 170;   
+  --warning-rgb:   255, 210, 90;   
+  --overlay-rgb:   0, 0, 0;        
+}

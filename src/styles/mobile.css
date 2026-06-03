@@ -63,11 +63,6 @@
     width: 100%;
   }
 
-  /* Cast Grid */
-  .cast-grid {
-    grid-template-columns: 1fr;
-  }
-
   /* Epilogue */
   .epilogue::before {
     font-size: 48px;
@@ -129,10 +124,6 @@
   }
 
   /* Character Cards */
-  .character-pair {
-    grid-template-columns: 1fr;
-  }
-
   .char-card {
     min-height: 350px;
   }

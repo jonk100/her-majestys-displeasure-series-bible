@@ -1,0 +1,64 @@
+/* ─────────────────────────────
+   Text Tones
+───────────────────────────── */
+.text--default { color: var(--text-4); }
+.text--muted { color: var(--text-0); }
+.text--subtle { color: var(--text-subtle); }
+.text--accent { color: var(--accent); }
+.text--primary { color: var(--primary); }
+.text--secondary { color: var(--secondary); }
+.text--danger { color: var(--text-danger); }
+.text--success { color: var(--text-success); }
+
+.text--h1 { color: var(--text-5); }
+.text--h2 { color: var(--text-5); }
+.text--h3 { color: var(--text-4); }
+.text--h4 { color: var(--text-3); }
+.text--h5 { color: var(--text-2); }
+.text--h6 { color: var(--text-2); }
+
+/** -------------------------------------------   */
+/** [Control] Sizes - Butttons, Inputs, Selects   */
+/** ___________________________________________   */
+.control--xs {
+    font-size: var(--text-xxs) !important;
+    padding: var(--space-2) var(--space-1) !important;
+    font-weight: 400;
+    min-width: 80px;
+  }
+  
+  .control--sm {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    padding: var(--space-3) var(--space-1) !important;
+    min-width: 90px;
+  }
+
+  .control--md {
+    font-size: var(--text-md);
+    padding: var(--space-3) var(--space-2) !important;
+    font-weight: 400;
+    min-width: 115px;
+  }
+  
+  .control--base {
+    font-size: var(--text-base);
+    padding: var(--space-4) var(--space-2) !important;
+    font-weight: 500;
+    min-width: 140px;
+  }
+
+  .control--lg {
+    font-size: var(--text-lg) !important;
+    padding: var(--space-5) var(--space-3) !important;
+    font-weight: 700;
+    min-width: 170px;
+
+  }
+
+  .control--xl {
+    font-size: var(--text-xl) !important;
+    padding: var(--space-6) var(--space-4) !important;
+    font-weight: 900;
+    min-width: 200px;
+  }

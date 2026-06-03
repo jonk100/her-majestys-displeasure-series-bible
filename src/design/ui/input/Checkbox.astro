@@ -1,0 +1,112 @@
+---
+/**
+ * src/components/ui/input/Checkbox.astro
+ * A styled checkbox input.
+ * - Utilizes global .sr-only class from src/styles/tokens/layout.css for accessibility visual hiding
+ * @props (local): id, name, checked, disabled, label, theme
+ * @props (global): class, class:list
+ */
+import type { ComponentTheme } from '../../types/variants.types';
+import Icon from '../primitives/Icon.astro';
+
+export interface Props {
+  id?: string;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  label?: string;
+  theme?: ComponentTheme;
+  class?: string;
+  "class:list"?: Record<string, boolean> | any[];
+  [key: string]: any;
+}
+
+const {
+  id = `checkbox-${Math.random().toString(36).substring(2, 9)}`,
+  name,
+  checked = false,
+  disabled = false,
+  label,
+  theme = 'primary',
+  class: className = '',
+  "class:list": classList = {},
+  ...rest
+} = Astro.props;
+---
+
+<label class:list={['checkbox-wrapper', { 'is-disabled': disabled }, className, classList]} for={id}>
+  <input
+    type="checkbox"
+    id={id}
+    name={name}
+    checked={checked}
+    disabled={disabled}
+    class="sr-only checkbox-input"
+    {...rest}
+  />
+  <div class:list={['checkbox-box', `variant--${theme}`]} aria-hidden="true">
+    <Icon name="check" size="xs" class="checkbox-icon" />
+  </div>
+  {label && <span class="checkbox-label">{label}</span>}
+</label>
+
+<style>
+  .checkbox-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: pointer;
+    position: relative;
+  }
+
+  .checkbox-wrapper.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+
+
+  .checkbox-box {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--rad-sm);
+    background-color: var(--surface-3); /* Progressive surface elevation shade */
+    border: 1px solid color-mix(in srgb, var(--text) 45%, transparent); /* Stronger high-contrast border */
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .checkbox-icon {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease-in-out;
+    color: var(--variant-text);
+  }
+
+  /* Checked states */
+  .checkbox-input:checked + .checkbox-box {
+    background-color: var(--variant-bg);
+    border-color: var(--variant-border);
+  }
+
+  .checkbox-input:checked + .checkbox-box .checkbox-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Focus states */
+  .checkbox-input:focus-visible + .checkbox-box {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .checkbox-label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text);
+    user-select: none;
+  }
+</style>

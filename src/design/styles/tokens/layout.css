@@ -1,0 +1,78 @@
+:root {
+  /** ---------------------------  */
+  /**       Layout Helpers         */
+  /** ---------------------------  */
+  --max-width:   var(--container-width, 1400px);
+  --gutter:      clamp(1rem, 5vw, 2rem); 
+}
+
+/* ─────────────────────────────────────────────
+  BASE UTILITY CLASSES
+  Keep these minimal — prefer component styles
+───────────────────────────────────────────── */
+
+/** Constrains content to max-width and centers it */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/** Visually hidden — accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/** Horizontal rule using a border rather than <hr> */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ─────────────────────────────────────────────
+  FOCUS STYLES
+  Visible ring for keyboard navigation.
+  Applied globally via :focus-visible so mouse
+  users don't see them.
+───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─────────────────────────────────────────────
+  SELECTION
+───────────────────────────────────────────── */
+::selection {
+  background-color: var(--accent-dim);
+  color: var(--text);
+}
+
+/* ─────────────────────────────────────────────
+  SCROLLBAR  (WebKit / Blink)
+───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

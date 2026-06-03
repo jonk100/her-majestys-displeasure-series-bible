@@ -1,15 +1,19 @@
 ---
 import Section from '../layout/Section.astro';
 import CTA from '../ui/CTA.astro';
+import Button from '@/design/ui/controls/Button.astro';
+import ButtonGroup from '@/design/ui/controls/ButtonGroup.astro';
 ---
 
-<Section
+<!-- <Section
   spacing="md"
->
-  <div
+> -->
+  <!-- <div
     style="display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap;"
-  >
-    <CTA href="/pitchdeck" variant="primary" size="lg">View the Pitch Deck</CTA>
-    <CTA href="/pilot.pdf" variant="outline" size="lg">Read the Pilot</CTA>
-  </div>
-</Section>
+  > -->
+  <ButtonGroup>
+    <Button href="/pitchdeck" theme="primary" size='lg'>Pitch Deck</Button>
+    <Button href="/pilot.pdf" theme="default" size='lg'>Read the Pilot</Button>
+  </ButtonGroup>
+  <!-- </div> -->
+<!-- </Section> -->

@@ -1,0 +1,33 @@
+---
+/**
+ * src/components/ui/controls/TabPanel.astro
+ * A container for content associated with a specific tab.
+ * @props (local): id
+ * @props (global): class, class:list
+ */
+export interface Props {
+  id: string;
+  class?: string;
+  "class:list"?: Record<string, boolean> | any[];
+  [key: string]: any;
+}
+
+const {
+  id,
+  class: className = '',
+  "class:list": classList = {},
+  ...rest
+} = Astro.props;
+---
+
+<div
+  id={id}
+  role="tabpanel"
+  tabindex="0"
+  data-state="inactive"
+  class:list={['tab-panel', className, classList]}
+  {...rest}
+>
+  <slot />
+</div>
+

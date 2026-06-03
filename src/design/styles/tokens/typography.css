@@ -1,0 +1,50 @@
+:root {
+  /** -------------------------------------------------------------
+  /**         ── Typography: Families ──────────                 */
+  /** ----------------------------------------------------------*/
+  --display: 'Outfit', system-ui, sans-serif;
+  --body:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --sans:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --serif:   'Outfit', system-ui, sans-serif;
+  --mono:    'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', monospace; 
+
+  /** ------------------------------------------------------------------------ */  
+  /**                     Typography Scale                                     */
+  /** ------------------------------------------------------------------------ */
+  --text-xxs: clamp(0.5rem, 0.5rem + 0.1vw, 0.75rem);      /* ~10.4px → 12px  */
+  --text-xs: clamp(0.65rem, 0.6rem + 0.1vw, 0.9rem);       /* ~11.2px → 13px  */
+  --text-sm: clamp(0.825rem, 0.75rem + 0.1vw, 1rem);     /* ~12.5px → 14px  */
+  --text-md: clamp(.9rem, 0.85rem + 0.1vw, 1.0125rem);  /* ~15.2px → 17px  */
+  --text-base: clamp(1.1rem, 1.1rem + 0.2vw, 1.35rem);         /* ~16.8px → 20px  */
+  --text-lg: clamp(1.25rem, 1.2rem + 0.25vw, 1.55rem);         
+  --text-xl: clamp(1.5rem, 1.4rem + 0.3vw, 2rem);         
+  --text-2xl: clamp(1.75rem, 1.7rem + .5vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 2.2rem + 1vw, 2.75rem);
+  --text-4xl: clamp(2.75rem, 2.7rem + 2vw, 4rem);
+  --text-5xl: clamp(3.5rem, 3.4rem + 3vw, 5rem);
+  --text-6xl: clamp(5rem, 4.9rem + 4vw, 7.5rem);               /* ~64px → 128px   */
+
+  /** -----------------------------------------------  */
+  /**                         Fluid Line Heights        */
+  /** ------------------------------------------------   */
+  --leading-tightest: clamp(1, 1 + 0.1vw, 1.2);
+  --leading-tighter: clamp(1.2, 1.2 + 0.15vw, 1.4);
+  --leading-tight: clamp(1.4, 1.4 + 0.2vw, 1.4);
+  --leading-normal: clamp(1.5, 1.5 + 0.3vw, 1.7);
+  --leading-loose: clamp(1.75, 1.7 + 0.4vw, 1.85);
+  --leading-looser: clamp(1.85, 1.8 + 0.6vw, 2);
+
+  /** --------------------------  */
+  /**      Semantic Aliases       */
+  /** -------------------------- */
+  --fs-display: var(--text-6xl);
+  --fs-h1: var(--text-5xl);
+  --fs-h2: var(--text-4xl);
+  --fs-h3: var(--text-3xl);
+  --fs-h4: var(--text-2xl);
+  --fs-h5: var(--text-xl);
+  --fs-h6: var(--text-lg);
+  --fs-body: var(--text-lg);
+  --fs-label: var(--text-base);
+  --fs-caption: var(--text-base);
+}

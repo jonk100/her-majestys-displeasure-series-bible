@@ -1,0 +1,264 @@
+---
+import Overview from '../components/sections/home/Overview.astro';
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/layout/Section.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/layout/Footer.astro";
+import Grid from "@/design/ui/layout/Grid.astro";
+import Stack from "@/design/ui/layout/Stack.astro";
+import SectionLabel from "@/design/ui/typography/SectionLabel.astro";
+import Text from "@/design/ui/typography/Text.astro";
+import ClassifiedBand from "../components/ui/ClassifiedBand.astro";
+import Hero from "../components/hero/Hero.astro";
+import ToneGrid from "../components/tone/ToneGrid.astro";
+import PillarGrid from "../components/pillars/PillarGrid.astro";
+import CharacterCard from "../components/characters/CharacterCard.astro";
+import CastGrid from "../components/characters/CastGrid.astro";
+import EpisodeTimeline from "../components/episodes/EpisodeTimeline.astro";
+import Heading from "../components/typography/Heading.astro";
+import Eyebrow from "../components/typography/Eyebrow/Eyebrow.astro";
+import Rule from "../components/typography/Rule.astro";
+import '@/styles/global.css';
+
+import {
+  hero,
+  premiseParagraphs,
+  comparisons,
+  tonePanels,
+  pillars,
+  featuredCharacters,
+  agentDetails,
+  cast,
+  episodes,
+  epilogue,
+} from "../data/her-majestys-displeasure";
+import PitchDeckCTA from "@/components/pitchdeck/PitchDeckCTA.astro";
+---
+
+<Layout title="Operation Minuet — Series Bible">
+  <ClassifiedBand label="TOP SECRET — COMMITTEE FOR NATIONAL DECORUM" />
+  <Hero data={hero} />
+
+  <!-- ─── CTA ──────────────────────────────────────── -->
+  <PitchDeckCTA />
+
+  <!-- ─── OVERVIEW ─────────────────────────────────── -->
+  <Overview />  
+
+  <Container>
+    <img 
+      src="cultural-threat-assessment.png" 
+      alt="Cultural Threat Assessment" 
+      style="width: 80%; height: auto; margin: 4rem auto; display: block;"
+    />
+  </Container>
+  
+
+  <!-- ─── TONE ─────────────────────────────────────── -->
+  <Section variant="dark" spacing="md">
+    <SectionLabel text="Visual Language" tone="accent" />
+    <Heading level={2} variant="section">Two <em>Worlds</em></Heading>
+    <Rule />
+    <Text type="body" tone="subtle" class="prose-new">
+      Every frame is a collision. The visual language is a deliberate,
+      irreconcilable clash — deadpan institutional geometry against warm,
+      breathing chaos.
+    </Text>
+    <ToneGrid panels={tonePanels} />
+  </Section>
+
+  <!-- ─── THEMES ───────────────────────────────────── -->
+  <Section variant="black" spacing="md">
+    <SectionLabel text="Core Themes" tone="accent" />
+		<Heading level={2} variant="section" class="section-title">The <em>Questions</em></Heading>
+		<Rule />
+    <Text type="body" tone="subtle" class="prose-new">
+      Can an individual artist's authentic, chaotic rebellion survive a
+      confrontation with the soulless machinery of the state — or will both be
+      transformed by the encounter?
+    </Text>
+    <PillarGrid pillars={pillars} />
+  </Section>
+
+  <!-- ─── OPERATIVES ───────────────────────────────── -->
+  <Section variant="dark" spacing="lg">
+    <SectionLabel text="The Operatives — B-Plot" tone="accent" />
+    <Heading level={2} variant="section">The <em>Agents</em></Heading>
+    <Rule />
+    <Text type="body" tone="subtle" class="prose-new">
+      Two MI5 men. One a delusional artist manqué. One a weary conscience. Five
+      years. The bureaucratic heart of the show.
+    </Text>
+
+    <Grid cols={2} gap="sm">
+      {featuredCharacters.map((char) => (
+        <a href="/mi5" class="card-link">
+          <CharacterCard character={char} />
+        </a>
+      ))}
+    </Grid>
+
+    <Grid cols={2} gap="sm" class="m-t-md">
+      {
+        featuredCharacters.map((agent) => (
+          <div class="agent-desc-card">
+            <Text type="body-sm" tone="subtle" set:html={agent.description} />
+          </div>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <!-- ─── SUPPORTING CAST ──────────────────────────── -->
+  <Section variant="black" spacing="lg">
+    <SectionLabel text="Principal Characters" tone="accent" />
+    <Heading level={2} variant="section">The <em>Players</em></Heading>
+    <Rule />
+    <CastGrid items={cast} links={{
+      "Prince Philip": "/establishment",
+      "Lord Mountbatten": "/establishment",
+      "John Lennon": "/collision",
+      "Queen Elizabeth II": "/collision",
+      "Paul McCartney": "/supporting-cast",
+      "George Harrison": "/supporting-cast",
+    }} />
+  </Section>
+
+  <!-- ─── EPISODES ─────────────────────────────────── -->
+  <Section variant="paper" spacing="lg">
+    <SectionLabel text="Episode Structure" tone="accent" />
+    <Heading level={2} variant="section">The <em>Campaign</em></Heading>
+    <Rule />
+    <Text type="body" tone="subtle" class="prose-new">
+      Six episodes. Five years. One inevitable conclusion. Tension builds from
+      bureaucratic simmer to assassination attempt — then collapses, farcically,
+      to nothing. The universe wins.
+    </Text>
+    <EpisodeTimeline episodes={episodes} />
+  </Section>
+
+  <!-- ─── EPILOGUE ─────────────────────────────────── -->
+  <section class="epilogue" >
+    <Container>
+      <SectionLabel text="Epilogue" tone="accent" />
+      <Heading level={2} variant="section">{epilogue.location}</Heading>
+      <Rule />
+      <Stack gap="md" class="m-t-md">
+        {epilogue.paragraphs.map((p) => <Text type="body" tone="subtle" set:html={p} />)}
+      </Stack>
+      <div class="epilogue__end-card">
+        {epilogue.endCard.map((line) => <p>{line}</p>)}
+      </div>
+    </Container>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────── -->
+  <Footer />
+</Layout>
+
+<style>
+	.hero-section {
+		background: black;
+	}
+  .epilogue {
+    background: var(--bg);
+    color: var(--text5);
+    padding: var(--space-6) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .epilogue::before {
+    content: "CLASSIFIED";
+    position: absolute;
+    top: 40px;
+    right: -30px;
+    font-family: var(--font-mono);
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: 8px;
+    color: var(--text5));
+    opacity: 0.12;
+    transform: rotate(-15deg);
+    pointer-events: none;
+  }
+
+  .epilogue :global(.eyebrow) {
+    color: var(--color-amber-dark);
+  }
+
+  .epilogue :global(.section-title) {
+    color: var(--accent-blue);
+  }
+
+  .epilogue :global(.rule) {
+    background: var(--text-accent);
+    opacity: 0.3;
+  }
+
+  .epilogue :global(.text--body) {
+    color: var(--text5);
+		font-size: var(--fs4);
+    margin-bottom: var(--space-4);
+  }
+
+  .prose-new {
+    margin-bottom: var(--space-8);
+    max-width: 65ch;
+  }
+
+  .m-t-md {
+    margin-top: var(--space-6);
+  }
+
+  .agent-desc-card {
+    padding: var(--space-5);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-faint);
+  }
+
+  .epilogue__end-card {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(15, 14, 10, 0.12);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    line-height: 1.9;
+    color: rgba(15, 14, 10, 0.5);
+  }
+
+  .epilogue__end-card p + p {
+    margin-top: var(--space-6);
+  }
+
+  .feature-description {
+    color: var(--text-muted);
+		font-size: var(--fs3);
+		line-height: 1.5;
+  }
+
+	.role-header {
+		color: var(--text-muted);
+	}
+
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  a.card-link {
+    outline-offset: 2px;
+  }
+
+  a.card-link:focus-visible {
+    outline: 2px solid var(--accent-blue);
+  }
+
+</style>

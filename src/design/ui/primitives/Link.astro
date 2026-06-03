@@ -1,0 +1,304 @@
+---
+/**
+ * src/components/ui/primitives/Link.astro
+ * An anchor component featuring shared button-like variant styles.
+ * - Integrates with Astro's native class:list for flexible styling
+ * - Uses global control variant sizes and styles
+ * @props (local): href, theme, tone, size, target, rel, disabled, preview
+ * @props (global): class, class:list, frame
+ * - theme: Selects the visual link color
+ * - tone: Specifies text color (overrides theme)
+ * - size: Adjusts the link font size
+ * - frame: Applies an optional frame variant to the link styling
+ * - preview: Enables a hover-intent metadata preview card
+ */
+import type { ComponentTheme, TextTone, Sizes, FrameVariant } from '../../types/variants.types';
+import Text from '../typography/Text.astro';
+
+export interface Props {
+  href: string;
+  label?: string;
+  theme?: ComponentTheme;
+  tone?: TextTone;
+  size?: Sizes;
+  frame?: FrameVariant;
+  class?: string;
+  "class:list"?: Record<string, boolean>;
+  target?: string;
+  rel?: string;
+  disabled?: boolean;
+  preview?: boolean;
+  [key: string]: any;
+}
+
+const {
+  href,
+  label,
+  theme = "primary",
+  tone,
+  size = "base",
+  frame = "none",
+  class: cls = "",
+  "class:list": classList = {},
+  target,
+  rel,
+  disabled = false,
+  preview = false,
+  ...rest
+} = Astro.props;
+
+const isActive = Astro.url.pathname === href || Astro.url.pathname === href + '/';
+
+const classes = [
+  "custom-link", 
+  theme ? `link--${theme}` : '', 
+  tone ? `text--${tone}` : '',
+  size ? `text--${size}` : '', 
+  frame !== 'none' ? `frame-variant--${frame}` : '',
+  { "is-active": isActive },
+  cls
+];
+---
+
+<a 
+  href={disabled ? undefined : href} 
+  class:list={[classes, classList]} 
+  target={target} 
+  rel={rel} 
+  aria-disabled={disabled ? "true" : undefined}
+  data-preview={preview ? "true" : undefined}
+  {...rest}
+>
+  {label ? label : <slot />}
+</a>
+
+{preview && (
+  <script>
+    class LinkPreview {
+      private timer: number | null = null;
+      private previewEl: HTMLElement | null = null;
+
+      constructor() {
+        this.init();
+      }
+
+      private init() {
+        const links = document.querySelectorAll('a[data-preview="true"]');
+        links.forEach(link => {
+          link.addEventListener('mouseenter', (e) => this.handleMouseEnter(e as MouseEvent));
+          link.addEventListener('mouseleave', () => this.handleMouseLeave());
+        });
+      }
+
+      private handleMouseEnter(e: MouseEvent) {
+        const target = e.currentTarget as HTMLAnchorElement;
+        const href = target.href;
+
+        this.timer = window.setTimeout(() => {
+          this.showPreview(target, href);
+        }, 400);
+      }
+
+      private handleMouseLeave() {
+        if (this.timer) {
+          clearTimeout(this.timer);
+          this.timer = null;
+        }
+        this.hidePreview();
+      }
+
+      private async showPreview(anchor: HTMLElement, href: string) {
+        if (this.previewEl) this.hidePreview();
+
+        this.previewEl = document.createElement('div');
+        this.previewEl.className = 'link-preview-card';
+        this.previewEl.innerHTML = `
+          <div class="link-preview-loading">
+            <p>Fetching metadata...</p>
+          </div>
+        `;
+
+        document.body.appendChild(this.previewEl);
+
+        const rect = anchor.getBoundingClientRect();
+        this.previewEl.style.position = 'fixed';
+        this.previewEl.style.top = `${rect.bottom + 10}px`;
+        this.previewEl.style.left = `${rect.left}px`;
+        this.previewEl.style.zIndex = '1000';
+
+        setTimeout(() => {
+          if (this.previewEl) {
+            try {
+              const url = new URL(href);
+              this.previewEl.innerHTML = `
+                <div class="link-preview-content">
+                  <p class="link-preview-title">Link Preview: ${url.hostname}</p>
+                  <p class="link-preview-url">${href}</p>
+                  <p class="link-preview-desc">Metadata proxy required for full OG data.</p>
+                </div>
+              `;
+            } catch (e) {
+               this.previewEl.innerHTML = '<p>Invalid URL</p>';
+            }
+          }
+        }, 600);
+      }
+
+      private hidePreview() {
+        if (this.previewEl) {
+          this.previewEl.remove();
+          this.previewEl = null;
+        }
+      }
+    }
+
+    document.addEventListener('astro:page-load', () => {
+      new LinkPreview();
+    });
+  </script>
+)}
+
+<style>
+  .custom-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--body);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    line-height: 1;
+    position: relative;
+  }
+
+  .custom-link.is-active {
+    font-weight: 700;
+    text-decoration-color: currentColor;
+    text-decoration: underline;
+  }
+
+  /* Defensive override for MDX-compiled child paragraph tags */
+  .custom-link :global(p) {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: inherit !important;
+    display: inline !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+
+  /* When themed, remove underline by default */
+  .custom-link[class*="link--"] {
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .custom-link:hover {
+    text-decoration-color: currentColor;
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+
+  /* Disabled State */
+  .custom-link[aria-disabled="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  /* Themes */
+  .link--primary { color: var(--primary); }
+  .link--secondary { color: var(--secondary); }
+  .link--accent { color: var(--accent); }
+  .link--danger { color: var(--text-danger); }
+  .link--success { color: var(--text-success); }
+  .link--ghost { color: var(--text-secondary); }
+  .link--outline { color: var(--text-subtle); }
+  .link--default { color: var(--text); }
+
+  /* Hover Themes */
+  .link--primary:hover { color: var(--primary-hover); }
+  .link--secondary:hover { color: var(--secondary-hover); }
+  .link--accent:hover { color: var(--accent-hover); }
+  .link--danger:hover { color: rgb(220, 70, 70); }
+  .link--success:hover { color: rgb(70, 230, 150); }
+  .link--ghost:hover { color: var(--text); }
+  .link--outline:hover { color: var(--accent); }
+  .link--default:hover { color: var(--accent); }
+
+  /* Tone Overrides */
+  .text--primary { color: var(--primary) !important; }
+  .text--secondary { color: var(--secondary) !important; }
+  .text--accent { color: var(--accent) !important; }
+  .text--danger { color: var(--text-danger) !important; }
+  .text--success { color: var(--text-success) !important; }
+  .text--muted { color: var(--text-0) !important; }
+  .text--subtle { color: var(--text-subtle) !important; }
+
+  /* Sizes */
+  .text--xs { font-size: var(--text-xs); }
+  .text--sm { font-size: var(--text-sm); }
+  .text--base { font-size: var(--text-base); }
+  .text--md { font-size: var(--text-md); }
+  .text--lg { font-size: var(--text-lg); }
+  .text--xl { font-size: var(--text-xl); }
+
+  /* Framed links styling adjustment (e.g. outline/minimal framed actions) */
+  .custom-link[class*="frame-variant--"] {
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--rad-md);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .custom-link[class*="frame-variant--"]:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+</style>
+
+<style is:global>
+  .link-preview-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--rad-md);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-lg);
+    width: 280px;
+    font-family: var(--sans);
+    animation: slide-up-fade 0.2s ease-out;
+  }
+
+  .link-preview-title {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-1);
+    color: var(--text);
+    margin-top: 0;
+  }
+
+  .link-preview-url {
+    font-size: 10px;
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+    word-break: break-all;
+  }
+
+  .link-preview-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  @keyframes slide-up-fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

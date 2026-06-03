@@ -1,14 +1,11 @@
 ---
 /**
- * Hero section.
- * Now fully composed from primitives.
+ * Hero section refactored with design system primitives.
  */
 
-import Container from "../layout/Container.astro";
-import Stack from "../ui/Stack.astro";
-import Rule from "../typography/Rule.astro";
-import Heading from "../typography/Heading/Heading.astro";
-import Eyebrow from "../typography/Eyebrow.astro";
+import Container from "@/design/ui/layout/Container.astro";
+import Stack from "@/design/ui/layout/Stack.astro";
+import Text from "@/design/ui/typography/Text.astro";
 import PitchDeckCTA from "../pitchdeck/PitchDeckCTA.astro";
 
 import CrownIcon from "./CrownIcon.astro";
@@ -27,42 +24,56 @@ const { data } = Astro.props;
 
 <section class="hero">
   <Container>
-    <Stack gap="lg">
+    <Stack gap="lg" align="center">
       <!-- ICON -->
-      <div class="hero__icon">
+      <div class="hero__icon" aria-hidden="true">
         <CrownIcon />
       </div>
 
       <!-- TITLE BLOCK -->
-      <Stack gap="sm">
-        <Heading level={1} variant="display" class="hero__title">
+      <Stack gap="xs" align="center">
+        <Text as="h1" type="h1" class="hero__title">
           {data.title}
-        </Heading>
+        </Text>
 
-        <div class="hero__subtitle mono-label">
+        <Text type="label" tone="accent" class="hero__subtitle">
           {data.subtitle}
-        </div>
-
-        <!-- FILE REF -->
-        <!-- <div class="hero__file-ref mono-label">
-          {data.fileRef}
-        </div> -->
+        </Text>
       </Stack>
 
       <!-- LOG LINE -->
-      <p class="hero__logline">
+      <Text type="lead" tone="subtle" class="hero__logline">
         {data.logline}
-      </p>
+      </Text>
 
       <!-- META -->
       <HeroMeta items={data.meta} />
       
       <!-- FILE REF -->
-      <div class="hero__file-ref mono-label">
+      <Text type="caption" tone="muted" class="hero__file-ref">
         {data.fileRef}
-      </div>
+      </Text>
+
+      <PitchDeckCTA />
     </Stack>
-    <PitchDeckCTA />
   </Container>
-  <div class="hero__scroll-hint mono-label">↓ scroll ↓</div>
+  <div class="hero__scroll-hint">
+    <Text type="caption" tone="muted">↓ scroll ↓</Text>
+  </div>
 </section>
+
+<style>
+  /* Local overrides for the hero specific layout */
+  .hero__title {
+    text-align: center;
+    /* Maintain the clamp from original hero.css if needed, or let primitive handle it */
+  }
+  
+  .hero__scroll-hint {
+    position: absolute;
+    bottom: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+  }
+</style>

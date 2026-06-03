@@ -1,0 +1,52 @@
+---
+/**
+ * src/components/ui/feedback/Skeleton.astro
+ * Renders a placeholder skeleton for loading states.
+ * - Features an animated shimmer effect for visual feedback.
+ * - Supports customizable width, height, and border radius.
+ * @props (local): width, height, animated
+ * @props (global): class, class:list, rounded
+ * - rounded: Border radius rounding preset
+ */
+import type { ComponentRadius } from '../../types/variants.types';
+
+export interface Props {
+  width?: string;
+  height?: string;
+  rounded?: ComponentRadius;
+  animated?: boolean;
+  class?: string;
+  "class:list"?: Record<string, boolean> | any[];
+  [key: string]: any;
+}
+
+const {
+  width = '100%',
+  height = '1.5rem',
+  rounded = 'md',
+  animated = true,
+  class: className = '',
+  "class:list": classList = {},
+  ...rest
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'skeleton',
+    `radius--${rounded}`,
+    { 'effect--shimmer': animated },
+    className,
+    classList
+  ]}
+  style={`width: ${width}; height: ${height};`}
+  {...rest}
+></div>
+
+<style>
+  .skeleton {
+    background-color: var(--bg-elevated);
+    position: relative;
+    overflow: hidden;
+  }
+</style>

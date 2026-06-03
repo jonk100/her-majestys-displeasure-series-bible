@@ -1,0 +1,102 @@
+/**                                 */
+/**            Control Base & Sizes      */
+/**                                          */
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  /* text-decoration: none; */
+  transition: all 0.2s ease;
+  border-radius: var(--rad-md);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid transparent;
+  font-size: var(--text-base);
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+.control--icon {
+  padding: 0.5rem;
+  border-radius: 99px;
+}
+
+.control--icon-sm {
+  padding: 0.25rem;
+  border-radius: 99px;
+}
+
+.control--icon-lg {
+  padding: 0.75rem;
+  border-radius: 99px;
+}
+
+/* ─────────────────────────────
+   Form Field Visual Layouts
+───────────────────────────── */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.input-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.required {
+  color: var(--accent);
+}
+
+.input-field--error {
+  border-color: var(--text-danger) !important;
+}
+
+.input-error {
+  font-size: var(--text-xs);
+  color: var(--text-danger);
+  margin-top: calc(var(--space-1) * -1);
+}
+
+.input-hint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: calc(var(--space-1) * -1);
+}
+
+.control--gap-2xs {
+  gap: var(--gap-2xs) !important;
+}
+
+.control--gap-xs {
+  gap: var(--gap-xs) !important;
+}
+
+.control--gap-sm {
+  gap: var(--gap-sm) !important;
+}
+
+.control--gap-md {
+  gap: var(--gap-md) !important;
+}
+
+.control--gap-base {
+  gap: var(--gap-base) !important;
+}
+
+.control--gap-lg {
+  gap: var(--gap-lg) !important;
+}
+
+.control--gap-xl {
+  gap: var(--gap-xl) !important;
+}
+
+.control--gap-2xl {
+  gap: var(--gap-2xl) !important;
+}

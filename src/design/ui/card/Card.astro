@@ -1,0 +1,44 @@
+---
+/**
+ * src/components/ui/layout/Card.astro
+ * A structured content container built on top of Paper.
+ * - Used for displaying semantic content like articles, products, or user profiles.
+ * - Supports entrance animations and hover effects
+ * @props (local): None
+ * @props (global): class, class:list, frame, effects, animate
+ * - animate: Forwarded animation variant choice (defined globally in src/styles/variants/animations.css)
+ */
+import Paper from '../primitives/Paper.astro';
+import type { FrameVariant, ComponentEffect, ComponentRadius, AnimationType } from '../../types/variants.types';
+
+export interface Props {
+  frame?: FrameVariant;
+  effects?: ComponentEffect | ComponentEffect[];
+  radius?: ComponentRadius;
+  border?: boolean;
+  animate?: AnimationType;
+  class?: string;
+  "class:list"?: Record<string, boolean> | any[];
+  [key: string]: any;
+}
+
+const {
+  animate = 'none',
+  class: className = '',
+  "class:list": classList = {},
+  ...rest
+} = Astro.props;
+---
+
+<Paper padding="none" animate={animate} class:list={['card', className, classList]} {...rest}>
+  <slot />
+</Paper>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+</style>

@@ -113,6 +113,13 @@
   background: var(--border-faint);
 }
 
+@media (max-width: 768px) {
+  .character-pair,
+  .cast-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .cast-item {
   background: var(--bg3);
   padding: var(--space-5);

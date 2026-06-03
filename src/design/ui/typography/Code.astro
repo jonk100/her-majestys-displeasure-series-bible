@@ -1,0 +1,103 @@
+---
+/**
+ * src/components/ui/primitives/Code.astro
+ * A styled component for rendering inline or block code snippets.
+ * - Uses the global monospace font and elevated background
+ * - Integrates Astro's built-in Shiki-powered syntax highlighter for block previews
+ * @props (local): inline, language, code
+ * @props (global): class, class:list
+ * - inline: Renders as an inline <code> tag instead of a <pre> block
+ * - code: The raw code string to highlight using Shiki (block mode)
+ */
+import type { FrameVariant } from '../../types/variants.types';
+import { Code as AstroCode } from 'astro:components';
+
+export interface Props {
+  inline?: boolean;
+  language?: string;
+  frame?: FrameVariant;
+  caption?: string;
+  captionPosition?: 'top' | 'bottom';
+  captionAlign?: 'left' | 'center' | 'right';
+  class?: string;
+  "class:list"?: Record<string, boolean> | any[];
+  code?: string;
+  [key: string]: any;
+}
+
+const {
+  inline = true,
+  language = 'plaintext',
+  frame = 'none',
+  caption,
+  captionPosition = 'top',
+  captionAlign = 'left',
+  class: className = '',
+  "class:list": classList = {},
+  code,
+  ...rest
+} = Astro.props;
+
+const Tag = inline ? 'code' : 'pre';
+const contentClass = inline ? 'code-inline' : 'code-block';
+---
+
+{inline ? (
+  <code class:list={[contentClass, frame !== 'none' ? `frame-variant--${frame}` : '', className, classList]} {...rest}><slot /></code>
+) : caption ? (
+  <figure class:list={["code-figure", className, classList]}>
+    {captionPosition === 'top' && (
+      <figcaption class="code-caption" style={`text-align: ${captionAlign};`}>{caption}</figcaption>
+    )}
+    {code ? (
+      <AstroCode code={code} lang={language as any} class:list={[contentClass, frame !== 'none' ? `frame-variant--${frame}` : '']} {...rest} />
+    ) : (
+      <pre class:list={[contentClass, frame !== 'none' ? `frame-variant--${frame}` : '']} data-language={language} {...rest}><code class={`language-${language}`}><slot /></code></pre>
+    )}
+    {captionPosition === 'bottom' && (
+      <figcaption class="code-caption" style={`text-align: ${captionAlign};`}>{caption}</figcaption>
+    )}
+  </figure>
+) : (
+  code ? (
+    <AstroCode code={code} lang={language as any} class:list={[contentClass, frame !== 'none' ? `frame-variant--${frame}` : '', className, classList]} {...rest} />
+  ) : (
+    <pre class:list={[contentClass, frame !== 'none' ? `frame-variant--${frame}` : '', className, classList]} data-language={language} {...rest}><code class={`language-${language}`}><slot /></code></pre>
+  )
+)}
+
+<style>
+  .code-inline {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: var(--text-base);
+    border-radius: var(--rad-sm);
+    color: var(--accent);
+    background: var(--surface-5);
+
+  }
+
+  .code-figure {
+    margin: var(--space-6) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    
+  }
+
+  .code-caption {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+
+  .code-block {
+    font-family: var(--mono);
+    font-size: var(--text-base);
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--rad-md);
+    overflow-x: auto;
+    color: var(--text);
+  }
+</style>

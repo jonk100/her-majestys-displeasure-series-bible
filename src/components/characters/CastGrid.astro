@@ -1,10 +1,10 @@
 ---
 /**
- * Supporting cast grid.
+ * Supporting cast grid refactored with design system primitives.
  */
 
 import "./characters.css";
-
+import Grid from "@/design/ui/layout/Grid.astro";
 import CastItem from "./CastItem.astro";
 
 import type { CastItemData } from "./characters";
@@ -17,6 +17,14 @@ interface Props {
 const { items, links = {} } = Astro.props;
 ---
 
-<div class="cast-grid">
+<Grid cols={2} gap="sm" class="cast-grid-wrapper">
   {items.map((item) => <CastItem item={item} href={links[item.name]} />)}
-</div>
+</Grid>
+
+<style>
+  @media (max-width: 900px) {
+    .cast-grid-wrapper {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

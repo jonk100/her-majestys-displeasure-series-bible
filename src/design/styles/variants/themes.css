@@ -1,0 +1,175 @@
+/* =============================================================
+   REUSABLE THEME STYLES
+   Shared across interactive components (Button, Link, etc.)
+   ============================================================= */
+
+/**                                             */
+/**            Primary Variant                */
+/**                                             */
+.variant--primary {
+  background: var(--primary-dim) !important;
+  color: var(--text-4) !important;
+  border-color: var(--primary-border-strong) !important;
+  font-weight: bold !important;
+  transition: all 0.4s ease;
+}
+
+.variant--primary:hover {
+  background: var(--primary-hover) !important;
+  border-color: var(--border-strong) !important;
+  color: var(--text-5) !important;
+}
+
+/**                                          */
+/**     Ghost Variant                         */
+/**                                          */
+.variant--ghost {
+  background: transparent;
+  color: var(--neutral-150) !important;
+  border-color: var(--secondary-border) !important;
+}
+
+.variant--ghost:hover {
+  background: var(--surface-1);
+  color: var(--text-3) !important;
+  border-color: var(--border-subtle) !important;
+  
+}
+
+.variant--ghost:active {
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+.variant--ghost:disabled {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border-strong);
+}
+
+/**                                          */
+/**            Secondary Variant            */
+/**                                           */
+.variant--secondary {
+  background: var(--secondary);
+  color: var(--text-4) !important;
+  font-weight: bold !important;
+  border-color: var(--secondary-border) !important;
+}
+
+.variant--secondary:hover {
+  background: var(--secondary-dim);
+  color: var(--text) !important;
+  border-color: var(--secondary) !important;
+}
+
+/**                                          */
+/**    Outline Variant                      */
+/**                                           */
+.variant--outline {
+  background: transparent;
+  color: var(--text-3) !important;
+  border: 1px solid var(--text-0) !important;
+  outline: 2px solid var(--primary-dim) !important;
+}
+
+.variant--outline:hover {
+  background: var(--surface-0) !important;
+  border-color: var(--border-strong) !important;
+  color: var(--text-5) !important;
+  outline: 2px solid var(--accent) !important;
+}
+
+.variant--outline:active {
+  background: var(--accent-dim);
+  border-color: var(--accent-hover);
+}
+
+/**                                          */
+/**            Default Variant            */
+/**                                           */
+
+.variant--default {
+  background: var(--surface-4) !important;
+  font-weight: bold !important;
+  color: var(--primary-border-strong) !important;
+  border-color: var(--border-strong) !important;
+}
+
+.variant--default:hover {
+  background: var(--surface-5) !important;
+  color: var(--text-5) !important;
+  border: 1px solid var(--primary-border) !important;
+}
+
+
+.variant--default:active {
+  background: var(--bg-elevated);
+}
+
+/**                                          */
+/**            Accent Variant                */
+/**                                           */
+.variant--accent {
+  background: var(--accent-border) !important;
+  color: var(--text-0) !important;
+  border-color: var(--secondary-border-strong) !important;
+}
+
+.variant--accent:hover {
+  background: var(--accent-dim) !important;
+  color: var(--text-5) !important;
+}
+
+.variant--accent:active {
+  background: var(--accent-dim);
+}
+
+.variant--accent:disabled {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+}
+
+/**                                          */
+/**            Danger Variant                */
+/**                                           */
+.variant--danger {
+  background: var(--text-danger);
+  color: var(--text-inverse);
+  border-color: var(--text-danger);
+}
+
+.variant--danger:hover {
+  background: rgb(220, 70, 70);
+}
+
+.variant--danger:active {
+  background: rgb(200, 50, 50);
+}
+
+.variant--danger:disabled {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+}
+
+/**                                          */
+/**            Success Variant               */
+/**                                           */
+.variant--success {
+  background: var(--text-success);
+  color: var(--text-inverse);
+  border-color: var(--text-success);
+}
+
+.variant--success:hover {
+  background: rgb(70, 230, 150);
+}
+
+.variant--success:active {
+  background: rgb(50, 200, 130);
+}
+
+.variant--success:disabled {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+}
