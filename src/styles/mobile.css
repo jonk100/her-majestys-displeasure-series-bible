@@ -219,11 +219,6 @@
   section {
     padding: var(--space-3) 0;
   }
-
-  /* Container padding */
-  :global(.container) {
-    padding: 0 var(--space-3);
-  }
 }
 
 /* ─── SMALL MOBILE (360px) ─── */

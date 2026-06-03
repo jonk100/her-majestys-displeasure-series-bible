@@ -73,7 +73,8 @@
 }
 
 .tension-bar__track {
-  width: 720px;
+  width: 100%;
+  max-width: 720px;
   height: 6px;
   background: var(--text-accent-dark);
 }
